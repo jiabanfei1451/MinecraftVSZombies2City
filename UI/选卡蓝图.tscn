@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://d0vhvntung33b" path="res://UI/UI脚本/选卡蓝图.gd" id="1_0uagd"]
 [ext_resource type="Texture2D" uid="uid://dpri4otf6rdve" path="res://UI/UI素材图/卡槽/card.png" id="2_jo7x6"]
 [ext_resource type="Texture2D" uid="uid://28o38kfo56m8" path="res://UI/UI素材图/卡槽/card 边框.png" id="3_w3ycg"]
-[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://字体/minecraft_font.ttf" id="4_xnin4"]
-[ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://物体/素材图/furnace_3.png" id="5_kj4el"]
-[ext_resource type="AudioStream" uid="uid://b26bo4pmbil2g" path="res://音效/选择.ogg" id="6_8jrpb"]
-[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://脚本/组件/音频.gd" id="7_yw83p"]
-[ext_resource type="AudioStream" uid="uid://bxbuv4fn0bfbd" path="res://音效/取消.ogg" id="8_t73kb"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="4_xnin4"]
+[ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="5_kj4el"]
+[ext_resource type="AudioStream" uid="uid://b26bo4pmbil2g" path="res://Sound/选择.ogg" id="6_8jrpb"]
+[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="7_yw83p"]
+[ext_resource type="AudioStream" uid="uid://bxbuv4fn0bfbd" path="res://Sound/取消.ogg" id="8_t73kb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vv27x"]
 atlas = ExtResource("5_kj4el")

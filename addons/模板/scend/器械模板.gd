@@ -1,4 +1,4 @@
-extends "res://脚本/组件/器械组件.gd"
+extends "res://Script/组件/器械组件.gd"
 class_name 器械阵营
 func _ready():
 	_开启大招时.connect(_on_大招触发)

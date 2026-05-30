@@ -1,5 +1,5 @@
 # meta-name : tool
-extends "res://脚本/组件/怪物.gd"
+extends "uid://xv5xcf841ce4"
 class_name 怪物阵营
 var 检测到的 : Array[Area2D]
 @export var 移动速度 : float = 1

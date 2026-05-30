@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://UI/UI素材图/default.png" id="8_whurc"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://UI/UI素材图/gear.png" id="10_onmey"]
 [ext_resource type="Script" uid="uid://daxexba230g4o" path="res://UI/UI脚本/器械能贴图.gd" id="11_gaxoa"]
-[ext_resource type="AudioStream" uid="uid://bxbuv4fn0bfbd" path="res://音效/取消.ogg" id="12_yogps"]
-[ext_resource type="AudioStream" uid="uid://cyg4yka3cp4b2" path="res://音效/铲子.ogg" id="13_ut48t"]
-[ext_resource type="Texture2D" uid="uid://b7ch57uppqgrk" path="res://物体/素材图/dispenser_5.png" id="15_ttaes"]
-[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://脚本/组件/音频.gd" id="16_jjsiv"]
+[ext_resource type="AudioStream" uid="uid://bxbuv4fn0bfbd" path="res://Sound/取消.ogg" id="12_yogps"]
+[ext_resource type="AudioStream" uid="uid://cyg4yka3cp4b2" path="res://Sound/铲子.ogg" id="13_ut48t"]
+[ext_resource type="Texture2D" uid="uid://b7ch57uppqgrk" path="res://Object/素材图/dispenser_5.png" id="15_ttaes"]
+[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="16_jjsiv"]
 
 [node name="关卡ui" type="CanvasLayer" unique_id=37875330]
 script = ExtResource("1_7vmet")

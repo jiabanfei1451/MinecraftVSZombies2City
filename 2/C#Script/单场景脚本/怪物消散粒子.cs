@@ -10,9 +10,9 @@ public partial class 怪物消散粒子 : Sprite2D
 	public override void _Ready() {
 		base._Ready();
 		Type = new();
-		速度 = random.NextSingle() * 20 + 10;
+		速度 = random.NextSingle() * 30 + 10;
 		位置 = Position;
-		Type.Atlas = GD.Load<Godot.Texture2D>("res://物体/素材图/sactx-0-1024x1024-DXT5_BC3-effects-5ecf9be5.png");
+		Type.Atlas = GD.Load<Godot.Texture2D>("res://Object/素材图/sactx-0-1024x1024-DXT5_BC3-effects-5ecf9be5.png");
 		int rand = random.Next(0, 3);
 		switch (rand)
 		{

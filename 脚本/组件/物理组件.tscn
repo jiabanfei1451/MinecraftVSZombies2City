@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dq2hxvboug84f"]
-
-[ext_resource type="Script" uid="uid://dcwyy5pc85mr4" path="res://脚本/组件/物理组件.gd" id="1_nfn82"]
-[ext_resource type="PackedScene" uid="uid://2sgut6k4shoy" path="res://物体/阴影.tscn" id="2_qbl44"]
-
-[node name="物理组件" type="Node" unique_id=908775390]
-script = ExtResource("1_nfn82")
-"阴影" = ExtResource("2_qbl44")
