@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "选卡":
-		var 场景 : PackedScene = preload("res://UI/选卡UI.tscn")
+		var 场景 : PackedScene = preload("res://UI/card/选卡UI.tscn")
 		var 实例化 = 场景.instantiate()
 		get_tree().current_scene.add_child(实例化)

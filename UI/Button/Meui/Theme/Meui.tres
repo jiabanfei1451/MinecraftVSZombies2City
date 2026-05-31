@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dt5byxlnp24y5"]
+
+[ext_resource type="Texture2D" uid="uid://tp7bhmegjr7k" path="res://UI/Button/Meui/MeUIbutton.png" id="1_nibwb"]
+
+[resource]
+texture = ExtResource("1_nibwb")
+texture_margin_left = 10.293857
+texture_margin_top = 12.448384
+texture_margin_right = 9.815072
+texture_margin_bottom = 17.236225
+region_rect = Rect2(0, 0, 64, 64)

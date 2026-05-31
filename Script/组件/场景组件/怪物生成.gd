@@ -35,6 +35,7 @@ func level_ready2():
 	level_ready()
 func level_process2(delta: float):
 	level_process(delta)
+	最大波数 = 生成数量.size()
 	FPS = delta
 	排除空数组()
 	条件()
@@ -102,7 +103,7 @@ func 提示一大波怪物():
 	文字.scale = 初始缩放 * 2
 	文字.modulate = Color(1,1,1,0)
 	add_child(音效实例化)
-	文字.text = 存档.获取Json内容("Level_Text.json",0,0)
+	文字.text = 获取Json文本.获取Json内容("Level_Text.json",0,0)
 	var tweenscale = create_tween()
 	var tewwncolor = create_tween()
 	tweenscale.tween_property(文字,"scale",初始缩放 * 0.9,0.9).set_trans(Tween.TRANS_QUART)
@@ -121,7 +122,7 @@ func 最后一波():
 	文字.scale = 初始缩放 * 2
 	文字.modulate = Color(1,1,1,0)
 	add_child(音效实例化)
-	文字.text = 存档.获取Json内容("Level_Text.json",0,1)
+	文字.text = 获取Json文本.获取Json内容("Level_Text.json",0,1)
 	var tweenscale = create_tween()
 	var tewwncolor = create_tween()
 	tweenscale.tween_property(文字,"scale",初始缩放,0.9).set_trans(Tween.TRANS_QUART)

@@ -27,13 +27,8 @@ func _process(delta: float) -> void:
 		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 
 func _ready() -> void:
-	var d
-	d = 存档.load_数据("Window-set.cfg","Window","Window_Scale")
-	if d != null:
-		窗口缩放 = d[0]
-	d = 存档.load_数据("Window-set.cfg","Window","Window_size_mode")
-	if d != null:
-		窗口拉伸模式 = d[0]
-	d = 存档.load_数据("Window-set.cfg","Window","Window_mode")
-	if d != null:
-		窗口模式 = d[0]
+	await get_tree().create_timer(0.2).timeout
+	var d = 设置存储.load_Data()
+	窗口缩放 = 设置存储.load_Data("Window","Window_Scale",[1])
+	窗口拉伸模式 = 设置存储.load_Data("Window","Window_size_mode",[1])
+	窗口模式 = 设置存储.load_Data("Window","Window_mode",[4])

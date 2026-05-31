@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://csk8t48c78r57"]
+
+[ext_resource type="PackedScene" uid="uid://crhfukveqrofn" path="res://Test/鼠标指示器.tscn" id="1_6osiq"]
+[ext_resource type="Script" uid="uid://dmsewlrpwtlxq" path="res://UI/UI脚本/信息显示.gd" id="1_nttya"]
+[ext_resource type="Shader" uid="uid://ww76aly7osdr" path="res://Shader/着色器2.0.gdshader" id="3_4aymg"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="3_tp0ku"]
+[ext_resource type="Script" uid="uid://bitai011pgl6u" path="res://UI/UI脚本/关卡名称.gd" id="5_8rpr4"]
+[ext_resource type="Script" uid="uid://bk3rlgjkx058q" path="res://UI/UI脚本/帧率显示.gd" id="6_4aymg"]
+[ext_resource type="Texture2D" uid="uid://tp7bhmegjr7k" path="res://UI/Button/Meui/MeUIbutton.png" id="7_255ox"]
+[ext_resource type="StyleBox" uid="uid://dt5byxlnp24y5" path="res://UI/Button/Meui/Theme/Meui.tres" id="7_dmwc8"]
+[ext_resource type="Texture2D" uid="uid://bceg7hdui7yxd" path="res://UI/Button/Meui/UpspeedButton.png" id="8_fmsfl"]
+[ext_resource type="Texture2D" uid="uid://cinldlcw44is2" path="res://UI/Button/Meui/MeUi-hollow.png" id="8_int0l"]
+[ext_resource type="Script" uid="uid://dkh4kn0ghdbnc" path="res://UI/UI脚本/场景脚本/Level-Script/touchbutton.gd" id="9_v85ml"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="10_5xw1q"]
+[ext_resource type="Script" uid="uid://c03ti28ciy46w" path="res://UI/LevelUI/LevelBar.gd" id="13_5xw1q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udtwd"]
+shader = ExtResource("3_4aymg")
+shader_parameter/fff = Vector2(1, 1)
+shader_parameter/miao_bian = true
+shader_parameter/coloro = Color(0, 0, 0, 1)
+shader_parameter/lc = 100.0
+
+[sub_resource type="Gradient" id="Gradient_dmwc8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fmsfl"]
+gradient = SubResource("Gradient_dmwc8")
+width = 2
+height = 3
+
+[node name="信息显示" type="CanvasLayer" unique_id=606184370]
+script = ExtResource("1_nttya")
+
+[node name="鼠标指示器" parent="." unique_id=184760719 instance=ExtResource("1_6osiq")]
+visible = false
+material = SubResource("ShaderMaterial_udtwd")
+layout_direction = 2
+offset_left = 582.0
+offset_top = 479.0
+offset_right = 622.0
+offset_bottom = 502.0
+pivot_offset = Vector2(19, 10)
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("3_tp0ku")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="FPS" type="Label" parent="." unique_id=1740133445]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -247.0
+offset_bottom = 28.0
+grow_horizontal = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.94, 0.54833335, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.50961787, 0.3676782, 1)
+theme_override_constants/line_spacing = 224
+theme_override_constants/paragraph_spacing = 626
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_tp0ku")
+theme_override_font_sizes/font_size = 20
+text = "关卡名称"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("6_4aymg")
+
+[node name="关卡名称" type="Label" parent="." unique_id=678759927]
+layout_direction = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -339.0
+offset_top = -35.0
+offset_right = -244.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 33.05
+theme_override_colors/font_color = Color(0.94, 0.54833335, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.50961787, 0.3676782, 1)
+theme_override_constants/line_spacing = 224
+theme_override_constants/paragraph_spacing = 626
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_tp0ku")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 235
+script = ExtResource("5_8rpr4")
+
+[node name="LevelvalueBar" type="Control" parent="." unique_id=2033890384]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -242.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="背景" type="Panel" parent="LevelvalueBar" unique_id=1428123483]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("7_dmwc8")
+
+[node name="TextureRect" type="TextureRect" parent="LevelvalueBar/背景" unique_id=789175345]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 206.0
+offset_top = -16.5
+offset_right = 270.0
+offset_bottom = 47.5
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource("8_fmsfl")
+
+[node name="Touchbutton" type="Control" parent="LevelvalueBar/背景/TextureRect" unique_id=959016107 node_paths=PackedStringArray("纹理物体")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("9_v85ml")
+"触摸优先级" = 0
+"偏移" = Vector2(32, 32)
+notTexture = true
+"纹理物体" = NodePath("@Panel@309066")
+"物体纹理" = ExtResource("10_5xw1q")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(32, 32),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":64.0,"offset_bottom":64.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_5xw1q"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="水平排列" type="HBoxContainer" parent="LevelvalueBar/背景" unique_id=2049332276]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_bottom = 0.8
+offset_left = 4.0
+offset_top = -3.7999992
+offset_right = 408.0
+offset_bottom = 3.7999992
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="LevelvalueBar/背景/水平排列" unique_id=404491899]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+step = 0.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("7_255ox")
+texture_over = ExtResource("8_int0l")
+texture_progress = SubResource("GradientTexture2D_fmsfl")
+tint_progress = Color(0, 0.65, 0.03249997, 1)
+script = ExtResource("13_5xw1q")

@@ -6,9 +6,11 @@
 [ext_resource type="Script" uid="uid://1e5edv8mn2j6" path="res://addons/touch/Script/触控按钮.gd" id="3_wvj3s"]
 [ext_resource type="Script" uid="uid://cb5m5c5swkjq1" path="res://addons/touch/Script/TouchTextEdit.gd" id="4_rbp2s"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="4_rdqt6"]
-[ext_resource type="Script" uid="uid://pyqt8rwj3rm8" path="res://addons/touch/Script/UI碰撞.gd" id="6_cl171"]
+[ext_resource type="Script" uid="uid://2bl16y18xr4g" path="res://Test/area_ui.gd" id="7_p5vrs"]
 [ext_resource type="Script" uid="uid://3as2e6rf387r" path="res://addons/touch/Script/TouchRectButton.gd" id="8_l8i53"]
 [ext_resource type="Script" uid="uid://sc48ukg1du60" path="res://addons/touch/Script/触摸控制器.gd" id="10_udoab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5vrs"]
 
 [node name="Node2D" type="Node2D" unique_id=1619412238]
 
@@ -36,9 +38,9 @@ focus_mode = 2
 color = Color(0, 0.302, 1, 0.4)
 script = ExtResource("4_rbp2s")
 "滚动速率" = Vector2(0.5, 0.5)
-edit = NodePath("@Control@34316/@TextEdit@34322")
-Ui = NodePath("@Control@34316")
-Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@34316"), NodePath("@Control@34316/@TextEdit@34322")]
+edit = NodePath("@Control@59267/@TextEdit@59273")
+Ui = NodePath("@Control@59267")
+Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@59267"), NodePath("@Control@59267/@TextEdit@59273")]
 "范围" = Vector2(436, 156)
 metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
 
@@ -54,7 +56,7 @@ theme = ExtResource("2_cl171")
 script = ExtResource("3_wvj3s")
 URL = "https://www.4399.com"
 "偏移" = Vector2(68.5, 32.5)
-"纹理物体" = NodePath("@Panel@34324")
+"纹理物体" = NodePath("@Panel@59275")
 "物体纹理" = ExtResource("4_rdqt6")
 object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(68.5, 32.5),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
 , Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":137.0,"offset_bottom":65.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("4_rdqt6"),"script":null)
@@ -70,7 +72,7 @@ focus_mode = 2
 theme = ExtResource("2_cl171")
 script = ExtResource("2_p3e8q")
 "偏移" = Vector2(20, 20)
-"纹理物体" = NodePath("@Panel@34326")
+"纹理物体" = NodePath("@Panel@59277")
 "物体纹理" = ExtResource("4_rdqt6")
 object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(20, 20),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
 , Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":40.0,"offset_bottom":40.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("4_rdqt6"),"script":null)
@@ -85,9 +87,9 @@ offset_bottom = 40.0
 focus_mode = 2
 theme = ExtResource("2_cl171")
 script = ExtResource("8_l8i53")
-Rect = NodePath("@ColorRect@34329")
+Rect = NodePath("@ColorRect@59280")
 "偏移" = Vector2(20, 20)
-"纹理物体" = NodePath("@Panel@34328")
+"纹理物体" = NodePath("@Panel@59279")
 "物体纹理" = ExtResource("4_rdqt6")
 object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(20, 20),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
 , Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":40.0,"offset_bottom":40.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("4_rdqt6"),"script":null)
@@ -97,8 +99,16 @@ metadata/_custom_type_script = "uid://3as2e6rf387r"
 [node name="AreaUI" type="ReferenceRect" parent="CanvasLayer" unique_id=930710703]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_cl171")
+script = ExtResource("7_p5vrs")
 metadata/_custom_type_script = "uid://pyqt8rwj3rm8"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/AreaUI" unique_id=636579587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="touchBar" type="Panel" parent="CanvasLayer" unique_id=1438337873 node_paths=PackedStringArray("滑块", "进度条颜色")]
 offset_left = 40.0
@@ -165,3 +175,11 @@ color = Color(0, 0.302, 1, 0.4)
 script = ExtResource("10_udoab")
 "范围" = Vector2(40, 40)
 metadata/_custom_type_script = "uid://sc48ukg1du60"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1050138856 groups=["UI判定"]]
+position = Vector2(393, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1576112095]
+shape = SubResource("RectangleShape2D_p5vrs")
+
+[connection signal="_UI进入时" from="CanvasLayer/AreaUI" to="CanvasLayer/AreaUI" method="_on__ui进入时"]

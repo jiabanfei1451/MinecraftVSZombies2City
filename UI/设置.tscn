@@ -8,10 +8,14 @@
 [ext_resource type="Script" uid="uid://c2f4hb4c4y6ey" path="res://UI/UI脚本/场景脚本/设置-窗口模式选项.gd" id="6_c8pay"]
 [ext_resource type="Script" uid="uid://dev5frrcw3da" path="res://UI/UI脚本/场景脚本/设置窗口背景.gd" id="7_od8lv"]
 [ext_resource type="Script" uid="uid://ckrd7vvrswu4w" path="res://UI/UI脚本/场景脚本/选项卡_保存.gd" id="7_ofy6y"]
+[ext_resource type="Script" uid="uid://bm207kaj271ic" path="res://UI/UI脚本/场景脚本/设置-修改缩放.gd" id="8_dh4i3"]
 [ext_resource type="Theme" uid="uid://bsballpnnbgjv" path="res://UI/UI主题/MC主题.tres" id="8_fx33r"]
 [ext_resource type="AudioStream" uid="uid://b60h48bgorsrw" path="res://Sound/MC按钮点击.ogg" id="8_yo5pr"]
+[ext_resource type="Texture2D" uid="uid://bydmxaoxdidn8" path="res://UI/UI素材图/Button/form.png" id="9_tjun6"]
 [ext_resource type="Script" uid="uid://ddrb81k7l8ftn" path="res://UI/UI脚本/场景脚本/设置-返回.gd" id="10_6vjo8"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="10_fx33r"]
+[ext_resource type="Script" uid="uid://bm5h8itmkx0l2" path="res://UI/UI脚本/场景脚本/设置-开启卡槽动效.gd" id="10_ijgdf"]
+[ext_resource type="Script" uid="uid://cofnpiykgubod" path="res://UI/UI脚本/场景脚本/设置/触控播放音效.gd" id="11_w854q"]
 [ext_resource type="Theme" uid="uid://l4176xm8imnj" path="res://UI/UI主题/MC文字主题.tres" id="12_6vjo8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dh4i3"]
@@ -19,6 +23,14 @@ shader = ExtResource("1_6vjo8")
 shader_parameter/shendu = 1.0
 shader_parameter/fff = 0.05
 shader_parameter/a = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijgdf"]
+texture = ExtResource("9_tjun6")
+texture_margin_left = 4.324177
+texture_margin_top = 4.324177
+texture_margin_right = 3.648524
+texture_margin_bottom = 4.8646984
+region_rect = Rect2(0, 0, 32, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j8rkh"]
 
@@ -132,7 +144,7 @@ grow_horizontal = 2
 
 [node name="选项卡2" parent="Control/选项背景/VBoxContainer/选项卡2/选项" index="0" unique_id=1675858171 instance=ExtResource("3_33kf4")]
 layout_mode = 2
-Text = "音频设置"
+Text = "游戏设置"
 ID = "1"
 object_array = [null, null]
 
@@ -336,6 +348,22 @@ offset_bottom = 19.0
 horizontal_alignment = 1
 vertical_alignment = 3
 
+[node name="touchBar" type="Panel" parent="Control/窗口背景/0" unique_id=370003319]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56
+anchor_right = 1.0
+anchor_bottom = 0.05
+grow_horizontal = 2
+script = ExtResource("8_dh4i3")
+"乘数" = 0.02
+value = 1.0
+stop = 0.1
+maxvalue = 5.0
+minvalue = 0.5
+Valuecolor = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
+
 [node name="1" type="Control" parent="Control/窗口背景" unique_id=1344507093]
 layout_mode = 1
 anchors_preset = 15
@@ -343,6 +371,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/窗口背景/1" unique_id=138318398]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijgdf")
+script = ExtResource("10_ijgdf")
+
+[node name="Touchbutton" type="Control" parent="Control/窗口背景/1/Panel" unique_id=836481205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("11_w854q")
+"偏移" = Vector2(120, 30)
+notTexture = true
+"物体纹理" = ExtResource("10_fx33r")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(120, 30),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":240.0,"offset_bottom":60.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="Label" type="Label" parent="Control/窗口背景/1/Panel" unique_id=355998853]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.77
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_fx33r")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "卡槽动效"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="2" type="Control" parent="Control/窗口背景" unique_id=684756146]
 layout_mode = 1
@@ -379,8 +444,19 @@ theme = ExtResource("8_fx33r")
 script = ExtResource("7_ofy6y")
 "按下时颜色" = Color(1, 1, 1, 0.5019608)
 "抬起时颜色" = Color(0, 0, 0, 0.5019608)
+"触摸优先级" = null
 "偏移" = Vector2(20, 20)
+"自动设置" = null
+"自动偏移模式" = null
+"短按阈值" = null
+"长按阈值" = null
+"启用" = null
+Debug = null
+"自动设置形状" = null
 notTexture = true
+"按下纹理" = null
+"抬起纹理" = null
+object_array = null
 metadata/_custom_type_script = "uid://3as2e6rf387r"
 
 [node name="Label" type="Label" parent="Control/保存" unique_id=2004691305]
@@ -464,6 +540,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="拖拽时" from="Control/选项背景/Touchpad" to="Control/选项背景/Touchpad" method="_on_拖拽时"]
+[connection signal="滑动结束时void" from="Control/窗口背景/0/touchBar" to="Control/窗口背景/0/touchBar" method="_on_滑动结束时void"]
 
 [editable path="Control/选项背景/VBoxContainer/选项卡"]
 [editable path="Control/选项背景/VBoxContainer/选项卡/选项/选项卡2"]

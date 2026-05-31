@@ -14,17 +14,14 @@ func 开始过度():
 	var x = create_tween()
 	$"蓝图展示".position.y += 700
 	$"卡槽".position.y -= 109
-	$"完成选卡".position.y += 300
 	var 动画 = create_tween()
 	var d = create_tween()
-	x.tween_property($"完成选卡","position",$"完成选卡".position - Vector2(0,300),1).set_trans(Tween.TRANS_EXPO)
-	动画.tween_property($"蓝图展示","position",Vector2(0,31.25),1.0).set_trans(Tween.TRANS_EXPO)
+	动画.tween_property($"蓝图展示","position",Vector2(0,-50.75),1.0).set_trans(Tween.TRANS_EXPO)
 	d.tween_property($"卡槽","position",Vector2(0,0),1.0).set_trans(Tween.TRANS_EXPO)
 
 func 完成选卡():
 	var x = create_tween()
 	var 动画 = create_tween()
-	x.tween_property($"完成选卡","position",$"完成选卡".position + Vector2(0,300),1).set_trans(Tween.TRANS_EXPO)
 	动画.tween_property($"蓝图展示","position",Vector2(0,700),1.0).set_trans(Tween.TRANS_EXPO)
 	await get_tree().create_timer(1).timeout
 	#var d = create_tween()

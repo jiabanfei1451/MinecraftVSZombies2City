@@ -21,10 +21,10 @@ func _process(delta: float) -> void:
 			累计增加 += 父级.stop
 func 点():
 	父级.emit_signal("滑动按下时",name)
-	父级.emit_signal("滑动按下时void",name)
+	父级.emit_signal("滑动按下时void")
 func 抬():
 	父级.emit_signal("滑动结束时",name)
-	父级.emit_signal("滑动结束时void",name)
+	父级.emit_signal("滑动结束时void")
 func _input(event: InputEvent) -> void:
 	if pre == true:
 		if event is InputEventScreenDrag:

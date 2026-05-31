@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func 生成卡槽(器械ID:int = 0):
-	var 卡槽 : PackedScene = preload("res://UI/卡槽.tscn")
+	var 卡槽 : PackedScene = preload("res://UI/card/卡槽.tscn")
 	var 实列 = 卡槽.instantiate()
 	实列._启用 = true
 	实列.器械ID = 器械ID

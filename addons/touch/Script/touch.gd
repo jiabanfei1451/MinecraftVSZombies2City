@@ -23,21 +23,24 @@ signal 拖拽时void
 signal 拖拽抬起时void
 @export_group("focus")
 @export_range(0,2,1) var 触摸优先级 : int = 2
-@export_group("触摸按钮")
+@export_group("TouchButton")
 @export var Shape : Shape2D
 @export var 偏移 : Vector2
 @export var 自动设置 : bool = true
 @export var 按下时给予焦点给 : Control
+@export var Parent_Object : Control
 @export_enum("YX:0","X:1","Y:2") var 自动偏移模式 : int
 @export var 短按阈值 : float = 0.2
 @export var 长按阈值 : float = 1
 @export var 启用 : bool = true
+@export_subgroup("Debug")
+@export var Debug : bool = false
 @export_enum("矩形:0","圆形:1","圆形取Y:2","椭圆:3") var 自动设置形状 : int = 0
-@export_group("纹理")
+@export_group("Texture")
 @export var notTexture : bool = false
 @export var 按下纹理 : StyleBoxTexture = preload("uid://c4ffe4u1spmqk")
 @export var 抬起纹理 : StyleBoxTexture = preload("uid://ciadyrsksiodo")
-@export_subgroup("物体状态")
+@export_subgroup("Object State")
 @export var 纹理物体 : Panel
 @export var 物体纹理 : StyleBoxTexture
 @export var object_array : Array
@@ -55,7 +58,8 @@ func 按下():
 	if get_node("..").visible == true:
 		if 启用 == true:
 			pre = true
-			print(2)
+			if Debug == true:
+				print(2)
 			if get_focus_mode_with_override() != 0:
 				if 按下时给予焦点给 == null:
 					grab_focus(true)
@@ -67,7 +71,8 @@ func 按下():
 func 抬起():
 	if get_node("..").visible == true:
 		if 启用 == true:
-			print(1)
+			if Debug == true:
+				print(1)
 			pre = false
 			if pretime <= 短按阈值:
 				emit_signal("点击时",name)
@@ -84,8 +89,9 @@ func 抬起():
 			纹理物体.add_theme_stylebox_override("panel",抬起纹理)
 func 清空数组物体():
 	for i in object_array:
-		if i is Node:
-			i.queue_free()
+		if i != null:
+			if i is Node:
+				i.queue_free()
 	object_array.clear()
 
 func 初始化():

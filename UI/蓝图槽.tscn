@@ -3,11 +3,17 @@
 [ext_resource type="Script" uid="uid://bqhrcnum72k20" path="res://UI/UI脚本/蓝图槽.gd" id="1_3urnr"]
 [ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://UI/UI素材图/energy_slot.png" id="1_lra2u"]
 [ext_resource type="Script" uid="uid://sw5drhkbb8qm" path="res://UI/UI脚本/器械能显示.gd" id="2_3urnr"]
-[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://字体/minecraft_font.ttf" id="2_ylt3q"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="2_ylt3q"]
 [ext_resource type="Script" uid="uid://cu4xocbta6lkm" path="res://UI/UI脚本/显示剩余器械能.gd" id="3_3urnr"]
-[ext_resource type="PackedScene" uid="uid://c2y62prxcbege" path="res://UI/卡槽.tscn" id="4_bxy7j"]
+[ext_resource type="PackedScene" uid="uid://c2y62prxcbege" path="res://UI/card/卡槽.tscn" id="4_bxy7j"]
+[ext_resource type="Script" uid="uid://bipb8tqmjfceb" path="res://addons/touch/Script/touch.gd" id="6_5wxmg"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="7_06ntr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oynvw"]
+size = Vector2(46.125, 69.93)
 
 [node name="卡槽" type="Control" unique_id=1812954472 node_paths=PackedStringArray("显示")]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = -512.2585
@@ -18,11 +24,10 @@ script = ExtResource("1_3urnr")
 "显示" = NodePath("器械能显示/Label")
 
 [node name="器械能显示" type="Button" parent="." unique_id=1714522372]
-layout_direction = 2
 layout_mode = 0
-offset_left = -10.383545
+offset_left = -5.741516
 offset_top = -9.801842
-offset_right = 53.616455
+offset_right = 58.258484
 offset_bottom = 74.19816
 scale = Vector2(1.5, 1.5)
 mouse_default_cursor_shape = 2
@@ -32,23 +37,44 @@ script = ExtResource("2_3urnr")
 
 [node name="Label" type="Label" parent="器械能显示" unique_id=1182456273]
 layout_mode = 0
-offset_left = 7.999999
-offset_top = 56.666664
-offset_right = 55.78711
-offset_bottom = 80.66667
+offset_left = 6.0
+offset_top = 54.666668
+offset_right = 50.666656
+offset_bottom = 76.66667
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ylt3q")
 theme_override_font_sizes/font_size = 15
-text = "9990"
+text = "50"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 max_lines_visible = 1
 visible_characters_behavior = 3
 text_direction = 3
 script = ExtResource("3_3urnr")
-metadata/_edit_lock_ = true
+
+[node name="Touchbutton" type="Control" parent="器械能显示" unique_id=2142859894 node_paths=PackedStringArray("纹理物体")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("6_5wxmg")
+"触摸优先级" = 0
+Shape = SubResource("RectangleShape2D_oynvw")
+"偏移" = Vector2(27.965, 42.08)
+"自动设置" = false
+notTexture = true
+"纹理物体" = NodePath("@Panel@168445")
+"物体纹理" = ExtResource("7_06ntr")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(27.965, 42.08),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":SubResource("RectangleShape2D_oynvw"),"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":64.0,"offset_bottom":84.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("7_06ntr"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
 
 [node name="卡槽" parent="." unique_id=811847334 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
@@ -60,83 +86,83 @@ scale = Vector2(0.5, 0.5)
 
 [node name="卡槽2" parent="." unique_id=887574378 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 143.125
-offset_top = 0.0
-offset_right = 287.625
-offset_bottom = 215.5
+offset_left = 143.25848
+offset_top = -0.80184174
+offset_right = 287.75848
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "2"
 
 [node name="卡槽3" parent="." unique_id=1854654681 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 213.125
-offset_top = -2.524355e-29
-offset_right = 357.625
-offset_bottom = 215.5
+offset_left = 213.25848
+offset_top = -0.80184174
+offset_right = 357.75848
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "3"
 
 [node name="卡槽4" parent="." unique_id=880754107 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 284.375
-offset_top = 1.4210855e-14
-offset_right = 428.875
-offset_bottom = 215.5
+offset_left = 284.50848
+offset_top = -0.80184174
+offset_right = 429.00848
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "4"
 
 [node name="卡槽5" parent="." unique_id=501111569 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 354.375
-offset_top = 8.4703295e-22
-offset_right = 498.875
-offset_bottom = 215.5
+offset_left = 354.50848
+offset_top = -0.80184174
+offset_right = 499.00848
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "5"
 
 [node name="卡槽6" parent="." unique_id=1109489941 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 424.375
-offset_top = 5.04871e-29
-offset_right = 568.875
-offset_bottom = 215.5
+offset_left = 424.50848
+offset_top = -0.80184174
+offset_right = 569.0085
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "6"
 
 [node name="卡槽7" parent="." unique_id=1776357412 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 494.375
-offset_top = 3.0092655e-36
-offset_right = 638.875
-offset_bottom = 215.5
+offset_left = 494.50848
+offset_top = -0.80184174
+offset_right = 639.0085
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "7"
 
 [node name="卡槽8" parent="." unique_id=2138798640 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 564.375
-offset_top = 1.8e-43
-offset_right = 708.875
-offset_bottom = 215.5
+offset_left = 564.5085
+offset_top = -0.80184174
+offset_right = 709.0085
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "8"
 
 [node name="卡槽9" parent="." unique_id=55693845 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 634.375
-offset_top = 1e-45
-offset_right = 778.875
-offset_bottom = 215.5
+offset_left = 634.5085
+offset_top = -0.80184174
+offset_right = 779.0085
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "9"
 
 [node name="卡槽10" parent="." unique_id=612301667 instance=ExtResource("4_bxy7j")]
 layout_mode = 0
-offset_left = 704.375
-offset_top = 0.0
-offset_right = 848.875
-offset_bottom = 215.5
+offset_left = 704.5085
+offset_top = -0.80184174
+offset_right = 849.0085
+offset_bottom = 214.69815
 scale = Vector2(0.5, 0.5)
 "绑定快捷键" = "0"
 
-[connection signal="pressed" from="器械能显示" to="器械能显示" method="_on_pressed"]
+[connection signal="点击时void" from="器械能显示/Touchbutton" to="器械能显示" method="_on_pressed"]

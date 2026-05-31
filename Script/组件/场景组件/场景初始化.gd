@@ -1,6 +1,8 @@
 extends Node2D
 signal 选卡完成
 #region 不知道
+@export_group("mouse")
+@export var mouseposition : Vector2
 @export_group("音乐")
 @export var 音乐ID : int = 0
 @export var DEBUG : bool = false
@@ -42,8 +44,8 @@ var 滤镜节点
 
 var arrow = load("res://arrow.png")
 var beam = load("res://arrow(City).png")
-var ui场景 : PackedScene = preload("res://UI/关卡UI.tscn")
-var ui场景2 : PackedScene = preload("res://UI/信息显示.tscn")
+var ui场景 : PackedScene = preload("res://UI/card/关卡UI.tscn")
+var ui场景2 : PackedScene = preload("res://UI/LevelUI/信息显示.tscn")
 var ui场景3 : PackedScene = preload("res://UI/菜单.tscn")
 var ui场景4 : PackedScene = preload("res://Scene/必要物体/文字.tscn")
 
@@ -180,7 +182,6 @@ func level_process(delta: float):
 	if Input.is_action_just_released("Q"):
 		稿子()
 func level_ready():
-	var save = 存档
 	print(ProjectSettings.globalize_path("res://"))
 	print("OS:",OS.get_distribution_name(),OS.get_version_alias())
 	OS.request_permissions()

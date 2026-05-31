@@ -3,6 +3,9 @@
 ## 适用于config的存档
 class_name ConfigFileData
 extends Data
+var saveing : bool = false
+## 读取存档路径
+@export var Dataname : String = "user://"
 var config = ConfigFile.new()
 
 func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []):
@@ -13,11 +16,27 @@ func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []
 	else:
 		data.append(array[0])
 	print(data)
+func load_Data(name:String = "", key:String = "", Value:Array = [],filepath:String = Dataname):
+	config.load(filepath)
+	if config.load(filepath) == OK:
+		print(Dataname)
+		print(config.get_value(name,key,Value))
+		if Value.size() > 1:
+			return config.get_value(name,key,Value[0])
+		else:
+			return config.get_value(name,key,Value)
 func save_Data(path:String = "user://",pathname:String = "data",passworld:bool = false):
-	if dataname.size() > 0:
-		for i in data.size():
-			var name : String = dataname[i]
-			var keyname : String = keydataname[i]
-			config.set_value(name,keyname,data[i])
-		await get_tree().create_timer(1).timeout
-		config.save(ProjectSettings.globalize_path(path+pathname+".cfg"))
+	if saveing == false:
+		saveing = true
+		if dataname.size() > 0:
+			for i in data.size():
+				var name : String = dataname[i]
+				var keyname : String = keydataname[i]
+				config.set_value(name,keyname,data[i])
+			config.save(ProjectSettings.globalize_path(path+pathname+".cfg"))
+		saveing = false
+		data.clear()
+		dataname.clear()
+		keydataname.clear()
+	else:
+		printerr("错误-2-当前节点已有其他的保存进程正在执行")

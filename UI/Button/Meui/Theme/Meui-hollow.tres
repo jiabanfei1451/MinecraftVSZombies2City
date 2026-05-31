@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dfmyh7un3hi51"]
+
+[ext_resource type="Texture2D" uid="uid://cinldlcw44is2" path="res://UI/Button/Meui/MeUi-hollow.png" id="1_x753b"]
+
+[resource]
+texture = ExtResource("1_x753b")
+texture_margin_right = 10.514815
+region_rect = Rect2(12.722229, 14.469017, 51.27777, 35.049385)

@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	$AudioStreamPlayer.play()
 	var s = create_tween()
-	$"..".完成选卡()
+	$"../..".完成选卡()
 	mouse_filter = 2
-	s.tween_property($"../卡槽","position",$"../卡槽".position - Vector2(800,0),1).set_trans(Tween.TRANS_EXPO)
+	s.tween_property($"../../卡槽","position",$"../../卡槽".position - Vector2(800,0),1).set_trans(Tween.TRANS_EXPO)

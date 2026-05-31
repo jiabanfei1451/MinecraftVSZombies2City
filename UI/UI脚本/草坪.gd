@@ -31,18 +31,7 @@ func _process(delta: float) -> void:
 		position.x = 微偏移量.x - (坐标.x * 体积.x * 倍率.x)
 		position.y = 微偏移量.y - (坐标.y * 体积.y * 倍率.y)
 	visible =! get_tree().current_scene.正在使用其他属性
-	if Input.is_action_just_pressed("左键") and 触碰到鼠标 == true:
-		if 绑定器械 == null and 器械 != null:
-			get_tree().current_scene.来自.已被放置()
-			var 器械实列 = 器械.instantiate()
-			器械实列.position = position + pivot_offset + Vector2(pivot_offset.x * X偏移,pivot_offset.y * Y偏移)
-			if 器械实列.is_in_group("怪物") == true:
-				怪物生成节点.add_child(器械实列)
-			else:
-				生成节点.add_child(器械实列)
-			绑定器械 = 器械实列
-		if 绑定器械 != null and 绑定器械.is_in_group("器械") == false:
-			绑定器械 = null
+	$Touchbutton.启用 = visible
 	if 触碰到鼠标 == true:
 		if 绑定器械 == null and get_tree().current_scene.当前器械 != null:
 			if not DEBUG:
@@ -73,3 +62,19 @@ func red():
 
 func _on_鼠标走了() -> void:
 	触碰到鼠标 = false
+func pre_up():
+	触碰到鼠标 = false
+func pre_down():
+	触碰到鼠标 = true
+func pre():
+	if 绑定器械 == null and 器械 != null:
+		get_tree().current_scene.来自.已被放置()
+		var 器械实列 = 器械.instantiate()
+		器械实列.position = position + pivot_offset + Vector2(pivot_offset.x * X偏移,pivot_offset.y * Y偏移)
+		if 器械实列.is_in_group("怪物") == true:
+			怪物生成节点.add_child(器械实列)
+		else:
+			生成节点.add_child(器械实列)
+			绑定器械 = 器械实列
+		if 绑定器械 != null and 绑定器械.is_in_group("器械") == false:
+			绑定器械 = null

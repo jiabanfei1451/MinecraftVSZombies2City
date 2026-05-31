@@ -11,8 +11,14 @@ func _process(delta: float) -> void:
 	rotation += 5 * delta
 	if get_tree().current_scene.使用器械能 == true:
 		visible = true
-		position = get_viewport().get_mouse_position() + Vector2(-20,-20)
 	else: visible = false
 	if Input.is_action_just_pressed("右键"):
 		if get_tree().current_scene.使用器械能 == true:
 			get_tree().current_scene.使用器械能 = false
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		position = event.position + Vector2(-20,-20)
+	if event is InputEventScreenTouch:
+		position = event.position + Vector2(-20,-20)
+	if event is InputEventScreenTouch:
+		position = event.position + Vector2(-20,-20)
