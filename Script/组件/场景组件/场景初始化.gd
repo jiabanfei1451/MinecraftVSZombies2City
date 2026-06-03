@@ -33,6 +33,7 @@ var 正在使用其他属性 : bool = false
 
 #region 属性
 @export_group("属性")
+var 即将重置 : bool = false
 @export_enum("白日","夜晚") var 天色 : String = "白日"
 @export_enum("开启","关闭") var 夜色滤镜 : String = "开启"
 var 滤镜节点
@@ -42,7 +43,7 @@ var 滤镜节点
 @export_range(0,1,0.01) var 滤镜强度 : float = 0.5
 #endregion
 
-var arrow = load("res://arrow.png")
+var arrow = load("res://Image/misc/arrow.png")
 var beam = load("res://arrow(City).png")
 var ui场景 : PackedScene = preload("res://UI/card/关卡UI.tscn")
 var ui场景2 : PackedScene = preload("res://UI/LevelUI/信息显示.tscn")
@@ -170,7 +171,7 @@ func level_process(delta: float):
 			print("DEBUG模式已关闭")
 			DEBUG = false
 	if Input.is_action_just_pressed("F5"):
-		get_tree().reload_current_scene()
+		重置()
 	if Input.is_action_pressed("←"):
 		rotation += 1 * delta
 	if Input.is_action_pressed("→"):
@@ -213,3 +214,7 @@ func level_ready():
 	Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM)
 	选卡()
 	#endregion
+func 重置():
+	即将重置 = true
+	await get_tree().create_timer(0.2)
+	get_tree().reload_current_scene()

@@ -23,9 +23,9 @@ var 状态 :String
 @export var 自动设置最大血量 : bool = true
 @export_group("生命组件/效果")
 @export var 受击: Array[AudioStreamOggVorbis] = [
-	preload("res://Sound/怪物受击/splat1.ogg"),
-	preload("res://Sound/怪物受击/splat2.ogg"),
-	preload("res://Sound/怪物受击/splat3.ogg")
+	preload("res://Sound/怪物受击/普通受击/splat1.ogg"),
+	preload("res://Sound/怪物受击/普通受击/splat2.ogg"),
+	preload("res://Sound/怪物受击/普通受击/splat3.ogg")
 ]
 @export var 死亡 : AudioStreamOggVorbis = preload("res://Sound/僵尸死亡/zombie_death.ogg")
 @export var 特效 : PackedScene

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b263tesh341dx"]
 
-[ext_resource type="Script" uid="uid://nvigu28hc1g3" path="res://测试/菜单.gd" id="2_g8b1j"]
-[ext_resource type="Shader" uid="uid://cu3oaypq4i3xg" path="res://着色器/模糊.gdshader" id="2_mhhtx"]
+[ext_resource type="Script" uid="uid://nvigu28hc1g3" path="res://Test/菜单.gd" id="2_g8b1j"]
+[ext_resource type="Shader" uid="uid://cu3oaypq4i3xg" path="res://Shader/模糊.gdshader" id="2_mhhtx"]
 [ext_resource type="PackedScene" uid="uid://bu5sil4uavngv" path="res://UI/第二层/按钮/按钮.tscn" id="3_kx0e7"]
 [ext_resource type="PackedScene" uid="uid://c4arglk4ci36x" path="res://UI/第二层/文字/MC文字.tscn" id="4_jbp7c"]
-[ext_resource type="Script" uid="uid://cirsd5ychukc0" path="res://UI/UI脚本/场景脚本/按钮.gd" id="5_fqsgi"]
+[ext_resource type="Script" uid="uid://cirsd5ychukc0" path="res://Script/UIscript/场景脚本/按钮.gd" id="5_fqsgi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kx0e7"]
 shader = ExtResource("2_mhhtx")

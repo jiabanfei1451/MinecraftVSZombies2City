@@ -25,14 +25,21 @@ func save_json(path:String = "null",name:String = "null"):
 	"
 	# 这里是文件转换
 	for i in data.size():
-		text += '"' + dataname[i] + '"' + ":" + str(data[i],",
-	")
+		if data[i] is String or data[i] is StringName:
+			text += '"' + dataname[i] + '"' + ":" + '"' + str(data[i]) + '"' + ",
+	"
+		else:
+			text += '"' + dataname[i] + '"' + ":" + str(data[i]) + ",
+	"
 	text += "
-}"
+	}"
 	text = text.replacen("(","[")
 	text = text.replacen(")","]")
 	var file = FileAccess.open(path,FileAccess.WRITE)
 	file.store_string(text)
+	data.clear()
+	dataname.clear()
+	keydataname.clear()
 ## 解析某路径的json
 func load_data(path:String = "null",name:String = "null"):
 	if path == "null":

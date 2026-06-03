@@ -70,7 +70,7 @@ func _ready() -> void:
 func 清理临时数据():
 	数组添加描述 = ""
 	数组添加名称 = ""
-	数组添加图片 = preload("res://UI/UI素材图/Error.png")
+	数组添加图片 = preload("res://Image/UI/Error.png")
 	数组添加场景 = preload("res://Test/Error.tscn")
 	数组添加冷却 = 7.5
 	数组添加消耗 = 0

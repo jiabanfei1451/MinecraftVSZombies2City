@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2qbnurx2pxnj"]
 
-[ext_resource type="Script" uid="uid://bdseq3fcwme42" path="res://UI/UI脚本/血条.gd" id="1_0tqef"]
-[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://字体/minecraft_font.ttf" id="2_yux0m"]
+[ext_resource type="Script" uid="uid://bdseq3fcwme42" path="res://Script/UIscript/血条.gd" id="1_0tqef"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="2_yux0m"]
 
 [node name="血条" type="ColorRect" unique_id=2115989242]
 custom_minimum_size = Vector2(0, 7)

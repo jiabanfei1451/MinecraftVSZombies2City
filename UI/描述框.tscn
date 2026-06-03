@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8p626nkks55x"]
 
-[ext_resource type="Script" uid="uid://dugkgsj6f4eyl" path="res://UI/UI脚本/场景脚本/描述框.gd" id="1_x1eat"]
+[ext_resource type="Script" uid="uid://dugkgsj6f4eyl" path="res://Script/UIscript/场景脚本/描述框.gd" id="1_x1eat"]
 
 [node name="描述" type="Control" unique_id=1509445057]
 z_index = 1

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwxsiq3xxwxk2"]
 
-[ext_resource type="Texture2D" uid="uid://d1lmk8ul6iehw" path="res://UI/UI素材图/UI.png" id="1_dr31q"]
+[ext_resource type="Texture2D" uid="uid://d1lmk8ul6iehw" path="res://Image/UI/UI.png" id="1_dr31q"]
 
 [node name="遮挡" type="CanvasLayer" unique_id=1581256646]
 

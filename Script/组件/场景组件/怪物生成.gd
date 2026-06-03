@@ -42,7 +42,7 @@ func level_process2(delta: float):
 func 生成开始():
 	生成中 = true
 	emit_signal("开始生成")
-	while 生成中 and 当前波数 <= 生成数量.size():
+	while 生成中 and 当前波数 <= 生成数量.size() and 即将重置 == false:
 		当前波数 += 1
 		for i in 大波数组:
 			if 当前波数 == i:
@@ -56,12 +56,12 @@ func 生成开始():
 		await get_tree().create_timer(FPS).timeout
 
 func 生成波(波:int):
-	if 生成数量[波] != null:
+	if 生成数量[波] != null and 即将重置 == false:
 		for i in 生成数量[波]:
 			怪物生成(波)
 
 func 条件():
-	if 剩余数量.size() == 0 and 暂停生成 == false:
+	if 剩余数量.size() == 0 and 暂停生成 == false and 即将重置 == false:
 		emit_signal("条件判断为真")
 func 怪物生成(列表ID:int):
 	var scone : PackedScene = 精灵图列表.怪物数组[生成列表[列表ID].pick_random()]
@@ -72,11 +72,11 @@ func 怪物生成(列表ID:int):
 	剩余数量.append(sx)
 	emit_signal("怪物生成后",sx)
 func 排除空数组():
-	if 正在排除中 == false:
+	if 正在排除中 == false and 即将重置 == false:
 		正在排除中 = true
-		if 剩余数量.size() != 0:
+		if 剩余数量.size() != 0 and 即将重置 == false:
 			for i in 剩余数量.size():
-				if i <= 剩余数量.size() -1 and 剩余数量[i] == null:
+				if i <= 剩余数量.size() -1 and 剩余数量[i] == null and 即将重置 == false:
 					剩余数量.remove_at(i)
 					print("排除成功")
 				await get_tree().create_timer(FPS).timeout
@@ -89,7 +89,7 @@ func 添加波(数量:int = 1,arr:Array[int] = [],大波:bool = false):
 	生成数量.append(数量)
 	siz = 生成列表.size()
 	生成列表[siz - 1].append_array(arr)
-	if 大波 == true:
+	if 大波 == true and 即将重置 == false:
 		大波数组.append(siz)
 	print(大波数组)
 

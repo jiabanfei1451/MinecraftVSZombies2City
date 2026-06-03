@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://05pbp0kxbc20"]
 
 [ext_resource type="Theme" uid="uid://dvka2rktyelip" path="res://addons/touch/Theme/new_theme.tres" id="1_hbqs3"]
-[ext_resource type="Script" uid="uid://5xse3iokbl13" path="res://UI/UI脚本/场景脚本/选项卡_单一选项.gd" id="2_hbqs3"]
+[ext_resource type="Script" uid="uid://5xse3iokbl13" path="res://Script/UIscript/场景脚本/选项卡_单一选项.gd" id="2_hbqs3"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="3_wtcwg"]
 [ext_resource type="Theme" uid="uid://l4176xm8imnj" path="res://UI/UI主题/MC文字主题.tres" id="4_bm5lm"]
 

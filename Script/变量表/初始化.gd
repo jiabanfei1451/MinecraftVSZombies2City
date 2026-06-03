@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 
 func 重置标题语():
 	if OS.get_name() == "Windows":
-		get_window().title = "MinecraftVSZombies2-CityGodot " + 版本 + " " + 标题提示语.pick_random()
+		get_window().title = "MinecraftVSZombies2-City" + 版本 + " " + 标题提示语.pick_random()
 	
 	
 func 有等待的ready():

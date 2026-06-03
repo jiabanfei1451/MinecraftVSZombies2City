@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqnwrswsepwux"]
 
-[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://字体/minecraft_font.ttf" id="1_5fjje"]
-[ext_resource type="Script" uid="uid://84hgbhgdlcku" path="res://UI/UI脚本/不知道用不上.gd" id="1_ls3hc"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="1_5fjje"]
+[ext_resource type="Script" uid="uid://84hgbhgdlcku" path="res://Script/UIscript/不知道用不上.gd" id="1_ls3hc"]
 
 [node name="神秘滑动条" type="CanvasLayer" unique_id=1922894908]
 

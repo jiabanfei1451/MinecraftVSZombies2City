@@ -225,6 +225,7 @@ locale/locale_filter_mode=0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/fallback_to_opengl3=false
 gl_compatibility/driver="Vulkan"
 renderer/rendering_method="mobile"

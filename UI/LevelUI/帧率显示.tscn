@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p7n0b5y84g04"]
 
-[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://字体/minecraft_font.ttf" id="1_gqnhy"]
-[ext_resource type="Script" uid="uid://bk3rlgjkx058q" path="res://UI/UI脚本/帧率显示.gd" id="2_juray"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="1_gqnhy"]
+[ext_resource type="Script" uid="uid://bk3rlgjkx058q" path="res://Script/UIscript/帧率显示.gd" id="2_juray"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37vaj"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0.39215687)
