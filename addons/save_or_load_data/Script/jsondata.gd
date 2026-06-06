@@ -4,6 +4,7 @@ class_name JsonData
 extends Data
 @export var FilePath : String = "user://"
 @export var Filename : String = "node"
+@export var echo : bool = true
 var js : JSON = JSON.new()
 
 func add_Data(name:String = "node",array:Array = []):
@@ -49,11 +50,16 @@ func load_data(path:String = "null",name:String = "null"):
 	path = ProjectSettings.globalize_path(path) + name + ".json"
 	var file = FileAccess.open(path,FileAccess.READ) #创建变量
 	var js : JSON = JSON.new()
-	if js.parse(file.get_as_text()) == OK: # 解析
-		print(js.data)
-		return js
+	if file != null:
+		if js.parse(file.get_as_text()) == OK: # 解析
+			if echo == true:
+				print("解析完成:",js.data)
+			return js
+		else:
+			if echo == true:
+				print("报错:",js.get_error_line())
+			return null
 	else:
-		print(js.get_error_line())
 		return null
 ## 嵌套数据
 func datadata(name:Array[String],arrayData:Array[Array]):

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dot2p6iw5yjyl"]
+
+[ext_resource type="Script" uid="uid://cgc08jpp6c3gd" path="res://Script/Debug/Create_Level/button_id.gd" id="1_ds4c8"]
+[ext_resource type="Script" uid="uid://ksviukp2es5u" path="res://Script/Debug/Create_Level/Delete_array.gd" id="2_vmlkw"]
+[ext_resource type="Script" uid="uid://bqpglhpcagmg1" path="res://Script/Debug/Create_Level/upValue.gd" id="2_wjv2e"]
+[ext_resource type="Script" uid="uid://cbdfqii0gkfqu" path="res://Script/Debug/Create_Level/downValue.gd" id="3_vmlkw"]
+
+[node name="ButtonId" type="Control" unique_id=1104401883]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 40.0
+script = ExtResource("1_ds4c8")
+
+[node name="Panel" type="LineEdit" parent="." unique_id=289103109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "普通僵尸"
+alignment = 1
+
+[node name="up" type="Button" parent="." unique_id=692716286]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "《"
+script = ExtResource("2_wjv2e")
+
+[node name="Down" type="Button" parent="." unique_id=691013186]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "》"
+script = ExtResource("3_vmlkw")
+
+[node name="Delete" type="Button" parent="." unique_id=1610095756]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -20.0
+offset_right = 80.0
+offset_bottom = 20.0
+grow_vertical = 2
+text = "D"
+script = ExtResource("2_vmlkw")
+
+[connection signal="editing_toggled" from="Panel" to="Panel" method="_on_editing_toggled"]
+[connection signal="text_changed" from="Panel" to="Panel" method="_on_text_changed"]
+[connection signal="text_submitted" from="Panel" to="Panel" method="_on_text_submitted"]
+[connection signal="pressed" from="up" to="up" method="_on_pressed"]
+[connection signal="pressed" from="Down" to="Down" method="_on_pressed"]
+[connection signal="pressed" from="Delete" to="Delete" method="_on_pressed"]

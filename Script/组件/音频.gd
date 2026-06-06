@@ -1,4 +1,5 @@
 extends AudioStreamPlayer
+class_name 音频引擎
 @export_enum("音乐","音效") var 选项 : String = "音乐"
 @export var 可调用音乐引擎 : bool = false
 var jv : int = -1
@@ -21,8 +22,9 @@ func _process(delta: float) -> void:
 		if not playing:
 			play(0)
 		if 可调用音乐引擎 == true and jv != 音乐选项:
-			stream = 音量.音乐列表[音乐选项]
-			jv = 音乐选项
+			if 音乐选项 < 音量.音乐列表.size():
+				stream = 音量.音乐列表[音乐选项]
+				jv = 音乐选项
 	if 选项 == "音效":
 		if 音量.音效音量 != 0:
 			volume_db = -25 + 音量.音效音量 / 4

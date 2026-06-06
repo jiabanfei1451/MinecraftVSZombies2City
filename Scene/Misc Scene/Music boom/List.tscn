@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://gofpytx6buk2"]
+
+[ext_resource type="Script" uid="uid://bq0i62ure2noy" path="res://Script/Scene Script/Music boom/list.gd" id="1_k02jh"]
+[ext_resource type="Texture2D" uid="uid://cktbl2k54i706" path="res://Image/UI/Button/simplified UI/UI3.png" id="2_080j8"]
+[ext_resource type="Script" uid="uid://ddwlbm7hrvbl3" path="res://addons/save_or_load_data/Script/jsondata.gd" id="3_yg10m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrjmr"]
+texture = ExtResource("2_080j8")
+texture_margin_left = 5.053882
+texture_margin_top = 5.053882
+texture_margin_right = 4.0133767
+texture_margin_bottom = 7.4321795
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="List" type="Control" unique_id=1499785001 node_paths=PackedStringArray("纹理物体")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 57.0
+offset_bottom = 41.0
+focus_mode = 2
+script = ExtResource("1_k02jh")
+"偏移" = Vector2(28.5, 20.5)
+"按下纹理" = SubResource("StyleBoxTexture_qrjmr")
+"抬起纹理" = SubResource("StyleBoxTexture_qrjmr")
+"浮动纹理" = SubResource("StyleBoxTexture_qrjmr")
+"纹理物体" = NodePath("@Panel@18910")
+"物体纹理" = SubResource("StyleBoxTexture_qrjmr")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(28.5, 20.5),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":57.0,"offset_bottom":41.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":SubResource("StyleBoxTexture_qrjmr"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1027491963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.19607843)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1874486101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "你好"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JsonData" type="Node" parent="." unique_id=1711594094]
+script = ExtResource("3_yg10m")
+echo = false
+metadata/_custom_type_script = "uid://ddwlbm7hrvbl3"

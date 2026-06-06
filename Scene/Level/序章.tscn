@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cff7if8145pjk"]
 
-[ext_resource type="Script" uid="uid://bj6kh70jl7kvb" path="res://Scene/Level/序章.gd" id="1_y6jpe"]
+[ext_resource type="Script" uid="uid://bj6kh70jl7kvb" path="res://Script/Level Script/序章.gd" id="1_y6jpe"]
 [ext_resource type="Texture2D" uid="uid://c6adwiouvitvd" path="res://Image/Level_Image/绝命矿坑.png" id="2_x1yc8"]
 [ext_resource type="Texture2D" uid="uid://dh773s3jptynh" path="res://Image/Level_Image/绝命矿坑-house.png" id="3_k0egb"]
 [ext_resource type="Script" uid="uid://1ftos56re06y" path="res://Script/自动拆分地图.gd" id="3_mj86i"]
@@ -19,16 +19,27 @@ margin = Rect2(0, 151.44, 0, -72.575)
 [sub_resource type="AtlasTexture" id="AtlasTexture_weiov"]
 atlas = ExtResource("3_k0egb")
 
-[node name="序章" type="Node2D" unique_id=835649732]
+[node name="Level" type="Node2D" unique_id=835649732]
 z_as_relative = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_y6jpe")
+JSONPath = "res://2/data/level_data/kill stone_1"
+LoadJSON = true
 "音乐ID" = 3
 "关卡信息" = "绝命矿坑"
 
-[node name="地图" type="Sprite2D" parent="." unique_id=272418162]
+[node name="Map" type="Sprite2D" parent="." unique_id=272418162]
+position = Vector2(-700, -510)
+texture = SubResource("AtlasTexture_x1yc8")
+centered = false
+script = ExtResource("3_mj86i")
+"乘数" = 20
+metadata/_edit_lock_ = true
+
+[node name="Map-image" type="Sprite2D" parent="." unique_id=1503934412]
+visible = false
 position = Vector2(-700, -510)
 texture = SubResource("AtlasTexture_x1yc8")
 centered = false

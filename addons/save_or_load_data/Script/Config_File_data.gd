@@ -19,12 +19,15 @@ func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []
 func load_Data(name:String = "", key:String = "", Value:Array = [],filepath:String = Dataname):
 	config.load(filepath)
 	if config.load(filepath) == OK:
+		var v
+		if Value.size() > 0:
+			if Value.size() < 2:
+				v = Value[0]
+			else:
+				v = Value
 		print(Dataname)
-		print(config.get_value(name,key,Value))
-		if Value.size() > 1:
-			return config.get_value(name,key,Value[0])
-		else:
-			return config.get_value(name,key,Value)
+		print(config.get_value(name,key,v))
+		return config.get_value(name,key,v)
 func save_Data(path:String = "user://",pathname:String = "data",passworld:bool = false):
 	if saveing == false:
 		saveing = true

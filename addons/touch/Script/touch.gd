@@ -7,6 +7,10 @@ class_name Touchbutton
 signal createReady()
 ## 用于快速创建Process信号替代
 signal CreateProcess(delta:float)
+signal 鼠标浮动时(name:String)
+signal 鼠标离开时(name:String)
+signal 鼠标浮动时void
+signal 鼠标离开时void
 signal 按下时(name:String)
 signal 抬起时(name:String)
 signal 点击时(name:String)
@@ -40,6 +44,7 @@ signal 拖拽抬起时void
 @export var notTexture : bool = false
 @export var 按下纹理 : StyleBoxTexture = preload("uid://c4ffe4u1spmqk")
 @export var 抬起纹理 : StyleBoxTexture = preload("uid://ciadyrsksiodo")
+@export var 浮动纹理 : StyleBoxTexture = preload("uid://chwxk2gh8sl8f")
 @export_subgroup("Object State")
 @export var 纹理物体 : Panel
 @export var 物体纹理 : StyleBoxTexture
@@ -51,7 +56,6 @@ var pretime : float = 0
 var 触摸控制器 : TouchScreenButton
 func _ready() -> void:
 	初始化()
-	
 func _process(delta: float) -> void:
 	p2(delta)
 func 按下():
@@ -93,7 +97,14 @@ func 清空数组物体():
 			if i is Node:
 				i.queue_free()
 	object_array.clear()
-
+func 鼠标浮动():
+	纹理物体.add_theme_stylebox_override("panel",浮动纹理)
+	emit_signal("鼠标浮动时",name)
+	emit_signal("鼠标浮动时void")
+func 鼠标离开():
+	纹理物体.add_theme_stylebox_override("panel",抬起纹理)
+	emit_signal("鼠标离开时",name)
+	emit_signal("鼠标离开时void")
 func 初始化():
 	清空数组物体()
 	focus_mode = 触摸优先级
@@ -104,12 +115,13 @@ func 初始化():
 	生成触摸.pressed.connect(按下)
 	生成触摸.released.connect(抬起)
 	触摸控制器 = 生成触摸
-	
 	var 生成纹理物体 = Panel.new()
 	object_array.append(生成纹理物体)
 	生成纹理物体.add_theme_stylebox_override("panel",抬起纹理)
 	add_child(生成纹理物体)
 	纹理物体 = 生成纹理物体
+	纹理物体.mouse_entered.connect(鼠标浮动)
+	纹理物体.mouse_exited.connect(鼠标离开)
 func p2(delta:float):
 	var 形状
 	if pre == true:

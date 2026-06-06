@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://digtcoto5301p"]
+
+[ext_resource type="Script" uid="uid://cjtwq320iuujg" path="res://Script/Debug/Create_Level/wave_button.gd" id="1_sflry"]
+[ext_resource type="Script" uid="uid://b6b0v11prf283" path="res://Script/Debug/Create_Level/Boolbutton.gd" id="2_xsyat"]
+
+[node name="Wave_Button" type="Control" unique_id=856589828]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sflry")
+
+[node name="Panel" type="ColorRect" parent="." unique_id=1006791771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.3401113, 0.3570641, 0.19607843)
+
+[node name="Button" type="Button" parent="." unique_id=479660474]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "true"
+script = ExtResource("2_xsyat")

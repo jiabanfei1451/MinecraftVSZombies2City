@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://0o54cqdwluxc"]
+
+[ext_resource type="Script" uid="uid://c87llvew7hjj7" path="res://Script/Debug/Create_Level/monster_value_button.gd" id="1_1r7we"]
+
+[node name="MonsterValueButton" type="Control" unique_id=856589828]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1r7we")
+
+[node name="Panel" type="ColorRect" parent="." unique_id=1006791771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.3401113, 0.3570641, 0.19607843)
+
+[node name="Button" type="LineEdit" parent="." unique_id=30093752]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Value..."

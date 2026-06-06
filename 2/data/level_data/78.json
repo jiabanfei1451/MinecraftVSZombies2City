@@ -1,0 +1,11 @@
+{
+	"Level_name":"54654654",
+	"Level_Day":"546546456",
+	"Level_BGM":0,
+	"Level_monster":[[0.0, 0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0], [0.0, 0.0], [0.0], [0.0, 0.0, 0.0, 0.0], [], [0.0, 0.0, 0.0], [], [], []],
+	"Level_monster_Value":[456, 456456, 45645, 54645654, 456456, 0, 456456, 7891, 0, 456546, 45645645, 645645, 0],
+	"Level_Wave":[false, true, false, false, false, false, true, true, false, true, false, true, false],
+	"Level_image":"",
+	"Level_create_version":"beta0.1.2",
+	
+	}

@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://chwxk2gh8sl8f"]
+
+[ext_resource type="Texture2D" uid="uid://bc45c8wivcpch" path="res://addons/touch/img/button_pressed.png" id="1_pp0d8"]
+
+[resource]
+texture = ExtResource("1_pp0d8")
+texture_margin_left = 4.1890483
+texture_margin_top = 4.4593096
+texture_margin_right = 4.607953
+texture_margin_bottom = 4.162022
+region_rect = Rect2(0, 0, 400, 40)

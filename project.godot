@@ -14,8 +14,8 @@ config/name="MinecraftVSZombies2 City"
 config/name_localized={
 "ch_CN": "MinecraftVSZombies2 City"
 }
-config/version="beta:0.1.1"
-run/main_scene="uid://df03u8hamm06t"
+config/version="beta0.1.2"
+run/main_scene="uid://hshuh7jvvs2k"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="jiabanfei/MVZ2_City"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
@@ -23,7 +23,8 @@ run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/image="uid://yvjefvjdokp5"
-config/icon="uid://cd4yxkatgkbln"
+config/icon="uid://h36bdro1snsu"
+config/windows_native_icon="res://2/Icon/City2.ico"
 
 [audio]
 
@@ -43,10 +44,11 @@ driver/output_latency=1
 
 window/size/transparent=true
 window/subwindows/embed_subwindows=false
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
 window/ios/allow_high_refresh_rate=false
+display_server/stretch/scale_mode="integer"
 
 [dotnet]
 
@@ -206,6 +208,11 @@ ESC={
 "中键上"={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(96, 5),"global_position":Vector2(100, 43),"factor":2.0,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+F={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
 ]
 }
 

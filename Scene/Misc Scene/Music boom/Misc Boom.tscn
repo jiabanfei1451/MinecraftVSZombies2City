@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://ba3fg7v706epj"]
+
+[ext_resource type="Script" uid="uid://bh3eam51g3fbg" path="res://Script/Scene Script/Music boom/touch_bar.gd" id="1_nxefk"]
+[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="2_0l1nv"]
+[ext_resource type="Script" uid="uid://cf5ipg0t3q6wt" path="res://Script/Scene Script/Music boom/v_box_container.gd" id="2_nxefk"]
+[ext_resource type="Script" uid="uid://bolm0yb4rmo3x" path="res://Script/Scene Script/Music boom/misc_string.gd" id="4_usdfu"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="5_nvr3v"]
+[ext_resource type="Script" uid="uid://ddwlbm7hrvbl3" path="res://addons/save_or_load_data/Script/jsondata.gd" id="7_oq7ys"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7h7cr"]
+font = ExtResource("5_nvr3v")
+font_size = 30
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jw1br"]
+font = ExtResource("5_nvr3v")
+font_size = 20
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u5pa"]
+font = ExtResource("5_nvr3v")
+font_size = 22
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[node name="MiscBoom" type="Node2D" unique_id=277106670]
+
+[node name="Node2D" type="CanvasLayer" parent="." unique_id=299761234]
+
+[node name="touchBar" type="Panel" parent="Node2D" unique_id=2124376117]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_nxefk")
+"乘数" = 0.25
+stop = 0.01
+Valuecolor = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
+
+[node name="Music List" type="Control" parent="Node2D" unique_id=1954820477]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="ColorRect" parent="Node2D/Music List" unique_id=300820028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Node2D/Music List" unique_id=889124503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Music List/ScrollContainer" unique_id=1023375523]
+layout_mode = 2
+script = ExtResource("2_nxefk")
+
+[node name="Misc String" type="Control" parent="Node2D" unique_id=1028111659]
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_usdfu")
+
+[node name="Panel" type="ColorRect" parent="Node2D/Misc String" unique_id=1281699207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="名称" type="Label" parent="Node2D/Misc String" unique_id=266611637]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "名称sfdsfdsfdsfdsfdsfdssdfsm"
+label_settings = SubResource("LabelSettings_7h7cr")
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="出处" type="Label" parent="Node2D/Misc String" unique_id=1651205805]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 40.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "出处：7891"
+label_settings = SubResource("LabelSettings_jw1br")
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="出处2" type="Label" parent="Node2D/Misc String" unique_id=1383436840]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "出处：7891"
+label_settings = SubResource("LabelSettings_5u5pa")
+autowrap_mode = 2
+clip_text = true
+
+[node name="音频引擎" type="AudioStreamPlayer" parent="Node2D" unique_id=1714353191]
+script = ExtResource("2_0l1nv")
+"可调用音乐引擎" = true
+metadata/_custom_type_script = "uid://c3k2sp2sdnbph"
+
+[node name="JsonData" type="Node" parent="Node2D" unique_id=1903503424]
+script = ExtResource("7_oq7ys")
+echo = false
+metadata/_custom_type_script = "uid://ddwlbm7hrvbl3"
+
+[connection signal="滑动按下时void" from="Node2D/touchBar" to="Node2D/touchBar" method="_on_滑动按下时void"]
+[connection signal="滑动结束时void" from="Node2D/touchBar" to="Node2D/touchBar" method="_on_滑动结束时void"]

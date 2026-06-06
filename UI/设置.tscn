@@ -11,12 +11,16 @@
 [ext_resource type="Script" uid="uid://bm207kaj271ic" path="res://Script/UIscript/场景脚本/设置-修改缩放.gd" id="8_dh4i3"]
 [ext_resource type="Theme" uid="uid://bsballpnnbgjv" path="res://UI/UI主题/MC主题.tres" id="8_fx33r"]
 [ext_resource type="AudioStream" uid="uid://b60h48bgorsrw" path="res://Sound/MC按钮点击.ogg" id="8_yo5pr"]
+[ext_resource type="Script" uid="uid://bmmwhqtcrl6n8" path="res://Script/UIscript/场景脚本/设置/读取配置.gd" id="9_rftyy"]
 [ext_resource type="Texture2D" uid="uid://bydmxaoxdidn8" path="res://Image/UI/Button/form.png" id="9_tjun6"]
 [ext_resource type="Script" uid="uid://ddrb81k7l8ftn" path="res://Script/UIscript/场景脚本/设置-返回.gd" id="10_6vjo8"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="10_fx33r"]
 [ext_resource type="Script" uid="uid://bm5h8itmkx0l2" path="res://Script/UIscript/场景脚本/设置-开启卡槽动效.gd" id="10_ijgdf"]
 [ext_resource type="Script" uid="uid://cofnpiykgubod" path="res://Script/UIscript/场景脚本/设置/触控播放音效.gd" id="11_w854q"]
 [ext_resource type="Theme" uid="uid://l4176xm8imnj" path="res://UI/UI主题/MC文字主题.tres" id="12_6vjo8"]
+[ext_resource type="Script" uid="uid://cb5m5c5swkjq1" path="res://addons/touch/Script/TouchTextEdit.gd" id="15_1dq5s"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="16_f43t8"]
+[ext_resource type="Script" uid="uid://ceg2f8s4u3cix" path="res://addons/touch/tsch/功能测试.gd" id="17_1dq5s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dh4i3"]
 shader = ExtResource("1_6vjo8")
@@ -37,6 +41,7 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="设置" type="CanvasLayer" unique_id=1150050341]
 
 [node name="Control" type="Control" parent="." unique_id=1282284954]
+z_index = 1
 texture_filter = 1
 material = SubResource("ShaderMaterial_dh4i3")
 layout_mode = 3
@@ -365,12 +370,14 @@ Valuecolor = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
 
 [node name="1" type="Control" parent="Control/窗口背景" unique_id=1344507093]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("9_rftyy")
 
 [node name="Panel" type="Panel" parent="Control/窗口背景/1" unique_id=138318398]
 layout_mode = 0
@@ -409,6 +416,106 @@ text = "卡槽动效"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Panel2" type="Panel" parent="Control/窗口背景/1/Panel" unique_id=559136924]
+clip_children = 1
+layout_mode = 0
+offset_left = 190.88
+offset_top = 3.0
+offset_right = 236.88
+offset_bottom = 57.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijgdf")
+
+[node name="ColorRect" type="ColorRect" parent="Control/窗口背景/1/Panel/Panel2" unique_id=1971628631]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 61.0
+color = Color(0, 0, 0, 1)
+
+[node name="Panel3" type="Panel" parent="Control/窗口背景/1/Panel" unique_id=1574276710]
+clip_children = 1
+layout_mode = 0
+offset_left = 192.88
+offset_top = 5.0
+offset_right = 234.88
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijgdf")
+
+[node name="ColorRect" type="ColorRect" parent="Control/窗口背景/1/Panel/Panel3" unique_id=1806254938]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 61.0
+color = Color(1, 0, 0, 1)
+
+[node name="TouchTextEdit" type="ColorRect" parent="Control/窗口背景/1" unique_id=1006261555 node_paths=PackedStringArray("edit", "Ui", "Object_array")]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 83.0
+offset_right = 241.88
+offset_bottom = 123.0
+focus_mode = 2
+color = Color(0, 0.302, 1, 0.4)
+script = ExtResource("15_1dq5s")
+"占位符" = "X"
+"拖拽方向" = 2
+edit = NodePath("@Control@18891/@TextEdit@18897")
+Ui = NodePath("@Control@18891")
+Object_array = [null, null, NodePath("@Control@18891"), NodePath("@Control@18891/@TextEdit@18897")]
+"范围" = Vector2(241, 40)
+metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
+
+[node name="TouchTextEdit2" type="ColorRect" parent="Control/窗口背景/1" unique_id=427428123 node_paths=PackedStringArray("edit", "Ui", "Object_array")]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 123.0
+offset_right = 241.88
+offset_bottom = 163.0
+focus_mode = 2
+color = Color(0, 0.302, 1, 0.4)
+script = ExtResource("15_1dq5s")
+"占位符" = "Y"
+"拖拽方向" = 2
+edit = NodePath("@Control@18898/@TextEdit@18904")
+Ui = NodePath("@Control@18898")
+Object_array = [null, null, null, null, NodePath("@Control@18898"), NodePath("@Control@18898/@TextEdit@18904")]
+"范围" = Vector2(241, 40)
+metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
+
+[node name="Label" type="Label" parent="Control/窗口背景/1" unique_id=1713453841]
+layout_mode = 0
+offset_left = -0.11999512
+offset_top = 60.0
+offset_right = 79.880005
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("16_f43t8")
+text = "选卡时坐标"
+
+[node name="Label2" type="Label" parent="Control/窗口背景/1" unique_id=2126212232]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 163.0
+offset_right = 80.880005
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("16_f43t8")
+text = "游戏速度"
+
+[node name="touchBar" type="Panel" parent="Control/窗口背景/1" unique_id=1457038899 node_paths=PackedStringArray("滑块", "进度条颜色")]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 194.0
+offset_right = 243.88
+offset_bottom = 218.0
+script = ExtResource("17_1dq5s")
+"乘数" = 0.01
+value = 2.0
+stop = 0.1
+maxvalue = 3.0
+minvalue = 1.1
+"滑块大小" = Vector2(40, 30)
+Valuecolor = Color(0, 1, 1, 1)
+"滑块" = NodePath("滑块")
+"进度条颜色" = NodePath("值颜色")
+metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
+
 [node name="2" type="Control" parent="Control/窗口背景" unique_id=684756146]
 layout_mode = 1
 anchors_preset = 15
@@ -444,19 +551,8 @@ theme = ExtResource("8_fx33r")
 script = ExtResource("7_ofy6y")
 "按下时颜色" = Color(1, 1, 1, 0.5019608)
 "抬起时颜色" = Color(0, 0, 0, 0.5019608)
-"触摸优先级" = null
 "偏移" = Vector2(20, 20)
-"自动设置" = null
-"自动偏移模式" = null
-"短按阈值" = null
-"长按阈值" = null
-"启用" = null
-Debug = null
-"自动设置形状" = null
 notTexture = true
-"按下纹理" = null
-"抬起纹理" = null
-object_array = null
 metadata/_custom_type_script = "uid://3as2e6rf387r"
 
 [node name="Label" type="Label" parent="Control/保存" unique_id=2004691305]
@@ -541,6 +637,7 @@ vertical_alignment = 1
 
 [connection signal="拖拽时" from="Control/选项背景/Touchpad" to="Control/选项背景/Touchpad" method="_on_拖拽时"]
 [connection signal="滑动结束时void" from="Control/窗口背景/0/touchBar" to="Control/窗口背景/0/touchBar" method="_on_滑动结束时void"]
+[connection signal="点击时void" from="Control/窗口背景/1/Panel/Touchbutton" to="Control/窗口背景/1/Panel" method="_on_touchbutton_点击时void"]
 
 [editable path="Control/选项背景/VBoxContainer/选项卡"]
 [editable path="Control/选项背景/VBoxContainer/选项卡/选项/选项卡2"]

@@ -31,7 +31,10 @@ func _on_拖拽时(event: InputEventScreenDrag, 控制器: Touchpad) -> void:
 
 func 初始化2() -> void:
 	初始化()
-	
+	print(OS.get_name())
+	if OS.get_name() == "Windows":
+		if Rect != null:
+			Rect.queue_free()
 	var Textnode : Control = Control.new()
 	add_child(Textnode)
 	Object_array.append(Textnode)
@@ -53,6 +56,7 @@ func P3(delta:float) -> void:
 		Ui.position = Vector2(0,0)
 		Ui.size = size
 	if edit != null:
-		if edit != null:
-			edit.size = size
-			edit.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		文本 = edit.text
+		edit.placeholder_text = 占位符
+		edit.size = size
+		edit.modulate = Color(1.0, 1.0, 1.0, 1.0)
