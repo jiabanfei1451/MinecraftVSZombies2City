@@ -13,6 +13,7 @@ position = Vector2(516, 328.045)
 scale = Vector2(0.1, 0.1)
 texture = SubResource("AtlasTexture_aicqy")
 script = ExtResource("2_aicqy")
+"开启缓动" = true
 "x偏移" = Vector2(50, -50)
 "最大高度倍率" = Vector2(1, 1)
 "弹跳力" = 1.5

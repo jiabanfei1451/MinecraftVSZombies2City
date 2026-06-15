@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cgl575a7m4dah"]
+
+[ext_resource type="Texture2D" uid="uid://dliw6yskwobhy" path="res://Image/Map/Image_1773758552231_504.png" id="1_dutpm"]
+[ext_resource type="PackedScene" uid="uid://bft0faqonck1h" path="res://Object/可互动/button.tscn" id="2_7x7eg"]
+[ext_resource type="Script" uid="uid://wqvxrnejldrp" path="res://Script/Scene Script/Map/camera_2d.gd" id="3_ipoa5"]
+[ext_resource type="Script" uid="uid://tg5h3oljjhl1" path="res://Script/Scene Script/Map/touchpad.gd" id="4_2aahb"]
+
+[node name="绝命矿坑" type="Node2D" unique_id=172509928]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2034154827]
+offset_left = -9000.0
+offset_top = -9000.0
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=194900339]
+position = Vector2(154, 605)
+scale = Vector2(3, 3)
+texture = ExtResource("1_dutpm")
+
+[node name="关卡按钮" type="Node2D" parent="." unique_id=125479108]
+
+[node name="1-1" parent="关卡按钮" unique_id=1381559995 instance=ExtResource("2_7x7eg")]
+position = Vector2(77.99999, 99.99999)
+scale = Vector2(2.1, 2.1)
+
+[node name="1-2" parent="关卡按钮" unique_id=1831415660 instance=ExtResource("2_7x7eg")]
+position = Vector2(432.00003, 308.00003)
+scale = Vector2(2.1, 2.1)
+"显示" = "2"
+
+[node name="1-3" parent="关卡按钮" unique_id=809666549 instance=ExtResource("2_7x7eg")]
+position = Vector2(726, 480.99997)
+scale = Vector2(2.1, 2.1)
+"显示" = "3"
+
+[node name="1-4" parent="关卡按钮" unique_id=1467124486 instance=ExtResource("2_7x7eg")]
+position = Vector2(1015, 648)
+scale = Vector2(2.1, 2.1)
+"显示" = "4"
+
+[node name="1-5" parent="关卡按钮" unique_id=1717064865 instance=ExtResource("2_7x7eg")]
+position = Vector2(1309, 821.99994)
+scale = Vector2(2.1, 2.1)
+"显示" = "5"
+
+[node name="1-6" parent="关卡按钮" unique_id=600104869 instance=ExtResource("2_7x7eg")]
+position = Vector2(1601.9999, 995)
+scale = Vector2(2.1, 2.1)
+"显示" = "6"
+color = Color(0.95000005, 1, 0, 1)
+
+[node name="EX-1" parent="关卡按钮" unique_id=888178311 instance=ExtResource("2_7x7eg")]
+position = Vector2(1894.9999, 822)
+scale = Vector2(2.1, 2.1)
+"显示" = "EX-1"
+color = Color(1, 0, 0.9333334, 0.8392157)
+
+[node name="∞" parent="关卡按钮" unique_id=234473317 instance=ExtResource("2_7x7eg")]
+position = Vector2(897.99994, 304)
+scale = Vector2(2.1, 2.1)
+"显示" = "∞"
+color = Color(1, 0, 0.9333334, 0.8392157)
+
+[node name="S-10" parent="关卡按钮" unique_id=1495617410 instance=ExtResource("2_7x7eg")]
+position = Vector2(661, 164)
+scale = Vector2(2.1, 2.1)
+"显示" = "S-10"
+color = Color(1, 0, 0.9333334, 0.8392157)
+
+[node name="EX-2" parent="关卡按钮" unique_id=1580897895 instance=ExtResource("2_7x7eg")]
+position = Vector2(1660, 682)
+scale = Vector2(2.1, 2.1)
+"显示" = "EX-2"
+color = Color(1, 0, 0.9333334, 0.8392157)
+
+[node name="EX-3" parent="关卡按钮" unique_id=401430278 instance=ExtResource("2_7x7eg")]
+position = Vector2(2130, 960)
+scale = Vector2(2.1, 2.1)
+"显示" = "EX-3"
+color = Color(1, 0, 0.9333334, 0.8392157)
+
+[node name="1-7" parent="关卡按钮" unique_id=192450236 instance=ExtResource("2_7x7eg")]
+position = Vector2(1951.9999, 1200)
+scale = Vector2(2.1, 2.1)
+"显示" = "7"
+
+[node name="1-8" parent="关卡按钮" unique_id=596467910 instance=ExtResource("2_7x7eg")]
+position = Vector2(1658.9999, 1373)
+scale = Vector2(2.1, 2.1)
+"显示" = "8"
+
+[node name="M-1" parent="关卡按钮" unique_id=1630859035 instance=ExtResource("2_7x7eg")]
+position = Vector2(1247, 1133.9999)
+scale = Vector2(2.1, 2.1)
+"显示" = "M-1"
+
+[node name="M-2" parent="关卡按钮" unique_id=1537429536 instance=ExtResource("2_7x7eg")]
+position = Vector2(1014.99994, 1268.9999)
+scale = Vector2(2.1, 2.1)
+"显示" = "M-2"
+
+[node name="1-9" parent="关卡按钮" unique_id=1836229367 instance=ExtResource("2_7x7eg")]
+position = Vector2(1367, 1546.9999)
+scale = Vector2(2.1, 2.1)
+"显示" = "9"
+
+[node name="1-10" parent="关卡按钮" unique_id=1011322001 instance=ExtResource("2_7x7eg")]
+position = Vector2(780.99994, 1889.9999)
+scale = Vector2(2.1, 2.1)
+"显示" = "10"
+
+[node name="1-11" parent="关卡按钮" unique_id=980620197 instance=ExtResource("2_7x7eg")]
+position = Vector2(604, 1998)
+scale = Vector2(2.1, 2.1)
+"显示" = "11"
+color = Color(1, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2074068623]
+script = ExtResource("3_ipoa5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1169309068]
+
+[node name="Touchpad" type="ColorRect" parent="CanvasLayer" unique_id=43302306]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("4_2aahb")
+"范围" = Vector2(1152, 648)
+metadata/_custom_type_script = "uid://sc48ukg1du60"
+
+[connection signal="拖拽时" from="CanvasLayer/Touchpad" to="CanvasLayer/Touchpad" method="_on_拖拽时"]

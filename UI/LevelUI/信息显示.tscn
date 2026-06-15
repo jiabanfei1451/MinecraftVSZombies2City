@@ -6,13 +6,13 @@
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="3_tp0ku"]
 [ext_resource type="Script" uid="uid://bitai011pgl6u" path="res://Script/UIscript/关卡名称.gd" id="5_8rpr4"]
 [ext_resource type="Script" uid="uid://bk3rlgjkx058q" path="res://Script/UIscript/帧率显示.gd" id="6_4aymg"]
-[ext_resource type="Texture2D" uid="uid://tp7bhmegjr7k" path="res://UI/Button/Meui/MeUIbutton.png" id="7_255ox"]
 [ext_resource type="StyleBox" uid="uid://dt5byxlnp24y5" path="res://UI/Button/Meui/Theme/Meui.tres" id="7_dmwc8"]
-[ext_resource type="Texture2D" uid="uid://bceg7hdui7yxd" path="res://UI/Button/Meui/UpspeedButton.png" id="8_fmsfl"]
-[ext_resource type="Texture2D" uid="uid://cinldlcw44is2" path="res://UI/Button/Meui/MeUi-hollow.png" id="8_int0l"]
+[ext_resource type="Texture2D" uid="uid://uqq66r4x218a" path="res://Image/UI/Button/MEUIV2/MEUI-hollow.png" id="9_bvfal"]
 [ext_resource type="Script" uid="uid://dkh4kn0ghdbnc" path="res://Script/UIscript/场景脚本/Level-Script/touchbutton.gd" id="9_v85ml"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="10_5xw1q"]
+[ext_resource type="Texture2D" uid="uid://ne4tp2rw342v" path="res://Image/UI/Button/MEUIV2/MEUI.png" id="10_bvfal"]
 [ext_resource type="AudioStream" uid="uid://6q2ndb44igt7" path="res://Sound/UI/UpspeedUI/加速.wav" id="11_75t6d"]
+[ext_resource type="Texture2D" uid="uid://gm0d0x8f0bfe" path="res://Image/UI/Button/MEUIV2/UPspeed.png" id="11_evylj"]
 [ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="12_mtia0"]
 [ext_resource type="Script" uid="uid://c03ti28ciy46w" path="res://UI/LevelUI/LevelBar.gd" id="13_5xw1q"]
 [ext_resource type="AudioStream" uid="uid://q22uvnfslmrq" path="res://Sound/UI/UpspeedUI/减速.wav" id="13_bvfal"]
@@ -24,14 +24,27 @@ shader_parameter/miao_bian = true
 shader_parameter/coloro = Color(0, 0, 0, 1)
 shader_parameter/lc = 100.0
 
-[sub_resource type="Gradient" id="Gradient_dmwc8"]
-offsets = PackedFloat32Array(0)
+[sub_resource type="Gradient" id="Gradient_mtia0"]
+offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fmsfl"]
-gradient = SubResource("Gradient_dmwc8")
-width = 2
-height = 3
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bvfal"]
+gradient = SubResource("Gradient_mtia0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_evylj"]
+texture = ExtResource("9_bvfal")
+texture_margin_left = 15.55527
+texture_margin_right = 15.6567955
+texture_margin_bottom = 8.744732
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vg48g"]
+texture = ExtResource("10_bvfal")
+texture_margin_left = 15.647713
+texture_margin_top = 15.827571
+texture_margin_right = 15.467853
+texture_margin_bottom = 15.467853
+region_rect = Rect2(1, 1, 62, 62)
 
 [node name="信息显示" type="CanvasLayer" unique_id=606184370]
 script = ExtResource("1_nttya")
@@ -186,29 +199,66 @@ offset_bottom = 3.2999992
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="LevelvalueBar/背景/水平排列" unique_id=404491899]
+[node name="Control" type="Control" parent="LevelvalueBar/背景/水平排列" unique_id=2083885461]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="LevelvalueBar/背景/水平排列/Control" unique_id=404491899]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 2.5
+offset_right = 197.0
+offset_bottom = 26.5
 step = 0.0
+value = 100.0
 fill_mode = 1
 nine_patch_stretch = true
 stretch_margin_left = 10
 stretch_margin_top = 10
 stretch_margin_right = 10
 stretch_margin_bottom = 10
-texture_under = ExtResource("7_255ox")
-texture_over = ExtResource("8_int0l")
-texture_progress = SubResource("GradientTexture2D_fmsfl")
-tint_progress = Color(0, 0.65, 0.03249997, 1)
+texture_progress = SubResource("GradientTexture2D_bvfal")
+tint_progress = Color(4.813075e-08, 0.5265447, 0.022644555, 1)
 script = ExtResource("13_5xw1q")
+
+[node name="Panel" type="Panel" parent="LevelvalueBar/背景/水平排列/Control" unique_id=244138389]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.0
+anchor_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_evylj")
 
 [node name="TextureRect" type="TextureRect" parent="LevelvalueBar/背景/水平排列" unique_id=789175345]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
-texture = ExtResource("8_fmsfl")
+texture = ExtResource("10_bvfal")
 expand_mode = 1
+
+[node name="Panel" type="Panel" parent="LevelvalueBar/背景/水平排列/TextureRect" unique_id=713914638]
+clip_children = 1
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.5
+offset_right = 51.0
+offset_bottom = 50.5
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vg48g")
+
+[node name="TextureRect" type="TextureRect" parent="LevelvalueBar/背景/水平排列/TextureRect/Panel" unique_id=2124484645]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -2.0
+offset_right = 50.0
+offset_bottom = 30.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_evylj")
+stretch_mode = 1
 
 [node name="Touchbutton" type="Control" parent="LevelvalueBar/背景/水平排列/TextureRect" unique_id=959016107]
 layout_mode = 1
@@ -220,7 +270,6 @@ grow_vertical = 2
 focus_mode = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("9_v85ml")
-"触摸优先级" = 0
 "偏移" = Vector2(32, 32)
 notTexture = true
 "物体纹理" = ExtResource("10_5xw1q")

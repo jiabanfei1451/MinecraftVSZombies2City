@@ -19,6 +19,7 @@ signal _死亡时()
 @export var 计时器节点 : Timer
 @export var 计时器自动生成 : bool = false
 @export var 自动生成物理组件 : bool = true
+var 已实例化光源 : Array[Node]
 #endregion
 
 #region 属性
@@ -224,18 +225,7 @@ func 初始化():
 	visible = true
 	物理节点.初始高度 += 坐标校准.y
 	position.x += 坐标校准.x
-	光源节点 = get_tree().current_scene.get_node("光源")
-	var 循环取值 : int = 0
-	for i in 光源数组.size(): 
-		var 实列化光源 = 光源数组[循环取值].instantiate()
-		实列化光源.绑定偏移 = 光源生成偏移[循环取值]
-		实列化光源.绑定颜色 = 光源颜色[循环取值]
-		实列化光源.绑定缩放 = 光源缩放[循环取值]
-		实列化光源.绑定物体 = $"."
-		光源节点.add_child(实列化光源)
-		实列化光源.z_index = 4
-		循环取值 += 1
-
+	光源生成()
 func 循环判定(delta: float):
 	if get_tree().current_scene.DEBUG == true:
 		if d != 怪物:
@@ -266,3 +256,18 @@ func 粒子生成(数量:int):
 		else:
 			节点提供变量.粒子2.add_child(粒子实例化)
 #endregion
+
+func 光源生成():
+	光源节点 = get_tree().current_scene.get_node("光源")
+	var 循环取值 : int = 0
+	for i in 光源数组.size(): 
+		var 实列化光源 = 光源数组[循环取值].instantiate()
+		实列化光源.绑定偏移 = 光源生成偏移[循环取值]
+		实列化光源.绑定颜色 = 光源颜色[循环取值]
+		实列化光源.使用绑定颜色 = true
+		实列化光源.绑定缩放 = 光源缩放[循环取值]
+		实列化光源.绑定物体 = $"."
+		光源节点.add_child(实列化光源)
+		实列化光源.z_index = 4
+		循环取值 += 1
+		已实例化光源.append(实列化光源)

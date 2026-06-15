@@ -7,13 +7,14 @@
 light_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_di3p6"]
+blend_mode = 1
 
 [node name="光源" type="Area2D" unique_id=2002878016]
 texture_filter = 2
 texture_repeat = 1
 material = SubResource("CanvasItemMaterial_btpa0")
 script = ExtResource("1_btpa0")
-"自动绑定父节点" = false
+"绑定颜色" = Color(1, 1, 1, 1)
 
 [node name="Bubble" type="Sprite2D" parent="." unique_id=1692741413]
 material = SubResource("CanvasItemMaterial_di3p6")
@@ -23,3 +24,5 @@ texture = ExtResource("2_di3p6")
 visible = false
 texture_filter = 2
 texture = ExtResource("2_di3p6")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

@@ -31,7 +31,10 @@ func _on_拖拽时(event: InputEventScreenDrag, 控制器: Touchpad) -> void:
 
 func 初始化2() -> void:
 	初始化()
-	
+	print(OS.get_name())
+	if OS.get_name() == "Windows":
+		if Rect != null:
+			Rect.queue_free()
 	var Textnode : Control = Control.new()
 	add_child(Textnode)
 	Object_array.append(Textnode)
@@ -49,10 +52,14 @@ func 初始化2() -> void:
 	print("s")
 func P3(delta:float) -> void:
 	p2(delta)
+	if Game_Ready.OSNAME == "Android":
+		edit.set_caret_line(999)
+		edit.set_caret_column(999)
 	if Ui != null:
 		Ui.position = Vector2(0,0)
 		Ui.size = size
 	if edit != null:
-		if edit != null:
-			edit.size = size
-			edit.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		文本 = edit.text
+		edit.placeholder_text = 占位符
+		edit.size = size
+		edit.modulate = Color(1.0, 1.0, 1.0, 1.0)

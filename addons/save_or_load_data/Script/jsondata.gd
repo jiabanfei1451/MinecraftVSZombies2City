@@ -2,17 +2,22 @@
 ## 适用于json的数据存储
 class_name JsonData
 extends Data
+## 文件路径
 @export var FilePath : String = "user://"
+## 文件名称
 @export var Filename : String = "node"
+## 如果该值为 True 时开始读取输出日志
+@export var echo : bool = true
 var js : JSON = JSON.new()
 
+## 创建新的数据框架
 func add_Data(name:String = "node",array:Array = []):
 	dataname.append(name)
 	if array.size() > 1:
 		data.append(array)
 	else:
 		data.append(array[0])
-## 以Json格式存储数据
+## 打包add_Data创建的数据并以Json格式存储数据
 func save_json(path:String = "null",name:String = "null"):
 	# 你看你妈呢?
 	if path == "null":
@@ -48,13 +53,27 @@ func load_data(path:String = "null",name:String = "null"):
 		name = Filename
 	path = ProjectSettings.globalize_path(path) + name + ".json"
 	var file = FileAccess.open(path,FileAccess.READ) #创建变量
+	print(file.file_exists(path))
 	var js : JSON = JSON.new()
-	if js.parse(file.get_as_text()) == OK: # 解析
-		print(js.data)
-		return js
+	if file != null:
+		if js.parse(file.get_as_text()) == OK: # 解析
+			if echo == true:
+				print("解析完成:",js.data)
+			return js
+		else:
+			if echo == true:
+				print("报错:",js.get_error_line())
+			return null
 	else:
-		print(js.get_error_line())
 		return null
+## 读取内部数据，用于读取导出后 (Res://) 的数据，适用于手机设备内容的读取，但是这可能会加重性能负担，可使用轻量化的Load_data
+func res_load_data(path:String = "null",name:String = "null"):
+	var re = ResourceLoader
+	var Path = ProjectSettings.globalize_path(path) + name + ".json"
+	var js : JSON = re.load(Path)
+	if echo == true:
+		print(js.data)
+	return js
 ## 嵌套数据
 func datadata(name:Array[String],arrayData:Array[Array]):
 	var data : String = "{}"

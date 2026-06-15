@@ -1,0 +1,255 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dsjfxmsbblpd0"]
+
+[sub_resource type="Shader" id="Shader_ayo2j"]
+code = "shader_type canvas_item;
+uniform vec4 colo : source_color;
+uniform float RValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform float GValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform float BValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform float AValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform bool oneValue = false;
+uniform bool setAlpha = false;
+group_uniforms Color;
+uniform float MixR :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float MixG :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float MixB :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float MixA :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float R = 1.0;
+uniform float G = 1.0;
+uniform float B = 1.0;
+uniform float A = 1.0;
+group_uniforms TimeValue;
+group_uniforms TimeValue.Time;
+uniform float timeR = 1;
+uniform float timeG = 1;
+uniform float timeB = 1;
+uniform float timeA = 1;
+uniform float timeR2 = 1;
+uniform float timeG2 = 1;
+uniform float timeB2 = 1;
+uniform float timeA2 = 1;
+group_uniforms TimeValue.multiplier;
+uniform float multiplierR = 0;
+uniform float multiplierG = 0;
+uniform float multiplierB = 0;
+uniform float multiplierA = 0;
+uniform float multiplierR2 = 0;
+uniform float multiplierG2 = 0;
+uniform float multiplierB2 = 0;
+uniform float multiplierA2 = 0;
+group_uniforms TimeValue.Valuemultiplier;
+uniform float ValuemultiplierR :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierG :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierB :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierA :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierR2 :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierG2 :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierB2 :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierA2 :hint_range(-1.0, 1.0, 0) = 1;
+group_uniforms TimeValue;
+uniform bool One = false;
+group_uniforms functionMode;
+uniform int Function_styleR : hint_range(0, 2, 0);
+uniform int Function_styleG : hint_range(0, 2, 0);
+uniform int Function_styleB : hint_range(0, 2, 0);
+uniform int Function_styleA : hint_range(0, 2, 0);
+group_uniforms o;
+uniform bool TypeClampR = false;
+uniform float ClampR = 0.5;
+uniform float ClampRMin = 0;
+uniform bool TypeClampG = false;
+uniform float ClampG = 0.5;
+uniform float ClampGMin = 0;
+uniform bool TypeClampB = false;
+uniform float ClampB = 0.5;
+uniform float ClampBMin = 0;
+uniform bool TypeClampR2 = false;
+uniform float ClampR2 = 0.5;
+uniform float ClampRMin2 = 0;
+uniform bool TypeClampG2 = false;
+uniform float ClampG2 = 0.5;
+uniform float ClampGMin2 = 0;
+uniform bool TypeClampB2 = false;
+uniform float ClampB2 = 0.5;
+uniform float ClampBMin2 = 0;
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	float VR;
+	float VR2;
+	float VG = sin((TIME * multiplierG) + timeG);
+	float VG2 = sin((TIME * multiplierG2) + timeG2);
+	float VB = sin((TIME * multiplierB) + timeB);
+	float VB2 = sin((TIME * multiplierB2) + timeB2);
+	float VA = sin((TIME * multiplierA) + timeA);
+	float VA2 = sin((TIME * multiplierA2) + timeA2);
+	if (Function_styleR == 0){
+		VR = sin((TIME * multiplierR) + timeR);
+		VR2 = sin((TIME * multiplierR2) + timeR2);
+	}
+	else if(Function_styleR == 1){
+		VR = cos((TIME * multiplierR) + timeR);
+		VR2 = cos((TIME * multiplierR2) + timeR2);
+	}
+	else if(Function_styleR == 2){
+		VG = tan((TIME * multiplierR) + timeR);
+		VG2 = tan((TIME * multiplierR) + timeR2);
+	}
+	if (Function_styleR == 0){
+		VG = sin((TIME * multiplierG) + timeG);
+		VG2 = sin((TIME * multiplierG2) + timeG2);
+	}
+	else if(Function_styleG == 1){
+		VG = cos((TIME * multiplierG) + timeG);
+		VG2 = cos((TIME * multiplierG2) + timeG2);
+	}
+	else if(Function_styleG == 2){
+		VG = tan((TIME * multiplierG) + timeG);
+		VG2 = tan((TIME * multiplierG2) + timeG2);
+	}
+	if (Function_styleR == 0){
+		VB = sin((TIME * multiplierB) + timeB);
+		VB2 = sin((TIME * multiplierB2) + timeB2);
+	}
+	else if(Function_styleB == 1){
+		VB = cos((TIME * multiplierB) + timeB);
+		VB2 = cos((TIME * multiplierB2) + timeB2);
+	}
+	else if(Function_styleB == 2){
+		VB = tan((TIME * multiplierB) + timeB);
+		VB2 = tan((TIME * multiplierB2) + timeB2);
+	}
+	if (Function_styleR == 0){
+		VA = sin((TIME * multiplierA) + timeA);
+		VA2 = sin((TIME * multiplierA2) + timeA2);
+	}
+	else if(Function_styleA == 1){
+		VA = cos((TIME * multiplierA) + timeA);
+		VA2 = cos((TIME * multiplierA2) + timeA2);
+	}
+	else if(Function_styleA == 2){
+		VA = tan((TIME * multiplierA) + timeA);
+		VA2 = tan((TIME * multiplierA2) + timeA2);
+	}
+	VR *= ValuemultiplierR;
+	VR2 *= ValuemultiplierR2;
+	VG *= ValuemultiplierG;
+	VG2 *= ValuemultiplierG2;
+	VB *= ValuemultiplierB;
+	VB2 *= ValuemultiplierB2;
+	VA *= ValuemultiplierA;
+	VA2 *= ValuemultiplierA2;
+	if (One == true){
+		VB2 = VB;
+		VR2 = VR;
+		VG2 = VG;
+		VA2 = VA;
+	}
+	if (TypeClampR == true){
+		VR = clamp(VR,ClampRMin,ClampR);
+	}
+	if (TypeClampG == true){
+		VG = clamp(VR,ClampGMin,ClampG);
+	}
+	if (TypeClampB == true){
+		VB = clamp(VR,ClampBMin,ClampB);
+	}
+	if (TypeClampR2 == true){
+		VR2 = clamp(VR2,ClampRMin2,ClampR2);
+	}
+	if (TypeClampG2 == true){
+		VG2 = clamp(VR2,ClampGMin2,ClampG2);
+	}
+	if (TypeClampB == true){
+		VB2 = clamp(VR2,ClampBMin2,ClampB2);
+	}
+	if (oneValue == false){
+		COLOR.r = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		COLOR.g = mix(UV.x * GValue * VG,colo.g * (VG2 + G),MixG);
+		COLOR.b = mix(UV.x * BValue * VB,colo.b * (VB2 + B),MixB);
+		if (setAlpha == true){
+		COLOR.a = mix(UV.x * AValue * VA,colo.b * (VA2 + A),MixA);
+		}
+	}
+	else{
+		COLOR.r = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		COLOR.g = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		COLOR.b = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		if (setAlpha == true){
+		COLOR.a = mix(UV.x * AValue * VA,colo.b * (VA2 + A),MixA);
+		}
+	}
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[resource]
+shader = SubResource("Shader_ayo2j")
+shader_parameter/colo = Color(1, 1, 1, 1)
+shader_parameter/RValue = -12.921069860458374
+shader_parameter/GValue = -6.210538744926453
+shader_parameter/BValue = -6.345522701740265
+shader_parameter/AValue = 0.5
+shader_parameter/oneValue = false
+shader_parameter/setAlpha = false
+shader_parameter/MixR = 0.3
+shader_parameter/MixG = 0.4
+shader_parameter/MixB = 0.3
+shader_parameter/MixA = 0.5
+shader_parameter/R = 0.24
+shader_parameter/G = 1.0
+shader_parameter/B = 1.0
+shader_parameter/A = 1.0
+shader_parameter/One = false
+shader_parameter/timeR = 1.0
+shader_parameter/timeG = 5.0
+shader_parameter/timeB = 15.0
+shader_parameter/timeA = 1.0
+shader_parameter/timeR2 = 1.0
+shader_parameter/timeG2 = 9.175
+shader_parameter/timeB2 = 9.61
+shader_parameter/timeA2 = 1.0
+shader_parameter/multiplierR = 1.0
+shader_parameter/multiplierG = 1.5
+shader_parameter/multiplierB = 2.0
+shader_parameter/multiplierA = 0.0
+shader_parameter/multiplierR2 = 0.0
+shader_parameter/multiplierG2 = 0.0
+shader_parameter/multiplierB2 = 0.0
+shader_parameter/multiplierA2 = 0.0
+shader_parameter/ValuemultiplierR = 1.0
+shader_parameter/ValuemultiplierG = 0.43421054
+shader_parameter/ValuemultiplierB = 1.0
+shader_parameter/ValuemultiplierA = 1.0
+shader_parameter/ValuemultiplierR2 = 1.0
+shader_parameter/ValuemultiplierG2 = 0.0
+shader_parameter/ValuemultiplierB2 = 0.0
+shader_parameter/ValuemultiplierA2 = 0.0
+shader_parameter/Function_styleR = 0
+shader_parameter/Function_styleG = 0
+shader_parameter/Function_styleB = 0
+shader_parameter/Function_styleA = 0
+shader_parameter/TypeClampR = false
+shader_parameter/ClampR = 0.5
+shader_parameter/ClampRMin = 11.0
+shader_parameter/TypeClampG = true
+shader_parameter/ClampG = 1.0
+shader_parameter/ClampGMin = 0.0
+shader_parameter/TypeClampB = false
+shader_parameter/ClampB = 0.5
+shader_parameter/ClampBMin = 0.1
+shader_parameter/TypeClampR2 = false
+shader_parameter/ClampR2 = 0.5
+shader_parameter/ClampRMin2 = 0.0
+shader_parameter/TypeClampG2 = true
+shader_parameter/ClampG2 = 1.0
+shader_parameter/ClampGMin2 = 0.0
+shader_parameter/TypeClampB2 = false
+shader_parameter/ClampB2 = 0.5
+shader_parameter/ClampBMin2 = 0.0

@@ -28,6 +28,10 @@ signal 滑动结束时void
 @export var 进度条颜色 : ColorRect
 var 当前值 : float
 func _ready() -> void:
+	初始化()
+func _process(delta: float) -> void:
+	p2(delta)
+func 初始化():
 	当前值 = value
 	var huakuai : PackedScene = preload("uid://ceom1v7ilwyw3")
 	var huakuaii = huakuai.instantiate()
@@ -41,8 +45,7 @@ func _ready() -> void:
 	滑块.name = "滑块"
 	进度条颜色.name = "值颜色"
 	add_child(进度条颜色)
-func _process(delta: float) -> void:
-	
+func p2(delta:float):
 	if value != 当前值:
 		emit_signal("值变化时",name)
 		emit_signal("值变化时void")

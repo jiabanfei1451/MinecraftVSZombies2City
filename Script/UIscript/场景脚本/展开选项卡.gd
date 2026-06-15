@@ -33,7 +33,7 @@ func 展开():
 		for i in $"选项".get_children():
 			i.启用 = false
 		tween.tween_property($".","size:y",初始大小.y,0.5).set_trans(Tween.TRANS_QUART)
-		tween.tween_property($".","custom_minimum_size:y",30,0.4).set_trans(Tween.TRANS_SINE)
+		tween.tween_property($".","custom_minimum_size:y",45,0.4).set_trans(Tween.TRANS_SINE)
 		tween.tween_property($"显示选项","color",收起颜色,0.5).set_trans(Tween.TRANS_QUART)
 	else:
 		已展开 = true

@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://gofpytx6buk2"]
+
+[ext_resource type="Script" uid="uid://bq0i62ure2noy" path="res://Script/Scene Script/Music room/list.gd" id="1_2nty3"]
+[ext_resource type="Texture2D" uid="uid://cktbl2k54i706" path="res://Image/UI/Button/simplified UI/UI3.png" id="2_l7dvx"]
+[ext_resource type="Shader" uid="uid://cfx6chamlduit" path="res://Shader/渐变.gdshader" id="3_l7dvx"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="3_ll4oi"]
+[ext_resource type="Script" uid="uid://ddwlbm7hrvbl3" path="res://addons/save_or_load_data/Script/jsondata.gd" id="4_pid3e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrjmr"]
+texture = ExtResource("2_l7dvx")
+texture_margin_left = 5.053882
+texture_margin_top = 5.053882
+texture_margin_right = 4.0133767
+texture_margin_bottom = 7.4321795
+region_rect = Rect2(0, 0, 64, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll4oi"]
+shader = ExtResource("3_l7dvx")
+shader_parameter/colo = Color(0.96506554, 0, 0.4754393, 1)
+shader_parameter/RValue = 0.05499999999999994
+shader_parameter/GValue = 1.65
+shader_parameter/BValue = -0.28500000000000014
+shader_parameter/AValue = 0.5
+shader_parameter/oneValue = false
+shader_parameter/setAlpha = false
+shader_parameter/MixR = 0.5
+shader_parameter/MixG = 0.5
+shader_parameter/MixB = 0.5
+shader_parameter/MixA = 0.5
+shader_parameter/R = 1.0
+shader_parameter/G = 1.0
+shader_parameter/B = 1.0
+shader_parameter/A = 1.0
+shader_parameter/One = false
+shader_parameter/timeR = 1.0
+shader_parameter/timeG = 1.0
+shader_parameter/timeB = 1.0
+shader_parameter/timeA = 1.0
+shader_parameter/timeR2 = 1.0
+shader_parameter/timeG2 = 1.0
+shader_parameter/timeB2 = 1.0
+shader_parameter/timeA2 = 1.0
+shader_parameter/multiplierR = 0.0
+shader_parameter/multiplierG = 0.0
+shader_parameter/multiplierB = 0.0
+shader_parameter/multiplierA = 0.0
+shader_parameter/multiplierR2 = 0.0
+shader_parameter/multiplierG2 = 0.0
+shader_parameter/multiplierB2 = 0.0
+shader_parameter/multiplierA2 = 0.0
+shader_parameter/ValuemultiplierR = 1.0
+shader_parameter/ValuemultiplierG = 1.0
+shader_parameter/ValuemultiplierB = 1.0
+shader_parameter/ValuemultiplierA = 1.0
+shader_parameter/ValuemultiplierR2 = 1.0
+shader_parameter/ValuemultiplierG2 = 1.0
+shader_parameter/ValuemultiplierB2 = 1.0
+shader_parameter/ValuemultiplierA2 = 1.0
+shader_parameter/Function_styleR = 0
+shader_parameter/Function_styleG = 0
+shader_parameter/Function_styleB = 0
+shader_parameter/Function_styleA = 0
+shader_parameter/TypeClampR = false
+shader_parameter/ClampR = 0.5
+shader_parameter/ClampRMin = 0.0
+shader_parameter/TypeClampG = false
+shader_parameter/ClampG = 0.5
+shader_parameter/ClampGMin = 0.0
+shader_parameter/TypeClampB = false
+shader_parameter/ClampB = 0.5
+shader_parameter/ClampBMin = 0.0
+shader_parameter/TypeClampR2 = false
+shader_parameter/ClampR2 = 0.5
+shader_parameter/ClampRMin2 = 0.0
+shader_parameter/TypeClampG2 = false
+shader_parameter/ClampG2 = 0.5
+shader_parameter/ClampGMin2 = 0.0
+shader_parameter/TypeClampB2 = false
+shader_parameter/ClampB2 = 0.5
+shader_parameter/ClampBMin2 = 0.0
+shader_parameter/TypeStepR = false
+shader_parameter/StepR = 0.5
+shader_parameter/StepRMin = 0.0
+shader_parameter/TypeStepG = false
+shader_parameter/StepG = 0.5
+shader_parameter/StepGMin = 0.0
+shader_parameter/TypeStepB = false
+shader_parameter/StepB = 0.5
+shader_parameter/StepBMin = 0.0
+shader_parameter/TypeStepR2 = false
+shader_parameter/StepR2 = 0.5
+shader_parameter/StepRMin2 = 0.0
+shader_parameter/TypeStepG2 = false
+shader_parameter/StepG2 = 0.5
+shader_parameter/StepGMin2 = 0.0
+shader_parameter/TypeStepB2 = false
+shader_parameter/StepB2 = 0.5
+shader_parameter/StepBMin2 = 0.0
+shader_parameter/TypedistanceR = false
+shader_parameter/distanceR = 0.24999977089199987
+shader_parameter/distanceRMin = -1.0800001993798407
+shader_parameter/TypedistanceG = false
+shader_parameter/distanceG = -0.2800002172614402
+shader_parameter/distanceGMin = -0.7000002078736003
+shader_parameter/TypedistanceB = false
+shader_parameter/distanceB = 0.24999977089199987
+shader_parameter/distanceBMin = 1.9399997331171193
+shader_parameter/TypedistanceA = false
+shader_parameter/distanceA = 0.5
+shader_parameter/distanceAMin = 0.0
+shader_parameter/TypedistanceR2 = false
+shader_parameter/distanceR2 = 0.1999997720095994
+shader_parameter/distanceRMin2 = -1.1500001978151992
+shader_parameter/TypedistanceG2 = false
+shader_parameter/distanceG2 = -3.7500001397
+shader_parameter/distanceGMin2 = 1.5999997407168003
+shader_parameter/TypedistanceB2 = false
+shader_parameter/distanceB2 = 0.1999997720095994
+shader_parameter/distanceBMin2 = 0.5999997630687997
+shader_parameter/TypedistanceA2 = false
+shader_parameter/distanceA2 = 0.5
+shader_parameter/distanceAMin2 = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_143qi"]
+font = ExtResource("3_ll4oi")
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="List" type="Control" unique_id=1499785001]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 57.0
+offset_bottom = 41.0
+focus_mode = 2
+script = ExtResource("1_2nty3")
+"偏移" = Vector2(28.5, 20.5)
+"按下纹理" = SubResource("StyleBoxTexture_qrjmr")
+"抬起纹理" = SubResource("StyleBoxTexture_qrjmr")
+"浮动纹理" = SubResource("StyleBoxTexture_qrjmr")
+"物体纹理" = SubResource("StyleBoxTexture_qrjmr")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(28.5, 20.5),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":57.0,"offset_bottom":41.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":SubResource("StyleBoxTexture_qrjmr"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1027491963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.19607843)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1874486101]
+material = SubResource("ShaderMaterial_ll4oi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "llookkhhgfdssda"
+label_settings = SubResource("LabelSettings_143qi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JsonData" type="Node" parent="." unique_id=1711594094]
+script = ExtResource("4_pid3e")
+echo = false
+metadata/_custom_type_script = "uid://ddwlbm7hrvbl3"

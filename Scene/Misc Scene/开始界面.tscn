@@ -11,6 +11,8 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ldvf4"]
 load_path = "res://.godot/imported/开始界面.png-cc1e9b6da932b869035e590b1d3d5b2b.ctex"
 
+[sub_resource type="LabelSettings" id="LabelSettings_jaid8"]
+
 [sub_resource type="Animation" id="Animation_k7g5d"]
 length = 0.001
 tracks/0/type = "value"
@@ -137,7 +139,6 @@ script = ExtResource("5_tv76o")
 "选项" = "音效"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=372064515]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -166,6 +167,7 @@ theme_override_fonts/font = ExtResource("6_m38fi")
 theme_override_font_sizes/font_size = 20
 text = "原作者：curezor58
 二次创作：痊愈加班费"
+label_settings = SubResource("LabelSettings_jaid8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=800098847]
 script = ExtResource("5_tv76o")

@@ -9,12 +9,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if 选项 == "音乐":
-		if 音量.音乐音量 != 0:
-			volume_db = -25 +音量.音乐音量 / 4
+		if 音乐列表.音乐音量 != 0:
+			volume_db = -25 +音乐列表.音乐音量 / 4
 		else:volume_db = -100
 	if 选项 == "音效":
-		if 音量.音效音量!= 0:
-			volume_db = -25 +音量.音效音量 / 4
+		if 音乐列表.音效音量!= 0:
+			volume_db = -25 +音乐列表.音效音量 / 4
 		else:volume_db = -100
 
 func _on_finished() -> void:

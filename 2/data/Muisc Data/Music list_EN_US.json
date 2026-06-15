@@ -1,0 +1,22 @@
+{
+	"0" : {
+		"名称" : "Halloween Level Theme",
+		"出处" : "Bookworm Adventures",
+		"讲述" : "This music serves as the soundtrack for the Halloween chapter in Minecraft VS Zombies 2 GMS2 and Unity, and although it is suitable for most chapters, it was originally applied during early testing."
+	},
+	"1" : {
+		"名称" : "Choose Your Seed",
+		"出处" : "Plants vs. Zombies (First Edition)",
+		"讲述" : "This is the most frequently used track in PVZ fan games or modified versions, which is obvious."
+	},
+	"2" : {
+		"名称" : "Crazy Dave",
+		"出处" : "Plants vs. Zombies (First Edition)",
+		"讲述" : "The main interface theme of PVZ, originating from 2009, and it remains a classic to this day!"
+	},
+	"3" : {
+		"名称" : "Apocalypse Walker",
+		"出处" : "Minecraft: Cataclysm Mod",
+		"讲述" : "A large-scale boss battle mod for Minecraft, it makes boss encounters less tedious (possibly?), and also includes some mechanic-based bosses."
+	}
+}

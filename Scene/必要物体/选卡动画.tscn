@@ -1,112 +1,14 @@
 [gd_scene format=3 uid="uid://dmfh4n0f07n05"]
 
-[ext_resource type="Script" uid="uid://yxnkf5q00kiw" path="res://脚本/选卡动画.gd" id="1_6ud2f"]
+[ext_resource type="Script" uid="uid://yxnkf5q00kiw" path="res://Script/选卡动画.gd" id="1_6ud2f"]
 [ext_resource type="PackedScene" uid="uid://dwxsiq3xxwxk2" path="res://UI/遮挡.tscn" id="2_piygm"]
 
-[sub_resource type="Animation" id="Animation_o38pd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("选卡动画/摄像头:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("选卡动画/遮挡:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_m3u7u"]
-resource_name = "new_animation"
-length = 1.5
-step = 0.1
-capture_included = true
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("选卡动画/摄像头:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, 0.5),
-"update": 2,
-"values": [Vector2(0, -30), Vector2(207.62, -30)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("选卡动画/遮挡:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.75, 1.5),
-"transitions": PackedFloat32Array(0.5, -2, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-30, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nxrjw"]
-length = 1.5
-capture_included = true
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("选卡动画/摄像头:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, 0.22531268),
-"update": 2,
-"values": [Vector2(207.62, -30), Vector2(-50, -30)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("选卡动画/遮挡:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, -2, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(50, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_o38pd"]
-_data = {
-&"RESET": SubResource("Animation_o38pd"),
-&"选卡": SubResource("Animation_m3u7u"),
-&"选卡完成": SubResource("Animation_nxrjw")
-}
-
-[node name="选卡动画" type="AnimationPlayer" unique_id=1540753683]
-libraries/ = SubResource("AnimationLibrary_o38pd")
-autoplay = &"选卡"
+[node name="选卡动画" type="Node2D" unique_id=909901913]
 script = ExtResource("1_6ud2f")
 
 [node name="遮挡" parent="." unique_id=1581256646 instance=ExtResource("2_piygm")]
 visible = false
 
 [node name="摄像头" type="Camera2D" parent="." unique_id=594041383]
-position = Vector2(576, 400)
-offset = Vector2(-50, -30)
 ignore_rotation = false
 zoom = Vector2(1.1, 1.1)
-
-[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

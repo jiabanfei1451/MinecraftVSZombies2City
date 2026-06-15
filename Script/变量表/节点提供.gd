@@ -5,10 +5,11 @@ static var 器械 : Node2D
 static var 怪物 : Node2D
 static var 射弹 : Node2D
 static var 光源 : Node2D
+static var 遮罩 : SubViewport
 static var 特效 : Node2D
 static var 粒子 : Node2D
 static var 粒子2 : Node2D
-static var 摄像头 : Camera2D
+static var 摄像头 : Node2D
 
 func 生成节点(节点:PackedScene,生成节点:String = "pass",层级:int = 0,自动排序:String = "pass"):
 	var 实例化 = 节点.instantiate()

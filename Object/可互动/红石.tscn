@@ -2,30 +2,27 @@
 
 [ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="1_65ojq"]
 [ext_resource type="Script" uid="uid://ydaerygbium6" path="res://Object/可互动/红石.gd" id="1_qa71h"]
+[ext_resource type="Script" uid="uid://blc413ky1v12" path="res://addons/touch/Script/触摸控制器new.gd" id="3_n3q1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qa71h"]
 atlas = ExtResource("1_65ojq")
 region = Rect2(309, 981, 48, 42)
 
-[node name="红石" type="Control" unique_id=1507704977]
-layout_direction = 2
-layout_mode = 3
-anchors_preset = 0
-offset_right = 48.0
-offset_bottom = 42.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
-size_flags_horizontal = 0
-size_flags_vertical = 0
+[node name="红石" type="Node2D" unique_id=2080088656]
 script = ExtResource("1_qa71h")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1366152378]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
+[node name="TextureRect" type="Sprite2D" parent="." unique_id=1752891124]
 texture = SubResource("AtlasTexture_qa71h")
 metadata/_edit_lock_ = true
 
-[connection signal="mouse_entered" from="TextureRect" to="." method="_on_focus_entered"]
-[connection signal="mouse_exited" from="TextureRect" to="." method="_on_focus_exited"]
+[node name="Touchbutton" type="Control" parent="." unique_id=1897709391]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -21.0
+offset_right = 24.0
+offset_bottom = 21.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("3_n3q1b")
+metadata/_custom_type_script = "uid://blc413ky1v12"

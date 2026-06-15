@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://cu4xocbta6lkm" path="res://Script/UIscript/显示剩余器械能.gd" id="8_lp4v2"]
 [ext_resource type="PackedScene" uid="uid://cmynf4hbibom4" path="res://UI/card/选卡蓝图.tscn" id="9_uejkh"]
 [ext_resource type="Texture2D" uid="uid://bydmxaoxdidn8" path="res://Image/UI/Button/form.png" id="10_10700"]
+[ext_resource type="Script" uid="uid://bipb8tqmjfceb" path="res://addons/touch/Script/touch.gd" id="11_f8fl5"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="12_m1oau"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxvtp"]
 texture = ExtResource("10_10700")
@@ -40,11 +42,11 @@ layout_direction = 2
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -698.75
+offset_top = -562.0
 offset_right = 594.0
+offset_bottom = 136.75
 grow_vertical = 0
 scale = Vector2(0.8, 0.8)
-pivot_offset_ratio = Vector2(0, 1)
 mouse_filter = 2
 theme = ExtResource("1_sd22c")
 
@@ -158,6 +160,32 @@ theme_override_fonts/font = ExtResource("4_rugvn")
 theme_override_font_sizes/font_size = 31
 text = "开始摇滚吧！"
 script = ExtResource("5_rugvn")
+
+[node name="Touchbutton" type="Control" parent="蓝图展示/完成选卡" unique_id=375286257 node_paths=PackedStringArray("纹理物体")]
+anchors_preset = 0
+offset_right = 298.75
+offset_bottom = 50.0
+focus_mode = 2
+script = ExtResource("11_f8fl5")
+"偏移" = Vector2(149.375, 25)
+"纹理物体" = NodePath("@Panel@201785")
+"物体纹理" = ExtResource("12_m1oau")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(149.375, 25),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":298.75,"offset_bottom":50.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("12_m1oau"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="Label" type="Label" parent="蓝图展示/完成选卡" unique_id=1530280868]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "开始摇滚吧！"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="蓝图展示/完成选卡" unique_id=1170374398]
 stream = ExtResource("6_cwqpu")
@@ -341,5 +369,42 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 "绑定数组" = 9
 metadata/_edit_lock_ = true
 
+[node name="X" type="Control" parent="." unique_id=1898478021]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="X2" type="Control" parent="." unique_id=656407106]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Y" type="Control" parent="." unique_id=746213021]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Y2" type="Control" parent="." unique_id=1011576804]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [connection signal="pressed" from="蓝图展示/完成选卡" to="蓝图展示/完成选卡" method="_on_pressed"]
+[connection signal="点击时void" from="蓝图展示/完成选卡/Touchbutton" to="蓝图展示/完成选卡" method="_on_pressed"]
 [connection signal="pressed" from="卡槽/器械能显示" to="卡槽/器械能显示" method="_on_pressed"]

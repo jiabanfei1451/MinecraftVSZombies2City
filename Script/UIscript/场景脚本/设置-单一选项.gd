@@ -7,5 +7,5 @@ func _process(delta: float) -> void:
 	P3(delta)
 	
 func 点():
-	$"../../../../../AudioStreamPlayer".play()
+	$"../../../../../../AudioStreamPlayer".play()
 	全局变量.窗口拉伸模式 = 触发功能ID

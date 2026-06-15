@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://hshuh7jvvs2k"]
+
+[ext_resource type="Texture2D" uid="uid://dcd4ckp07ay2g" path="res://Image/memu/菜单.png" id="1_6boei"]
+[ext_resource type="Script" uid="uid://im56gu3yl3oh" path="res://Script/Scene Script/misc/主菜单.gd" id="1_tw7ox"]
+[ext_resource type="Script" uid="uid://b0ug3ygqn3lfg" path="res://Script/Scene Script/Memu/control.gd" id="1_u7cb0"]
+[ext_resource type="Texture2D" uid="uid://dunb2d7myicw0" path="res://Image/memu/退出.png" id="2_inxog"]
+[ext_resource type="Texture2D" uid="uid://bmo5g5hub7otd" path="res://Image/memu/开始.png" id="3_5syj8"]
+[ext_resource type="Script" uid="uid://l0xp6rlrhq3p" path="res://Script/Scene Script/Memu/退出按钮.gd" id="3_pme30"]
+[ext_resource type="Texture2D" uid="uid://bff0xexbfcim0" path="res://Image/memu/设置.png" id="4_5syj8"]
+[ext_resource type="FontFile" uid="uid://b6l7ufveabdsd" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Black.ttf" id="5_cp0mj"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="6_lswrj"]
+[ext_resource type="Script" uid="uid://wj61wj0gqrya" path="res://Script/Scene Script/Memu/开始按钮.gd" id="6_oj26t"]
+[ext_resource type="Script" uid="uid://ciiglgru6873s" path="res://Script/Scene Script/Memu/设置按钮.gd" id="6_tc7sv"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="7_pme30"]
+[ext_resource type="Texture2D" uid="uid://yh1ae6atm70e" path="res://Image/memu/音乐室.png" id="10_d2jkk"]
+[ext_resource type="Script" uid="uid://cqpujq7yfgin" path="res://Script/Scene Script/Memu/音乐室按钮.gd" id="11_7fjo6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lswrj"]
+font = ExtResource("5_cp0mj")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aqtjx"]
+font = ExtResource("6_lswrj")
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tc7sv"]
+font = ExtResource("6_lswrj")
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0.4554031, 1.0769255e-06, 2.1658838e-07, 1)
+shadow_size = 4
+shadow_offset = Vector2(0, 0)
+
+[node name="主菜单" type="CanvasLayer" unique_id=1359747227]
+script = ExtResource("1_tw7ox")
+
+[node name="Control" type="Control" parent="." unique_id=34544933]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u7cb0")
+
+[node name="菜单" type="TextureRect" parent="Control" unique_id=1008746702]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1208.0
+offset_top = -741.0
+offset_right = 712.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_6boei")
+
+[node name="退出" type="TextureRect" parent="Control" unique_id=1190377909]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.99997
+offset_top = 168.0
+offset_right = 199.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_inxog")
+
+[node name="Touchbutton2" type="Control" parent="Control/退出" unique_id=801720760]
+anchors_preset = 0
+offset_left = 62.666626
+offset_top = -4.5776367e-05
+offset_right = 266.66663
+offset_bottom = 199.99995
+focus_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("3_pme30")
+"偏移" = Vector2(72.399994, 72.4)
+notTexture = true
+"物体纹理" = ExtResource("7_pme30")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(72.399994, 72.4),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":144.79999,"offset_bottom":144.8,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("7_pme30"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="开始" type="TextureRect" parent="Control" unique_id=691279760]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -313.0
+offset_right = -115.0
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_5syj8")
+
+[node name="Touchbutton2" type="Control" parent="Control/开始" unique_id=1709633163]
+anchors_preset = 0
+offset_left = 1.6000051
+offset_top = 0.80000305
+offset_right = 87.20001
+offset_bottom = 88.0
+focus_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("6_oj26t")
+"偏移" = Vector2(72.399994, 72.4)
+notTexture = true
+"物体纹理" = ExtResource("7_pme30")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(72.399994, 72.4),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":144.79999,"offset_bottom":144.8,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("7_pme30"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="设置" type="TextureRect" parent="Control" unique_id=1186222105]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -53.99997
+offset_right = -255.0
+offset_bottom = 117.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_5syj8")
+
+[node name="Node2D" type="Node2D" parent="Control/设置" unique_id=1939550704]
+position = Vector2(160, 78)
+rotation = -0.5864306
+scale = Vector2(1.585, 1.585)
+skew = 0.61086524
+
+[node name="Label" type="Label" parent="Control/设置/Node2D" unique_id=1855580357]
+offset_right = 32.0
+offset_bottom = 19.0
+rotation = 6.2831855
+text = "设置"
+label_settings = SubResource("LabelSettings_lswrj")
+
+[node name="Touchbutton" type="Control" parent="Control/设置" unique_id=347369235]
+anchors_preset = 0
+offset_left = -0.79999995
+offset_top = 26.399975
+offset_right = 143.99998
+offset_bottom = 171.19998
+focus_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("6_tc7sv")
+"偏移" = Vector2(72.399994, 72.4)
+notTexture = true
+"物体纹理" = ExtResource("7_pme30")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(72.399994, 72.4),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":144.79999,"offset_bottom":144.8,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("7_pme30"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="音乐室" type="TextureRect" parent="Control" unique_id=1243254060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 186.0
+offset_top = -42.99997
+offset_right = 389.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("10_d2jkk")
+
+[node name="Node2D" type="Node2D" parent="Control/音乐室" unique_id=156830492]
+position = Vector2(0.80001736, 41.599976)
+rotation = 0.6527531
+scale = Vector2(1.075, 1.585)
+skew = -0.6195919
+
+[node name="Label" type="Label" parent="Control/音乐室/Node2D" unique_id=1592547971]
+offset_right = 32.0
+offset_bottom = 19.0
+rotation = 6.2831855
+text = "音乐室"
+label_settings = SubResource("LabelSettings_lswrj")
+
+[node name="Touchbutton" type="Control" parent="Control/音乐室" unique_id=1663107111]
+anchors_preset = 0
+offset_left = 59.999992
+offset_top = 20.799976
+offset_right = 202.39996
+offset_bottom = 171.19995
+focus_mode = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("11_7fjo6")
+"偏移" = Vector2(72.399994, 72.4)
+"短按阈值" = 0.3
+notTexture = true
+"物体纹理" = ExtResource("7_pme30")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(72.399994, 72.4),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":144.79999,"offset_bottom":144.8,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("7_pme30"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="Control" type="Control" parent="Control" unique_id=467689554]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -295.0
+offset_right = 60.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Control" unique_id=1777294631]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 21.0
+text = "你好！"
+label_settings = SubResource("LabelSettings_aqtjx")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/Control" unique_id=740715268]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -70.5
+offset_top = -53.0
+offset_right = 72.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Test"
+label_settings = SubResource("LabelSettings_tc7sv")
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Control/退出/Touchbutton2" to="Control/退出/Touchbutton2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/退出/Touchbutton2" to="Control/退出/Touchbutton2" method="_on_mouse_exited"]
+[connection signal="抬起时void" from="Control/退出/Touchbutton2" to="Control/退出/Touchbutton2" method="_on_抬起时void"]
+[connection signal="按下时void" from="Control/退出/Touchbutton2" to="Control/退出/Touchbutton2" method="_on_按下时void"]
+[connection signal="点击时void" from="Control/退出/Touchbutton2" to="Control/退出/Touchbutton2" method="_on_点击时void"]
+[connection signal="mouse_entered" from="Control/开始/Touchbutton2" to="Control/开始/Touchbutton2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/开始/Touchbutton2" to="Control/开始/Touchbutton2" method="_on_mouse_exited"]
+[connection signal="抬起时void" from="Control/开始/Touchbutton2" to="Control/开始/Touchbutton2" method="_on_抬起时void"]
+[connection signal="按下时void" from="Control/开始/Touchbutton2" to="Control/开始/Touchbutton2" method="_on_按下时void"]
+[connection signal="点击时void" from="Control/开始/Touchbutton2" to="Control/开始/Touchbutton2" method="_on_点击时void"]
+[connection signal="mouse_entered" from="Control/设置/Touchbutton" to="Control/设置/Touchbutton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/设置/Touchbutton" to="Control/设置/Touchbutton" method="_on_mouse_exited"]
+[connection signal="抬起时void" from="Control/设置/Touchbutton" to="Control/设置/Touchbutton" method="_on_抬起时void"]
+[connection signal="按下时void" from="Control/设置/Touchbutton" to="Control/设置/Touchbutton" method="_on_按下时void"]
+[connection signal="点击时void" from="Control/设置/Touchbutton" to="Control/设置/Touchbutton" method="_on_点击时void"]
+[connection signal="mouse_entered" from="Control/音乐室/Touchbutton" to="Control/音乐室/Touchbutton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/音乐室/Touchbutton" to="Control/音乐室/Touchbutton" method="_on_mouse_exited"]
+[connection signal="抬起时void" from="Control/音乐室/Touchbutton" to="Control/音乐室/Touchbutton" method="_on_抬起时void"]
+[connection signal="按下时void" from="Control/音乐室/Touchbutton" to="Control/音乐室/Touchbutton" method="_on_按下时void"]
+[connection signal="点击时void" from="Control/音乐室/Touchbutton" to="Control/音乐室/Touchbutton" method="_on_点击时void"]

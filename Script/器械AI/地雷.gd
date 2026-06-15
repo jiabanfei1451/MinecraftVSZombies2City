@@ -53,9 +53,9 @@ func _process(delta: float) -> void:
 		for i in 怪物.size():
 			怪物[i].减少血量(90)
 		for i in 20:
-			节点提供变量.摄像头.position = Vector2(576,400) + Vector2(randf_range(10,-10),randf_range(10,-10))
+			节点提供变量.摄像头.pos = Vector2(randf_range(10,-10),randf_range(10,-10))
 			await get_tree().create_timer(0.02).timeout
-		节点提供变量.摄像头.position = Vector2(576,400)
+		节点提供变量.摄像头.position = 全局变量.游戏中镜头坐标
 		queue_free()
 		
 func _on_倒计时完成() -> void:

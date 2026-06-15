@@ -10,9 +10,11 @@ size = Vector2(345, 30)
 
 [node name="选项卡" type="Control" unique_id=879565747]
 clip_contents = true
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 30.0
 focus_mode = 2
 theme = ExtResource("1_kbypt")
 script = ExtResource("2_2mu1t")
@@ -20,7 +22,6 @@ script = ExtResource("2_2mu1t")
 "抬起时颜色" = Color(0, 0, 0, 0.39215687)
 Shape = SubResource("RectangleShape2D_c8pay")
 "偏移" = Vector2(172.5, 15)
-"自动设置" = false
 notTexture = true
 "物体纹理" = ExtResource("3_yy132")
 object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(172.5, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
@@ -41,18 +42,22 @@ grow_vertical = 0
 
 [node name="选项" type="VBoxContainer" parent="." unique_id=1802967798]
 layout_mode = 1
-offset_top = 30.0
-offset_right = 345.0
-offset_bottom = 93.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Label" type="Label" parent="." unique_id=651465931]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -23.0
-offset_right = 23.0
-offset_bottom = 26.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("5_yrowb")
 text = "窗口"
+horizontal_alignment = 1
+vertical_alignment = 1

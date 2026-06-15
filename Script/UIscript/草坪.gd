@@ -68,13 +68,15 @@ func pre_down():
 	触碰到鼠标 = true
 func pre():
 	if 绑定器械 == null and 器械 != null:
-		get_tree().current_scene.来自.已被放置()
-		var 器械实列 = 器械.instantiate()
-		器械实列.position = position + pivot_offset + Vector2(pivot_offset.x * X偏移,pivot_offset.y * Y偏移)
-		if 器械实列.is_in_group("怪物") == true:
-			怪物生成节点.add_child(器械实列)
-		else:
-			生成节点.add_child(器械实列)
-			绑定器械 = 器械实列
-		if 绑定器械 != null and 绑定器械.is_in_group("器械") == false:
-			绑定器械 = null
+		if get_tree().current_scene.来自 != null:
+			get_tree().current_scene.来自.已被放置()
+			get_tree().current_scene.来自 = null
+			var 器械实列 = 器械.instantiate()
+			器械实列.position = position + pivot_offset + Vector2(pivot_offset.x * X偏移,pivot_offset.y * Y偏移)
+			if 器械实列.is_in_group("怪物") == true:
+				怪物生成节点.add_child(器械实列)
+			else:
+				生成节点.add_child(器械实列)
+				绑定器械 = 器械实列
+			if 绑定器械 != null and 绑定器械.is_in_group("器械") == false:
+				绑定器械 = null

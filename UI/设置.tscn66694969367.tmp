@@ -1,0 +1,744 @@
+[gd_scene format=3 uid="uid://bxnpcujrswrr8"]
+
+[ext_resource type="Shader" uid="uid://cu3oaypq4i3xg" path="res://Shader/模糊.gdshader" id="1_6vjo8"]
+[ext_resource type="Script" uid="uid://d1if1panka6rt" path="res://Script/UIscript/场景脚本/设置触摸板滑动.gd" id="1_c8pay"]
+[ext_resource type="PackedScene" uid="uid://dxs5v6m2mmuog" path="res://addons/touch/tsch/选项卡.tscn" id="2_ofy6y"]
+[ext_resource type="PackedScene" uid="uid://05pbp0kxbc20" path="res://addons/touch/tsch/选项卡-单一选项.tscn" id="3_33kf4"]
+[ext_resource type="Script" uid="uid://c6aioydapjsr1" path="res://Script/UIscript/场景脚本/设置-单一选项.gd" id="5_gq5nl"]
+[ext_resource type="Script" uid="uid://c2f4hb4c4y6ey" path="res://Script/UIscript/场景脚本/设置-窗口模式选项.gd" id="6_c8pay"]
+[ext_resource type="Script" uid="uid://b5ighipvo1ym0" path="res://Script/UIscript/场景脚本/设置/l_54.gd" id="6_tutmt"]
+[ext_resource type="Script" uid="uid://dev5frrcw3da" path="res://Script/UIscript/场景脚本/设置窗口背景.gd" id="7_od8lv"]
+[ext_resource type="Script" uid="uid://ckrd7vvrswu4w" path="res://Script/UIscript/场景脚本/选项卡_保存.gd" id="7_ofy6y"]
+[ext_resource type="Script" uid="uid://bm207kaj271ic" path="res://Script/UIscript/场景脚本/设置-修改缩放.gd" id="8_dh4i3"]
+[ext_resource type="Theme" uid="uid://bsballpnnbgjv" path="res://UI/UI主题/MC主题.tres" id="8_fx33r"]
+[ext_resource type="AudioStream" uid="uid://b60h48bgorsrw" path="res://Sound/MC按钮点击.ogg" id="8_yo5pr"]
+[ext_resource type="Script" uid="uid://bmmwhqtcrl6n8" path="res://Script/UIscript/场景脚本/设置/读取配置.gd" id="9_rftyy"]
+[ext_resource type="Texture2D" uid="uid://bydmxaoxdidn8" path="res://Image/UI/Button/form.png" id="9_tjun6"]
+[ext_resource type="Script" uid="uid://ddrb81k7l8ftn" path="res://Script/UIscript/场景脚本/设置-返回.gd" id="10_6vjo8"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="10_fx33r"]
+[ext_resource type="Script" uid="uid://bm5h8itmkx0l2" path="res://Script/UIscript/场景脚本/设置-开启卡槽动效.gd" id="10_ijgdf"]
+[ext_resource type="Script" uid="uid://cofnpiykgubod" path="res://Script/UIscript/场景脚本/设置/触控播放音效.gd" id="11_w854q"]
+[ext_resource type="Theme" uid="uid://l4176xm8imnj" path="res://UI/UI主题/MC文字主题.tres" id="12_6vjo8"]
+[ext_resource type="Script" uid="uid://cb5m5c5swkjq1" path="res://addons/touch/Script/TouchTextEdit.gd" id="15_1dq5s"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="16_f43t8"]
+[ext_resource type="Script" uid="uid://ceg2f8s4u3cix" path="res://addons/touch/tsch/功能测试.gd" id="17_1dq5s"]
+[ext_resource type="Shader" uid="uid://cfx6chamlduit" path="res://Shader/渐变.gdshader" id="22_f43t8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh4i3"]
+shader = ExtResource("1_6vjo8")
+shader_parameter/shendu = 1.0
+shader_parameter/fff = 0.05
+shader_parameter/a = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijgdf"]
+texture = ExtResource("9_tjun6")
+texture_margin_left = 4.324177
+texture_margin_top = 4.324177
+texture_margin_right = 3.648524
+texture_margin_bottom = 4.8646984
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8rkh"]
+shader = ExtResource("22_f43t8")
+shader_parameter/colo = Color(0.5334468, 0.5459767, 0.45052105, 1)
+shader_parameter/RValue = 19.625004529953003
+shader_parameter/GValue = 0.5
+shader_parameter/BValue = 0.5
+shader_parameter/AValue = 0.5
+shader_parameter/oneValue = false
+shader_parameter/setAlpha = false
+shader_parameter/MixR = 0.5
+shader_parameter/MixG = 0.5
+shader_parameter/MixB = 0.5
+shader_parameter/MixA = 0.5
+shader_parameter/R = 1.0
+shader_parameter/G = 1.0
+shader_parameter/B = 1.0
+shader_parameter/A = 1.0
+shader_parameter/One = false
+shader_parameter/timeR = 1.0
+shader_parameter/timeG = -4.525
+shader_parameter/timeB = 1.0
+shader_parameter/timeA = 1.0
+shader_parameter/timeR2 = 12.46
+shader_parameter/timeG2 = 1.0
+shader_parameter/timeB2 = 12.0
+shader_parameter/timeA2 = 1.0
+shader_parameter/multiplierR = 1.0
+shader_parameter/multiplierG = 1.0
+shader_parameter/multiplierB = 1.0
+shader_parameter/multiplierA = 0.0
+shader_parameter/multiplierR2 = 1.0
+shader_parameter/multiplierG2 = 1.0
+shader_parameter/multiplierB2 = 0.0
+shader_parameter/multiplierA2 = 0.0
+shader_parameter/ValuemultiplierR = 1.0
+shader_parameter/ValuemultiplierG = 1.0
+shader_parameter/ValuemultiplierB = 1.0
+shader_parameter/ValuemultiplierA = 1.0
+shader_parameter/ValuemultiplierR2 = 1.0
+shader_parameter/ValuemultiplierG2 = 1.0
+shader_parameter/ValuemultiplierB2 = 1.0
+shader_parameter/ValuemultiplierA2 = 1.0
+shader_parameter/Function_styleR = 1
+shader_parameter/Function_styleG = 0
+shader_parameter/Function_styleB = 1
+shader_parameter/Function_styleA = 0
+shader_parameter/TypeClampR = false
+shader_parameter/ClampR = 1.0
+shader_parameter/ClampRMin = 0.3
+shader_parameter/TypeClampG = false
+shader_parameter/ClampG = 0.5
+shader_parameter/ClampGMin = 0.0
+shader_parameter/TypeClampB = false
+shader_parameter/ClampB = 0.5
+shader_parameter/ClampBMin = 0.0
+shader_parameter/TypeClampR2 = false
+shader_parameter/ClampR2 = 1.0
+shader_parameter/ClampRMin2 = 0.0
+shader_parameter/TypeClampG2 = false
+shader_parameter/ClampG2 = 0.5
+shader_parameter/ClampGMin2 = 0.0
+shader_parameter/TypeClampB2 = false
+shader_parameter/ClampB2 = 0.5
+shader_parameter/ClampBMin2 = 0.0
+shader_parameter/TypeStepR = false
+shader_parameter/StepR = 0.01999977603296088
+shader_parameter/StepRMin = 0.3499997686568008
+shader_parameter/TypeStepG = false
+shader_parameter/StepG = 0.5
+shader_parameter/StepGMin = 0.0
+shader_parameter/TypeStepB = false
+shader_parameter/StepB = 0.5
+shader_parameter/StepBMin = 0.0
+shader_parameter/TypeStepR2 = false
+shader_parameter/StepR2 = 0.5
+shader_parameter/StepRMin2 = 0.9999997541279999
+shader_parameter/TypeStepG2 = false
+shader_parameter/StepG2 = 0.5
+shader_parameter/StepGMin2 = 0.0
+shader_parameter/TypeStepB2 = false
+shader_parameter/StepB2 = 0.5
+shader_parameter/StepBMin2 = 0.0
+shader_parameter/TypedistanceR = true
+shader_parameter/distanceR = 0.40999976731568033
+shader_parameter/distanceRMin = 1.629999740046241
+shader_parameter/TypedistanceG = false
+shader_parameter/distanceG = -0.17000021972016022
+shader_parameter/distanceGMin = 0.9999997541279999
+shader_parameter/TypedistanceB = false
+shader_parameter/distanceB = 0.9999997541279999
+shader_parameter/distanceBMin = -0.17000021972016022
+shader_parameter/TypedistanceA = true
+shader_parameter/distanceA = 9.999999552959999
+shader_parameter/distanceAMin = 0.5199997648569603
+shader_parameter/TypedistanceR2 = false
+shader_parameter/distanceR2 = 0.47999976575104064
+shader_parameter/distanceRMin2 = 1.5599997416108806
+shader_parameter/TypedistanceG2 = false
+shader_parameter/distanceG2 = 0.9999997541279999
+shader_parameter/distanceGMin2 = 0.9999997541279999
+shader_parameter/TypedistanceB2 = false
+shader_parameter/distanceB2 = 0.5
+shader_parameter/distanceBMin2 = 0.9999997541279999
+shader_parameter/TypedistanceA2 = false
+shader_parameter/distanceA2 = 0.9999997541279999
+shader_parameter/distanceAMin2 = 0.9999997541279999
+
+[node name="设置" type="CanvasLayer" unique_id=1150050341]
+
+[node name="Control" type="Control" parent="." unique_id=1282284954]
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_dh4i3")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="选项背景" type="ColorRect" parent="Control" unique_id=1009633549]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="Touchpad" type="ColorRect" parent="Control/选项背景" unique_id=1526008800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+color = Color(0, 0, 0, 0.4)
+script = ExtResource("1_c8pay")
+"范围" = Vector2(345.6, 648)
+DEBUGColor = Color(0, 0, 0, 0.39215687)
+metadata/_custom_type_script = "uid://sc48ukg1du60"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/选项背景" unique_id=1013680113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="选项卡" parent="Control/选项背景/VBoxContainer" unique_id=879565747 node_paths=PackedStringArray("播放音频") instance=ExtResource("2_ofy6y")]
+layout_mode = 2
+"收起颜色" = Color(1, 0, 0, 1)
+"展开颜色" = Color(0, 1, 0.111094, 1)
+"播放音频" = NodePath("../../../AudioStreamPlayer")
+Text = "窗口"
+"自动设置自动关闭" = true
+"偏移" = Vector2(172.5, 22)
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(172.5, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":345.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="选项" parent="Control/选项背景/VBoxContainer/选项卡" index="1" unique_id=1802967798]
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 46.0
+offset_bottom = 76.0
+grow_vertical = 1
+
+[node name="选项卡2" parent="Control/选项背景/VBoxContainer/选项卡/选项" index="0" unique_id=1197307474 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+Text = "常规选项"
+"底座颜色" = Color(1, 0, 0, 1)
+object_array = [null, null]
+
+[node name="Label" parent="Control/选项背景/VBoxContainer/选项卡/选项/选项卡2" index="1" unique_id=747826937]
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Label" parent="Control/选项背景/VBoxContainer/选项卡" index="2" unique_id=651465931]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_bottom = 40.0
+grow_vertical = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="选项卡2" parent="Control/选项背景/VBoxContainer" unique_id=1121431423 node_paths=PackedStringArray("播放音频") instance=ExtResource("2_ofy6y")]
+layout_mode = 2
+"播放音频" = NodePath("../../../AudioStreamPlayer")
+Text = "常规"
+"自动设置自动关闭" = true
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(172.5, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":345.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="选项" parent="Control/选项背景/VBoxContainer/选项卡2" index="1" unique_id=1802967798]
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 46.0
+offset_bottom = 91.0
+grow_vertical = 1
+
+[node name="选项卡2" parent="Control/选项背景/VBoxContainer/选项卡2/选项" index="0" unique_id=1675858171 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+Text = "游戏设置"
+ID = "1"
+object_array = [null, null]
+
+[node name="Label" parent="Control/选项背景/VBoxContainer/选项卡2/选项/选项卡2" index="1" unique_id=747826937]
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Label" parent="Control/选项背景/VBoxContainer/选项卡2" index="2" unique_id=651465931]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_top = -3.0
+offset_bottom = 40.0
+grow_vertical = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="VScrollBar" type="VScrollBar" parent="Control/选项背景" unique_id=1951589606]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+grow_horizontal = 0
+grow_vertical = 2
+min_value = -1.0
+allow_greater = true
+allow_lesser = true
+
+[node name="窗口背景" type="ColorRect" parent="Control" unique_id=1780411659]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+script = ExtResource("7_od8lv")
+
+[node name="0" type="Control" parent="Control/窗口背景" unique_id=598926355]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/窗口背景/0" unique_id=169395388]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 98.0
+grow_horizontal = 2
+
+[node name="选项卡" parent="Control/窗口背景/0/VBoxContainer" unique_id=1340071839 node_paths=PackedStringArray("播放音频") instance=ExtResource("2_ofy6y")]
+layout_mode = 2
+script = ExtResource("6_tutmt")
+"播放音频" = NodePath("../../../../AudioStreamPlayer")
+Text = "拉伸模式"
+"自动设置自动关闭" = true
+"等待时间Tick" = 5
+
+[node name="选项" parent="Control/窗口背景/0/VBoxContainer/选项卡" index="1" unique_id=1802967798]
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -0.11999512
+offset_top = 46.0
+offset_right = -0.11999512
+offset_bottom = 189.0
+grow_vertical = 1
+
+[node name="选项卡2" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项" index="0" unique_id=1707824096 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("5_gq5nl")
+"触发功能ID" = 0
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡2" index="1" unique_id=747826937]
+text = "超分辨缩放"
+
+[node name="选项卡3" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项" index="1" unique_id=1152187889 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("5_gq5nl")
+"触发功能ID" = 1
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡3" index="1" unique_id=747826937]
+text = "拉伸"
+
+[node name="选项卡4" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项" index="2" unique_id=645380897 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("5_gq5nl")
+"触发功能ID" = 2
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡4" index="1" unique_id=747826937]
+text = "关闭"
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡" index="2" unique_id=651465931]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_bottom = 40.0
+grow_vertical = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="选项卡2" parent="Control/窗口背景/0/VBoxContainer" unique_id=1246180206 node_paths=PackedStringArray("播放音频") instance=ExtResource("2_ofy6y")]
+layout_mode = 2
+"播放音频" = NodePath("../../../../AudioStreamPlayer")
+Text = "窗口模式"
+"自动设置自动关闭" = true
+"等待时间Tick" = 5
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(172.5, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":345.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="选项" parent="Control/窗口背景/0/VBoxContainer/选项卡2" index="1" unique_id=1802967798]
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 46.0
+offset_bottom = 287.0
+grow_vertical = 1
+
+[node name="选项卡2" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项" index="0" unique_id=688505464 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("6_c8pay")
+"触发功能ID" = 0
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡2" index="1" unique_id=747826937]
+text = "3D加速"
+
+[node name="选项卡3" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项" index="1" unique_id=626309202 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("6_c8pay")
+"触发功能ID" = 1
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡3" index="1" unique_id=747826937]
+text = "等比例缩放"
+
+[node name="选项卡4" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项" index="2" unique_id=326446239 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("6_c8pay")
+"触发功能ID" = 2
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡4" index="1" unique_id=747826937]
+text = "保持高度"
+
+[node name="选项卡5" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项" index="3" unique_id=357991835 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("6_c8pay")
+"触发功能ID" = 3
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡5" index="1" unique_id=747826937]
+text = "保持宽度"
+
+[node name="选项卡6" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项" index="4" unique_id=1055485485 instance=ExtResource("3_33kf4")]
+layout_mode = 2
+script = ExtResource("6_c8pay")
+"触发功能ID" = 4
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 15),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":0.0,"offset_bottom":30.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡6" index="1" unique_id=747826937]
+text = "根据窗口拉伸（默认）"
+
+[node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡2" index="2" unique_id=651465931]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_bottom = 40.0
+grow_vertical = 1
+theme_override_font_sizes/font_size = 20
+
+[node name="touchBar" type="Panel" parent="Control/窗口背景/0/VBoxContainer" unique_id=370003319]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+script = ExtResource("8_dh4i3")
+"乘数" = 0.02
+value = 1.0
+stop = 0.1
+maxvalue = 5.0
+minvalue = 0.5
+Valuecolor = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
+
+[node name="1" type="Control" parent="Control/窗口背景" unique_id=1344507093]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_rftyy")
+
+[node name="Panel" type="Panel" parent="Control/窗口背景/1" unique_id=138318398]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijgdf")
+script = ExtResource("10_ijgdf")
+
+[node name="Touchbutton" type="Control" parent="Control/窗口背景/1/Panel" unique_id=836481205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("11_w854q")
+"偏移" = Vector2(120, 30)
+notTexture = true
+"物体纹理" = ExtResource("10_fx33r")
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(120, 30),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":240.0,"offset_bottom":60.0,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("10_fx33r"),"script":null)
+]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="Label" type="Label" parent="Control/窗口背景/1/Panel" unique_id=355998853]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.77
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_fx33r")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "卡槽动效"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="Control/窗口背景/1/Panel" unique_id=559136924]
+clip_children = 1
+layout_mode = 0
+offset_left = 190.88
+offset_top = 3.0
+offset_right = 236.88
+offset_bottom = 57.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijgdf")
+
+[node name="ColorRect" type="ColorRect" parent="Control/窗口背景/1/Panel/Panel2" unique_id=1971628631]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 61.0
+color = Color(0, 0, 0, 1)
+
+[node name="Panel3" type="Panel" parent="Control/窗口背景/1/Panel" unique_id=1574276710]
+clip_children = 1
+layout_mode = 0
+offset_left = 192.88
+offset_top = 5.0
+offset_right = 234.88
+offset_bottom = 55.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijgdf")
+
+[node name="ColorRect" type="ColorRect" parent="Control/窗口背景/1/Panel/Panel3" unique_id=1806254938]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 61.0
+color = Color(1, 0, 0, 1)
+
+[node name="TouchTextEdit" type="ColorRect" parent="Control/窗口背景/1" unique_id=1006261555 node_paths=PackedStringArray("edit", "Ui", "Object_array")]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 83.0
+offset_right = 241.88
+offset_bottom = 123.0
+focus_mode = 2
+color = Color(0, 0.302, 1, 0.4)
+script = ExtResource("15_1dq5s")
+"占位符" = "X"
+"拖拽方向" = 2
+edit = NodePath("@Control@229250/@TextEdit@229256")
+Ui = NodePath("@Control@229250")
+Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@229250"), NodePath("@Control@229250/@TextEdit@229256")]
+"范围" = Vector2(241, 40)
+metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
+
+[node name="TouchTextEdit2" type="ColorRect" parent="Control/窗口背景/1" unique_id=427428123 node_paths=PackedStringArray("edit", "Ui", "Object_array")]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 123.0
+offset_right = 241.88
+offset_bottom = 163.0
+focus_mode = 2
+color = Color(0, 0.302, 1, 0.4)
+script = ExtResource("15_1dq5s")
+"占位符" = "Y"
+"拖拽方向" = 2
+edit = NodePath("@Control@229257/@TextEdit@229263")
+Ui = NodePath("@Control@229257")
+Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@229257"), NodePath("@Control@229257/@TextEdit@229263")]
+"范围" = Vector2(241, 40)
+metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
+
+[node name="Label" type="Label" parent="Control/窗口背景/1" unique_id=1713453841]
+layout_mode = 0
+offset_left = -0.11999512
+offset_top = 60.0
+offset_right = 79.880005
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("16_f43t8")
+text = "选卡时坐标"
+
+[node name="Label2" type="Label" parent="Control/窗口背景/1" unique_id=2126212232]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 163.0
+offset_right = 80.880005
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("16_f43t8")
+text = "游戏速度"
+
+[node name="touchBar" type="Panel" parent="Control/窗口背景/1" unique_id=1457038899 node_paths=PackedStringArray("滑块", "进度条颜色")]
+layout_mode = 0
+offset_left = 0.8800049
+offset_top = 194.0
+offset_right = 243.88
+offset_bottom = 218.0
+script = ExtResource("17_1dq5s")
+"乘数" = 0.01
+value = 2.0
+stop = 0.1
+maxvalue = 3.0
+minvalue = 1.1
+"滑块大小" = Vector2(40, 30)
+Valuecolor = Color(0, 1, 1, 1)
+"滑块" = NodePath("滑块")
+"进度条颜色" = NodePath("值颜色")
+metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
+
+[node name="2" type="Control" parent="Control/窗口背景" unique_id=684756146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="3" type="Control" parent="Control/窗口背景" unique_id=1338722159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control" unique_id=2117479554]
+stream = ExtResource("8_yo5pr")
+
+[node name="保存" type="Control" parent="Control" unique_id=860856892]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 2
+theme = ExtResource("8_fx33r")
+script = ExtResource("7_ofy6y")
+"按下时颜色" = Color(1, 1, 1, 0.5019608)
+"抬起时颜色" = Color(0, 0, 0, 0.5019608)
+"偏移" = Vector2(20, 20)
+notTexture = true
+metadata/_custom_type_script = "uid://3as2e6rf387r"
+
+[node name="Label" type="Label" parent="Control/保存" unique_id=2004691305]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "保存"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TouchColorRectButton2" type="Control" parent="Control" unique_id=1576434657]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -80.0
+offset_right = -115.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 2
+theme = ExtResource("8_fx33r")
+script = ExtResource("10_6vjo8")
+"按下时颜色" = Color(1, 1, 1, 0.5019608)
+"抬起时颜色" = Color(0, 0, 0, 0.5019608)
+"偏移" = Vector2(20, 20)
+notTexture = true
+"物体纹理" = ExtResource("10_fx33r")
+object_array = [null, null]
+metadata/_custom_type_script = "uid://3as2e6rf387r"
+
+[node name="Label" type="Label" parent="Control/TouchColorRectButton2" unique_id=1869090606]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "返回"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=962448618]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_6vjo8")
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Label" type="Label" parent="Control/ColorRect" unique_id=44974743]
+z_index = 1
+material = SubResource("ShaderMaterial_j8rkh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "保存成功！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="拖拽时" from="Control/选项背景/Touchpad" to="Control/选项背景/Touchpad" method="_on_拖拽时"]
+[connection signal="滑动结束时void" from="Control/窗口背景/0/VBoxContainer/touchBar" to="Control/窗口背景/0/VBoxContainer/touchBar" method="_on_滑动结束时void"]
+[connection signal="点击时void" from="Control/窗口背景/1/Panel/Touchbutton" to="Control/窗口背景/1/Panel" method="_on_touchbutton_点击时void"]
+
+[editable path="Control/选项背景/VBoxContainer/选项卡"]
+[editable path="Control/选项背景/VBoxContainer/选项卡/选项/选项卡2"]
+[editable path="Control/选项背景/VBoxContainer/选项卡2"]
+[editable path="Control/选项背景/VBoxContainer/选项卡2/选项/选项卡2"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡2"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡3"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡4"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡2"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡2"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡3"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡4"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡5"]
+[editable path="Control/窗口背景/0/VBoxContainer/选项卡2/选项/选项卡6"]

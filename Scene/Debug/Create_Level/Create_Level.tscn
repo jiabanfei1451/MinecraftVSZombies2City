@@ -4,19 +4,47 @@
 [ext_resource type="Script" uid="uid://ddwlbm7hrvbl3" path="res://addons/save_or_load_data/Script/jsondata.gd" id="2_5i44e"]
 [ext_resource type="Script" uid="uid://bnlxyea681gyw" path="res://Scene/Debug/Create_Level/load.gd" id="2_qpwxa"]
 [ext_resource type="FontFile" uid="uid://dxovffsca2jsd" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans/HarmonyOS_Sans_Black.ttf" id="2_sirnx"]
+[ext_resource type="FontFile" uid="uid://b6l7ufveabdsd" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Black.ttf" id="4_3wd4c"]
 [ext_resource type="Script" uid="uid://cnw62b4r1d27t" path="res://Script/Debug/Create_Level/add_array.gd" id="4_qpwxa"]
 [ext_resource type="Script" uid="uid://bd1sjac84urug" path="res://Script/Debug/Create_Level/Node_array.gd" id="5_gw1mx"]
 [ext_resource type="Script" uid="uid://cudy5vxqj01vk" path="res://Script/Debug/Create_Level/back.gd" id="6_lflp3"]
+[ext_resource type="Script" uid="uid://dts1cnu27t3u4" path="res://Script/Debug/Create_Level/monster_value.gd" id="7_s4ui5"]
+[ext_resource type="Script" uid="uid://dsrrc8jgjqxag" path="res://Script/Debug/Create_Level/wave.gd" id="8_2v08q"]
+[ext_resource type="Script" uid="uid://j2neg6tila52" path="res://Script/Debug/Create_Level/imagePath.gd" id="8_gy11j"]
+[ext_resource type="Script" uid="uid://cwu8jbqqgy7ab" path="res://Script/Debug/Create_Level/HouseimagePath.gd" id="9_0rtlg"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="9_nce0s"]
+[ext_resource type="Script" uid="uid://dpibvunih4cbi" path="res://Script/Debug/Create_Level/bgmid.gd" id="9_yeoc4"]
+[ext_resource type="Script" uid="uid://celtcclot7v0k" path="res://Script/Debug/Create_Level/Preview.gd" id="10_4g08j"]
+[ext_resource type="Script" uid="uid://du8nnxd3dtnem" path="res://Script/Debug/Create_Level/information.gd" id="11_4g08j"]
+[ext_resource type="Script" uid="uid://bl4uflah75uso" path="res://Script/Debug/Create_Level/Set_Scale.gd" id="11_61tcn"]
+[ext_resource type="Script" uid="uid://b57e3noj7juhe" path="res://Script/Debug/Create_Level/file_dialog.gd" id="19_3wd4c"]
+
+[sub_resource type="GDScript" id="GDScript_0u8xx"]
+script/source = "extends Control
+
+func _ready() -> void:
+	var s = DirAccess.open(\"res://Script/Debug/Create_Level/\")
+	print(s.get_files())
+"
 
 [sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_3iykp"]
 
 [sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_eib2u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3wd4c"]
+font = ExtResource("4_3wd4c")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_qpwxa"]
 font = ExtResource("2_sirnx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw1mx"]
 bg_color = Color(0, 0, 0, 0.19607843)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2v08q"]
+font_color = Color(0.7911497, 0.42671522, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="CreateLevel" type="CanvasLayer" unique_id=1208790109]
 
@@ -28,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_0u8xx")
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=1650741444]
 layout_mode = 1
@@ -36,19 +65,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.3529412)
+color = Color(0, 0.38566762, 0.51915437, 0.3529412)
 
 [node name="FinalEdit" type="Control" parent="Control" unique_id=791116549]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -286.0
+offset_left = -572.0
 offset_top = -70.0
-offset_right = 286.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Path" type="TextEdit" parent="Control/FinalEdit" unique_id=89278999]
@@ -60,6 +88,14 @@ placeholder_text = "Path(res://)..."
 autowrap_mode = 1
 syntax_highlighter = SubResource("SyntaxHighlighter_3iykp")
 highlight_all_occurrences = true
+
+[node name="Button" type="Button" parent="Control/FinalEdit/Path" unique_id=1667766521]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 1.0
+offset_right = 500.0
+offset_bottom = 39.0
+text = "Y"
 
 [node name="TextEdit2" type="TextEdit" parent="Control/FinalEdit" unique_id=784896453]
 layout_mode = 1
@@ -76,7 +112,7 @@ highlight_all_occurrences = true
 
 [node name="save" type="Button" parent="Control/FinalEdit" unique_id=169003797]
 layout_mode = 1
-offset_left = 500.0
+offset_left = 497.0
 offset_top = 36.0
 offset_right = 572.0
 offset_bottom = 70.0
@@ -85,32 +121,88 @@ script = ExtResource("1_53sb3")
 
 [node name="load" type="Button" parent="Control/FinalEdit" unique_id=1782499007]
 layout_mode = 1
-offset_left = 500.0
+offset_left = 497.0
 offset_right = 572.0
 offset_bottom = 36.0
 text = "Load"
 script = ExtResource("2_qpwxa")
 
 [node name="Panel" type="ColorRect" parent="Control" unique_id=1730193667]
-layout_mode = 0
-offset_top = 618.0
-offset_right = 282.0
-offset_bottom = 649.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 580.0
+grow_vertical = 0
 color = Color(0, 0.25199994, 0.36, 1)
 
 [node name="Menu" type="TabContainer" parent="Control" unique_id=1508705356]
-layout_mode = 0
-offset_right = 283.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_right = 580.0
+grow_vertical = 0
+theme_override_constants/side_margin = 8
+theme_override_constants/tab_separation = -1
+theme_override_constants/icon_separation = 0
 tab_alignment = 1
 current_tab = 0
 tabs_position = 1
 tab_focus_mode = 1
-tab_2/title = "测试"
 
-[node name="Monster Array" type="Control" parent="Control/Menu" unique_id=1156576271]
+[node name="Welcome" type="Control" parent="Control/Menu" unique_id=39441754]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Menu/Welcome" unique_id=1158980872]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Menu/Welcome/ColorRect2" unique_id=1302477674]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 39.0
+grow_horizontal = 2
+color = Color(0.16192648, 0.5136112, 0.9999998, 1)
+
+[node name="Label" type="Label" parent="Control/Menu/Welcome/ColorRect2" unique_id=630380734]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_sirnx")
+text = "Welcome Level Edit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control/Menu/Welcome" unique_id=1953082933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "欢迎使用关卡编辑器，在这里你可以较为方便的编辑关卡内容和模式，列如出怪，背景图等内容，你可以在这里修改关卡的名称与，天数音乐等，需要主意的是导出后默认路径为res://如果是模组创作者需要更改为D:/或user://再为json取名,之后再让某地图的读取编号更改为改json的名称就可以正常读取了"
+label_settings = SubResource("LabelSettings_3wd4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Monster Array" type="Control" parent="Control/Menu" unique_id=1156576271]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="ColorRect" type="ColorRect" parent="Control/Menu/Monster Array" unique_id=583001152]
 layout_mode = 1
@@ -140,7 +232,7 @@ color = Color(0.40648347, 0.59197, 1, 1)
 
 [node name="Label" type="Label" parent="Control/Menu/Monster Array/ColorRect/ColorRect2" unique_id=1453331029]
 layout_mode = 0
-offset_right = 282.0
+offset_right = 580.0
 offset_bottom = 33.0
 text = "Monster Array"
 label_settings = SubResource("LabelSettings_qpwxa")
@@ -149,8 +241,8 @@ vertical_alignment = 1
 
 [node name="Add_array" type="Button" parent="Control/Menu/Monster Array" unique_id=1711266956]
 layout_mode = 0
-offset_left = 283.0
-offset_right = 323.0
+offset_left = 580.0
+offset_right = 620.0
 offset_bottom = 40.0
 text = "+"
 script = ExtResource("4_qpwxa")
@@ -210,16 +302,207 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/Monster Array/Array/intArray/ScrollContainer" unique_id=1460928955]
 layout_mode = 2
 
-[node name="Image" type="Control" parent="Control/Menu" unique_id=376656486]
+[node name="Monster Value" type="Control" parent="Control/Menu" unique_id=376656486]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="Control" type="Control" parent="Control/Menu" unique_id=1746969672]
-visible = false
-layout_mode = 2
+script = ExtResource("7_s4ui5")
 metadata/_tab_index = 2
-metadata/_tab_name = "测试"
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu/Monster Value" unique_id=452745682]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Menu/Monster Value/ColorRect" unique_id=2065128416]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 39.0
+grow_horizontal = 2
+color = Color(0.16192648, 0.5136112, 0.9999998, 1)
+
+[node name="Label" type="Label" parent="Control/Menu/Monster Value/ColorRect" unique_id=1247074290]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_sirnx")
+text = "Monster Value"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Menu/Monster Value" unique_id=49096084]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/Monster Value/ScrollContainer" unique_id=1535676402]
+layout_mode = 2
+
+[node name="Monster Seed" type="Control" parent="Control/Menu" unique_id=532428901]
+visible = false
+layout_mode = 2
+script = ExtResource("7_s4ui5")
+metadata/_tab_index = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu/Monster Seed" unique_id=552956506]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Menu/Monster Seed/ColorRect" unique_id=27041591]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 39.0
+grow_horizontal = 2
+color = Color(0.16192648, 0.5136112, 0.9999998, 1)
+
+[node name="Label" type="Label" parent="Control/Menu/Monster Seed/ColorRect" unique_id=1183502549]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_sirnx")
+text = "Monster Value"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Menu/Monster Seed" unique_id=943125349]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/Monster Seed/ScrollContainer" unique_id=43428295]
+layout_mode = 2
+
+[node name="Wave" type="Control" parent="Control/Menu" unique_id=826588734]
+visible = false
+layout_mode = 2
+script = ExtResource("8_2v08q")
+metadata/_tab_index = 4
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu/Wave" unique_id=831410744]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Menu/Wave/ColorRect" unique_id=956929358]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.0
+offset_bottom = 39.0
+grow_horizontal = 2
+color = Color(0.16192648, 0.5136112, 0.9999998, 1)
+
+[node name="Label" type="Label" parent="Control/Menu/Wave/ColorRect" unique_id=1793904857]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_sirnx")
+text = "Wave"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Menu/Wave" unique_id=20200238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/Wave/ScrollContainer" unique_id=202560091]
+layout_mode = 2
+
+[node name="Image" type="Control" parent="Control/Menu" unique_id=82879614]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Menu/Image" unique_id=2072680368]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 576.0
+offset_bottom = 614.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/Image/ScrollContainer" unique_id=510453439]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Control/Menu/Image/ScrollContainer/VBoxContainer" unique_id=1206958923]
+custom_minimum_size = Vector2(580, 40)
+layout_mode = 2
+placeholder_text = "Path..."
+script = ExtResource("9_0rtlg")
+
+[node name="Image" type="TextureRect" parent="Control/Menu/Image/ScrollContainer/VBoxContainer" unique_id=910676444]
+layout_mode = 2
+
+[node name="Image2" type="TextureRect" parent="Control/Menu/Image/ScrollContainer/VBoxContainer" unique_id=1608637997]
+layout_mode = 2
+
+[node name="HouseImage" type="LineEdit" parent="Control/Menu/Image/ScrollContainer/VBoxContainer" unique_id=1681244312]
+custom_minimum_size = Vector2(580, 40)
+layout_mode = 2
+placeholder_text = "Path..."
+script = ExtResource("8_gy11j")
+
+[node name="HouseImage2" type="TextureRect" parent="Control/Menu/Image/ScrollContainer/VBoxContainer" unique_id=1159433198]
+layout_mode = 2
+
+[node name="HouseImage3" type="TextureRect" parent="Control/Menu/Image/ScrollContainer/VBoxContainer" unique_id=1372127234]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="Control/Menu/Image" unique_id=1413202387]
+layout_mode = 0
+offset_right = 580.0
+offset_bottom = 16.0
+max_value = 3.0
+step = 0.01
+value = 1.0
+script = ExtResource("11_61tcn")
+
+[node name="Preview" type="Control" parent="Control/Menu" unique_id=1321749922]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="Preview_Text" type="Label" parent="Control/Menu/Preview" unique_id=1942724117]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 116.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_nce0s")
+text = "XXXX-XXXX"
+label_settings = SubResource("LabelSettings_2v08q")
+vertical_alignment = 1
+script = ExtResource("10_4g08j")
 
 [node name="Information" type="Control" parent="Control" unique_id=1118548563]
 layout_mode = 1
@@ -228,15 +511,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -290.0
-offset_top = -70.0
+offset_left = -572.0
+offset_top = -177.0
+offset_bottom = -70.0
 grow_horizontal = 0
 grow_vertical = 0
+script = ExtResource("11_4g08j")
 
 [node name="Day" type="LineEdit" parent="Control/Information" unique_id=393062848]
 layout_mode = 0
 offset_top = 36.0
-offset_right = 290.0
+offset_right = 572.0
 offset_bottom = 72.0
 placeholder_text = "Day"
 
@@ -246,10 +531,40 @@ offset_right = 290.0
 offset_bottom = 36.0
 placeholder_text = "Name"
 
+[node name="Version" type="LineEdit" parent="Control/Information" unique_id=449314024]
+layout_mode = 0
+offset_left = 290.0
+offset_right = 572.0
+offset_bottom = 36.0
+text = "Beta0.1.1"
+placeholder_text = "Version"
+
+[node name="BGMID" type="LineEdit" parent="Control/Information" unique_id=1999443197]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 572.0
+offset_bottom = 108.0
+placeholder_text = "BGM ID"
+script = ExtResource("9_yeoc4")
+
 [node name="JsonData" type="Node" parent="." unique_id=1876006409]
 script = ExtResource("2_5i44e")
 metadata/_custom_type_script = "uid://ddwlbm7hrvbl3"
 
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1758788317]
+oversampling_override = 1.0
+title = "Open a Directory"
+theme_override_colors/folder_icon_color = Color(1, 1, 1, 1)
+theme_override_colors/file_icon_color = Color(1, 1, 1, 1)
+ok_button_text = "确定"
+file_mode = 2
+display_mode = 1
+access = 2
+script = ExtResource("19_3wd4c")
+
+[connection signal="pressed" from="Control/FinalEdit/Path/Button" to="FileDialog" method="_on_button_pressed"]
 [connection signal="pressed" from="Control/FinalEdit/save" to="Control/FinalEdit/save" method="_on_pressed"]
 [connection signal="pressed" from="Control/FinalEdit/load" to="Control/FinalEdit/load" method="_on_pressed"]
 [connection signal="pressed" from="Control/Menu/Monster Array/Add_array" to="Control/Menu/Monster Array/Add_array" method="_on_pressed"]
+[connection signal="dir_selected" from="FileDialog" to="FileDialog" method="_on_dir_selected"]
+[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_file_selected"]

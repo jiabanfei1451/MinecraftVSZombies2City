@@ -43,4 +43,4 @@ func _on_mouse_exited() -> void:
 
 
 func _on_进度条_value_changed(value: float) -> void:
-	音量.音乐音量 = $"..".value
+	音乐列表.音乐音量 = $"..".value

@@ -1,0 +1,769 @@
+[gd_scene format=3 uid="uid://ba3fg7v706epj"]
+
+[ext_resource type="Shader" uid="uid://bcxm5lfsl83xt" path="res://Shader/序章.gdshader" id="1_agtgj"]
+[ext_resource type="Script" uid="uid://bh3eam51g3fbg" path="res://Script/Scene Script/Music room/touch_bar.gd" id="3_kcn0w"]
+[ext_resource type="Script" uid="uid://cob55gkjo1id" path="res://Script/Scene Script/Music room/touchpad.gd" id="4_6vbjw"]
+[ext_resource type="Material" uid="uid://dsjfxmsbblpd0" path="res://Shader/MaterialShader/不知道.tres" id="5_2tvp3"]
+[ext_resource type="Script" uid="uid://cgvqjxx1r7vcj" path="res://Scene/Misc Scene/Music room/VBoxContainer.cs" id="5_shdrx"]
+[ext_resource type="Script" uid="uid://bolm0yb4rmo3x" path="res://Script/Scene Script/Music room/misc_string.gd" id="6_y73in"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="7_y0i5j"]
+[ext_resource type="Script" uid="uid://wxnla5rv8kxh" path="res://Script/Scene Script/Music room/Back.gd" id="8_rf0xb"]
+[ext_resource type="Script" uid="uid://3lriods2xh5h" path="res://Script/Scene Script/Music room/Back2.gd" id="10_hedi7"]
+[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="10_lnmd7"]
+[ext_resource type="Script" uid="uid://ddwlbm7hrvbl3" path="res://addons/save_or_load_data/Script/jsondata.gd" id="11_oid4t"]
+[ext_resource type="Script" uid="uid://kdt6nts85olo" path="res://Script/Scene Script/Music room/playbutton.gd" id="12_fv86t"]
+[ext_resource type="Texture2D" uid="uid://d1aflagpnhupu" path="res://Image/UI/Bar/BarPanel.png" id="13_ayo2j"]
+[ext_resource type="Texture2D" uid="uid://b5wrq8e5edxet" path="res://Object/素材图/Default-ParticleSystem.png" id="14_x0q80"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_shdrx"]
+noise_type = 0
+seed = 187
+frequency = 0.0631
+offset = Vector3(0, 164.95, 0)
+fractal_type = 0
+fractal_octaves = 2
+fractal_lacunarity = -0.075
+fractal_gain = 0.0
+fractal_ping_pong_strength = 1.0
+domain_warp_enabled = true
+domain_warp_amplitude = 50.0
+domain_warp_fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ayo2j"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_shdrx")
+seamless = true
+seamless_blend_skirt = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jw1br"]
+shader = ExtResource("1_agtgj")
+shader_parameter/color_3 = Color(1, 0.79024076, 0.98411745, 1)
+shader_parameter/text_2 = SubResource("NoiseTexture2D_ayo2j")
+
+[sub_resource type="Shader" id="Shader_ayo2j"]
+code = "shader_type canvas_item;
+uniform vec4 colo : source_color;
+uniform float RValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform float GValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform float BValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform float AValue :hint_range(-255.0, 255.0, 0) = 0.5;
+uniform bool oneValue = false;
+uniform bool setAlpha = false;
+group_uniforms Color;
+uniform float MixR :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float MixG :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float MixB :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float MixA :hint_range(-1.0, 1.0, 0) = 0.5;
+uniform float R = 1.0;
+uniform float G = 1.0;
+uniform float B = 1.0;
+uniform float A = 1.0;
+group_uniforms TimeValue;
+group_uniforms TimeValue.Time;
+uniform float timeR = 1;
+uniform float timeG = 1;
+uniform float timeB = 1;
+uniform float timeA = 1;
+uniform float timeR2 = 1;
+uniform float timeG2 = 1;
+uniform float timeB2 = 1;
+uniform float timeA2 = 1;
+group_uniforms TimeValue.multiplier;
+uniform float multiplierR = 0;
+uniform float multiplierG = 0;
+uniform float multiplierB = 0;
+uniform float multiplierA = 0;
+uniform float multiplierR2 = 0;
+uniform float multiplierG2 = 0;
+uniform float multiplierB2 = 0;
+uniform float multiplierA2 = 0;
+group_uniforms TimeValue.Valuemultiplier;
+uniform float ValuemultiplierR :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierG :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierB :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierA :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierR2 :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierG2 :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierB2 :hint_range(-1.0, 1.0, 0) = 1;
+uniform float ValuemultiplierA2 :hint_range(-1.0, 1.0, 0) = 1;
+group_uniforms TimeValue;
+uniform bool One = false;
+group_uniforms functionMode;
+uniform int Function_styleR : hint_range(0, 2, 0);
+uniform int Function_styleG : hint_range(0, 2, 0);
+uniform int Function_styleB : hint_range(0, 2, 0);
+uniform int Function_styleA : hint_range(0, 2, 0);
+group_uniforms o;
+uniform bool TypeClampR = false;
+uniform float ClampR = 0.5;
+uniform float ClampRMin = 0;
+uniform bool TypeClampG = false;
+uniform float ClampG = 0.5;
+uniform float ClampGMin = 0;
+uniform bool TypeClampB = false;
+uniform float ClampB = 0.5;
+uniform float ClampBMin = 0;
+uniform bool TypeClampR2 = false;
+uniform float ClampR2 = 0.5;
+uniform float ClampRMin2 = 0;
+uniform bool TypeClampG2 = false;
+uniform float ClampG2 = 0.5;
+uniform float ClampGMin2 = 0;
+uniform bool TypeClampB2 = false;
+uniform float ClampB2 = 0.5;
+uniform float ClampBMin2 = 0;
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	float VR;
+	float VR2;
+	float VG = sin((TIME * multiplierG) + timeG);
+	float VG2 = sin((TIME * multiplierG2) + timeG2);
+	float VB = sin((TIME * multiplierB) + timeB);
+	float VB2 = sin((TIME * multiplierB2) + timeB2);
+	float VA = sin((TIME * multiplierA) + timeA);
+	float VA2 = sin((TIME * multiplierA2) + timeA2);
+	if (Function_styleR == 0){
+		VR = sin((TIME * multiplierR) + timeR);
+		VR2 = sin((TIME * multiplierR2) + timeR2);
+	}
+	else if(Function_styleR == 1){
+		VR = cos((TIME * multiplierR) + timeR);
+		VR2 = cos((TIME * multiplierR2) + timeR2);
+	}
+	else if(Function_styleR == 2){
+		VG = tan((TIME * multiplierR) + timeR);
+		VG2 = tan((TIME * multiplierR) + timeR2);
+	}
+	if (Function_styleR == 0){
+		VG = sin((TIME * multiplierG) + timeG);
+		VG2 = sin((TIME * multiplierG2) + timeG2);
+	}
+	else if(Function_styleG == 1){
+		VG = cos((TIME * multiplierG) + timeG);
+		VG2 = cos((TIME * multiplierG2) + timeG2);
+	}
+	else if(Function_styleG == 2){
+		VG = tan((TIME * multiplierG) + timeG);
+		VG2 = tan((TIME * multiplierG2) + timeG2);
+	}
+	if (Function_styleR == 0){
+		VB = sin((TIME * multiplierB) + timeB);
+		VB2 = sin((TIME * multiplierB2) + timeB2);
+	}
+	else if(Function_styleB == 1){
+		VB = cos((TIME * multiplierB) + timeB);
+		VB2 = cos((TIME * multiplierB2) + timeB2);
+	}
+	else if(Function_styleB == 2){
+		VB = tan((TIME * multiplierB) + timeB);
+		VB2 = tan((TIME * multiplierB2) + timeB2);
+	}
+	if (Function_styleR == 0){
+		VA = sin((TIME * multiplierA) + timeA);
+		VA2 = sin((TIME * multiplierA2) + timeA2);
+	}
+	else if(Function_styleA == 1){
+		VA = cos((TIME * multiplierA) + timeA);
+		VA2 = cos((TIME * multiplierA2) + timeA2);
+	}
+	else if(Function_styleA == 2){
+		VA = tan((TIME * multiplierA) + timeA);
+		VA2 = tan((TIME * multiplierA2) + timeA2);
+	}
+	VR *= ValuemultiplierR;
+	VR2 *= ValuemultiplierR2;
+	VG *= ValuemultiplierG;
+	VG2 *= ValuemultiplierG2;
+	VB *= ValuemultiplierB;
+	VB2 *= ValuemultiplierB2;
+	VA *= ValuemultiplierA;
+	VA2 *= ValuemultiplierA2;
+	if (One == true){
+		VB2 = VB;
+		VR2 = VR;
+		VG2 = VG;
+		VA2 = VA;
+	}
+	if (TypeClampR == true){
+		VR = clamp(VR,ClampRMin,ClampR);
+	}
+	if (TypeClampG == true){
+		VG = clamp(VR,ClampGMin,ClampG);
+	}
+	if (TypeClampB == true){
+		VB = clamp(VR,ClampBMin,ClampB);
+	}
+	if (TypeClampR2 == true){
+		VR2 = clamp(VR2,ClampRMin2,ClampR2);
+	}
+	if (TypeClampG2 == true){
+		VG2 = clamp(VR2,ClampGMin2,ClampG2);
+	}
+	if (TypeClampB == true){
+		VB2 = clamp(VR2,ClampBMin2,ClampB2);
+	}
+	if (oneValue == false){
+		COLOR.r = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		COLOR.g = mix(UV.x * GValue * VG,colo.g * (VG2 + G),MixG);
+		COLOR.b = mix(UV.x * BValue * VB,colo.b * (VB2 + B),MixB);
+		if (setAlpha == true){
+		COLOR.a = mix(UV.x * AValue * VA,colo.b * (VA2 + A),MixA);
+		}
+	}
+	else{
+		COLOR.r = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		COLOR.g = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		COLOR.b = mix(UV.x * RValue * VR,colo.r * (VR2 + R),MixR);
+		if (setAlpha == true){
+		COLOR.a = mix(UV.x * AValue * VA,colo.b * (VA2 + A),MixA);
+		}
+	}
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shdrx"]
+shader = SubResource("Shader_ayo2j")
+shader_parameter/colo = Color(0, 0, 0, 1)
+shader_parameter/RValue = 0.5
+shader_parameter/GValue = 0.5
+shader_parameter/BValue = 0.5
+shader_parameter/AValue = 1.285
+shader_parameter/oneValue = false
+shader_parameter/setAlpha = true
+shader_parameter/MixR = 0.5
+shader_parameter/MixG = 0.5
+shader_parameter/MixB = 0.5
+shader_parameter/MixA = 0.5
+shader_parameter/R = 1.0
+shader_parameter/G = 1.0
+shader_parameter/B = 1.0
+shader_parameter/A = 1.0
+shader_parameter/One = false
+shader_parameter/timeR = 1.0
+shader_parameter/timeG = 1.0
+shader_parameter/timeB = 1.0
+shader_parameter/timeA = 1.0
+shader_parameter/timeR2 = 1.0
+shader_parameter/timeG2 = 1.0
+shader_parameter/timeB2 = 1.0
+shader_parameter/timeA2 = 1.0
+shader_parameter/multiplierR = 0.0
+shader_parameter/multiplierG = 0.0
+shader_parameter/multiplierB = 0.0
+shader_parameter/multiplierA = 0.0
+shader_parameter/multiplierR2 = 0.0
+shader_parameter/multiplierG2 = 0.0
+shader_parameter/multiplierB2 = 0.0
+shader_parameter/multiplierA2 = 0.0
+shader_parameter/ValuemultiplierR = 1.0
+shader_parameter/ValuemultiplierG = 1.0
+shader_parameter/ValuemultiplierB = 1.0
+shader_parameter/ValuemultiplierA = 1.0
+shader_parameter/ValuemultiplierR2 = 1.0
+shader_parameter/ValuemultiplierG2 = 1.0
+shader_parameter/ValuemultiplierB2 = 1.0
+shader_parameter/ValuemultiplierA2 = 1.0
+shader_parameter/Function_styleR = 0
+shader_parameter/Function_styleG = 0
+shader_parameter/Function_styleB = 0
+shader_parameter/Function_styleA = 0
+shader_parameter/TypeClampR = false
+shader_parameter/ClampR = 0.5
+shader_parameter/ClampRMin = 0.0
+shader_parameter/TypeClampG = false
+shader_parameter/ClampG = 0.5
+shader_parameter/ClampGMin = 0.0
+shader_parameter/TypeClampB = false
+shader_parameter/ClampB = 0.5
+shader_parameter/ClampBMin = 0.0
+shader_parameter/TypeClampR2 = false
+shader_parameter/ClampR2 = 0.5
+shader_parameter/ClampRMin2 = 0.0
+shader_parameter/TypeClampG2 = false
+shader_parameter/ClampG2 = 0.5
+shader_parameter/ClampGMin2 = 0.0
+shader_parameter/TypeClampB2 = false
+shader_parameter/ClampB2 = 0.5
+shader_parameter/ClampBMin2 = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxefk"]
+font = ExtResource("7_y0i5j")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5uyj"]
+font = ExtResource("7_y0i5j")
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_7h7cr"]
+font = ExtResource("7_y0i5j")
+font_size = 30
+shadow_size = 2
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jw1br"]
+font = ExtResource("7_y0i5j")
+font_size = 20
+outline_size = 2
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u5pa"]
+font = ExtResource("7_y0i5j")
+font_size = 22
+shadow_size = 0
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shdrx"]
+viewport_path = NodePath("Sprite2D/SubViewport")
+
+[sub_resource type="Curve" id="Curve_ayo2j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12745097, 1), 2.7336411, 2.7336411, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_oc6xi"]
+
+[sub_resource type="Gradient" id="Gradient_q11ml"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_agtgj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), -2.8804893, -2.8804893, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_shdrx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12745097, 0.8282695), 2.7336411, 2.7336411, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ayo2j"]
+colors = PackedColorArray(0, 0.080855675, 0.24970406, 1, 0.25200006, 0, 0.63, 1)
+
+[sub_resource type="Gradient" id="Gradient_kcn0w"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_6vbjw"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_nvr3v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.54787236, 0.6629214), -2.8804893, -2.8804893, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ayqgp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3594771, 1), 2.7336411, 2.7336411, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="MiscRoom" type="Node2D" unique_id=277106670]
+
+[node name="Node2D" type="CanvasLayer" parent="." unique_id=299761234]
+
+[node name="Control" type="Control" parent="Node2D" unique_id=1054366576]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/Control" unique_id=1357401431]
+material = SubResource("ShaderMaterial_jw1br")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D/Control" unique_id=1605913105]
+material = SubResource("ShaderMaterial_shdrx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Muisc list" type="ColorRect" parent="Node2D" unique_id=1693449464]
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Music List" type="Control" parent="Node2D/Muisc list" unique_id=1954820477]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="ColorRect" parent="Node2D/Muisc list/Music List" unique_id=300820028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.19607843)
+
+[node name="Touchpad" type="ColorRect" parent="Node2D/Muisc list/Music List" unique_id=71464818]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+color = Color(0, 0.29999995, 1, 0)
+script = ExtResource("4_6vbjw")
+"范围" = Vector2(552, 508)
+metadata/_custom_type_script = "uid://sc48ukg1du60"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Node2D/Muisc list/Music List" unique_id=889124503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+scroll_hint_mode = 1
+tile_scroll_hint = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Muisc list/Music List/ScrollContainer" unique_id=1023375523]
+layout_mode = 2
+script = ExtResource("5_shdrx")
+
+[node name="Name" type="Control" parent="Node2D/Muisc list" unique_id=1687711346]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/Muisc list/Name" unique_id=1641720079]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Label" type="Label" parent="Node2D/Muisc list/Name" unique_id=1036901095]
+material = ExtResource("5_2tvp3")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -20.0
+offset_right = 135.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Muisc Room"
+label_settings = SubResource("LabelSettings_nxefk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Touchbutton2" type="Control" parent="Node2D/Muisc list/Name" unique_id=1523034687]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 2
+script = ExtResource("8_rf0xb")
+"偏移" = Vector2(20, 20)
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="Label" type="Label" parent="Node2D/Muisc list/Name/Touchbutton2" unique_id=144332820]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<"
+label_settings = SubResource("LabelSettings_u5uyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JsonData" type="Node" parent="Node2D/Muisc list" unique_id=1903503424]
+script = ExtResource("11_oid4t")
+echo = false
+metadata/_custom_type_script = "uid://ddwlbm7hrvbl3"
+
+[node name="Muisc" type="ColorRect" parent="Node2D" unique_id=369912516]
+visible = false
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Misc String" type="Control" parent="Node2D/Muisc" unique_id=1028111659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_y73in")
+
+[node name="Panel" type="ColorRect" parent="Node2D/Muisc/Misc String" unique_id=1281699207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Touchbutton3" type="Control" parent="Node2D/Muisc/Misc String/Panel" unique_id=1180780560]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 2
+script = ExtResource("10_hedi7")
+"偏移" = Vector2(20, 20)
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="Label" type="Label" parent="Node2D/Muisc/Misc String/Panel/Touchbutton3" unique_id=1240142362]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<"
+label_settings = SubResource("LabelSettings_u5uyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="名称" type="Label" parent="Node2D/Muisc/Misc String" unique_id=266611637]
+material = ExtResource("5_2tvp3")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+text = "名称oiaspodsopdisapodapoisoadiosapd"
+label_settings = SubResource("LabelSettings_7h7cr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="出处" type="Label" parent="Node2D/Muisc/Misc String" unique_id=1651205805]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 88.0
+offset_bottom = 128.0
+grow_horizontal = 2
+text = "出处：7891"
+label_settings = SubResource("LabelSettings_jw1br")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="出处2" type="Label" parent="Node2D/Muisc/Misc String" unique_id=1383436840]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 128.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "出处：7891"
+label_settings = SubResource("LabelSettings_5u5pa")
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="JsonData" type="Node" parent="Node2D/Muisc" unique_id=1233926244]
+script = ExtResource("11_oid4t")
+echo = false
+metadata/_custom_type_script = "uid://ddwlbm7hrvbl3"
+
+[node name="touchBar" type="Panel" parent="Node2D/Muisc" unique_id=644967507]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_kcn0w")
+stop = 0.01
+metadata/_custom_type_script = "uid://ceg2f8s4u3cix"
+
+[node name="TextureRect" type="Control" parent="Node2D/Muisc" unique_id=1135611056]
+anchors_preset = 0
+offset_top = 545.0
+offset_right = 64.0
+offset_bottom = 609.0
+script = ExtResource("12_fv86t")
+notTexture = true
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Muisc/TextureRect" unique_id=828325422]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("13_ayo2j")
+
+[node name="Label" type="Label" parent="Node2D/Muisc" unique_id=781650971]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -98.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="音频引擎" type="AudioStreamPlayer" parent="Node2D" unique_id=1714353191]
+script = ExtResource("10_lnmd7")
+"可调用音乐引擎" = true
+"自动播放" = false
+metadata/_custom_type_script = "uid://c3k2sp2sdnbph"
+
+[node name="size" type="Control" parent="Node2D" unique_id=851544585]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=544205476]
+position = Vector2(564, 296)
+texture = SubResource("ViewportTexture_shdrx")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite2D" unique_id=2026248510]
+size = Vector2i(4096, 4096)
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D/SubViewport" unique_id=1066466282]
+offset_left = -4630.0
+offset_top = -4434.0
+offset_right = 5369.0
+offset_bottom = 5565.0
+color = Color(5.264301e-08, 0, 0.095190175, 1)
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Sprite2D/SubViewport" unique_id=188263894]
+position = Vector2(2048, 2048)
+rotation = -0.3013078
+amount = 200
+texture = ExtResource("14_x0q80")
+lifetime = 5.0
+speed_scale = 0.5
+explosiveness = 0.1
+randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 2000)
+direction = Vector2(0, 0)
+spread = 180.0
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+damping_max = 100.0
+angle_min = 720.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_ayo2j")
+color_ramp = SubResource("Gradient_oc6xi")
+color_initial_ramp = SubResource("Gradient_q11ml")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Sprite2D/SubViewport" unique_id=15176412]
+position = Vector2(2048, 2048)
+amount = 100
+texture = ExtResource("14_x0q80")
+lifetime = 2.0
+preprocess = 10.0
+speed_scale = 0.5
+explosiveness = 0.1
+randomness = 1.0
+lifetime_randomness = 0.2
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 2000)
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(500, 0)
+angular_velocity_max = 0.1
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+orbit_velocity_curve = SubResource("Curve_agtgj")
+angle_min = 720.0
+angle_max = 720.0
+scale_amount_min = 20.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_shdrx")
+color_ramp = SubResource("Gradient_ayo2j")
+color_initial_ramp = SubResource("Gradient_kcn0w")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+hue_variation_curve = SubResource("Curve_6vbjw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D/SubViewport" unique_id=1324988695]
+position = Vector2(2048, 2048)
+amount = 500
+texture = ExtResource("14_x0q80")
+lifetime = 2.0
+speed_scale = 0.25
+explosiveness = 0.1
+randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 2000)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(500, 0)
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+orbit_velocity_curve = SubResource("Curve_nvr3v")
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+damping_max = 100.0
+angle_min = 720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ayqgp")
+color_ramp = SubResource("Gradient_oc6xi")
+color_initial_ramp = SubResource("Gradient_q11ml")
+
+[connection signal="拖拽时" from="Node2D/Muisc list/Music List/Touchpad" to="Node2D/Muisc list/Music List/Touchpad" method="_on_拖拽时"]
+[connection signal="滑动按下时void" from="Node2D/Muisc/touchBar" to="Node2D/Muisc/touchBar" method="_on_滑动按下时void"]
+[connection signal="滑动结束时void" from="Node2D/Muisc/touchBar" to="Node2D/Muisc/touchBar" method="_on_滑动结束时void"]

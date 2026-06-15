@@ -11,6 +11,7 @@ var 器械 : PackedScene
 @export var 器械ID : int = -1
 @export var 消耗 : int = 50
 @export var 冷却 : float = 7.5
+@export_range(0,100) var 冷却减免 : float = 0
 @export var 冷却中 : bool = false
 @export var UI:CanvasLayer
 @export_subgroup("选卡蓝图")
@@ -35,7 +36,7 @@ func _ready() -> void:
 	设定卡槽状态()
 	if _启用 == false:
 		if get_tree().current_scene.当前状态 != "选卡":
-			开始冷却()
+			开始冷却(冷却减免)
 	visible=true
 	
 func _process(delta: float) -> void:
@@ -120,11 +121,11 @@ func _鼠标离开时() -> void:
 	if 描述 != null:
 		描述.fr()
 
-func 开始冷却():
+func 开始冷却(减免:float):
 	冷却中 = true
 	$"裁剪节点/冷却".scale.y = 1
 	var cd = create_tween()
-	cd.tween_property($"裁剪节点/冷却","scale",Vector2(1,0),冷却)
+	cd.tween_property($"裁剪节点/冷却","scale",Vector2(1,0),冷却 * (1 - 冷却减免 / 100))
 	冷却渐变 = cd
 	await 冷却渐变.finished
 	冷却中 = false
@@ -191,7 +192,7 @@ func 已被放置():
 	if 启用 == true:
 		get_tree().current_scene.当前器械 = null
 		get_tree().current_scene.器械能 -= 消耗
-		开始冷却()
+		开始冷却(0)
 
 func 判定选卡状态():
 	if get_tree().current_scene.当前状态 == "选卡" or 器械ID <= -1:
@@ -245,3 +246,4 @@ func 添加属性():
 	if 器械ID > -1:
 		消耗 = 精灵图列表.消耗[器械ID]
 		冷却 = 精灵图列表.冷却[器械ID]
+		冷却减免 = 精灵图列表.开局冷却减免百分比[器械ID]

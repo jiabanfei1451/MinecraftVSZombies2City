@@ -1,4 +1,5 @@
 extends Node
+
 static var 怪物数组 : Array[PackedScene]
 
 static var img : Array[Texture2D]
@@ -7,6 +8,7 @@ static var 名称 : Array[String]
 static var 描述 : Array[String]
 static var 冷却 : Array[float]
 static var 消耗 : Array[int]
+static var 开局冷却减免百分比 : Array[float]
 
 static var 卡槽边框贴图 : Array[Texture2D]
 static var 卡槽背景板贴图 : Array[Texture2D]
@@ -25,7 +27,7 @@ var 数组添加名称 : String = " "
 var 数组添加描述 : String = " "
 var 数组添加消耗 : int = 0
 var 数组添加冷却 : float = 7.5
-
+var 数组添加开局冷却减免百分比 = 0
 
 func _ready() -> void:
 #region 初始化数组
@@ -82,6 +84,7 @@ func 打包生成数组():
 	描述.append(数组添加描述)
 	冷却.append(数组添加冷却)
 	消耗.append(数组添加消耗)
+	开局冷却减免百分比.append(clamp(数组添加开局冷却减免百分比,0,100))
 	清理临时数据()
 
 func 打包卡槽贴图组():

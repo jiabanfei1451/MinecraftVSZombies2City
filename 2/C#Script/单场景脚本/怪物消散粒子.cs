@@ -33,6 +33,7 @@ public partial class 怪物消散粒子 : Sprite2D
 			await ToSignal(GetTree().CreateTimer(0.5f + new Random().NextSingle() * 0.5f), "timeout");
 			QueueFree();
 		}
+		
 		延迟销毁();
 	}
 	public override void _Process(double delta) {
