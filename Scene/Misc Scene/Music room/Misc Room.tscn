@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="7_y0i5j"]
 [ext_resource type="Script" uid="uid://wxnla5rv8kxh" path="res://Script/Scene Script/Music room/Back.gd" id="8_rf0xb"]
 [ext_resource type="Script" uid="uid://3lriods2xh5h" path="res://Script/Scene Script/Music room/Back2.gd" id="10_hedi7"]
-[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="10_lnmd7"]
 [ext_resource type="Script" uid="uid://ddwlbm7hrvbl3" path="res://addons/save_or_load_data/Script/jsondata.gd" id="11_oid4t"]
 [ext_resource type="Script" uid="uid://kdt6nts85olo" path="res://Script/Scene Script/Music room/playbutton.gd" id="12_fv86t"]
 [ext_resource type="Texture2D" uid="uid://d1aflagpnhupu" path="res://Image/UI/Bar/BarPanel.png" id="13_ayo2j"]
@@ -653,12 +652,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
-
-[node name="音频引擎" type="AudioStreamPlayer" parent="Node2D" unique_id=1714353191]
-script = ExtResource("10_lnmd7")
-"可调用音乐引擎" = true
-"自动播放" = false
-metadata/_custom_type_script = "uid://c3k2sp2sdnbph"
 
 [node name="size" type="Control" parent="Node2D" unique_id=851544585]
 layout_mode = 3

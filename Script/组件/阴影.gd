@@ -14,9 +14,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if 绑定物体 != null:
+		if 绑定物体.get_node("物理组件") == null:
+			queue_free()
 		visible = true
 		完成绑定 = true
-		position = 绑定物体.position + 坐标偏移 - Vector2(0,(绑定物体.get_node("物理组件").高度.x + 绑定物体.get_node("物理组件").高度.y) *-1)
+		if 绑定物体.get_node("物理组件") != null:
+			position = 绑定物体.position + 坐标偏移 - Vector2(0,(绑定物体.get_node("物理组件").高度.x + 绑定物体.get_node("物理组件").高度.y) *-1)
+		else:
+			queue_free()
 		scale = 缩放
 	else:
 		if 完成绑定 == true:

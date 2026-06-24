@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 func pr():
 	$ColorRect.color = Color(1.0, 1.0, 1.0, 0.196)
 	$"../../../../../Muisc/Misc String".id = id
-	$"../../../../../音频引擎".音乐选项 = id
+	MuiscEngine.音乐.音乐选项 = id
 	var B = create_tween()
 	B.tween_property($"../../../..","scale:x",0,0.75).set_trans(Tween.TRANS_QUART)
 	B.parallel().tween_property($"../../../../../Muisc","scale:x",1,0.5).set_trans(Tween.TRANS_QUART)

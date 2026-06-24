@@ -14,12 +14,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	p2(delta)
 	if a == false:
-		if $"../../音频引擎".playing == false:
+		if MuiscEngine.音乐.playing == false:
 			$TextureRect.texture = image
 		else:
 			$TextureRect.texture = image3
 	else:
-		if $"../../音频引擎".playing == false:
+		if MuiscEngine.音乐.playing == false:
 			$TextureRect.texture = image2
 		else:
 			$TextureRect.texture = image4
@@ -30,17 +30,17 @@ func _process(delta: float) -> void:
 		a = false
 func d():
 	a = false
-	if $"../../音频引擎".自动播放 == true:
-		time = $"../../音频引擎".get_playback_position()
-		$"../../音频引擎".自动播放 = false
-		$"../../音频引擎".playing = false
+	if MuiscEngine.音乐.自动播放 == true:
+		time = MuiscEngine.音乐.get_playback_position()
+		MuiscEngine.音乐.自动播放 = false
+		MuiscEngine.音乐.playing = false
 	else:
-		$"../../音频引擎".自动播放 = true
-		if id == $"../../音频引擎".音乐选项:
-			$"../../音频引擎".play(time)
+		MuiscEngine.音乐.自动播放 = true
+		if id == MuiscEngine.音乐.音乐选项:
+			MuiscEngine.音乐.play(time)
 		else:
-			id = $"../../音频引擎".音乐选项
-			$"../../音频引擎".play(0)
+			id = MuiscEngine.音乐.音乐选项
+			MuiscEngine.音乐.play(0)
 func r():
 	a = false
 func p():

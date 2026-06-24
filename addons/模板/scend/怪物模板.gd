@@ -31,7 +31,6 @@ func 移动():
 func 受击时():
 	$"受击音效".stream = 受击.pick_random()
 	$"受击音效".play()
-	print(颜色持续时间)
 	var te = create_tween()
 	te.tween_property($".","modulate",Color(1.0, 0.0, 0.0, 1.0),颜色持续时间)
 	te.tween_property($".","modulate",Color(1.0, 1.0, 1.0, 1.0),颜色持续时间)

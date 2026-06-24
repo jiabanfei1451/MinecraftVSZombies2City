@@ -7,7 +7,6 @@ func _on_pressed() -> void:
 	var node : Control = $"../Array"
 	if $"../Array".索引 == -1:
 		node.arr.append([[]])
-		print( node.arr[0] )
 		arr.duplicate()
 func p(name:String):
 	$"../Array".索引 = name

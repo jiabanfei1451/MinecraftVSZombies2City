@@ -19,7 +19,6 @@ func 焦点():
 	edit.grab_focus(true)
 func 失去焦点():
 	edit.grab_focus(false)
-	print(edit.get_focus_mode_with_override())
 func _on_拖拽时(event: InputEventScreenDrag, 控制器: Touchpad) -> void:
 	if 拖拽方向 == 2:
 		edit.scroll_vertical -= event.relative.y * 滚动速率.y * scale.y
@@ -31,7 +30,6 @@ func _on_拖拽时(event: InputEventScreenDrag, 控制器: Touchpad) -> void:
 
 func 初始化2() -> void:
 	初始化()
-	print(OS.get_name())
 	if OS.get_name() == "Windows":
 		if Rect != null:
 			Rect.queue_free()
@@ -49,7 +47,6 @@ func 初始化2() -> void:
 	按下时void.connect(焦点)
 	外部抬起时void.connect(失去焦点)
 	拖拽时.connect(_on_拖拽时)
-	print("s")
 func P3(delta:float) -> void:
 	p2(delta)
 	if Game_Ready.OSNAME == "Android":

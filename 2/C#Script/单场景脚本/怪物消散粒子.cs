@@ -26,7 +26,6 @@ public partial class 怪物消散粒子 : Sprite2D
 				Type.Region = new Godot.Rect2(944, 678, 4, 4);
 				break;
 		}
-		GD.Print(rand);
 		Texture = Type;
 		async void 延迟销毁()
 		{

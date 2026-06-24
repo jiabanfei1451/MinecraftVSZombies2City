@@ -4,6 +4,8 @@ signal 怪物生成后(物体:Area2D)
 signal 一大波执行时()
 signal 最后一波执行时()
 signal 开始生成()
+signal 生成波执行时()
+signal 读取成功后()
 signal 计时开始时()
 signal 计时完成后()
 signal 条件判断为真()
@@ -13,6 +15,7 @@ var 最大波数 : int
 var 当前波数 : int
 @export var 生成列表 : Array[Array]
 @export var 生成数量 : Array[int]
+@export var seed : Array[int]
 @export var 开始倒计时 : int = 30
 @export var 剩余数量 : Array[Area2D]
 @export var 下一波倒计时 : float = 45
@@ -22,6 +25,7 @@ var 当前波数 : int
 @export var 生成坐标 : Vector2 = Vector2(500,45)
 @export var 生成倍率 : float = 80
 @export var 生成线路 : Vector2 = Vector2(3,-3)
+@export var 每行间隔 : float = 80
 @export_group("Level_Json")
 @export var JSONPath : String = "res://2/data/level_data/"
 @export var LoadJSON : bool = false
@@ -30,7 +34,7 @@ var 剩余计时 = 0
 var 暂停生成 : bool = false
 var FPS : float
 var 正在排除中 : bool = false
-
+var random = RandomNumberGenerator.new()
 func _ready() -> void:
 	level_ready2()
 func _process(delta: float) -> void:
@@ -38,6 +42,8 @@ func _process(delta: float) -> void:
 	
 func level_ready2():
 	level_ready()
+	random.randomize()
+	random.seed = 0
 	if LoadJSON == true:
 		读取()
 func level_process2(delta: float):
@@ -67,6 +73,7 @@ func 生成波(波:int):
 	if 波 < 生成数量.size():
 		if 生成数量[波] != null and 即将重置 == false:
 			for i in 生成数量[波]:
+				emit_signal("生成波执行时")
 				怪物生成(波)
 
 func 条件():
@@ -74,9 +81,14 @@ func 条件():
 		emit_signal("条件判断为真")
 func 怪物生成(列表ID:int):
 	var scone : PackedScene = 精灵图列表.怪物数组[生成列表[列表ID].pick_random()]
+	if seed.size() > -1 and 列表ID < seed.size():
+		random.seed = seed[列表ID]
+	else:
+		random.randomize()
 	var sx = scone.instantiate()
-	sx.position = Vector2(500,45+(80 * int(randf_range(3,-3))))
+	sx.position = 生成坐标 + Vector2(0,每行间隔 * 生成线路.y + 每行间隔 * (random.randi() % int(生成线路.x - 生成线路.y)))
 	emit_signal("怪物生成前",sx)
+	print(random.seed)
 	$"怪物".add_child(sx)
 	剩余数量.append(sx)
 	emit_signal("怪物生成后",sx)
@@ -87,7 +99,6 @@ func 排除空数组():
 			for i in 剩余数量.size():
 				if i <= 剩余数量.size() -1 and 剩余数量[i] == null and 即将重置 == false:
 					剩余数量.remove_at(i)
-					print("排除成功")
 				await get_tree().create_timer(FPS).timeout
 		正在排除中 = false
 
@@ -100,7 +111,7 @@ func 添加波(数量:int = 1,arr:Array[int] = [],大波:bool = false):
 	生成列表.back().append_array(arr)
 	if 大波 == true and 即将重置 == false:
 		大波数组.append(siz)
-	print(大波数组)
+	Game_Ready.生成日志(大波数组)
 
 func 提示一大波怪物():
 	emit_signal("一大波执行时")
@@ -124,6 +135,7 @@ func 提示一大波怪物():
 
 func 最后一波():
 	emit_signal("最后一波执行时")
+	#region 动画而已
 	var 文字 = get_tree().current_scene.get_node("文字/文字")
 	var 初始缩放 : Vector2 = 文字.scale
 	var 音效 : PackedScene = preload("res://Object/一次性音效.tscn")
@@ -141,6 +153,7 @@ func 最后一波():
 	await  get_tree().create_timer(0.5).timeout
 	tewwncolor = create_tween()
 	tewwncolor.tween_property(文字,"modulate",Color(1.0, 1.0, 1.0, 0.0),0.75).set_trans(Tween.TRANS_QUART)
+	#endregion
 func 读取():
 	var s = JsonData.new()
 	var d = s.load_data(JSONPath,"")
@@ -162,3 +175,7 @@ func 读取():
 			arrayint.append_array(i)
 			添加波(monsterValue[V],arrayint,Wave[V])
 			V += 1
+	emit_signal("读取成功后")
+	Game_Ready.重置标题语("loading...")
+	await get_tree().create_timer(1.5).timeout
+	Game_Ready.重置标题语(关卡信息)

@@ -20,4 +20,3 @@ func d():
 	var ds = create_tween()
 	ds.tween_property($"按钮","position",$"按钮".position - Vector2(0,200),1).set_trans(Tween.TRANS_SINE)
 	$ColorRect.visible=false
-	printerr("huh?")

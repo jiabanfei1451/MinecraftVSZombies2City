@@ -2,7 +2,6 @@ extends TouchPad_V2
 
 
 func _on_拖拽时(event: InputEventScreenDrag, 控制器: TouchPad_V2) -> void:
-	print(event.index)
 	$"../../Camera2D".vec -= event.relative / $"../../Camera2D".zoo
 
 func _process(delta: float) -> void:

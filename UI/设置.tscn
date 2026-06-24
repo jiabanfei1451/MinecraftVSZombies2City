@@ -119,7 +119,7 @@ shader_parameter/StepB = 0.5
 shader_parameter/StepBMin = 0.0
 shader_parameter/TypeStepR2 = false
 shader_parameter/StepR2 = 0.5
-shader_parameter/StepRMin2 = 0.9999997541279999
+shader_parameter/StepRMin2 = 0.999999754128
 shader_parameter/TypeStepG2 = false
 shader_parameter/StepG2 = 0.5
 shader_parameter/StepGMin2 = 0.0
@@ -131,25 +131,25 @@ shader_parameter/distanceR = 0.40999976731568033
 shader_parameter/distanceRMin = 1.629999740046241
 shader_parameter/TypedistanceG = false
 shader_parameter/distanceG = -0.17000021972016022
-shader_parameter/distanceGMin = 0.9999997541279999
+shader_parameter/distanceGMin = 0.999999754128
 shader_parameter/TypedistanceB = false
-shader_parameter/distanceB = 0.9999997541279999
+shader_parameter/distanceB = 0.999999754128
 shader_parameter/distanceBMin = -0.17000021972016022
 shader_parameter/TypedistanceA = true
-shader_parameter/distanceA = 9.999999552959999
+shader_parameter/distanceA = 9.99999955296
 shader_parameter/distanceAMin = 0.5199997648569603
 shader_parameter/TypedistanceR2 = false
 shader_parameter/distanceR2 = 0.47999976575104064
 shader_parameter/distanceRMin2 = 1.5599997416108806
 shader_parameter/TypedistanceG2 = false
-shader_parameter/distanceG2 = 0.9999997541279999
-shader_parameter/distanceGMin2 = 0.9999997541279999
+shader_parameter/distanceG2 = 0.999999754128
+shader_parameter/distanceGMin2 = 0.999999754128
 shader_parameter/TypedistanceB2 = false
 shader_parameter/distanceB2 = 0.5
-shader_parameter/distanceBMin2 = 0.9999997541279999
+shader_parameter/distanceBMin2 = 0.999999754128
 shader_parameter/TypedistanceA2 = false
-shader_parameter/distanceA2 = 0.9999997541279999
-shader_parameter/distanceAMin2 = 0.9999997541279999
+shader_parameter/distanceA2 = 0.999999754128
+shader_parameter/distanceAMin2 = 0.999999754128
 
 [node name="设置" type="CanvasLayer" unique_id=1150050341]
 
@@ -343,7 +343,7 @@ object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_m
 ]
 
 [node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡2" index="1" unique_id=747826937]
-text = "超分辨缩放"
+text = "Viewpot（性能最大化）"
 
 [node name="选项卡3" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项" index="1" unique_id=1152187889 instance=ExtResource("3_33kf4")]
 layout_mode = 2
@@ -354,7 +354,7 @@ object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_m
 ]
 
 [node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡3" index="1" unique_id=747826937]
-text = "拉伸"
+text = "Canvas_items（推荐）"
 
 [node name="选项卡4" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项" index="2" unique_id=645380897 instance=ExtResource("3_33kf4")]
 layout_mode = 2
@@ -365,7 +365,7 @@ object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_m
 ]
 
 [node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡/选项/选项卡4" index="1" unique_id=747826937]
-text = "关闭"
+text = "关闭（不推荐！）"
 
 [node name="Label" parent="Control/窗口背景/0/VBoxContainer/选项卡" index="2" unique_id=651465931]
 anchors_preset = 10
@@ -555,9 +555,9 @@ color = Color(0, 0.302, 1, 0.4)
 script = ExtResource("15_1dq5s")
 "占位符" = "X"
 "拖拽方向" = 2
-edit = NodePath("@Control@229250/@TextEdit@229256")
-Ui = NodePath("@Control@229250")
-Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@229250"), NodePath("@Control@229250/@TextEdit@229256")]
+edit = NodePath("@Control@19042/@TextEdit@19048")
+Ui = NodePath("@Control@19042")
+Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@19042"), NodePath("@Control@19042/@TextEdit@19048")]
 "范围" = Vector2(241, 40)
 metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
 
@@ -572,9 +572,9 @@ color = Color(0, 0.302, 1, 0.4)
 script = ExtResource("15_1dq5s")
 "占位符" = "Y"
 "拖拽方向" = 2
-edit = NodePath("@Control@229257/@TextEdit@229263")
-Ui = NodePath("@Control@229257")
-Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@229257"), NodePath("@Control@229257/@TextEdit@229263")]
+edit = NodePath("@Control@19049/@TextEdit@19055")
+Ui = NodePath("@Control@19049")
+Object_array = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, NodePath("@Control@19049"), NodePath("@Control@19049/@TextEdit@19055")]
 "范围" = Vector2(241, 40)
 metadata/_custom_type_script = "uid://cb5m5c5swkjq1"
 

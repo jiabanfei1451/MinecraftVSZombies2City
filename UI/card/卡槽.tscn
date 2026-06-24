@@ -6,18 +6,12 @@
 [ext_resource type="Script" uid="uid://bipb8tqmjfceb" path="res://addons/touch/Script/touch.gd" id="4_xnpe0"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="5_62n4e"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="6_ss6kn"]
-[ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="7_6apbx"]
 [ext_resource type="AudioStream" uid="uid://dnlb1y62pkmcy" path="res://Sound/UI/card/选择.ogg" id="8_86moa"]
 [ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="9_qeed7"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="10_rqklx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv27x"]
-atlas = ExtResource("7_6apbx")
-region = Rect2(72, 6, 48, 57)
-
-[node name="卡槽" type="Control" unique_id=811847334]
+[node name="卡槽" type="Control" unique_id=811847334 node_paths=PackedStringArray("提示文字")]
 self_modulate = Color(1, 1, 1, 0)
-layout_direction = 2
 layout_mode = 3
 anchors_preset = 0
 offset_top = 1.0
@@ -25,9 +19,11 @@ offset_right = 144.5
 offset_bottom = 216.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
+layout_direction = 2
 mouse_default_cursor_shape = 2
 theme_type_variation = &"FlatButton"
 script = ExtResource("1_s7cu6")
+"提示文字" = NodePath("消耗")
 
 [node name="贴图" type="Control" parent="." unique_id=670750215]
 anchors_preset = 0
@@ -61,17 +57,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -3.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("4_xnpe0")
 "触摸优先级" = 0
-"偏移" = Vector2(72.25, 72.25)
+"偏移" = Vector2(69, 72.25)
 notTexture = true
-"纹理物体" = NodePath("@Panel@35465")
+"纹理物体" = NodePath("@Panel@27506")
 "物体纹理" = ExtResource("5_62n4e")
-object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(72.25, 72.25),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
-, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":144.5,"offset_bottom":144.5,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"localize_numeral_system":true,"tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("5_62n4e"),"script":null)
+object_array = [Object(TouchScreenButton,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(69, 72.25),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"texture_normal":null,"texture_pressed":null,"bitmask":null,"shape":null,"shape_centered":true,"shape_visible":true,"passby_press":false,"action":"","visibility_mode":0,"script":null)
+, Object(Panel,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":2,"auto_translate_mode":0,"editor_description":"","visible":false,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"custom_minimum_size":Vector2(0, 0),"custom_maximum_size":Vector2(-1, -1),"propagate_maximum_size":false,"clip_contents":false,"layout_mode":0,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":0.0,"offset_top":0.0,"offset_right":138.0,"offset_bottom":144.5,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1, 1),"pivot_offset":Vector2(0, 0),"pivot_offset_ratio":Vector2(0, 0),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"offset_transform_enabled":false,"offset_transform_position":Vector2(0, 0),"offset_transform_position_ratio":Vector2(0, 0),"offset_transform_scale":Vector2(1, 1),"offset_transform_rotation":0.0,"offset_transform_pivot":Vector2(0, 0),"offset_transform_pivot_ratio":Vector2(0.5, 0.5),"offset_transform_visual_only":true,"localize_numeral_system":true,"layout_direction":0,"translation_context":&"","tooltip_text":"","tooltip_auto_translate_mode":0,"focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":0,"focus_behavior_recursive":0,"mouse_filter":0,"mouse_behavior_recursive":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"accessibility_name":"","accessibility_description":"","accessibility_live":0,"accessibility_controls_nodes":Array[NodePath]([]),"accessibility_described_by_nodes":Array[NodePath]([]),"accessibility_labeled_by_nodes":Array[NodePath]([]),"accessibility_flow_to_nodes":Array[NodePath]([]),"theme":null,"theme_type_variation":&"","theme_override_styles/panel":ExtResource("5_62n4e"),"script":null)
 ]
 metadata/_custom_type_script = "uid://bipb8tqmjfceb"
 
@@ -107,26 +105,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="图片" type="Control" parent="." unique_id=1947832721]
+[node name="图片" type="ColorRect" parent="." unique_id=235504968]
 clip_contents = true
-anchors_preset = 0
-offset_top = 35.5
-offset_right = 144.5
+layout_mode = 0
+offset_left = 3.0
+offset_top = 36.0
+offset_right = 141.485
 offset_bottom = 180.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
-
-[node name="显示图片" type="TextureRect" parent="图片" unique_id=1315882737]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 36.0
-offset_right = 104.0
-offset_bottom = 108.0
-scale = Vector2(2, 2)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-mouse_filter = 2
-texture = SubResource("AtlasTexture_vv27x")
-stretch_mode = 3
+color = Color(1, 1, 1, 0)
 
 [node name="裁剪节点" type="Control" parent="." unique_id=1281372689]
 clip_contents = true

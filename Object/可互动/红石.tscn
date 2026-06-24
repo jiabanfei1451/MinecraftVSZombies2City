@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmfe85smdma7l"]
 
 [ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="1_65ojq"]
-[ext_resource type="Script" uid="uid://ydaerygbium6" path="res://Object/可互动/红石.gd" id="1_qa71h"]
+[ext_resource type="Script" uid="uid://nppgv2j03j27" path="res://2/C#Script/单场景脚本/红石.cs" id="1_n3q1b"]
 [ext_resource type="Script" uid="uid://blc413ky1v12" path="res://addons/touch/Script/触摸控制器new.gd" id="3_n3q1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qa71h"]
@@ -9,7 +9,7 @@ atlas = ExtResource("1_65ojq")
 region = Rect2(309, 981, 48, 42)
 
 [node name="红石" type="Node2D" unique_id=2080088656]
-script = ExtResource("1_qa71h")
+script = ExtResource("1_n3q1b")
 
 [node name="TextureRect" type="Sprite2D" parent="." unique_id=1752891124]
 texture = SubResource("AtlasTexture_qa71h")

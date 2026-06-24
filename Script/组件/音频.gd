@@ -31,8 +31,8 @@ func _process(delta: float) -> void:
 				if 自动播放 == true:
 					play(0)
 			if 可调用音乐引擎 == true and jv != 音乐选项:
-				if 音乐选项 < 音乐列表.音乐列表.size():
-					stream = 音乐列表.音乐列表[音乐选项]
+				if 音乐选项 < 音乐列表.音乐列表[0].size():
+					stream = 音乐列表.音乐列表[0][音乐选项]
 					jv = 音乐选项
 		else:
 			stop()

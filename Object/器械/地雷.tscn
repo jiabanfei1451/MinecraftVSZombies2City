@@ -33,7 +33,11 @@ func _process(delta: float) -> void:
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfolt"]
 atlas = ExtResource("11_l0cb5")
-region = Rect2(632, 1227, 1, 1)
+region = Rect2(632, 1227, 48, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1txqk"]
+atlas = ExtResource("11_l0cb5")
+region = Rect2(632, 1227, 48, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6prej"]
 atlas = ExtResource("11_l0cb5")
@@ -126,7 +130,6 @@ script = ExtResource("10_prsru")
 "选项" = "音效"
 
 [node name="物理组件" parent="." unique_id=908775390 node_paths=PackedStringArray("生成节点") instance=ExtResource("12_r7vtc")]
-"开始延迟" = 0.0
 "生成节点" = NodePath("..")
 
 [node name="大招音效" type="AudioStreamPlayer" parent="." unique_id=764933897]
@@ -145,20 +148,29 @@ color = Color(1, 1, 1, 0)
 script = ExtResource("14_v5m4l")
 
 [node name="TNT" type="Sprite2D" parent="." unique_id=609541612]
+clip_children = 1
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(0, 8)
+position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_yfolt")
 offset = Vector2(0, 5)
 
-[node name="TNT2" type="Sprite2D" parent="TNT" unique_id=236719971]
+[node name="TNT3" type="Sprite2D" parent="TNT" unique_id=1137634485]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, 31)
+texture = SubResource("AtlasTexture_1txqk")
+offset = Vector2(0, 5)
+
+[node name="TNT2" type="Sprite2D" parent="TNT/TNT3" unique_id=2077763806]
 visible = false
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(0, 5)
+position = Vector2(0, -19)
 texture = SubResource("AtlasTexture_6prej")
 
 [node name="1" type="Sprite2D" parent="." unique_id=1602579725]
+visible = false
 texture_filter = 1
 position = Vector2(0, 19)
 scale = Vector2(1.25, 1.25)
@@ -193,7 +205,6 @@ scale = Vector2(1.25, 1.25)
 texture = SubResource("AtlasTexture_lytwy")
 
 [node name="6" type="Sprite2D" parent="." unique_id=495525167]
-visible = false
 texture_filter = 1
 position = Vector2(0, 19)
 scale = Vector2(1.25, 1.25)

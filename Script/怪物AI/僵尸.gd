@@ -4,13 +4,7 @@ var 检测到的 : Array[Area2D]
 
 
 func _process(delta: float) -> void: 
-	选定物体()
-	FPS = delta
-	$".".检测到的 = 已检测
-	if 选定攻击 == null:
-		$"检测".visible = true
-	else:
-		$"检测".visible = false
+	循环(delta)
 	if 选定攻击 != null:
 		选定攻击.减少血量((攻击力 * delta) * 3,$".")
 
@@ -36,7 +30,6 @@ func 移动():
 func 受击时():
 	$"受击音效".stream = 受击.pick_random()
 	$"受击音效".play()
-	print(颜色持续时间)
 	var te = create_tween()
 	te.tween_property($".","modulate",Color(1.0, 0.0, 0.0, 1.0),颜色持续时间)
 	te.tween_property($".","modulate",Color(1.0, 1.0, 1.0, 1.0),颜色持续时间)

@@ -4,13 +4,13 @@ var tw : Array[Tween]
 func _process(delta: float) -> void:
 	p2(delta)
 	乘数 = maxvalue * 0.001
-	var s : AudioStream = $"../../音频引擎".stream
+	var s : AudioStream = MuiscEngine.音乐.stream
 	if s != null:
 		tw.append(create_tween())
 		maxvalue = s.get_length()
 	if b == false:
 		tw.append(create_tween())
-		tw.back().tween_property($".","value",$"../../音频引擎".get_playback_position(),1)
+		tw.back().tween_property($".","value",MuiscEngine.音乐.get_playback_position(),1)
 	var m : int
 	var sm : float
 	var m2 : int
@@ -32,5 +32,5 @@ func _on_滑动按下时void() -> void:
 
 
 func _on_滑动结束时void() -> void:
-	$"../../音频引擎".play(value)
+	MuiscEngine.音乐.play(value)
 	b = false

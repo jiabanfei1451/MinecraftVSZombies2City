@@ -14,8 +14,8 @@ func _process(delta: float) -> void:
 			visible = true
 		else:
 			visible = false
-	text = "FPS：" + str(FPS * Engine.time_scale) + " 最大:" + str(最大) + " 最小:" + str(最小 * Engine.time_scale)
-	FPS = int(1 / delta)
+	text = "FPS：" + str(FPS) + " 最大:" + str(最大) + " 最小:" + str(最小)
+	FPS = Performance.get_monitor(Performance.TIME_FPS)
 	if FPS > 最大:
 		最大 = FPS
 	if FPS <= 最小:

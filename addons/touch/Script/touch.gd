@@ -71,7 +71,7 @@ func 按下():
 		if 启用 == true:
 			pre = true
 			if Debug == true:
-				print(2)
+				pass
 			if get_focus_mode_with_override() != 0:
 				if 按下时给予焦点给 == null:
 					grab_focus(true)
@@ -84,7 +84,7 @@ func 抬起():
 	if get_node("..").visible == true:
 		if 启用 == true:
 			if Debug == true:
-				print(1)
+				pass
 			pre = false
 			if pretime <= 短按阈值 and notPre == false:
 				emit_signal("点击时",name)

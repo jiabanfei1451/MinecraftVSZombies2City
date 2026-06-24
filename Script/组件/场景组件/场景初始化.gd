@@ -94,7 +94,7 @@ func 生成节点(节点:PackedScene,生成位置:Node2D):
 		get_tree().current_scene.add_child(节点实列)
 	else:
 		生成位置.add_child(节点实列)
-	print(String("["+Time.get_datetime_string_from_system())+"]",节点实列,",",生成位置)
+	Game_Ready.生成日志([节点实列,",",生成位置])
 	return 节点实列
 
 func 场景生成(名称:String,层级:int):
@@ -107,10 +107,10 @@ func 场景生成(名称:String,层级:int):
 		node.z_as_relative = false
 		node.z_index = 层级
 		node.position = Vector2(0,0)
-		print("[",Time.get_time_string_from_system(),"]",name,"生成场景","“",名称,"”")
+		Game_Ready.生成日志([name,"生成场景","“",名称,"”"])
 		return node
 	else:
-		print("[",Time.get_time_string_from_system(),"]",name,"无法生成场景","“",名称,"”","场景已存在")
+		Game_Ready.生成日志([name,"无法生成场景","“",名称,"”","场景已存在"])
 	
 func 选卡():
 	$"选卡动画".选卡()
@@ -165,13 +165,13 @@ func level_process(delta: float):
 		正在使用其他属性 = false
 	else: 正在使用其他属性 = true
 	if Input.is_action_just_pressed("S") == true:
-		print("按下")
+		Game_Ready.生成日志("按下")
 	if Input.is_action_just_pressed("DEBUG"):
 		if DEBUG == false:
-			print("DEBUG模式已开启")
+			Game_Ready.生成日志("DEBUG模式已开启")
 			DEBUG = true
 		else:
-			print("DEBUG模式已关闭")
+			Game_Ready.生成日志("DEBUG模式已关闭")
 			DEBUG = false
 	if Input.is_action_just_pressed("F5"):
 		重置()
@@ -186,8 +186,8 @@ func level_process(delta: float):
 	if Input.is_action_just_released("Q"):
 		稿子()
 func level_ready():
-	print(ProjectSettings.globalize_path("res://"))
-	print("OS:",OS.get_distribution_name(),OS.get_version_alias())
+	Game_Ready.生成日志(ProjectSettings.globalize_path("res://"))
+	Game_Ready.生成日志(["OS:",OS.get_distribution_name(),OS.get_version_alias()])
 	OS.request_permissions()
 	#region 初始化
 	生成节点(preload("res://Scene/必要物体/选卡动画.tscn"),null)
@@ -211,10 +211,11 @@ func level_ready():
 	subview.size = Vector2(2048,2048)
 	var sc = Sprite2D.new()
 	var vs : ViewportTexture = subview.get_texture()
+	sc.z_index = 5
 	add_child(sc)
 	add_child(subview)
-	print(subview.get_path())
-	print(vs.viewport_path)
+	Game_Ready.生成日志(subview.get_path())
+	Game_Ready.生成日志(vs.viewport_path)
 	sc.texture = vs
 	节点提供变量.遮罩 = subview
 	节点提供变量.光源 = 光源

@@ -15,7 +15,6 @@ func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []
 		data.append(array)
 	else:
 		data.append(array[0])
-	print(data)
 func load_Data(name:String = "", key:String = "", Value:Array = [],filepath:String = Dataname):
 	config.load(filepath)
 	if config.load(filepath) == OK:
@@ -25,13 +24,12 @@ func load_Data(name:String = "", key:String = "", Value:Array = [],filepath:Stri
 				v = Value[0]
 			else:
 				v = Value
-		print(Dataname)
-		print(config.get_value(name,key,v))
+		Game_Ready.生成日志(Dataname)
 		if config.get_value(name,key,v) != null:
-			print("not null")
+			Game_Ready.生成日志(["not null","Value:",config.get_value(name,key,v)])
 			return config.get_value(name,key,v)
 		else:
-			print("is null")
+			Game_Ready.生成日志("is null")
 			if v.size > 1:
 				return v
 			else:

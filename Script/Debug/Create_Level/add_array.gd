@@ -17,7 +17,6 @@ func _on_pressed() -> void:
 		butt.prebutton.connect(p)
 		butt.que.connect(c)
 		butt.name = str($"../Array/ScrollContainer/VBoxContainer".get_child_count())
-		print(butt.get_script())
 		$"../Array".arr.append([])
 		$"../Array/ScrollContainer/VBoxContainer".add_child(butt)
 	else:

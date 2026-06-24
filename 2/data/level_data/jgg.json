@@ -1,0 +1,12 @@
+{
+	"Level_name":"",
+	"Level_Day":"",
+	"Level_BGM":0,
+	"Level_monster":[[0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0]],
+	"Level_monster_Value":[0, 0],
+	"Level_monster_Seed":[0, 78],
+	"Level_Wave":[false, false],
+	"Level_image":"",
+	"Level_create_version":"beta0.1.3",
+	
+	}

@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://c33cg8lh8yjw1"]
 
+[ext_resource type="Script" uid="uid://blc413ky1v12" path="res://addons/touch/Script/触摸控制器new.gd" id="1_bgthn"]
+
 [node name="1" type="Node2D" unique_id=1923623099]
+
+[node name="TouchPad_V2" type="Control" parent="." unique_id=1841679629]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 95.0
+offset_right = 359.0
+offset_bottom = 256.0
+script = ExtResource("1_bgthn")
+Touch_Mode = 1
+metadata/_custom_type_script = "uid://blc413ky1v12"
+
+[node name="ColorRect" type="ColorRect" parent="TouchPad_V2" unique_id=2119809105]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

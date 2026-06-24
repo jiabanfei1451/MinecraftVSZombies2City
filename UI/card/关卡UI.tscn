@@ -9,28 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="8_whurc"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="10_onmey"]
 [ext_resource type="Script" uid="uid://daxexba230g4o" path="res://Script/UIscript/器械能贴图.gd" id="11_gaxoa"]
+[ext_resource type="Script" uid="uid://o022pwo28yy0" path="res://Script/UIscript/Card/移动到触摸位置.gd" id="12_rq6wo"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="12_yogps"]
-[ext_resource type="Texture2D" uid="uid://b7ch57uppqgrk" path="res://Object/素材图/dispenser_5.png" id="15_ttaes"]
 [ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="16_jjsiv"]
 
 [node name="关卡ui" type="CanvasLayer" unique_id=37875330]
 script = ExtResource("1_7vmet")
 
 [node name="卡槽" parent="." unique_id=1812954472 instance=ExtResource("2_vhfa3")]
-layout_direction = 2
 offset_left = 190.0
 offset_top = 0.0
 offset_right = 961.875
 offset_bottom = 108.75001
 scale = Vector2(0.8, 0.8)
+layout_direction = 2
 
 [node name="稿子" type="Button" parent="." unique_id=1738480321]
 texture_filter = 1
-layout_direction = 2
 offset_left = 243.0
 offset_right = 323.0
 offset_bottom = 76.0
 pivot_offset = Vector2(5, 5)
+layout_direction = 2
 icon = ExtResource("5_rkmq1")
 flat = true
 script = ExtResource("6_5kfun")
@@ -72,14 +72,12 @@ stream = ExtResource("12_yogps")
 script = ExtResource("16_jjsiv")
 "选项" = "音效"
 
-[node name="选定的卡槽" type="TextureRect" parent="." unique_id=593393910]
-texture_filter = 1
-offset_left = 6.0
-offset_top = 4.0
-offset_right = 46.0
-offset_bottom = 44.0
-mouse_filter = 2
-texture = ExtResource("15_ttaes")
-stretch_mode = 2
+[node name="物体贴图" type="Control" parent="." unique_id=1959201812]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("12_rq6wo")
 
 [connection signal="pressed" from="稿子" to="稿子" method="_on_pressed"]

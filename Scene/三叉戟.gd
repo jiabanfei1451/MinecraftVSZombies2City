@@ -10,7 +10,6 @@ func _process(delta: float) -> void:
 	tw.tween_property($".","position",Vector2(sin(fl) * 100 * fl2,0),0.15)
 	fl += 0.1
 	fl2 += 0.005
-	print(int(sin(fl) * 90))
 	if int(sin(fl) * 90) >= 40:
 		fl3 += 1
 	elif int(sin(fl) * 90) <= -40:

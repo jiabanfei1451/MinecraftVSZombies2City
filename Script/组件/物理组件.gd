@@ -10,7 +10,7 @@ extends Node
 @export var 高度偏移向量 : Vector2
 @export var 允许检测高度 : Vector2 = Vector2(-50,50)
 var 帧间隔 : float
-var 阴影物体 : Sprite2D
+var 阴影物体 : Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if 开始延迟 > 0 and 生成节点 == null:
@@ -40,16 +40,13 @@ func 开启物理( 物体:Area2D ):
 
 func 生成阴影():
 	var 阴影ss = 阴影.instantiate() 
-	var xun : int = 2
-	while xun >= 1:
-		阴影ss.绑定物体 = $".."
-		阴影ss.缩放 = 阴影缩放
-		阴影ss.坐标偏移 = 阴影生成向量
-		节点提供变量.阴影.add_child(阴影ss)
-		xun -= 1
+	阴影ss.绑定物体 = $".."
+	阴影ss.缩放 = 阴影缩放
+	阴影ss.坐标偏移 = 阴影生成向量
+	节点提供变量.阴影.add_child(阴影ss)
+	阴影物体 = 阴影ss
 		
 func 计算Y(对方:Area2D): # 检测范围
-	print(生成节点.name + "的物理组件:正在涉及高度计算...")
 	var zuj =对方.get_node("物理组件")
 	var d : float = (初始高度 + 高度.x + 高度.y) - (zuj.初始高度 + zuj.高度.x + zuj.高度.y)
 	if d > 允许检测高度.x and d < 允许检测高度.y:

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://berrab307pdna"]
+
+[sub_resource type="GDScript" id="GDScript_glyo3"]
+script/source = "extends Control
+var key : int = -1
+var ArrayNode : Control
+
+func _ready() -> void:
+	if ArrayNode != null and key < ArrayNode.Monsterseed.size():
+		$Button.text = str(ArrayNode.Monsterseed[key])
+
+func _process(delta: float) -> void:
+	if ArrayNode != null and key < ArrayNode.Monsterseed.size():
+		ArrayNode.Monsterseed[key] = int($Button.text)
+"
+
+[node name="MonsterseedButton" type="Control" unique_id=856589828]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_glyo3")
+
+[node name="Panel" type="ColorRect" parent="." unique_id=1006791771]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.3401113, 0.3570641, 0.19607843)
+
+[node name="Button" type="LineEdit" parent="." unique_id=30093752]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Value..."

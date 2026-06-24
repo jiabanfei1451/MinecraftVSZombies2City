@@ -2,7 +2,7 @@ extends Touchbutton
 
 func _process(delta: float) -> void:
 	p2(delta)
-	if get_tree().current_scene.get_child_count() > 2:
+	if get_tree().current_scene.get_child_count() > 1:
 		启用 = false
 	else:
 		启用 = true

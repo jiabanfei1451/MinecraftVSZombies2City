@@ -2,7 +2,7 @@ extends Touchbutton
 
 func _process(delta: float) -> void:
 	p2(delta)
-	if get_tree().current_scene.get_child_count() > 2:
+	if get_tree().current_scene.get_child_count() > 1:
 		启用 = false
 	else:
 		启用 = true
@@ -17,7 +17,6 @@ func _on_抬起时void() -> void:
 
 func _on_点击时void() -> void:
 	发回去()
-	print(0)
 	var s : PackedScene = preload("uid://ba3fg7v706epj")
 	get_tree().change_scene_to_packed(s)
 func _on_mouse_entered() -> void:

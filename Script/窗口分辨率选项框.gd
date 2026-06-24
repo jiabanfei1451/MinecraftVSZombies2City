@@ -46,4 +46,3 @@ func _展开() -> void:
 		te2.tween_property($"展开","modulate",Color(1.0, 1.0, 1.0, 0.0),0.75).set_trans(Tween.TRANS_SINE)
 		te.tween_property($".","size",$VBoxContainer.position + $VBoxContainer.size,0.75).set_trans(Tween.TRANS_QUART)
 		展开 = true
-	print(展开)

@@ -21,6 +21,5 @@ func 开始切片():
 			add_child(实例化)
 			实例化.position = Vector2((大小.x/乘数) * x,(大小.y/乘数) * y)
 			实例化.centered = false
-		print(x)
 	if 自动隐藏贴图 == false:
 		texture = null
