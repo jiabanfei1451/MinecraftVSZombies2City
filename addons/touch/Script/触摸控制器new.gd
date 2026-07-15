@@ -42,6 +42,7 @@ var Draging : bool = false
 var PreTime : float = 0
 ## 按下状态
 var Pre : bool = 0
+var Mouse : bool = false
 func _ready() -> void:
 	初始化()
 func _process(delta: float) -> void:
@@ -107,14 +108,12 @@ func i2(event:InputEvent):
 					touchID.append(event.index)
 				emit_signal("按下时",event,$".")
 				emit_signal("按下时void")
-				print(1)
 			elif s == false and Pre == true:
 				Pre = false
 				if touchID.has(event.index):
 					touchID.erase(event.index)
 				emit_signal("抬起时",event,$".")
 				emit_signal("抬起时void")
-				print(2)
 		if event is InputEventScreenTouch:
 			if event.pressed == false and touchID.has(event.index) and Pre == true:
 				if PreTime >= 长按阈值 and  启用长按 == true:
@@ -122,17 +121,23 @@ func i2(event:InputEvent):
 						touchID.erase(event.index)
 					emit_signal("长按时",event,$".")
 					emit_signal("长按时void")
-					print(3)
 				else:
 					Pre = false
 					if touchID.has(event.index):
 						touchID.erase(event.index)
-					print(4)
 					emit_signal("点击时",event,$".")
 					emit_signal("点击时void")
+	if event is InputEventMouseMotion:
+		var s = 计算(event)
+		if s == true:
+			Mouse = true
+			emit_signal("mouse_entered")
+		elif s == false:
+			Mouse = false
+			emit_signal("mouse_exited")
 ## 计算Touch是否在范围内
 func 计算(event:InputEvent):
-	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouseMotion:
 		var mypos : Vector2 = get_global_transform_with_canvas()[2]
 		var touchpos : Vector2 = event.position
 		var myscale : Vector2 = Vector2(get_global_transform_with_canvas().x.x,get_global_transform_with_canvas().y.y)

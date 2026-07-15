@@ -1,9 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://dvka2rktyelip"]
 
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="1_0idfe"]
-[ext_resource type="Texture2D" uid="uid://dddrgqn7fowji" path="res://addons/touch/img/button_highlighted.png" id="1_bftok"]
 [ext_resource type="StyleBox" uid="uid://c4ffe4u1spmqk" path="res://addons/touch/Theme/per.tres" id="2_4elqk"]
-[ext_resource type="Texture2D" uid="uid://bololgfrudwwn" path="res://addons/touch/img/button_2.png" id="2_ohmqy"]
 
 [sub_resource type="FontFile" id="FontFile_8qt0p"]
 cache/0/variation_coordinates = {}
@@ -31,11 +29,17 @@ cache/0/10/0/underline_position = 0.0
 cache/0/10/0/underline_thickness = 0.0
 cache/0/10/0/scale = 1.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bftok"]
+load_path = "res://.godot/imported/button_highlighted.png-241672678802b7666402860a05d793f5.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0idfe"]
-texture = ExtResource("1_bftok")
+texture = SubResource("CompressedTexture2D_bftok")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ohmqy"]
+load_path = "res://.godot/imported/button_2.png-1a21757089c5126744f72c7e1b8259cf.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4elqk"]
-texture = ExtResource("2_ohmqy")
+texture = SubResource("CompressedTexture2D_ohmqy")
 texture_margin_left = 4.1952724
 texture_margin_top = 4.2791777
 texture_margin_right = 4.1113667

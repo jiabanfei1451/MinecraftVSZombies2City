@@ -1,0 +1,17 @@
+[gd_resource type="Theme" format=3 uid="uid://crj7nbt82u637"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pid3u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpse3"]
+texture_margin_left = 9.2692585
+texture_margin_top = 13.034894
+texture_margin_right = 9.848587
+texture_margin_bottom = 9.269258
+region_rect = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iebmj"]
+
+[resource]
+TouchPad_V2/styles/Mouse_Foucs = SubResource("StyleBoxTexture_pid3u")
+TouchPad_V2/styles/is_Pressed = SubResource("StyleBoxTexture_tpse3")
+TouchPad_V2/styles/not_Pressed = SubResource("StyleBoxTexture_iebmj")

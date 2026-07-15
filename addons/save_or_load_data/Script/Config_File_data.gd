@@ -15,25 +15,16 @@ func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []
 		data.append(array)
 	else:
 		data.append(array[0])
-func load_Data(name:String = "", key:String = "", Value:Array = [],filepath:String = Dataname):
+func load_Data(name:String = "", key:String = "", Value:Variant = [],filepath:String = Dataname):
 	config.load(filepath)
 	if config.load(filepath) == OK:
-		var v
-		if Value.size() > 0:
-			if Value.size() < 2:
-				v = Value[0]
-			else:
-				v = Value
 		Game_Ready.生成日志(Dataname)
-		if config.get_value(name,key,v) != null:
-			Game_Ready.生成日志(["not null","Value:",config.get_value(name,key,v)])
-			return config.get_value(name,key,v)
+		if config.get_value(name,key,Value) != null:
+			Game_Ready.生成日志(["not null","Value:",config.get_value(name,key,Value)])
+			return config.get_value(name,key,Value)
 		else:
 			Game_Ready.生成日志("is null")
-			if v.size > 1:
-				return v
-			else:
-				return v[0]
+			return Value
 func save_Data(path:String = "user://",pathname:String = "data",passworld:bool = false):
 	if saveing == false:
 		saveing = true

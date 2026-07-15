@@ -57,7 +57,6 @@ enabled=PackedStringArray("res://addons/save_or_load_data/plugin.cfg", "res://ad
 [file_customization]
 
 folder_colors={
-"res://2/C#Script/": "green",
 "res://Sound/": "teal",
 "res://UI/": "orange",
 "res://图片/": "gray",

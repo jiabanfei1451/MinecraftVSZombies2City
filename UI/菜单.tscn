@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://b263tesh341dx"]
 
-[ext_resource type="Script" uid="uid://nvigu28hc1g3" path="res://Test/菜单.gd" id="2_g8b1j"]
 [ext_resource type="Shader" uid="uid://cu3oaypq4i3xg" path="res://Shader/模糊.gdshader" id="2_mhhtx"]
 [ext_resource type="PackedScene" uid="uid://bu5sil4uavngv" path="res://UI/第二层/按钮/按钮.tscn" id="3_kx0e7"]
 [ext_resource type="PackedScene" uid="uid://c4arglk4ci36x" path="res://UI/第二层/文字/MC文字.tscn" id="4_jbp7c"]
-[ext_resource type="Script" uid="uid://cirsd5ychukc0" path="res://Script/UIscript/场景脚本/按钮.gd" id="5_fqsgi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kx0e7"]
 shader = ExtResource("2_mhhtx")
@@ -13,7 +11,6 @@ shader_parameter/fff = 0.05
 shader_parameter/a = 0.8
 
 [node name="菜单" type="CanvasLayer" unique_id=521818651]
-script = ExtResource("2_g8b1j")
 
 [node name="区域" type="Control" parent="." unique_id=1912714452]
 clip_contents = true
@@ -104,7 +101,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "返回"
-script = ExtResource("5_fqsgi")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="区域/按钮/按钮" to="区域/按钮/按钮" method="_on_pressed"]
