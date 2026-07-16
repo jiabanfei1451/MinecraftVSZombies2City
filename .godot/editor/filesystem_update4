@@ -1,7 +1,6 @@
-res://UI/菜单.tscn
-res://addons/touch/Theme/new_theme.tres
-res://Shader/MaterialShader/不知道.tres
-res://addons/touch/Theme/PadButton.tres
+res://Script/Level Script/Master/Level_Script.cs
 res://UI/UI主题/MC主题.tres
-res://Scene/Level/序章.tscn
-res://UI/texture_rect.gd
+res://addons/touch/Theme/PadButton.tres
+res://addons/touch/Theme/new_theme.tres
+res://addons/touch/Script/C Sharp/Control.cs
+res://Scene/Misc Scene/Music room/VBoxContainer.cs

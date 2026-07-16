@@ -1,0 +1,18 @@
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\bin\Debug\MinecraftVSZombies2 City.deps.json
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\bin\Debug\MinecraftVSZombies2 City.runtimeconfig.json
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\bin\Debug\MinecraftVSZombies2 City.dll
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\bin\Debug\MinecraftVSZombies2 City.pdb
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.csproj.AssemblyReference.cache
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.GeneratedMSBuildEditorConfig.editorconfig
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.AssemblyInfoInputs.cache
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.AssemblyInfo.cs
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.csproj.CoreCompileInputs.cache
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.sourcelink.json
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\Minecraf.9C11FA34.Up2Date
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.dll
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\refint\MinecraftVSZombies2 City.dll
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.pdb
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.genruntimeconfig.cache
+D:\工具\Godot\项目\MinecraftVSZombies2City\.godot\mono\temp\obj\Debug\ref\MinecraftVSZombies2 City.dll

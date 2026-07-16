@@ -52,7 +52,7 @@ project/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg", "res://addons/模板/plugin.cfg")
+enabled=PackedStringArray("res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg")
 
 [file_customization]
 

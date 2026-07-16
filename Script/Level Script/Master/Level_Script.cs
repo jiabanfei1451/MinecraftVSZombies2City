@@ -3,13 +3,15 @@ using System;
 
 public partial class Level_Script : Node2D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<int>> 草坪数组 = new Godot.Collections.Array<Godot.Collections.Array<int>>()
 	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
+		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
+		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
+		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
+		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
+	};
+	[Export] public Godot.Collections.Array<ColorRect> 草坪数据;
+	[Export] public bool 自动生成草坪 = true;
+	[Export] public Godot.Vector2 生成偏移;
 }

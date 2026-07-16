@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cgl575a7m4dah"]
 
 [ext_resource type="Texture2D" uid="uid://dliw6yskwobhy" path="res://Image/Map/Image_1773758552231_504.png" id="1_dutpm"]
-[ext_resource type="PackedScene" uid="uid://bft0faqonck1h" path="res://Object/可互动/button.tscn" id="2_7x7eg"]
-[ext_resource type="Script" uid="uid://bexw1utoe61tv" path="res://Script/Scene Script/Level-Button/Level/1-1.gd" id="3_2aahb"]
-[ext_resource type="Script" uid="uid://wqvxrnejldrp" path="res://Script/Scene Script/Map/camera_2d.gd" id="3_ipoa5"]
-[ext_resource type="Script" uid="uid://tg5h3oljjhl1" path="res://Script/Scene Script/Map/touchpad.gd" id="4_2aahb"]
+[ext_resource type="PackedScene" uid="uid://bft0faqonck1h" path="res://Object/Interactive Objects/button.tscn" id="2_7x7eg"]
+[ext_resource type="Script" path="res://Script/Scene Script/Level-Button/Level/1-1.gd" id="3_2aahb"]
+[ext_resource type="Script" path="res://Script/Scene Script/Map/camera_2d.gd" id="3_ipoa5"]
+[ext_resource type="Script" path="res://Script/Scene Script/Map/touchpad.gd" id="4_2aahb"]
+
 
 [node name="绝命矿坑" type="Node2D" unique_id=172509928]
 
