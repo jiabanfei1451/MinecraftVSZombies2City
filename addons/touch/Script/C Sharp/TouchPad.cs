@@ -3,7 +3,7 @@ using System;
 
 [GlobalClass]
 [Tool]
-public partial class TouchPad : Godot.Control
+public partial class Control : Godot.Control
 {
 	[ExportGroup("TouchPad")]
 	[ExportSubgroup("Variant")]
