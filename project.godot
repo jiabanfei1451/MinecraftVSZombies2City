@@ -25,17 +25,6 @@ boot_splash/image="uid://yvjefvjdokp5"
 config/icon="uid://h36bdro1snsu"
 config/windows_native_icon="res://2/Icon/City2.ico"
 
-[autoload]
-
-"音乐列表"="*uid://dyv1568phymm2"
-"精灵图列表"="*uid://qg20ddd545wi"
-"节点提供变量"="*uid://cvkwkanf0vbaq"
-"全局变量"="*uid://th8rwru8seyn"
-Game_Ready="*uid://b685w1gwqhj4m"
-"设置存储"="*uid://d0spt4jhr6bdp"
-"获取Json文本"="*uid://bmb5esni20lsd"
-MuiscEngine="*uid://cpninxbbmfjyj"
-
 [display]
 
 window/subwindows/embed_subwindows=false

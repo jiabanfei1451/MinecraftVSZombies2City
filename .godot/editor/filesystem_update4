@@ -4,3 +4,7 @@ res://addons/touch/Theme/PadButton.tres
 res://addons/touch/Theme/new_theme.tres
 res://addons/touch/Script/C Sharp/Control.cs
 res://Scene/Misc Scene/Music room/VBoxContainer.cs
+res://addons/touch/Script/C Sharp/TouchPAd.cs
+res://addons/touch/Script/C Sharp/TouchPad.cs
+res://Test/Text.tscn
+res://Test/test.gd

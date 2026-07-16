@@ -1,3 +1,39 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="1_75sm5"]
+
 [node name="Text" type="Node2D" unique_id=1808771749]
+
+[node name="Control" type="Control" parent="." unique_id=6168837]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 302.0
+offset_top = 189.0
+offset_right = 342.0
+offset_bottom = 229.0
+scale = Vector2(2, 2)
+script = ExtResource("1_75sm5")
+Touch_Index = []
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1878400446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1846855984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1835669060]
+zoom = Vector2(1.2, 1.2)
