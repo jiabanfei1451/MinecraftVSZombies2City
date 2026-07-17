@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 [GlobalClass]
 [Tool]
+[Icon("uid://sqy1gdavdj6y")]
 public partial class TouchPad : Godot.Control
 {
 	[ExportGroup("TouchPad")]
