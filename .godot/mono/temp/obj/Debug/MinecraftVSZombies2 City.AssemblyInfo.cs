@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinecraftVSZombies2 City")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9e0d58cfd608f9ccf398a3b7e78eeb64b807615")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2259ead3c89efac5986fcd62d50a16f5bdac7f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinecraftVSZombies2 City")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinecraftVSZombies2 City")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

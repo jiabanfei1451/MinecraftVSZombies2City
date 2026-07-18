@@ -1,46 +1,6 @@
-res://addons/touch/Script/C Sharp/TouchPad.cs
+res://Test/Control.cs
 res://Script/Level Script/Master/Level_Script.cs
 res://Scene/Misc Scene/Music room/VBoxContainer.cs
-res://LICENSE.txt
-res://README.md
-res://addons/save_or_load_data/Jsonload.gd
-res://addons/save_or_load_data/Script/Config_File_data.gd
-res://addons/save_or_load_data/Script/Data.gd
-res://addons/save_or_load_data/Script/jsondata.gd
-res://addons/touch/touch.gd
-res://addons/touch/Script/touch.gd
-res://addons/touch/Script/touchBar.gd
-res://addons/touch/Script/TouchRectButton.gd
-res://addons/touch/Script/TouchTextEdit.gd
-res://addons/touch/Script/touch_pad_button.gd
-res://addons/touch/Script/UI碰撞.gd
-res://addons/touch/Script/触控按钮.gd
-res://addons/touch/Script/触摸控制器.gd
-res://addons/touch/Script/触摸控制器new.gd
-res://addons/touch/Theme/Focus.tres
-res://addons/touch/Theme/new_theme.tres
-res://addons/touch/Theme/nolan.tres
-res://addons/touch/Theme/PadButton.tres
-res://addons/touch/Theme/per.tres
-res://addons/touch/tsch/功能测试.gd
-res://addons/touch/tsch/滑块.tscn
-res://addons/touch/tsch/触控滑块.gd
-res://effect/boom.gd
-res://effect/大招.gd
-res://Object/一次性音效.gd
-res://Object/Interactive Objects/红石.gd
-res://Object/器械/投稿器械/缓冲发射器.gd
-res://Object/粒子/粒子.gd
-res://Scene/三叉戟.gd
-res://Scene/Debug/Create_Level/load.gd
-res://Shader/模糊.gdshader
-res://Test/test.gd
-res://UI/触摸控制器.gd
-res://UI/LevelUI/LevelBar.gd
+res://addons/touch/Script/C Sharp/TouchPad.cs
+res://Test/Text.tscn
 res://UI/UI主题/MC主题.tres
-res://UI/UI主题/MC文字主题.tres
-res://UI/UI主题/主题/背景板/背景板.tres
-res://UI/UI主题/主题需要/MC按钮悬停.tres
-res://UI/UI主题/主题需要/MC按钮按下状态.tres
-res://UI/UI主题/主题需要/MC按钮正常状态.tres
-res://UI/UI主题/主题需要/MC按钮禁用状态.tres

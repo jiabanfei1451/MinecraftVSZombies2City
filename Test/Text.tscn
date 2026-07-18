@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="1_75sm5"]
+[ext_resource type="Script" uid="uid://vot5oa3nug2e" path="res://Test/Control.cs" id="1_75sm5"]
 
 [node name="Text" type="Node2D" unique_id=1808771749]
 
@@ -13,7 +13,7 @@ offset_right = 342.0
 offset_bottom = 229.0
 scale = Vector2(2, 2)
 script = ExtResource("1_75sm5")
-Touch_Index = []
+Drag_Velocity_Scope = Vector2(20, 20)
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=1878400446]
 layout_mode = 1
@@ -37,3 +37,7 @@ grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1835669060]
 zoom = Vector2(1.2, 1.2)
+
+[node name="Button" type="Button" parent="." unique_id=430507616]
+offset_right = 8.0
+offset_bottom = 8.0
