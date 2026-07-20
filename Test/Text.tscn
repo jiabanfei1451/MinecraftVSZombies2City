@@ -14,6 +14,7 @@ offset_bottom = 229.0
 scale = Vector2(2, 2)
 script = ExtResource("1_75sm5")
 Drag_Velocity_Scope = Vector2(20, 20)
+Touch_Index = Array[int]([])
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=1878400446]
 layout_mode = 1

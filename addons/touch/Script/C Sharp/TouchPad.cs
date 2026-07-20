@@ -141,7 +141,7 @@ public partial class TouchPad : Godot.Control
 		判定(@event);
 	}
 	
-	public void 判定(Godot.InputEvent @event)
+	public async void 判定(Godot.InputEvent @event)
 	{
 		if (Enable == true){
 		Godot.Vector2 Viewport_Position = GetGlobalTransformWithCanvas()[2];
@@ -288,7 +288,7 @@ public partial class TouchPad : Godot.Control
 				}
 			}
 		}
-	}
+		}
 	}
 	/// <summary>
 	/// 如果 <seealso cref="int"/> Index 存在时返回当前的Index 否则返回 -1
@@ -325,7 +325,6 @@ public partial class TouchPad : Godot.Control
 	public Vec2 Get_Touch_Velocity(Godot.InputEvent @event)
 	{
 		Vec2 vec = new Vec2(); 
-		vec.Start();
 		if (@event is InputEventScreenDrag){
 			InputEventScreenDrag drag = (InputEventScreenDrag)@event;
 			vec.Position = drag.Position;
@@ -409,14 +408,7 @@ public partial class TouchPad : Godot.Control
 		public Button_Event_Type Event_Type = Button_Event_Type.Null;
 		public Button_Type Input_Type = Button_Type.Null;
 
-		public async void Start()
-		{
-			await Task.Delay(1000);
-			Free();
-		}
-		public void Free()
-		{
-			GC.Collect();
+		~Vec2(){
 		}
 	}
 }

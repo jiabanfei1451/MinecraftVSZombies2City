@@ -25,6 +25,10 @@ boot_splash/image="uid://yvjefvjdokp5"
 config/icon="uid://h36bdro1snsu"
 config/windows_native_icon="res://2/Icon/City2.ico"
 
+[autoload]
+
+AudioList="*uid://yt638ulpwvil"
+
 [display]
 
 window/subwindows/embed_subwindows=false
@@ -46,6 +50,7 @@ enabled=PackedStringArray("res://addons/save_or_load_data/plugin.cfg", "res://ad
 [file_customization]
 
 folder_colors={
+"res://Script/": "green",
 "res://Sound/": "teal",
 "res://UI/": "orange",
 "res://图片/": "gray",

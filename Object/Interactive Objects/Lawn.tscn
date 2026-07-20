@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dim8rk13omwvv"]
+
+[ext_resource type="Script" uid="uid://douel45ehxor8" path="res://Script/Level Script/Lawn.cs" id="1_ftl3w"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="2_jyavh"]
+
+[node name="Lawn" type="ColorRect" unique_id=1831605041]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -39.0
+offset_right = 43.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(41, 75)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+layout_direction = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.34509805)
+script = ExtResource("1_ftl3w")
+
+[node name="TouchPad" type="Control" parent="." unique_id=2108103883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_jyavh")
+Cycle_mode = 1
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"

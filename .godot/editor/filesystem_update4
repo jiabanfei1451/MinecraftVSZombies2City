@@ -1,6 +1,10 @@
-res://Test/Control.cs
-res://Script/Level Script/Master/Level_Script.cs
-res://Scene/Misc Scene/Music room/VBoxContainer.cs
+res://Script/Node/Audio_Plus.cs
+res://Script/Level Script/Master/Level_Master_Script.cs
+res://Script/Level Script/Level/Preface.cs
+res://Script/Level Script/Lawn.cs
 res://addons/touch/Script/C Sharp/TouchPad.cs
-res://Test/Text.tscn
+res://Test/Control.cs
+res://Script/Auto Load/Audio_List.cs
+res://Scene/Misc Scene/Music room/VBoxContainer.cs
+res://Scene/Level/序章.tscn
 res://UI/UI主题/MC主题.tres

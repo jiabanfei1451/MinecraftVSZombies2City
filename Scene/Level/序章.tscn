@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cff7if8145pjk"]
 
-[ext_resource type="Script" uid="uid://n4rb3ovpqagd" path="res://Script/Level Script/Master/Level_Script.cs" id="1_jq2xn"]
+[ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://c6adwiouvitvd" path="res://Image/Level_Image/绝命矿坑.png" id="2_x1yc8"]
 [ext_resource type="Texture2D" uid="uid://dh773s3jptynh" path="res://Image/Level_Image/绝命矿坑-house.png" id="3_k0egb"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="5_vhc43"]
 [ext_resource type="PackedScene" uid="uid://ckiok4d47oivw" path="res://Object/光源/光源.tscn" id="7_kgkks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1yc8"]
@@ -23,7 +24,8 @@ z_as_relative = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
-script = ExtResource("1_jq2xn")
+script = ExtResource("1_vhc43")
+Lawn_Offset_Array = Array[Array]([Array[Vector2]([Vector2(0, 10)]), [Vector2(0, 10)], [Vector2(0, 10)], [Vector2(0, 10)], [Vector2(0, 10)]])
 
 [node name="Map" type="Sprite2D" parent="." unique_id=272418162]
 position = Vector2(-700, -510)
@@ -37,7 +39,7 @@ texture = SubResource("AtlasTexture_x1yc8")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="草坪" type="Node2D" parent="." unique_id=963705123]
+[node name="Lawn" type="Node2D" parent="." unique_id=963705123]
 
 [node name="House" type="Sprite2D" parent="." unique_id=113096719]
 position = Vector2(-801.61755, -154.91699)
@@ -57,12 +59,7 @@ z_index = 6
 [node name="光源14" parent="光源" unique_id=183226331 instance=ExtResource("7_kgkks")]
 position = Vector2(13, -27)
 scale = Vector2(500, 500)
-"使用绑定颜色" = true
-"使用变量" = 1
-"反转光照颜色" = true
-"光照模式" = 1
-"HDR光照模式" = 1
-"无需绑定" = true
+script = null
 
 [node name="Bubble" parent="光源/光源14" index="0" unique_id=1692741413]
 visible = false
@@ -137,6 +134,46 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(-51.999985, -274.00003)
 scale = Vector2(6.6564665, 0.82083136)
 script = null
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2009114607]
+position = Vector2(-428, -181)
+
+[node name="Audio_Plus" type="AudioStreamPlayer" parent="." unique_id=1961284386]
+autoplay = true
+script = ExtResource("5_vhc43")
+Muisc_ID = "0"
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
+
+[node name="边框" type="Node2D" parent="." unique_id=145045159]
+z_index = 999
+
+[node name="ColorRect" type="ColorRect" parent="边框" unique_id=978313472]
+offset_left = -2152.0
+offset_top = 510.0
+offset_right = 1848.0
+offset_bottom = 1510.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="边框" unique_id=432937185]
+offset_left = -2321.0
+offset_top = -1510.0
+offset_right = 1679.0
+offset_bottom = -510.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="边框" unique_id=1142390440]
+offset_left = 700.0
+offset_top = -2483.0
+offset_right = 1700.0
+offset_bottom = 1517.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="边框" unique_id=1525627962]
+offset_left = -1700.0
+offset_top = -2483.0
+offset_right = -700.0
+offset_bottom = 1517.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="ready" from="光源/光源14" to="光源/光源14" method="_on_ready"]
 
