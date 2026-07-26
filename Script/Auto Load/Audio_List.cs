@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Audio_List是负责存储预加载的音乐与音效,预计之后推出分片式预加载
+/// </summary>
 public partial class Audio_List : Node
 {
 	[Export] public Godot.Collections.Array<Godot.Collections.Array> Muisc_List = new Godot.Collections.Array<Godot.Collections.Array>()

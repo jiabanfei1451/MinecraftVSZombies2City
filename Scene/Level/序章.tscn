@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://c6adwiouvitvd" path="res://Image/Level_Image/绝命矿坑.png" id="2_x1yc8"]
 [ext_resource type="Texture2D" uid="uid://dh773s3jptynh" path="res://Image/Level_Image/绝命矿坑-house.png" id="3_k0egb"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="5_vhc43"]
 [ext_resource type="PackedScene" uid="uid://ckiok4d47oivw" path="res://Object/光源/光源.tscn" id="7_kgkks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1yc8"]
@@ -25,7 +24,9 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
-Lawn_Offset_Array = Array[Array]([Array[Vector2]([Vector2(0, 10)]), [Vector2(0, 10)], [Vector2(0, 10)], [Vector2(0, 10)], [Vector2(0, 10)]])
+Node_Index = PackedStringArray("Equipment", "Master", "Light")
+Layer_Index = PackedInt32Array(0, 1, 2)
+Lawn_Offset_Array = Array[Array]([])
 
 [node name="Map" type="Sprite2D" parent="." unique_id=272418162]
 position = Vector2(-700, -510)
@@ -53,83 +54,83 @@ position = Vector2(-1264, -462)
 texture = SubResource("AtlasTexture_weiov")
 centered = false
 
-[node name="光源" type="Node2D" parent="." unique_id=1150085127]
+[node name="Light" type="Node2D" parent="." unique_id=1150085127]
 z_index = 6
 
-[node name="光源14" parent="光源" unique_id=183226331 instance=ExtResource("7_kgkks")]
+[node name="光源14" parent="Light" unique_id=183226331 instance=ExtResource("7_kgkks")]
 position = Vector2(13, -27)
 scale = Vector2(500, 500)
 script = null
 
-[node name="Bubble" parent="光源/光源14" index="0" unique_id=1692741413]
+[node name="Bubble" parent="Light/光源14" index="0" unique_id=1692741413]
 visible = false
 
-[node name="HDR光源" parent="光源/光源14" index="1" unique_id=563393786]
+[node name="HDR光源" parent="Light/光源14" index="1" unique_id=563393786]
 visible = true
 energy = 0.56
 blend_mode = 1
 
-[node name="光源2" parent="光源" unique_id=2002878016 instance=ExtResource("7_kgkks")]
+[node name="光源2" parent="Light" unique_id=2002878016 instance=ExtResource("7_kgkks")]
 position = Vector2(-481, 239)
 scale = Vector2(6, 6)
 script = null
 
-[node name="光源3" parent="光源" unique_id=6816600 instance=ExtResource("7_kgkks")]
+[node name="光源3" parent="Light" unique_id=6816600 instance=ExtResource("7_kgkks")]
 position = Vector2(-468, -201)
 scale = Vector2(6, 6)
 script = null
 
-[node name="光源4" parent="光源" unique_id=387273440 instance=ExtResource("7_kgkks")]
+[node name="光源4" parent="Light" unique_id=387273440 instance=ExtResource("7_kgkks")]
 position = Vector2(348.00003, -207)
 scale = Vector2(10, 6)
 script = null
 
-[node name="光源5" parent="光源" unique_id=641534755 instance=ExtResource("7_kgkks")]
+[node name="光源5" parent="Light" unique_id=641534755 instance=ExtResource("7_kgkks")]
 position = Vector2(362.00003, 244)
 scale = Vector2(10, 6)
 script = null
 
-[node name="光源6" parent="光源" unique_id=720593782 instance=ExtResource("7_kgkks")]
+[node name="光源6" parent="Light" unique_id=720593782 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(90.000015, -311)
 script = null
 
-[node name="光源7" parent="光源" unique_id=1940898027 instance=ExtResource("7_kgkks")]
+[node name="光源7" parent="Light" unique_id=1940898027 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(195.00002, -274)
 scale = Vector2(6.6564665, 0.82083136)
 script = null
 
-[node name="光源11" parent="光源" unique_id=617990028 instance=ExtResource("7_kgkks")]
+[node name="光源11" parent="Light" unique_id=617990028 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(514, -274)
 scale = Vector2(6.6564665, 0.82083136)
 script = null
 
-[node name="光源13" parent="光源" unique_id=461944780 instance=ExtResource("7_kgkks")]
+[node name="光源13" parent="Light" unique_id=461944780 instance=ExtResource("7_kgkks")]
 position = Vector2(-428, -364)
 scale = Vector2(9.14859, -9.584106)
 script = null
 
-[node name="光源12" parent="光源" unique_id=465776812 instance=ExtResource("7_kgkks")]
+[node name="光源12" parent="Light" unique_id=465776812 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(554, -274)
 scale = Vector2(6.6564665, 0.82083136)
 script = null
 
-[node name="光源8" parent="光源" unique_id=1379422519 instance=ExtResource("7_kgkks")]
+[node name="光源8" parent="Light" unique_id=1379422519 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(60.000015, -273)
 scale = Vector2(6.6564665, 0.82083136)
 script = null
 
-[node name="光源10" parent="光源" unique_id=1851723335 instance=ExtResource("7_kgkks")]
+[node name="光源10" parent="Light" unique_id=1851723335 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(-172.99998, -276)
 scale = Vector2(6.6564665, 0.82083136)
 script = null
 
-[node name="光源9" parent="光源" unique_id=1030143469 instance=ExtResource("7_kgkks")]
+[node name="光源9" parent="Light" unique_id=1030143469 instance=ExtResource("7_kgkks")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(-51.999985, -274.00003)
 scale = Vector2(6.6564665, 0.82083136)
@@ -137,12 +138,6 @@ script = null
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2009114607]
 position = Vector2(-428, -181)
-
-[node name="Audio_Plus" type="AudioStreamPlayer" parent="." unique_id=1961284386]
-autoplay = true
-script = ExtResource("5_vhc43")
-Muisc_ID = "0"
-metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [node name="边框" type="Node2D" parent="." unique_id=145045159]
 z_index = 999
@@ -175,6 +170,6 @@ offset_right = -700.0
 offset_bottom = 1517.0
 color = Color(0, 0, 0, 1)
 
-[connection signal="ready" from="光源/光源14" to="光源/光源14" method="_on_ready"]
+[connection signal="ready" from="Light/光源14" to="Light/光源14" method="_on_ready"]
 
-[editable path="光源/光源14"]
+[editable path="Light/光源14"]

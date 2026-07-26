@@ -117,13 +117,13 @@ public partial class TouchPad : Godot.Control
 			}
 		}
 	}
-	public override async void _PhysicsProcess(double delta) {
+	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 		if (Cycle_mode == Cycle_Type._PhysicsProcess){
 		Plus_Time(delta);
 		}
 	}
-	public async void Plus_Time(Double Time)
+	public void Plus_Time(Double Time)
 	{
 		if (Enable_Long_Click == true){
 			if (Pressed == true){
@@ -141,7 +141,7 @@ public partial class TouchPad : Godot.Control
 		判定(@event);
 	}
 	
-	public async void 判定(Godot.InputEvent @event)
+	public void 判定(Godot.InputEvent @event)
 	{
 		if (Enable == true){
 		Godot.Vector2 Viewport_Position = GetGlobalTransformWithCanvas()[2];

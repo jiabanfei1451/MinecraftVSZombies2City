@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://hpvvup1148jw"]
+
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="1_p5q30"]
+[ext_resource type="Script" uid="uid://dauo0agsdpefb" path="res://UI/TextLine/Command_Edit/Command_Edit.cs" id="2_prk4m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5q30"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrdhs"]
+bg_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prk4m"]
+bg_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="Theme" id="Theme_ifow5"]
+TextEdit/colors/search_result_border_color = Color(0.3, 0.3, 0.3, 0.4)
+TextEdit/colors/search_result_color = Color(0.3, 0.3, 0.3, 1)
+TextEdit/colors/selection_color = Color(0.34182036, 0.49512005, 1, 1)
+TextEdit/constants/line_spacing = 13
+TextEdit/constants/wrap_offset = 0
+TextEdit/fonts/font = ExtResource("1_p5q30")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_p5q30")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_jrdhs")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_prk4m")
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_p5q30"]
+number_color = Color(0, 1, 1, 1)
+symbol_color = Color(1, 1, 0, 1)
+function_color = Color(1, 1, 0, 1)
+member_variable_color = Color(0, 1, 1, 1)
+keyword_colors = {
+"gamemode": Color(1, 1, 0, 1)
+}
+member_keyword_colors = {
+"": Color(0, 0, 0, 1),
+"/gamemode": Color(1, 1, 0, 1)
+}
+
+[node name="CommandEdit" type="CanvasLayer" unique_id=1869150785]
+
+[node name="TextLine" type="VBoxContainer" parent="." unique_id=1500483758]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 72.0
+offset_bottom = -30.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1233530578]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="EditNode" type="Control" parent="." unique_id=1115358086]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextEdit" type="TextEdit" parent="EditNode" unique_id=588657644]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ifow5")
+placeholder_text = "你在看什么?"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+syntax_highlighter = SubResource("CodeHighlighter_p5q30")
+script = ExtResource("2_prk4m")

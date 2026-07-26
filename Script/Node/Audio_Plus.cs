@@ -1,6 +1,9 @@
 using Godot;
+using Game;
 using System;
-
+using System.Threading.Tasks;
+namespace My_Csharp_Node
+{
 [GlobalClass]
 public partial class Audio_Plus : AudioStreamPlayer
 {
@@ -62,10 +65,13 @@ public partial class Audio_Plus : AudioStreamPlayer
 		Tween t = CreateTween();
 		t.TweenProperty(this,"Current_Multiplication",1,fade_Time);
 	}
-	public void Fade_Exit()
+	public async void Fade_Exit()
 	{
 		Tween t = CreateTween();
 		t.TweenProperty(this,"Current_Multiplication",0,fade_Time);
+		await ToSignal(t,Tween.SignalName.Finished);
+		Autoplay = false;
+		Playing = false;
 	}
 	public AudioStream Get_Muisc()
 	{
@@ -99,4 +105,5 @@ public partial class Audio_Plus : AudioStreamPlayer
 			return null;
 		}
 	}
+}
 }
