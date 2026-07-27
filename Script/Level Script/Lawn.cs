@@ -8,6 +8,7 @@ public partial class Lawn : ColorRect
 		[Signal]
 		public delegate void ME_ExitEventHandler(ColorRect This);
 		[Export] public TouchPad pad;
+		[Export] public Godot.Vector2 Array2D_Position = Godot.Vector2.Zero;
 		public override void _Ready() {
 			base._Ready();
 			pad = GetNode<TouchPad>("TouchPad");

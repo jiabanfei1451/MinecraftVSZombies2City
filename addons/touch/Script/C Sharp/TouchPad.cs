@@ -153,9 +153,10 @@ public partial class TouchPad : Godot.Control
 			ViewPort_Size = Scope;
 		}
 
-		Vec2 Temp_Vec2;
+		Vec2 Temp_Vec2 = null;
 		Temp_Vec2 = Get_Touch_Velocity(@event);
-		bool OK;
+		if (Temp_Vec2 == null){return;}
+		bool OK = false;
 		if (Temp_Vec2.Not_Position){return;}
 		OK = Touch_Calculation(Temp_Vec2.Position,Viewport_Position,ViewPort_Size);
 		if (TouchPad_Mode == _TouchPad_Mode.Normal){
@@ -297,7 +298,7 @@ public partial class TouchPad : Godot.Control
 	/// <returns></returns>
 	public int Get_Touch_Index(int Index)
 	{
-		if (!Touch_Index.Contains(Index)){return -1;}
+		if (Touch_Index != null && !Touch_Index.Contains(Index)){return -1;}
 		return Index;
 	}
 	/// <summary>
@@ -309,13 +310,13 @@ public partial class TouchPad : Godot.Control
 		switch (Mode)
 		{
 			case 0:
-				if (!Touch_Index.Contains(Index))
+				if (Touch_Index != null && Touch_Index.IndexOf(Index) == -1)
 				{
 					Touch_Index.Add(Index);
 				}
 				break;
 			case 1:
-				if (Touch_Index.Contains(Index))
+				if (Touch_Index != null && Touch_Index.IndexOf(Index) != -1)
 				{
 					Touch_Index.Remove(Index);
 				}

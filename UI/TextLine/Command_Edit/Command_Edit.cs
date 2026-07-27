@@ -31,7 +31,6 @@ public partial class Command_Edit : TextEdit
 					Lineinstantiate.Text = "  " + "<" + "User" + ">:" + Text[0..(Text.Length - 1)] + " ";
 					this.GetNode<BoxContainer>("../../TextLine").AddChild(Lineinstantiate);
 					Position = new Vector2(0,0);
-					this.GetNode<Control>("..").GrabFocus(false);
 					Editable = false;
 					CreateTween().TweenProperty(this.GetNode<ColorRect>("../../ColorRect"),new NodePath(ColorRect.PropertyName.Color),new Color(0,0,0,0),0.5f);
 					CreateTween().TweenProperty(this,new NodePath(TextEdit.PropertyName.Position),new Vector2(0,30),0.5f).SetTrans(Tween.TransitionType.Quart);

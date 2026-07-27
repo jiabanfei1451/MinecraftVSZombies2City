@@ -24,9 +24,8 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
-Node_Index = PackedStringArray("Equipment", "Master", "Light")
-Layer_Index = PackedInt32Array(0, 1, 2)
 Lawn_Offset_Array = Array[Array]([])
+Lawn_Data = Array[Array]([])
 
 [node name="Map" type="Sprite2D" parent="." unique_id=272418162]
 position = Vector2(-700, -510)
