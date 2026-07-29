@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://bu5sil4uavngv"]
 
 [ext_resource type="Theme" uid="uid://bsballpnnbgjv" path="res://UI/UI主题/MC主题.tres" id="1_wcpg8"]
+[ext_resource type="Texture2D" uid="uid://bw35jxqx8msf1" path="res://Image/UI/Panel/MOPUI/MOP_UI.svg" id="2_tvw6v"]
+[ext_resource type="Texture2D" uid="uid://ddiarwgdp2c5h" path="res://Image/UI/Panel/MOPUI/MOP_UI2.svg" id="3_qd3m3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qd3m3"]
+texture = ExtResource("2_tvw6v")
+texture_margin_left = 14.224928
+texture_margin_top = 11.04624
+texture_margin_right = 14.295767
+texture_margin_bottom = 10.256407
+region_rect = Rect2(0, 0, 25, 25)
+modulate_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r07v8"]
+texture = ExtResource("3_qd3m3")
+texture_margin_left = 5.742749
+texture_margin_top = 5.018296
+texture_margin_right = 5.7705317
+texture_margin_bottom = 4.5255537
+region_rect = Rect2(0, 0, 8, 8)
+modulate_color = Color(1, 0, 0, 1)
 
 [node name="按钮" type="Button" unique_id=1154075666]
 offset_left = -16.0
@@ -8,3 +28,20 @@ offset_right = 9.347412
 offset_bottom = 16.574507
 theme = ExtResource("1_wcpg8")
 text = "7891"
+
+[node name="Panel" type="Panel" parent="." unique_id=1725526915]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_left = 58.0
+offset_right = 76.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qd3m3")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1737489545]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 0
+offset_left = 83.0
+offset_top = 1.0
+offset_right = 91.0
+offset_bottom = 9.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_r07v8")

@@ -1,4 +1,3 @@
-@tool
 @icon("uid://csusj4vdseyph")
 ## 适用于config的存档
 class_name ConfigFileData
@@ -18,12 +17,9 @@ func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []
 func load_Data(name:String = "", key:String = "", Value:Variant = [],filepath:String = Dataname):
 	config.load(filepath)
 	if config.load(filepath) == OK:
-		Game_Ready.生成日志(Dataname)
 		if config.get_value(name,key,Value) != null:
-			Game_Ready.生成日志(["not null","Value:",config.get_value(name,key,Value)])
 			return config.get_value(name,key,Value)
 		else:
-			Game_Ready.生成日志("is null")
 			return Value
 func save_Data(path:String = "user://",pathname:String = "data",passworld:bool = false):
 	if saveing == false:

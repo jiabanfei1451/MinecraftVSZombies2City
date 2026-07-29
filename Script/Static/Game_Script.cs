@@ -1,6 +1,7 @@
 using Godot;
 using Level;
 using System;
+using System.Text;
 namespace Game;
 /// <summary>
 /// 关卡数据存储
@@ -13,6 +14,10 @@ static class Level_Script : Object
 		add = 0,
 		Remove = 1,
 		Selection = 2,
+	}
+	public static void gss()
+	{
+		StringBuilder ss = new StringBuilder("s");
 	}
 	/// <summary>器械能</summary>
 	/// <summary>

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cmynf4hbibom4"]
+
+[ext_resource type="Texture2D" uid="uid://ddqjnx1bcbukx" path="res://Image/UI/Card/card(null).png" id="1_8wqwg"]
+[ext_resource type="Texture2D" uid="uid://28o38kfo56m8" path="res://Image/UI/Card/card 边框.png" id="2_omoo1"]
+
+[node name="it_Selected_Card" type="Control" unique_id=811847334]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(144.5, 216)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 144.5
+offset_bottom = 217.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+layout_direction = 2
+mouse_default_cursor_shape = 2
+theme_type_variation = &"FlatButton"
+
+[node name="Texture" type="Control" parent="." unique_id=670750215]
+anchors_preset = 0
+offset_top = 35.5
+offset_right = 144.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="Texture" unique_id=633136591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8wqwg")
+
+[node name="Border" type="TextureRect" parent="Texture" unique_id=1098285654]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_omoo1")

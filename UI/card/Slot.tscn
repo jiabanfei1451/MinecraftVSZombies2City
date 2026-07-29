@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://5805tg30ooiu"]
+
+[ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://Image/UI/energy_slot.png" id="1_djfh2"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="2_ro343"]
+[ext_resource type="PackedScene" uid="uid://cmynf4hbibom4" path="res://UI/card/Placeholder_Slot.tscn" id="3_3ca1k"]
+
+[node name="Card_Slot" type="Control" unique_id=1033796703]
+custom_minimum_size = Vector2(635, 87.5)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 634.99994
+offset_bottom = 87.49999
+scale = Vector2(0.8, 0.8)
+layout_direction = 2
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1552531258]
+layout_mode = 0
+offset_left = 58.749996
+offset_top = 1.2500075
+offset_right = 1498.75
+offset_bottom = 217.25
+scale = Vector2(0.4, 0.4)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="Selected Slot" parent="GridContainer" unique_id=811847334 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot2" parent="GridContainer" unique_id=1769484116 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot3" parent="GridContainer" unique_id=25713296 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot4" parent="GridContainer" unique_id=1118301445 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot5" parent="GridContainer" unique_id=2136210050 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot6" parent="GridContainer" unique_id=1047974704 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot7" parent="GridContainer" unique_id=661095119 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot8" parent="GridContainer" unique_id=1547161617 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot9" parent="GridContainer" unique_id=110142423 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Selected Slot10" parent="GridContainer" unique_id=1439139771 instance=ExtResource("3_3ca1k")]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Equipment capable" type="TextureRect" parent="." unique_id=1399556824]
+layout_mode = 0
+offset_left = 1.25
+offset_top = 1.2500076
+offset_right = 58.749996
+offset_bottom = 87.50001
+layout_direction = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_djfh2")
+
+[node name="Label" type="Label" parent="Equipment capable" unique_id=1531215138]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 0
+offset_left = 7.499999
+offset_top = 60.000004
+offset_right = 53.5
+offset_bottom = 84.000015
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ro343")
+theme_override_font_sizes/font_size = 15
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 235
+clip_text = true
+text_direction = 3

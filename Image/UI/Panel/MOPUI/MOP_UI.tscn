@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bo88med25lrpi"]
+
+[ext_resource type="Texture2D" uid="uid://bw35jxqx8msf1" path="res://Image/UI/Panel/MOPUI/MOP_UI.svg" id="1_ckgv3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ainh"]
+texture = ExtResource("1_ckgv3")
+texture_margin_left = 11.4618
+texture_margin_top = 12.029488
+texture_margin_right = 12.029486
+texture_margin_bottom = 12.202596
+region_rect = Rect2(0, 0, 25, 25)
+
+[node name="MopUi" type="Panel" unique_id=1872746018]
+custom_minimum_size = Vector2(15, 17)
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 15.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ainh")

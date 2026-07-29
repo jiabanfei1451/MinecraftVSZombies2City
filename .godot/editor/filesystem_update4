@@ -1,15 +1,27 @@
-res://Script/Temp_Node.cs
-res://Script/Level Script/Master/Level_Master_Script.cs
-res://Script/Level Script/Level/Preface.cs
+res://Script/UI/Level/Card/GlobalPositionIndex.cs
+res://addons/save_or_load_data/Script/Csharp/Data_For_CSharp.cs
+res://addons/save_or_load_data/Script/Csharp/JSONData.cs
 res://UI/TextLine/Line/QueneLine.cs
 res://addons/touch/Script/C Sharp/TouchPad.cs
 res://Script/Level Script/Lawn.cs
+res://Script/Object/Auto_Free/PlaceholderBlock.cs
+res://Script/Auto Load/Card_Data.cs
 res://UI/TextLine/Command_Edit/Command_Edit.cs
 res://Script/Auto Load/Muisc_Engine.cs
 res://Script/Auto Load/Audio_List.cs
+res://Script/Level Script/Master/Level_Master_Script.cs
+res://Script/Level Script/Level/Preface.cs
 res://Script/Node/Audio_Plus.cs
 res://Scene/Misc Scene/Music room/VBoxContainer.cs
-res://Scene/Level/序章.tscn
+res://UI/card/卡.tscn
 res://UI/UI主题/MC主题.tres
 res://addons/touch/Theme/PadButton.tres
 res://addons/touch/Theme/new_theme.tres
+res://Script/UI/Level/Card/Card.cs
+res://UI/card/LevelUI.tscn
+res://Script/UI/Level/Card/NodeScript.cs
+res://UI/card/选卡蓝图.tscn
+res://UI/card/Card_Placeholder.tscn
+res://UI/card/Slot.tscn
+res://UI/card/Placeholder_Slot.tscn
+res://UI/card/Card.tscn

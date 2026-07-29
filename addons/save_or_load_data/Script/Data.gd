@@ -1,5 +1,4 @@
 ## 空白的数据类
-@tool
 @icon("uid://cgdeowkohagco")
 class_name Data
 extends Node

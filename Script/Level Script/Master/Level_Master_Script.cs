@@ -88,10 +88,10 @@ public partial class Level_Master_Script : Node2D{
 	/// </summary>
 	[ExportGroup("Light")]
 	[Export] public float Light = 1;
-	static int sd()
-	{
-		return 0;
-	}
+	/// <summary>
+	/// 用于摄像机缓动的process
+	/// </summary>
+	/// <param name="delta"></param>
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 		if (Camera2D == null){return;}
@@ -152,17 +152,28 @@ public partial class Level_Master_Script : Node2D{
 		}
 		}
 	}
+	/// <summary>
+	/// 使选中的草坪变为绿色
+	/// </summary>
+	/// <param name="This"></param>
 	public void Lawn_Green(ColorRect This)
 	{
 		This.Color = new Color(0,1,0,1);
 		Selected_Lawn = This;
 		Game.Level_Script.Lawn = This;
 	}
+	/// <summary>
+	/// 让部分草坪变为透明
+	/// </summary>
+	/// <param name="This"></param>
 	public void Lawn_Alpha(ColorRect This)
 	{
 		This.Color = new Color(0,0,0,0);
 		Selected_Lawn = This;
 	}
+	/// <summary>
+	/// 生成节点(差不多就是初始化)
+	/// </summary>
 	public void summand_Node()
 	{
 		Game.Temp_Node.Clear_Node();

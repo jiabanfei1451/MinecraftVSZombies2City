@@ -1,0 +1,438 @@
+[gd_scene format=3 uid="uid://bllinxtvttldn"]
+
+[ext_resource type="PackedScene" uid="uid://ch0pgl7qdp2gj" path="res://UI/蓝图槽.tscn" id="1_hdxay"]
+[ext_resource type="Texture2D" uid="uid://bfvmpalatfbey" path="res://Image/UI/pickaxe_slot.png" id="2_ue7r6"]
+[ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
+[ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
+[ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
+[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="6_i0vqy"]
+[ext_resource type="Theme" uid="uid://c5xrknm7o3j2v" path="res://UI/UI主题/主题/按钮.tres" id="7_oc2sj"]
+[ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Panel/MOPUI/MOP_UI3.svg" id="8_bf20k"]
+[ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
+[ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
+[ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
+[ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oso7i"]
+texture = ExtResource("8_bf20k")
+texture_margin_left = 33.74201
+texture_margin_top = 33.65409
+texture_margin_right = 33.95281
+texture_margin_bottom = 34.19609
+region_rect = Rect2(0, 0, 99, 99)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8fl5"]
+font = ExtResource("11_vnl24")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxvtp"]
+texture = ExtResource("8_bf20k")
+texture_margin_left = 41.076515
+texture_margin_top = 44.76632
+texture_margin_right = 42.222034
+texture_margin_bottom = 42.3724
+region_rect = Rect2(0, 0, 99, 99)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hna80"]
+texture = ExtResource("8_bf20k")
+texture_margin_left = 21.679367
+texture_margin_top = 20.528923
+texture_margin_right = 22.839897
+texture_margin_bottom = 22.296425
+region_rect = Rect2(0, 0, 99, 99)
+
+[node name="关卡ui" type="CanvasLayer" unique_id=37875330]
+
+[node name="Level" type="Control" parent="." unique_id=1275818106]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" parent="Level" unique_id=1812954472 instance=ExtResource("1_hdxay")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 0.0
+offset_right = 961.875
+offset_bottom = 108.75001
+scale = Vector2(0.8, 0.8)
+layout_direction = 2
+script = null
+
+[node name="Draft" type="Button" parent="Level" unique_id=1738480321]
+texture_filter = 1
+layout_mode = 0
+offset_left = 243.0
+offset_right = 323.0
+offset_bottom = 76.0
+pivot_offset = Vector2(5, 5)
+layout_direction = 2
+icon = ExtResource("2_ue7r6")
+flat = true
+
+[node name="我是贴图" type="TextureRect" parent="Level/Draft" unique_id=927489614]
+layout_mode = 0
+offset_left = 4.4082913
+offset_top = 4.4082847
+offset_right = 68.408295
+offset_bottom = 68.40829
+mouse_filter = 2
+mouse_behavior_recursive = 2
+mouse_force_pass_scroll_events = false
+texture = ExtResource("3_ri15h")
+
+[node name="星之碎片贴图" type="TextureRect" parent="Level" unique_id=25255191]
+texture_filter = 1
+layout_mode = 0
+offset_left = 153.0
+offset_top = 322.0
+offset_right = 193.0
+offset_bottom = 362.0
+mouse_filter = 2
+texture = ExtResource("4_w7i6b")
+
+[node name="器械能贴图" type="TextureRect" parent="Level" unique_id=1721923442]
+texture_filter = 1
+layout_mode = 0
+offset_left = 153.0
+offset_top = 322.0
+offset_right = 193.0
+offset_bottom = 362.0
+pivot_offset = Vector2(20, 20)
+mouse_filter = 2
+texture = ExtResource("5_tcpcs")
+
+[node name="取消" type="AudioStreamPlayer" parent="Level" unique_id=760228215]
+stream = ExtResource("6_i0vqy")
+
+[node name="物体贴图" type="Control" parent="Level" unique_id=1959201812]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Select_CardUI" type="Control" parent="." unique_id=1223407967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="蓝图展示" type="Control" parent="Select_CardUI" unique_id=1590141591]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -562.0
+offset_right = 594.0
+offset_bottom = 136.75
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+layout_direction = 2
+theme = ExtResource("7_oc2sj")
+
+[node name="Panel5" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1275800099]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oso7i")
+
+[node name="选卡节点" type="Control" parent="Select_CardUI/蓝图展示" unique_id=2105569702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node" type="Control" parent="Select_CardUI/蓝图展示/选卡节点" unique_id=602648334]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 67.0
+offset_bottom = -75.75
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_k06p6")
+
+[node name="Card" type="Control" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=2136885167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Global_Position_Index" type="GridContainer" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=1598240649]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="占位" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=724914924 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位2" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1257258890 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位3" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1051705434 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位4" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=822977094 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位5" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=683687888 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位6" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=2036493647 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位7" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=399408441 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位8" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=2146567806 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位9" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1138893241 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位10" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1565796507 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位11" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=2026604129 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位12" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1480192166 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位13" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1463709302 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位14" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1965206055 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位15" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=979262089 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位16" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1695863062 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位17" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1706875414 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位18" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=785011120 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位19" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=669086983 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位20" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=475236437 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位21" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=297017881 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位22" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=414454624 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位23" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1035383847 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位24" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1228160930 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位25" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=997620942 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位26" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1017986093 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位27" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1421361171 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位28" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1698790993 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位29" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1430215167 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位30" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1767675400 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位31" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1524252749 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位32" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1900384393 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位33" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1466304669 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位34" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=877325232 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位35" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1051038948 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位36" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=593187541 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位37" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1842523884 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位38" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1527287495 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位39" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=634514157 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="占位40" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1257192928 instance=ExtResource("9_byjyl")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=1936228479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "预加载中..."
+label_settings = SubResource("LabelSettings_f8fl5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1231187989]
+modulate = Color(0.735357, 0.735357, 0.735357, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.25
+offset_top = -697.49994
+offset_right = 7.499999
+offset_bottom = -70.00006
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
+
+[node name="Panel4" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1102048264]
+modulate = Color(0.7372549, 0.7372549, 0.7372549, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 583.75
+offset_top = -650.0
+offset_right = 592.49994
+offset_bottom = -22.500122
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
+
+[node name="Panel" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=519398614]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -83.75
+offset_right = 593.74994
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
+
+[node name="Panel2" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=2067816038]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.2499999
+offset_top = -697.49994
+offset_right = 594.99994
+offset_bottom = -623.75
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_hna80")
+
+[node name="准备开始" type="Label" parent="Select_CardUI" unique_id=570368298]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0.016666412, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("11_vnl24")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="播放音效" type="AudioStreamPlayer" parent="Select_CardUI/准备开始" unique_id=1876887387]
+stream = ExtResource("18_woa1d")
+
+[node name="卡槽" parent="Select_CardUI" unique_id=639071940 instance=ExtResource("17_bf20k")]
+layout_mode = 1
+scale = Vector2(1, 1)
+
+[node name="X" type="Control" parent="Select_CardUI" unique_id=1898478021]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="X2" type="Control" parent="Select_CardUI" unique_id=656407106]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Y" type="Control" parent="Select_CardUI" unique_id=746213021]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Y2" type="Control" parent="Select_CardUI" unique_id=1011576804]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="pressed" from="Level/Draft" to="Level/Draft" method="_on_pressed"]

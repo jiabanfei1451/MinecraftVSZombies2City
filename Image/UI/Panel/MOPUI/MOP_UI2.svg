@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="uuid-2fbc5f8d-018f-4581-8f06-daf07efd8b1f" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8">
+  <defs>
+    <style>
+      .uuid-d27d1915-5c7a-436d-b588-6e68ab4a0a2b {
+        fill: #fff;
+      }
+
+      .uuid-cb7d1f61-0f88-4ea8-9a98-c4350e89e582 {
+        fill: #333;
+      }
+
+      .uuid-33a98d93-8628-4ed6-94ec-dd1fb9a11402 {
+        fill: #ccc;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="uuid-cb7d1f61-0f88-4ea8-9a98-c4350e89e582" x=".25" y=".25" width="7.5" height="7.5"/>
+    <path d="M7.5.5v7H.5V.5h7M8,0H0v8h8V0h0Z"/>
+  </g>
+  <g>
+    <rect class="uuid-d27d1915-5c7a-436d-b588-6e68ab4a0a2b" x="1.09" y="1.09" width="5.82" height="5.82"/>
+    <path class="uuid-33a98d93-8628-4ed6-94ec-dd1fb9a11402" d="M6.66,1.34v5.32H1.34V1.34h5.32M7.16.84H.84v6.32h6.32V.84h0Z"/>
+  </g>
+</svg>

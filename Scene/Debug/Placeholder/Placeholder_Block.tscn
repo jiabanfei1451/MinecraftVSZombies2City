@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bx76t0lp5w10a"]
+
+[ext_resource type="Script" uid="uid://wtorir0orqjv" path="res://Script/Object/Auto_Free/PlaceholderBlock.cs" id="1_agt77"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ifow5"]
+size = Vector2(2, 2)
+
+[node name="PlaceholderBlock" type="CharacterBody2D" unique_id=254076277]
+script = ExtResource("1_agt77")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1027162867]
+scale = Vector2(15, 15)
+texture = SubResource("PlaceholderTexture2D_ifow5")

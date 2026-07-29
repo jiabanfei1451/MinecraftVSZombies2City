@@ -9,6 +9,16 @@ namespace Game{
 static class Get_GlobalNode
 {
 	/// <summary>
+	/// 获取卡槽数据
+	/// </summary>
+	/// <param name="tree"></param>
+	/// <returns></returns>
+	public static Card_Data Get_Card_Data(SceneTree tree)
+		{
+			Card_Data Node = tree.Root.GetNode<Card_Data>("CardData");
+			return Node;
+		}
+	/// <summary>
 	/// 获取音乐引擎
 	/// </summary>
 	/// <param name="tree"></param>

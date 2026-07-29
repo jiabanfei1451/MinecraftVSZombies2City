@@ -1,44 +1,49 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
-[ext_resource type="Script" uid="uid://vot5oa3nug2e" path="res://Test/Control.cs" id="1_75sm5"]
+[ext_resource type="Texture2D" uid="uid://rxcppgnt2gu6" path="res://Object/素材图/bubble.png" id="1_gtax4"]
+[ext_resource type="Texture2D" uid="uid://d1lmk8ul6iehw" path="res://Image/UI/UI.png" id="2_eja7b"]
+[ext_resource type="Script" uid="uid://dny4i8hbxykal" path="res://addons/save_or_load_data/Script/Csharp/JSONData.cs" id="3_eja7b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wvhbo"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jrdhs"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ibjym"]
+blend_mode = 2
 
 [node name="Text" type="Node2D" unique_id=1808771749]
 
-[node name="Control" type="Control" parent="." unique_id=6168837]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 302.0
-offset_top = 189.0
-offset_right = 342.0
-offset_bottom = 229.0
-scale = Vector2(2, 2)
-script = ExtResource("1_75sm5")
-Drag_Velocity_Scope = Vector2(20, 20)
-Touch_Index = Array[int]([])
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=687782665]
+position = Vector2(5000, 4999)
+texture = SubResource("ViewportTexture_wvhbo")
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1878400446]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1829535516]
+clip_children = 1
+position = Vector2(117, 19)
+texture = ExtResource("2_eja7b")
 
-[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1846855984]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_right = -40.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D2" unique_id=1665996187]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_jrdhs")
+position = Vector2(10.000004, 21)
+texture = ExtResource("1_gtax4")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1835669060]
-zoom = Vector2(1.2, 1.2)
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D2" unique_id=910645721]
+material = SubResource("CanvasItemMaterial_ibjym")
+position = Vector2(68, 46)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("1_gtax4")
 
-[node name="Button" type="Button" parent="." unique_id=430507616]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="JSONData" type="Node" parent="." unique_id=941282910]
+script = ExtResource("3_eja7b")
+Data_array = [Color(1, 1, 1, 1), {
+"包皮状态": {
+"我割了？": false,
+"臭的？": true
+}
+}, 1919810, "@全体成员", Vector3(0, 0, 0), Color(0.45490196, 0, 0.49019608, 0.57254905)]
+Key = Array[String](["114514", "字典", "不知道", "谁的包皮最臭？", "？", "..."])
+Write_Path = "user://Temp_Data.json"
+metadata/_custom_type_script = "uid://dny4i8hbxykal"
