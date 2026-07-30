@@ -23,3 +23,5 @@ res://Scene/Misc Scene/Music room/VBoxContainer.cs
 res://Script/Level Script/Master/Level_Master_Script.cs
 res://Scene/Thank List.tscn
 res://UI/第二层/按钮/按钮.tscn
+res://Script/Temp_Node.cs
+res://Script/Auto Load/PlayerData.cs

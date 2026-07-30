@@ -286,64 +286,84 @@ public partial class TouchPad : Godot.Control
 		bool OK = false;
 		if (Temp_Vec2.Not_Position){return;}
 		OK = Touch_Calculation(Temp_Vec2.Position,Viewport_Position,ViewPort_Size);
+		//普通模式
 		if (TouchPad_Mode == _TouchPad_Mode.Normal){
+			//触摸设备
 			if (Temp_Vec2.Input_Type == Vec2.Button_Type.Touch){
+				//按钮
 				if (Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Button){
+					//按下状态判定
 					if (Temp_Vec2.Pressed == true){
 						if (!OK){return;}
 						Set_Touch_Index(0,Temp_Vec2.Index);
 						Pressed = true;
 						Click_Type = on_Click_Type.Click;
-						EmitSignal("Button_UPvoid");
-						EmitSignal("Button_UP",this,Temp_Vec2.Position);
+						EmitSignal("Button_Downvoid");
+						EmitSignal("Button_Down",this,Temp_Vec2.Position);
+						
 					}
 					else{
+						//拖拽状态
 						if (Drag){
 							EmitSignal("End_Drag",this,Temp_Vec2.Position);
 							EmitSignal("End_Dragvoid");
 						}
-						EmitSignal("Button_Downvoid");
-						EmitSignal("Button_Down",this,Temp_Vec2.Position);
+						//抬起时
+						EmitSignal("Button_UPvoid");
+						EmitSignal("Button_UP",this,Temp_Vec2.Position);
+						//触发点击事件
 						if (Click_Type == on_Click_Type.Click)
 						{
 							EmitSignal("Button_Pressedvoid");
 							EmitSignal("Button_Pressed",this,Temp_Vec2.Position);
 						}
+						//触发长按事件
 						else if(Click_Type == on_Click_Type.Long_Click){
 							EmitSignal("Button_Long_Pressedvoid");
 							EmitSignal("Button_Long_Pressed",this,Temp_Vec2.Position);
 						}
+						//设定状态
 						Pressed = false;
 						Drag = false;
 						Focus = false;
 						Click_Type = on_Click_Type.not;
 						Set_Touch_Index(1,Temp_Vec2.Index);
 					}
+				//判定为拖拽行为
 				}else if(Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Drag){
+					//如果按下为真 然后获取索引 检测是否启用拖拽
 					if (Pressed == true && Get_Touch_Index(Temp_Vec2.Index) != -1 && Enable_Drag){
+						//设定状态
 						Click_Type = on_Click_Type.Drag;
+						//条件是否满足
 						if (Drag == false && Temp_Vec2.Enable_Drag){
+							//触发拖拽开始时
 							if (Temp_Vec2.Velocity.X > Drag_Velocity_Scope.X && Temp_Vec2.Velocity.Y > Drag_Velocity_Scope.Y && Temp_Vec2.Velocity.X < -Drag_Velocity_Scope.X && Temp_Vec2.Velocity.Y < -Drag_Velocity_Scope.Y){return;}
 							EmitSignal("Start_Dragvoid",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 							EmitSignal("Start_Drag");
 						}else
 						{
+							//触发拖拽中
 							EmitSignal("Drag_Ing",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 							EmitSignal("Drag_Ingvoid");
 						}
 						Drag = true;
 					}
+					//焦点
 					if (OK && Enable_Focus)
 					{
+						//如果当前状态为not则设置焦点
 						if (Click_Type == on_Click_Type.not){Click_Type = on_Click_Type.foucs;}
 						if (!Focus){
 							EmitSignal("Focus_Join",this,Temp_Vec2.Position);
 							EmitSignal("Focus_Joinvoid");
 						}
+						//设置焦点状态
 						Focus = true;
 						}
 					else
 					{	
+						//焦点离开时事件触发
 						if (Click_Type == on_Click_Type.foucs){Click_Type = on_Click_Type.not;}
 						if (Focus){
 							EmitSignal("Focus_Exit",this,Temp_Vec2.Position);
@@ -353,16 +373,20 @@ public partial class TouchPad : Godot.Control
 					}
 				}
 			}
+			//鼠标设备
 			else if(Temp_Vec2.Input_Type == Vec2.Button_Type.Mouse)
 			{
+				//按下
 				if (Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Button)
 				{
+					//按下
 					if (Temp_Vec2.Pressed == true)
 					{
 						if (!OK){return;}
 						Pressed = true;
 						Click_Type = on_Click_Type.Click;
 					}
+					//结束拖拽
 					else
 					{
 						if (Drag)
@@ -375,10 +399,13 @@ public partial class TouchPad : Godot.Control
 						Click_Type = on_Click_Type.not;
 					}
 				}
+				//拖拽
 				else if(Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Drag)
 				{
+					//按下状态检测 拖拽启用状态
 					if (Pressed == true && Temp_Vec2.Enable_Drag && Enable_Drag)
 					{
+						//拖拽开始时
 						Click_Type = on_Click_Type.Drag;
 						if (Drag == false)
 							{
@@ -386,6 +413,7 @@ public partial class TouchPad : Godot.Control
 								EmitSignal("Start_Dragvoid",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 								EmitSignal("Start_Drag");
 							}
+							//拖拽中
 							else
 							{
 								EmitSignal("Drag_Ing",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
@@ -393,8 +421,10 @@ public partial class TouchPad : Godot.Control
 							}
 						Drag = true;
 					}
+					//焦点进入检测
 					if (OK)
 					{
+						//焦点进入时
 						if (Click_Type == on_Click_Type.not){Click_Type = on_Click_Type.foucs;
 						}
 						if (!Focus){
@@ -403,7 +433,7 @@ public partial class TouchPad : Godot.Control
 						}
 						Focus = true;
 						}
-					else
+					else//焦点离开时
 					{
 						if (Click_Type == on_Click_Type.foucs){Click_Type = on_Click_Type.not;}
 						if (Focus){

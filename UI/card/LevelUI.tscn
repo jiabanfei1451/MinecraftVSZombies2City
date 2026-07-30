@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
 [ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="11_h5g1x"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
@@ -48,12 +49,12 @@ texture_margin_right = 22.839897
 texture_margin_bottom = 22.296425
 region_rect = Rect2(0, 0, 99, 99)
 
-[node name="关卡ui" type="CanvasLayer" unique_id=37875330]
+[node name="LevelUI" type="CanvasLayer" unique_id=37875330]
 
-[node name="卡槽" parent="." unique_id=639071940 instance=ExtResource("17_bf20k")]
+[node name="Card_Slot" parent="." unique_id=639071940 instance=ExtResource("17_bf20k")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Draft" type="Control" parent="卡槽" unique_id=1582170354]
+[node name="Draft" type="Control" parent="Card_Slot" unique_id=1582170354]
 texture_filter = 1
 anchors_preset = 0
 offset_left = 635.0
@@ -63,7 +64,7 @@ offset_bottom = 77.0
 pivot_offset = Vector2(5, 5)
 layout_direction = 2
 
-[node name="TextureRect" type="Panel" parent="卡槽/Draft" unique_id=1053486844]
+[node name="TextureRect" type="Panel" parent="Card_Slot/Draft" unique_id=1053486844]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wvhbo")
 
-[node name="Iron Draft" type="TextureRect" parent="卡槽/Draft" unique_id=927489614]
+[node name="Iron Draft" type="TextureRect" parent="Card_Slot/Draft" unique_id=927489614]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -168,7 +169,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
+offset_left = 7.9999995
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
@@ -321,9 +322,10 @@ layout_mode = 2
 
 [node name="Card" type="Control" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=2136885167]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.0030276817
+anchor_top = 0.0023148146
+anchor_right = 0.9969723
+anchor_bottom = 1.0023148
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -341,13 +343,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="TouchPad" type="Control" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=945097853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_h5g1x")
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
 [node name="Panel3" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1231187989]
 modulate = Color(0.735357, 0.735357, 0.735357, 1)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1.25
+offset_left = 1.2499999
 offset_top = -697.49994
 offset_right = 7.499999
 offset_bottom = -70.00006
@@ -361,9 +373,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 583.75
+offset_left = 583.74994
 offset_top = -650.0
-offset_right = 592.49994
+offset_right = 592.4999
 offset_bottom = -22.500122
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
@@ -374,8 +386,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -83.75
+offset_top = -83.75006
 offset_right = 593.74994
+offset_bottom = -6.1035156e-05
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
 metadata/_edit_use_anchors_ = true
@@ -385,7 +398,7 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1.2499999
+offset_left = 1.2499998
 offset_top = -697.49994
 offset_right = 594.99994
 offset_bottom = -623.75

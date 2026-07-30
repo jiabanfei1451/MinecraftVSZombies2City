@@ -1,6 +1,6 @@
+TouchPad
 Label
 VBoxContainer
-TouchPad
 Control
 CanvasLayer
 TextureRect
@@ -12,4 +12,3 @@ JSONData
 Data_For_CSharp
 Node
 Sprite2D
-CharacterBody2D

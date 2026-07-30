@@ -1,18 +1,42 @@
 using Game;
 using Godot;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 namespace UIObject{
 public partial class NodeScript : Control
 {
+	float is_Y = 0;
+	float m = 1;
+	Vector2 pos;
 	PackedScene BorderScene = GD.Load<PackedScene>("uid://bxk215b41db4p");
 	PackedScene CardScene = GD.Load<PackedScene>("uid://c2y62prxcbege");
 	public override async void _Ready()
 	{
+		GetNode<TouchPad>("TouchPad").Drag_Ing += Add_YPosition;
 		var it = Summand_Node();
 		await it;
 		Summand_Card();
+		pos = GetNode<Control>("Card").Position;
 	}
+	public override void _PhysicsProcess(double delta) {
+		CreateTween().TweenProperty(GetNode<Control>("Card"),new NodePath(Control.PropertyName.Position),pos + new Vector2(0,is_Y),0.2);
+		if (is_Y > 0)
+		{
+			is_Y -= (60 * (float)delta) * m;
+			m += 1f;
+		}else
+		{m = 1;}
+	}	
+
+	public void Add_YPosition(TouchPad pad,Godot.Vector2 Event_Potition,Godot.Vector2 Velocity)
+	{
+		is_Y += Velocity.Y * 0.01f;
+	}
+	/// <summary>
+	/// 生成节点
+	/// </summary>
+	/// <returns></returns>
 	public async Task<bool> Summand_Node()
 	{
 		// Temp_Variant
@@ -32,6 +56,9 @@ public partial class NodeScript : Control
 		await Task.Delay(1);
 		return true;
 	}
+	/// <summary>
+	/// 生成卡槽
+	/// </summary>
 	public async void Summand_Card()
 	{
 		foreach (Control node in GetNode<Control>("Global_Position_Index").GetChildren())
