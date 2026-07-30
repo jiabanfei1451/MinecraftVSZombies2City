@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bri7t7wkvxb7x"
-path="res://.godot/imported/card_命令方块.png-f57937576ba1409e9dd99e5849212dfb.ctex"
+uid="uid://ci780sgxtpyh3"
+path="res://.godot/imported/Gear.svg-b9dbfb00d68f88ec4c629475489a4440.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Image/UI/Card/card_命令方块.png"
-dest_files=["res://.godot/imported/card_命令方块.png-f57937576ba1409e9dd99e5849212dfb.ctex"]
+source_file="res://Image/UI/Panel/Gear.svg"
+dest_files=["res://.godot/imported/Gear.svg-b9dbfb00d68f88ec4c629475489a4440.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

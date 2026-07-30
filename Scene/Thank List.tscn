@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://bieujy4nj18t2"]
+
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="1_23862"]
+[ext_resource type="Shader" uid="uid://cfx6chamlduit" path="res://Shader/渐变.gdshader" id="2_qmgjs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wvhbo"]
+font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_23862"]
+shader = ExtResource("2_qmgjs")
+shader_parameter/colo = Color(1, 1, 1, 1)
+shader_parameter/RValue = 0.5
+shader_parameter/GValue = 0.5
+shader_parameter/BValue = 0.5
+shader_parameter/AValue = 0.5
+shader_parameter/oneValue = false
+shader_parameter/setAlpha = false
+shader_parameter/MixR = 0.5
+shader_parameter/MixG = 0.5
+shader_parameter/MixB = 0.5
+shader_parameter/MixA = 0.42
+shader_parameter/R = 0.84
+shader_parameter/G = 2.01
+shader_parameter/B = 1.545
+shader_parameter/A = 1.0
+shader_parameter/timeR = 1.0
+shader_parameter/timeG = 1.0
+shader_parameter/timeB = 1.0
+shader_parameter/timeA = 1.0
+shader_parameter/timeR2 = 1.0
+shader_parameter/timeG2 = 1.0
+shader_parameter/timeB2 = 1.0
+shader_parameter/timeA2 = 1.0
+shader_parameter/multiplierR = 1.0
+shader_parameter/multiplierG = 0.5
+shader_parameter/multiplierB = 0.5
+shader_parameter/multiplierA = 0.0
+shader_parameter/multiplierR2 = 1.0
+shader_parameter/multiplierG2 = 0.5
+shader_parameter/multiplierB2 = 0.25
+shader_parameter/multiplierA2 = 0.0
+shader_parameter/ValuemultiplierR = -1.0
+shader_parameter/ValuemultiplierG = 1.0
+shader_parameter/ValuemultiplierB = 1.0
+shader_parameter/ValuemultiplierA = 1.0
+shader_parameter/ValuemultiplierR2 = -1.0
+shader_parameter/ValuemultiplierG2 = 1.0
+shader_parameter/ValuemultiplierB2 = 1.0
+shader_parameter/ValuemultiplierA2 = 1.0
+shader_parameter/One = false
+shader_parameter/Function_styleR = 0
+shader_parameter/Function_styleG = 0
+shader_parameter/Function_styleB = 1
+shader_parameter/Function_styleA = 0
+shader_parameter/TypeClampR = false
+shader_parameter/ClampR = 0.5
+shader_parameter/ClampRMin = 0.0
+shader_parameter/TypeClampG = false
+shader_parameter/ClampG = 0.5
+shader_parameter/ClampGMin = 0.0
+shader_parameter/TypeClampB = false
+shader_parameter/ClampB = 0.5
+shader_parameter/ClampBMin = 0.0
+shader_parameter/TypeClampR2 = false
+shader_parameter/ClampR2 = 0.5
+shader_parameter/ClampRMin2 = 0.0
+shader_parameter/TypeClampG2 = false
+shader_parameter/ClampG2 = 0.5
+shader_parameter/ClampGMin2 = 0.0
+shader_parameter/TypeClampB2 = false
+shader_parameter/ClampB2 = 0.5
+shader_parameter/ClampBMin2 = 0.0
+shader_parameter/TypeStepR = false
+shader_parameter/StepR = 0.5
+shader_parameter/StepRMin = 0.0
+shader_parameter/TypeStepG = false
+shader_parameter/StepG = 0.5
+shader_parameter/StepGMin = 0.0
+shader_parameter/TypeStepB = false
+shader_parameter/StepB = 0.5
+shader_parameter/StepBMin = 0.0
+shader_parameter/TypeStepR2 = false
+shader_parameter/StepR2 = 0.5
+shader_parameter/StepRMin2 = -9.93000000156464
+shader_parameter/TypeStepG2 = false
+shader_parameter/StepG2 = 0.5
+shader_parameter/StepGMin2 = 0.0
+shader_parameter/TypeStepB2 = false
+shader_parameter/StepB2 = 0.5
+shader_parameter/StepBMin2 = 0.0
+shader_parameter/TypedistanceR = false
+shader_parameter/distanceR = 0.5
+shader_parameter/distanceRMin = 0.0
+shader_parameter/TypedistanceG = false
+shader_parameter/distanceG = 0.5
+shader_parameter/distanceGMin = 0.0
+shader_parameter/TypedistanceB = false
+shader_parameter/distanceB = 0.5
+shader_parameter/distanceBMin = 0.0
+shader_parameter/TypedistanceA = false
+shader_parameter/distanceA = 0.5
+shader_parameter/distanceAMin = 0.0
+shader_parameter/TypedistanceR2 = true
+shader_parameter/distanceR2 = 0.6399997621747193
+shader_parameter/distanceRMin2 = 2.0299997311054394
+shader_parameter/TypedistanceG2 = true
+shader_parameter/distanceG2 = -0.6800002083206405
+shader_parameter/distanceGMin2 = -3.1400001533347197
+shader_parameter/TypedistanceB2 = true
+shader_parameter/distanceB2 = 0.5
+shader_parameter/distanceBMin2 = 6.6699996273921585
+shader_parameter/TypedistanceA2 = false
+shader_parameter/distanceA2 = 0.5
+shader_parameter/distanceAMin2 = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_23862"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmgjs"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_burho"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_46fw6"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3jva"]
+font_size = 20
+
+[node name="ThankList" type="CanvasLayer" unique_id=1452689044]
+
+[node name="Control" type="Control" parent="." unique_id=367289564]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TouchPad" type="Control" parent="Control" unique_id=1668174863]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_23862")
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1977736731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1681458243]
+layout_mode = 2
+text = "游戏引擎："
+label_settings = SubResource("LabelSettings_wvhbo")
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1931943886]
+material = SubResource("ShaderMaterial_23862")
+layout_mode = 2
+text = "GODOT Engine 4.7"
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer" unique_id=1794884843]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer" unique_id=1060680410]
+layout_mode = 2
+text = "投稿器械："
+label_settings = SubResource("LabelSettings_23862")
+
+[node name="Label5" type="Label" parent="Control/VBoxContainer" unique_id=461262894]
+layout_mode = 2
+text = "缓冲发射器 - 无聊的缓冲152"
+
+[node name="Label16" type="Label" parent="Control/VBoxContainer" unique_id=1602742212]
+layout_mode = 2
+text = "魔法！茂密！ - 斯库拉"
+
+[node name="Label6" type="Label" parent="Control/VBoxContainer" unique_id=1921514281]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="Control/VBoxContainer" unique_id=222193736]
+layout_mode = 2
+text = "脚本："
+label_settings = SubResource("LabelSettings_qmgjs")
+
+[node name="Label10" type="Label" parent="Control/VBoxContainer" unique_id=734175637]
+layout_mode = 2
+text = "C# & GDScript - 脚本语言"
+
+[node name="Label9" type="Label" parent="Control/VBoxContainer" unique_id=841679745]
+layout_mode = 2
+text = "痊愈加班费 - 主要脚本"
+
+[node name="Label8" type="Label" parent="Control/VBoxContainer" unique_id=1381563025]
+layout_mode = 2
+text = "last zating 6主创 - 脚本指导"
+
+[node name="Label11" type="Label" parent="Control/VBoxContainer" unique_id=1258447184]
+visible = false
+layout_mode = 2
+
+[node name="Label22" type="Label" parent="Control/VBoxContainer" unique_id=546153886]
+visible = false
+layout_mode = 2
+text = "音乐："
+label_settings = SubResource("LabelSettings_burho")
+
+[node name="Label23" type="Label" parent="Control/VBoxContainer" unique_id=1747209271]
+visible = false
+layout_mode = 2
+text = "泰拉瑞亚 Calamity Studios"
+label_settings = SubResource("LabelSettings_burho")
+
+[node name="Label21" type="Label" parent="Control/VBoxContainer" unique_id=127970344]
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="Control/VBoxContainer" unique_id=1420783353]
+layout_mode = 2
+text = "美术："
+label_settings = SubResource("LabelSettings_46fw6")
+
+[node name="Label13" type="Label" parent="Control/VBoxContainer" unique_id=1643570337]
+layout_mode = 2
+text = "痊愈加班费 - 次要画师"
+
+[node name="Label14" type="Label" parent="Control/VBoxContainer" unique_id=89920459]
+layout_mode = 2
+text = "满天星地满尘 - 主要画师"
+
+[node name="Label15" type="Label" parent="Control/VBoxContainer" unique_id=1957376230]
+layout_mode = 2
+text = "斯库拉 - 副画师"
+
+[node name="Label17" type="Label" parent="Control/VBoxContainer" unique_id=1850330302]
+layout_mode = 2
+
+[node name="Label18" type="Label" parent="Control/VBoxContainer" unique_id=1758400474]
+layout_mode = 2
+text = "特别鸣谢："
+label_settings = SubResource("LabelSettings_w3jva")
+
+[node name="Label19" type="Label" parent="Control/VBoxContainer" unique_id=909353709]
+layout_mode = 2
+text = "魔术力法箱子（因隐私原因不展示个人社交账号） - 地图画面指正"
+
+[node name="Label24" type="Label" parent="Control/VBoxContainer" unique_id=1491703581]
+layout_mode = 2
+text = "无聊的缓冲152（因隐私原因不展示个人社交账号） - 部分UI绘制"
+
+[node name="Label20" type="Label" parent="Control/VBoxContainer" unique_id=1629895222]
+layout_mode = 2
+text = "理想乡（不展示群号）部分群友 - 游戏测试"

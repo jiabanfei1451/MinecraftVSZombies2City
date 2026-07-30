@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo88med25lrpi"]
 
-[ext_resource type="Texture2D" uid="uid://bw35jxqx8msf1" path="res://Image/UI/Panel/MOPUI/MOP_UI.svg" id="1_ckgv3"]
+[ext_resource type="Texture2D" uid="uid://bw35jxqx8msf1" path="res://Image/UI/Button/MOPUI/MOP_UI.svg" id="1_ckgv3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ainh"]
 texture = ExtResource("1_ckgv3")

@@ -1,0 +1,517 @@
+%!Adobe-FontList 1.25
+%Locale:0x804
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HYPixel-11px-U
+FamilyName:HYPixel 11px
+StyleName:U
+FullName:HYPixel 11px U
+MenuName:汉仪像素 11px U
+StyleBits:0
+FamilyNameNative:汉仪像素 11px
+StyleNameNative:U
+FullNameNative:汉仪像素 11px U
+WritingScript:SimplifiedChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HYPixel11pxU-2.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:2446828
+FileModTime:1784257814
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HYPixel 11px U
+NameArray:25,Mac,4,汉仪像素 11px U
+NameArray:0,Win,1,HYPixel 11px U
+NameArray:0,Win,16,HYPixel 11px
+NameArray:25,Win,1,汉仪像素 11px U
+NameArray:25,Win,16,汉仪像素 11px
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HYPixel11pxU-2.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\.DS_Store
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_Condensed_Black
+FamilyName:HarmonyOS Sans Condensed
+StyleName:Black
+FullName:HarmonyOS Sans Condensed Black
+MenuName:HarmonyOS Sans Condensed Black
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Black.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:136116
+FileModTime:1784257814
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans Condensed Black
+NameArray:0,Win,1,HarmonyOS Sans Condensed Black
+NameArray:0,Win,16,HarmonyOS Sans Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Black.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_Condensed_Bold
+FamilyName:HarmonyOS Sans Condensed
+StyleName:Bold
+FullName:HarmonyOS Sans Condensed Bold
+MenuName:HarmonyOS Sans Condensed
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:135788
+FileModTime:1784257814
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans Condensed Bold
+NameArray:0,Win,1,HarmonyOS Sans Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Bold.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_Condensed_Light
+FamilyName:HarmonyOS Sans Condensed
+StyleName:Light
+FullName:HarmonyOS Sans Condensed Light
+MenuName:HarmonyOS Sans Condensed Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Light.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:137316
+FileModTime:1784257814
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans Condensed Light
+NameArray:0,Win,1,HarmonyOS Sans Condensed Light
+NameArray:0,Win,16,HarmonyOS Sans Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Light.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_Condensed_Medium
+FamilyName:HarmonyOS Sans Condensed
+StyleName:Medium
+FullName:HarmonyOS Sans Condensed Medium
+MenuName:HarmonyOS Sans Condensed Medium
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Medium.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:136560
+FileModTime:1784257814
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans Condensed Medium
+NameArray:0,Win,1,HarmonyOS Sans Condensed Medium
+NameArray:0,Win,16,HarmonyOS Sans Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Medium.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_Condensed
+FamilyName:HarmonyOS Sans Condensed
+StyleName:Regular
+FullName:HarmonyOS Sans Condensed
+MenuName:HarmonyOS Sans Condensed
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:135844
+FileModTime:1784257814
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans Condensed
+NameArray:0,Win,1,HarmonyOS Sans Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Regular.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_Condensed_Thin
+FamilyName:HarmonyOS Sans Condensed
+StyleName:Thin
+FullName:HarmonyOS Sans Condensed Thin
+MenuName:HarmonyOS Sans Condensed Thin
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Thin.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:139100
+FileModTime:1784257814
+WeightClass:250
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans Condensed Thin
+NameArray:0,Win,1,HarmonyOS Sans Condensed Thin
+NameArray:0,Win,16,HarmonyOS Sans Condensed
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\HarmonyOS_Sans_Condensed_Thin.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_Condensed\LICENSE.txt
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\.DS_Store
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_TC_Black
+FamilyName:HarmonyOS Sans TC
+StyleName:Black
+FullName:HarmonyOS Sans TC Black
+MenuName:HarmonyOS Sans TC Black
+StyleBits:2
+FamilyNameNative:HarmonyOS Sans TC
+StyleNameNative:Black
+FullNameNative:HarmonyOS Sans TC Black
+WritingScript:TraditionalChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Black.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4052064
+FileModTime:1784257814
+WeightClass:900
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans TC Black
+NameArray:2,Mac,4,HarmonyOS Sans TC Black
+NameArray:2,Win,1,HarmonyOS Sans TC Black
+NameArray:2,Win,16,HarmonyOS Sans TC
+NameArray:0,Win,1,HarmonyOS Sans TC Black
+NameArray:0,Win,16,HarmonyOS Sans TC
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Black.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_TC_Bold
+FamilyName:HarmonyOS Sans TC
+StyleName:Bold
+FullName:HarmonyOS Sans TC Bold
+MenuName:HarmonyOS Sans TC
+StyleBits:2
+FamilyNameNative:HarmonyOS Sans TC
+StyleNameNative:Bold
+FullNameNative:HarmonyOS Sans TC Bold
+WritingScript:TraditionalChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4064528
+FileModTime:1784257814
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans TC Bold
+NameArray:2,Mac,4,HarmonyOS Sans TC Bold
+NameArray:2,Win,1,HarmonyOS Sans TC
+NameArray:0,Win,1,HarmonyOS Sans TC
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Bold.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_TC_Light
+FamilyName:HarmonyOS Sans TC
+StyleName:Light
+FullName:HarmonyOS Sans TC Light
+MenuName:HarmonyOS Sans TC Light
+StyleBits:0
+FamilyNameNative:HarmonyOS Sans TC
+StyleNameNative:Light
+FullNameNative:HarmonyOS Sans TC Light
+WritingScript:TraditionalChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Light.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4157996
+FileModTime:1784257814
+WeightClass:300
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans TC Light
+NameArray:2,Mac,4,HarmonyOS Sans TC Light
+NameArray:2,Win,1,HarmonyOS Sans TC Light
+NameArray:2,Win,16,HarmonyOS Sans TC
+NameArray:0,Win,1,HarmonyOS Sans TC Light
+NameArray:0,Win,16,HarmonyOS Sans TC
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Light.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_TC_Medium
+FamilyName:HarmonyOS Sans TC
+StyleName:Medium
+FullName:HarmonyOS Sans TC Medium
+MenuName:HarmonyOS Sans TC Medium
+StyleBits:0
+FamilyNameNative:HarmonyOS Sans TC
+StyleNameNative:Thin
+FullNameNative:HarmonyOS Sans TC Thin
+WritingScript:TraditionalChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Medium.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4112712
+FileModTime:1784257814
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans TC Medium
+NameArray:2,Mac,4,HarmonyOS Sans TC Medium
+NameArray:2,Win,1,HarmonyOS Sans TC Medium
+NameArray:2,Win,16,HarmonyOS Sans TC
+NameArray:0,Win,1,HarmonyOS Sans TC Medium
+NameArray:0,Win,16,HarmonyOS Sans TC
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Medium.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_TC
+FamilyName:HarmonyOS Sans TC
+StyleName:Regular
+FullName:HarmonyOS Sans TC
+MenuName:HarmonyOS Sans TC
+StyleBits:0
+FamilyNameNative:HarmonyOS Sans TC
+StyleNameNative:Regular
+FullNameNative:HarmonyOS Sans TC Regular
+WritingScript:TraditionalChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Regular.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4119636
+FileModTime:1784257814
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans TC
+NameArray:2,Mac,4,HarmonyOS Sans TC
+NameArray:2,Win,1,HarmonyOS Sans TC
+NameArray:0,Win,1,HarmonyOS Sans TC
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Regular.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:HarmonyOS_Sans_TC_Thin
+FamilyName:HarmonyOS Sans TC
+StyleName:Thin
+FullName:HarmonyOS Sans TC Thin
+MenuName:HarmonyOS Sans TC Thin
+StyleBits:0
+FamilyNameNative:HarmonyOS Sans TC
+StyleNameNative:Thin
+FullNameNative:HarmonyOS Sans TC Thin
+WritingScript:TraditionalChinese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Thin.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:4164648
+FileModTime:1784257814
+WeightClass:250
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,HarmonyOS Sans TC Thin
+NameArray:2,Mac,4,HarmonyOS Sans TC Thin
+NameArray:2,Win,1,HarmonyOS Sans TC Thin
+NameArray:2,Win,16,HarmonyOS Sans TC
+NameArray:0,Win,1,HarmonyOS Sans TC Thin
+NameArray:0,Win,16,HarmonyOS Sans TC
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\HarmonyOS_Sans_TC_Thin.ttf.import
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\HarmonyOS Sans\HarmonyOS_Sans_TC\LICENSE.txt
+FileModTime:1784257814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Minecrafont
+FamilyName:Minecrafont
+StyleName:Regular
+FullName:Minecrafont
+MenuName:Minecrafont
+StyleBits:0
+FamilyNameNative:Minecrafont
+StyleNameNative:Regular
+FullNameNative:Minecrafont Regular
+WritingScript:Japanese
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\minecraft_font.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:11094232
+FileModTime:1784257814
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Win,1,Minecrafont
+NameArray:25,Win,1,Minecrafont
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:D:\工具\Godot\项目\MinecraftVSZombies2City\Font\minecraft_font.ttf.import
+FileModTime:1784257814
+%EndFont
+

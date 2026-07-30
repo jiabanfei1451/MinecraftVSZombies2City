@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://bllinxtvttldn"]
 
-[ext_resource type="PackedScene" uid="uid://ch0pgl7qdp2gj" path="res://UI/蓝图槽.tscn" id="1_hdxay"]
-[ext_resource type="Texture2D" uid="uid://bfvmpalatfbey" path="res://Image/UI/pickaxe_slot.png" id="2_ue7r6"]
 [ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="6_i0vqy"]
 [ext_resource type="Theme" uid="uid://c5xrknm7o3j2v" path="res://UI/UI主题/主题/按钮.tres" id="7_oc2sj"]
-[ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Panel/MOPUI/MOP_UI3.svg" id="8_bf20k"]
+[ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
 [ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvhbo"]
+texture = ExtResource("8_bf20k")
+texture_margin_left = 44.608307
+texture_margin_top = 40.147476
+texture_margin_right = 45.245567
+texture_margin_bottom = 46.20146
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oso7i"]
 texture = ExtResource("8_bf20k")
@@ -45,46 +50,53 @@ region_rect = Rect2(0, 0, 99, 99)
 
 [node name="关卡ui" type="CanvasLayer" unique_id=37875330]
 
+[node name="卡槽" parent="." unique_id=639071940 instance=ExtResource("17_bf20k")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Draft" type="Control" parent="卡槽" unique_id=1582170354]
+texture_filter = 1
+anchors_preset = 0
+offset_left = 635.0
+offset_top = 1.0
+offset_right = 715.0
+offset_bottom = 77.0
+pivot_offset = Vector2(5, 5)
+layout_direction = 2
+
+[node name="TextureRect" type="Panel" parent="卡槽/Draft" unique_id=1053486844]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wvhbo")
+
+[node name="Iron Draft" type="TextureRect" parent="卡槽/Draft" unique_id=927489614]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 2
+mouse_force_pass_scroll_events = false
+texture = ExtResource("3_ri15h")
+
 [node name="Level" type="Control" parent="." unique_id=1275818106]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Slot" parent="Level" unique_id=1812954472 instance=ExtResource("1_hdxay")]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 0.0
-offset_right = 961.875
-offset_bottom = 108.75001
-scale = Vector2(0.8, 0.8)
-layout_direction = 2
-script = null
-
-[node name="Draft" type="Button" parent="Level" unique_id=1738480321]
-texture_filter = 1
-layout_mode = 0
-offset_left = 243.0
-offset_right = 323.0
-offset_bottom = 76.0
-pivot_offset = Vector2(5, 5)
-layout_direction = 2
-icon = ExtResource("2_ue7r6")
-flat = true
-
-[node name="我是贴图" type="TextureRect" parent="Level/Draft" unique_id=927489614]
-layout_mode = 0
-offset_left = 4.4082913
-offset_top = 4.4082847
-offset_right = 68.408295
-offset_bottom = 68.40829
-mouse_filter = 2
-mouse_behavior_recursive = 2
-mouse_force_pass_scroll_events = false
-texture = ExtResource("3_ri15h")
 
 [node name="星之碎片贴图" type="TextureRect" parent="Level" unique_id=25255191]
 texture_filter = 1
@@ -123,6 +135,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="蓝图展示" type="Control" parent="Select_CardUI" unique_id=1590141591]
 layout_mode = 1
@@ -136,9 +149,11 @@ grow_vertical = 0
 scale = Vector2(0.8, 0.8)
 layout_direction = 2
 theme = ExtResource("7_oc2sj")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel5" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1275800099]
 modulate = Color(0.735357, 0.735357, 0.735357, 1)
+clip_children = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,6 +161,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_oso7i")
+metadata/_edit_use_anchors_ = true
 
 [node name="选卡节点" type="Control" parent="Select_CardUI/蓝图展示" unique_id=2105569702]
 layout_mode = 1
@@ -158,6 +174,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Node" type="Control" parent="Select_CardUI/蓝图展示/选卡节点" unique_id=602648334]
 layout_mode = 1
@@ -170,14 +187,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_k06p6")
 
-[node name="Card" type="Control" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=2136885167]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Global_Position_Index" type="GridContainer" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=1598240649]
 layout_mode = 1
 anchors_preset = 15
@@ -188,6 +197,7 @@ grow_vertical = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 8
+metadata/_edit_use_anchors_ = true
 
 [node name="占位" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=724914924 instance=ExtResource("9_byjyl")]
 layout_mode = 2
@@ -309,6 +319,15 @@ layout_mode = 2
 [node name="占位40" parent="Select_CardUI/蓝图展示/选卡节点/Node/Global_Position_Index" unique_id=1257192928 instance=ExtResource("9_byjyl")]
 layout_mode = 2
 
+[node name="Card" type="Control" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=2136885167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="Label" type="Label" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=1936228479]
 layout_mode = 1
 anchors_preset = 15
@@ -320,6 +339,7 @@ text = "预加载中..."
 label_settings = SubResource("LabelSettings_f8fl5")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel3" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1231187989]
 modulate = Color(0.735357, 0.735357, 0.735357, 1)
@@ -333,6 +353,7 @@ offset_right = 7.499999
 offset_bottom = -70.00006
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel4" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1102048264]
 modulate = Color(0.7372549, 0.7372549, 0.7372549, 1)
@@ -346,6 +367,7 @@ offset_right = 592.49994
 offset_bottom = -22.500122
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=519398614]
 layout_mode = 1
@@ -356,6 +378,7 @@ offset_top = -83.75
 offset_right = 593.74994
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=2067816038]
 layout_mode = 1
@@ -368,6 +391,7 @@ offset_right = 594.99994
 offset_bottom = -623.75
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_hna80")
+metadata/_edit_use_anchors_ = true
 
 [node name="准备开始" type="Label" parent="Select_CardUI" unique_id=570368298]
 layout_mode = 1
@@ -391,13 +415,10 @@ theme_override_font_sizes/font_size = 80
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+metadata/_edit_use_anchors_ = true
 
 [node name="播放音效" type="AudioStreamPlayer" parent="Select_CardUI/准备开始" unique_id=1876887387]
 stream = ExtResource("18_woa1d")
-
-[node name="卡槽" parent="Select_CardUI" unique_id=639071940 instance=ExtResource("17_bf20k")]
-layout_mode = 1
-scale = Vector2(1, 1)
 
 [node name="X" type="Control" parent="Select_CardUI" unique_id=1898478021]
 layout_mode = 1
@@ -405,6 +426,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="X2" type="Control" parent="Select_CardUI" unique_id=656407106]
 layout_mode = 1
@@ -415,6 +437,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Y" type="Control" parent="Select_CardUI" unique_id=746213021]
 layout_mode = 1
@@ -422,6 +445,7 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Y2" type="Control" parent="Select_CardUI" unique_id=1011576804]
 layout_mode = 1
@@ -434,5 +458,4 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[connection signal="pressed" from="Level/Draft" to="Level/Draft" method="_on_pressed"]
+metadata/_edit_use_anchors_ = true

@@ -79,6 +79,7 @@ public partial class Card : Control
 	}
 	public void touchpressed()
 	{
+		// 选定状态
 		Selected = !Selected;
 	}
 }

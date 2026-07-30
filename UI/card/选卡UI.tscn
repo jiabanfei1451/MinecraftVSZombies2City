@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bsballpnnbgjv" path="res://UI/UI主题/MC主题.tres" id="3_lp4v2"]
 [ext_resource type="Shader" uid="uid://ww76aly7osdr" path="res://Shader/着色器2.0.gdshader" id="3_rjvoa"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="4_rugvn"]
-[ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://Image/UI/energy_slot.png" id="6_3d44g"]
+[ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://Image/UI/Slot/energy_slot.png" id="6_3d44g"]
 [ext_resource type="AudioStream" uid="uid://b60h48bgorsrw" path="res://Sound/MC按钮点击.ogg" id="6_cwqpu"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="6_wltni"]
 [ext_resource type="PackedScene" uid="uid://cmynf4hbibom4" path="res://UI/card/Placeholder_Slot.tscn" id="9_uejkh"]

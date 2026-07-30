@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bu5sil4uavngv"]
 
 [ext_resource type="Theme" uid="uid://bsballpnnbgjv" path="res://UI/UI主题/MC主题.tres" id="1_wcpg8"]
-[ext_resource type="Texture2D" uid="uid://bw35jxqx8msf1" path="res://Image/UI/Panel/MOPUI/MOP_UI.svg" id="2_tvw6v"]
-[ext_resource type="Texture2D" uid="uid://ddiarwgdp2c5h" path="res://Image/UI/Panel/MOPUI/MOP_UI2.svg" id="3_qd3m3"]
+[ext_resource type="Texture2D" uid="uid://bw35jxqx8msf1" path="res://Image/UI/Button/MOPUI/MOP_UI.svg" id="2_tvw6v"]
+[ext_resource type="Texture2D" uid="uid://ddiarwgdp2c5h" path="res://Image/UI/Button/MOPUI/MOP_UI2.svg" id="3_qd3m3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qd3m3"]
 texture = ExtResource("2_tvw6v")

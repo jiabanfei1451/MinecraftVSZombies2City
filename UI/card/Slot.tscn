@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://5805tg30ooiu"]
 
-[ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://Image/UI/energy_slot.png" id="1_djfh2"]
+[ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://Image/UI/Slot/energy_slot.png" id="1_djfh2"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="2_ro343"]
 [ext_resource type="PackedScene" uid="uid://cmynf4hbibom4" path="res://UI/card/Placeholder_Slot.tscn" id="3_3ca1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgk2d"]
 
 [node name="Card_Slot" type="Control" unique_id=1033796703]
 custom_minimum_size = Vector2(635, 87.5)
@@ -10,7 +12,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 634.99994
 offset_bottom = 87.49999
-scale = Vector2(0.8, 0.8)
 layout_direction = 2
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1552531258]
@@ -64,27 +65,35 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="Equipment capable" type="TextureRect" parent="." unique_id=1399556824]
-layout_mode = 0
-offset_left = 1.25
-offset_top = 1.2500076
-offset_right = 58.749996
-offset_bottom = 87.50001
-layout_direction = 2
-mouse_default_cursor_shape = 2
+[node name="Panel" type="TextureRect" parent="." unique_id=799106747]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.2499999
+offset_top = 1.2500075
+offset_right = -576.25
+offset_bottom = 1.2500076
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_djfh2")
 
-[node name="Label" type="Label" parent="Equipment capable" unique_id=1531215138]
-custom_minimum_size = Vector2(0, 22)
+[node name="Label" type="Label" parent="Panel" unique_id=1531215138]
+custom_minimum_size = Vector2(50.5, 22)
+custom_maximum_size = Vector2(50.5, 22)
 layout_mode = 0
-offset_left = 7.499999
-offset_top = 60.000004
-offset_right = 53.5
-offset_bottom = 84.000015
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+offset_left = 3.25
+offset_top = 61.75
+offset_right = 53.75
+offset_bottom = 83.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_ro343")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cgk2d")
 text = "9999"
 horizontal_alignment = 1
 vertical_alignment = 1
