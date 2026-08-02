@@ -1,6 +1,9 @@
+res://Script/UI/Level/Card/
+res://Script/UI/Level/Card/Tween/
+res://Image/UI/Button/MOPUI/MOP_UI_Theme/
+res://Image/UI/Button/MOPUI/
 res://Image/misc/
 res://UI/card/
-res://Script/UI/Level/Card/
 res://Script/Auto Load/
 res://Script/Object/Auto_Free/
 D:/工具/Godot/导出/

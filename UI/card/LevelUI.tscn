@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bllinxtvttldn"]
 
+[ext_resource type="Script" uid="uid://cluhpq6u57uck" path="res://Script/UI/Level/Card/Tween/LevelUi.cs" id="1_cid5c"]
 [ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
@@ -8,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
 [ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
+[ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="11_h5g1x"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
+[ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
+[ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="15_b70vt"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
 
@@ -49,9 +53,19 @@ texture_margin_right = 22.839897
 texture_margin_bottom = 22.296425
 region_rect = Rect2(0, 0, 99, 99)
 
+[sub_resource type="LabelSettings" id="LabelSettings_wvhbo"]
+font = ExtResource("11_vnl24")
+font_size = 30
+outline_size = 1
+shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
 [node name="LevelUI" type="CanvasLayer" unique_id=37875330]
+script = ExtResource("1_cid5c")
 
 [node name="Card_Slot" parent="." unique_id=639071940 instance=ExtResource("17_bf20k")]
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -100)
 metadata/_edit_use_anchors_ = true
 
 [node name="Draft" type="Control" parent="Card_Slot" unique_id=1582170354]
@@ -100,6 +114,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="星之碎片贴图" type="TextureRect" parent="Level" unique_id=25255191]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 153.0
@@ -110,6 +125,7 @@ mouse_filter = 2
 texture = ExtResource("4_w7i6b")
 
 [node name="器械能贴图" type="TextureRect" parent="Level" unique_id=1721923442]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 153.0
@@ -124,6 +140,7 @@ texture = ExtResource("5_tcpcs")
 stream = ExtResource("6_i0vqy")
 
 [node name="物体贴图" type="Control" parent="Level" unique_id=1959201812]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -136,6 +153,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="蓝图展示" type="Control" parent="Select_CardUI" unique_id=1590141591]
@@ -154,7 +172,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Panel5" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1275800099]
 modulate = Color(0.735357, 0.735357, 0.735357, 1)
-clip_children = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,9 +183,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="选卡节点" type="Control" parent="Select_CardUI/蓝图展示" unique_id=2105569702]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.00084175006
+anchor_top = 0.0010733425
+anchor_right = 0.99915826
+anchor_bottom = 1.0010734
 offset_left = 7.9999995
 offset_top = 8.0
 offset_right = -8.0
@@ -178,6 +196,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Node" type="Control" parent="Select_CardUI/蓝图展示/选卡节点" unique_id=602648334]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -322,13 +341,12 @@ layout_mode = 2
 
 [node name="Card" type="Control" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=2136885167]
 layout_mode = 1
-anchor_left = -0.0030276817
-anchor_top = 0.0023148146
-anchor_right = 0.9969723
-anchor_bottom = 1.0023148
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+script = ExtResource("10_ssg4b")
 
 [node name="Label" type="Label" parent="Select_CardUI/蓝图展示/选卡节点/Node" unique_id=1936228479]
 layout_mode = 1
@@ -356,14 +374,17 @@ metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 [node name="Panel3" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1231187989]
 modulate = Color(0.735357, 0.735357, 0.735357, 1)
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = -1
+anchor_left = 0.010521886
 anchor_top = 1.0
+anchor_right = 0.010521884
 anchor_bottom = 1.0
 offset_left = 1.2499999
 offset_top = -697.49994
 offset_right = 7.499999
 offset_bottom = -70.00006
 grow_vertical = 0
+scale = Vector2(-1, 1)
 theme_override_styles/panel = SubResource("StyleBoxTexture_kxvtp")
 metadata/_edit_use_anchors_ = true
 
@@ -383,9 +404,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=519398614]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = -1
 anchor_top = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.370304
 offset_top = -83.75006
 offset_right = 593.74994
 offset_bottom = -6.1035156e-05
@@ -405,6 +426,44 @@ offset_bottom = -623.75
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_hna80")
 metadata/_edit_use_anchors_ = true
+
+[node name="TouchPad_V2" type="Control" parent="Select_CardUI/蓝图展示" unique_id=1200829566]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.48438
+offset_top = -73.75
+offset_right = 190.48438
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("14_b70vt")
+metadata/_custom_type_script = "uid://blc413ky1v12"
+
+[node name="Panel6" type="Panel" parent="Select_CardUI/蓝图展示/TouchPad_V2" unique_id=319850770]
+modulate = Color(0.8474744, 0.84747446, 0.84747446, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("15_b70vt")
+
+[node name="Label" type="Label" parent="Select_CardUI/蓝图展示/TouchPad_V2/Panel6" unique_id=1998719716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "开始摇滚吧!"
+label_settings = SubResource("LabelSettings_wvhbo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="准备开始" type="Label" parent="Select_CardUI" unique_id=570368298]
 layout_mode = 1
@@ -433,16 +492,25 @@ metadata/_edit_use_anchors_ = true
 [node name="播放音效" type="AudioStreamPlayer" parent="Select_CardUI/准备开始" unique_id=1876887387]
 stream = ExtResource("18_woa1d")
 
-[node name="X" type="Control" parent="Select_CardUI" unique_id=1898478021]
-layout_mode = 1
+[node name="Card" type="Control" parent="." unique_id=94881406]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="X" type="Control" parent="." unique_id=1898478021]
+layout_mode = 3
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="X2" type="Control" parent="Select_CardUI" unique_id=656407106]
-layout_mode = 1
+[node name="X2" type="Control" parent="." unique_id=656407106]
+layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -452,16 +520,16 @@ grow_horizontal = 0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Y" type="Control" parent="Select_CardUI" unique_id=746213021]
-layout_mode = 1
+[node name="Y" type="Control" parent="." unique_id=746213021]
+layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Y2" type="Control" parent="Select_CardUI" unique_id=1011576804]
-layout_mode = 1
+[node name="Y2" type="Control" parent="." unique_id=1011576804]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

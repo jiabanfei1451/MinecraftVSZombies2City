@@ -1,8 +1,25 @@
+using Touch;
 using Godot;
-using System;
+using System.Threading.Tasks;
 namespace UIObject{
 public partial class Card : Control
 {
+	/// <summary>
+	/// 模式
+	/// </summary>
+	public enum Mode
+	{
+		// 选卡模式
+		Selected_Card = 0,
+		/// <summary>
+		/// 选定卡分身模式
+		/// </summary>
+		is_Seleceed_Card = 1,
+		/// <summary>
+		/// 游戏中
+		/// </summary>
+		Gameing = 2,
+	}
 	public enum Easing_Type{
 		/// <summary>
 		/// 相对于父节点的坐标
@@ -17,7 +34,13 @@ public partial class Card : Control
 	/// 缓动帧
 	/// </summary>
 	[ExportGroup("Card_Status")]
+	[Export] public Mode Card_Mode = Mode.Selected_Card;
 	[Export] public bool Selected = false;
+	[Export] public int Card_Index = -1;
+	/// <summary>
+	/// 选定卡分身模式的物体 仅在Selected_Card模式可以使用
+	/// </summary>
+	public ModeObject Mode_Data = null;
 	[ExportGroup("Easing")] [Export] public float Easing_Time = 0.5f;
 	/// <summary>
 	/// 脚本所处坐标
@@ -43,79 +66,94 @@ public partial class Card : Control
 	/// 索引
 	/// </summary>
 	int my_index {get;set;} = -1;
-	public override void _Ready() {
+	bool nono = false;
+	public override async void _Ready() {
 		base._Ready();
 		This_Ready();
 		parent_Object = Get_Parent_Object();
-		switch (Position_Easing_type)
-		{
-		case Easing_Type.Position:
-			Script_Position = Position;
-			break;
-		case Easing_Type.GlobalPosition:
-			Script_Position = GlobalPosition;
-			break;
-		}
 		is_Ready = true;
-		
 	}
-	public override void _PhysicsProcess(double delta) {
-		base._PhysicsProcess(delta);
-		if (GlobalPosition.Y < 140 && Selected == false)
-		{
-			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,(GlobalPosition.Y/140) * 0.2f),0.1);
-		}
-		else
-		{
-			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.1);
-		}
-		if (!is_Ready){return;}
-		NodePath path = "";
-		if (my_index != Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)){
-			my_index = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this);
-			Script_Position2 = parent_Object.GetNode("Card_Slot").GetChild(0).GetChild<Control>(my_index).GlobalPosition;
-		}
-		switch (Position_Easing_type)
-		{
-		case Easing_Type.Position:
-			path = new NodePath(UIObject.Card.PropertyName.Position);
-			break;
-		case Easing_Type.GlobalPosition:
-			path = new NodePath(UIObject.Card.PropertyName.GlobalPosition);
-			break;
-		}
-		if (Selected == false){
-			ZIndex = 0;
-			CreateTween().TweenProperty(this,path,Script_Position,Easing_Time);
-		}else
-		{
-			ZIndex = 1;
-			CreateTween().TweenProperty(this,path,Script_Position2,Easing_Time);
-		}
-	}
+	
+	
 	/// <summary>
 	/// 节点初始化
 	/// </summary>
-	public void This_Ready()
+	public async void This_Ready()
 	{
-		GetNode<Control>("Cilp_Node").GetNode<ColorRect>("CD").Scale = new Godot.Vector2(1,0);
+		//初始化材质
+		Game.Card_Data.BackData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		CharacterBody2D texture = Data.Scene.Instantiate<CharacterBody2D>();
+		GetNode<Control>("Image").AddChild(texture);
+		texture.Position = Data.Offset;
+		texture.Scale = Data.Scale;
+		GetNode<Label>("Reduce").Text = Data.Sonsume.ToString();
 		GetNode<TouchPad>("Texture/TouchPad").Button_Pressedvoid += touchpressed;
-	}
-	public void touchpressed()
-	{
-		if (Modulate.A < 0.8){return;}
-		// 选定状态
-		if (Selected == false)
-		{
-			Position_Easing_type = Easing_Type.GlobalPosition;
-			Selected = true;
-			Game.Get_GlobalNode.Get_Card_Data(GetTree()).Add_Card_Index(this);
+		GetNode<TouchPad>("Texture/TouchPad").Drag_Ingvoid += nopre;
+		switch (Card_Mode){
+		case Mode.Selected_Card:
+			Mode_Data = new ModeObject();
+			Mode_Data.Selected_Card_Mode = new ModeObject.Selected_Card();
+			GetNode<Control>("Cilp_Node").GetNode<ColorRect>("CD").Scale = new Godot.Vector2(1,0);
+			break;
+		case Mode.is_Seleceed_Card:
+			Modulate = new Color(0,0,0,0);
+			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);
+			while (true){
+				CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
+				await Task.Delay(1000 / 60);
+			}
 		}
-		else
-		{
-			Position_Easing_type = Easing_Type.Position;
-			Selected = false;
-			Game.Get_GlobalNode.Get_Card_Data(GetTree()).Remove_Card_Index(this);
+	}
+	public void nopre()
+	{
+		if (Modulate.A < 0.1){Visible = false;}else{Visible = true;}
+		nono = true;
+	}
+	public override void _PhysicsProcess(double delta) {
+		base._PhysicsProcess(delta);
+	}
+	public async void touchpressed()
+	{
+		switch (Card_Mode){
+			case Mode.Selected_Card:
+				if (GlobalPosition.Y < 80){return;}
+				// 选定状态
+				if (Mode_Data.Selected_Card_Mode.is_Selected_Card_Object == null){
+					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > Game.PlayerData.Card_Quantity - 1){return;}
+					GD.Print(1);
+					PackedScene Temp_Scene = GD.Load<PackedScene>("uid://c2y62prxcbege");
+					Card Temp_Card = Temp_Scene.Instantiate<Card>();
+					Temp_Card.Card_Mode = Mode.is_Seleceed_Card;
+					Temp_Card.Mode_Data = new ModeObject();
+					Temp_Card.Mode_Data.is_Selected_Card_Mode = new ModeObject.Is_Selected_Card();
+					Temp_Card.Mode_Data.is_Selected_Card_Mode.Parent_Object = this;
+					Temp_Card.Scale = new Godot.Vector2(0.4f,0.4f);
+					Temp_Card.Card_Index = Card_Index;
+					Temp_Card.GlobalPosition = GlobalPosition;
+					Get_Parent_Object().GetNode<Control>("Card").AddChild(Temp_Card);
+					Mode_Data.Selected_Card_Mode.is_Selected_Card_Object = Temp_Card;
+					CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(0.5f,0.5f,0.5f,1),0.5).SetTrans(Tween.TransitionType.Sine);
+					Game.Get_GlobalNode.Get_Card_Data(GetTree()).Add_Card_Index(Temp_Card);
+					Temp_Card.GlobalPosition = GlobalPosition;
+				}
+				else
+				{
+					GD.Print(Mode_Data.Selected_Card_Mode.is_Selected_Card_Object);
+				}
+				break;
+			case Mode.is_Seleceed_Card:
+				if(Selected == false){
+					Selected = true;
+					Tween t = CreateTween();
+					Tween d = CreateTween();
+					Game.Get_GlobalNode.Get_Card_Data(GetTree()).Remove_Card_Index(this);
+					t.TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(0,0,0,0),0.5).SetTrans(Tween.TransitionType.Sine);
+					d.TweenProperty(this.Mode_Data.is_Selected_Card_Mode.Parent_Object,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5).SetTrans(Tween.TransitionType.Sine);
+					await ToSignal(t,Tween.SignalName.Finished);
+					Mode_Data.is_Selected_Card_Mode.Parent_Object.Mode_Data.Selected_Card_Mode.is_Selected_Card_Object = null;
+					QueueFree();
+				}
+				break;
 		}
 	}
 	/// <summary>
@@ -131,5 +169,52 @@ public partial class Card : Control
 		}
 		return (CanvasLayer)getnode;
 	}
-}
+	}
+	/// <summary>
+	/// 模式实例
+	/// </summary>
+	public class ModeObject(){
+	/// <summary>
+	/// 处于分身模式下的卡槽数据实例
+	/// </summary>
+	public Is_Selected_Card is_Selected_Card_Mode = null;
+	/// <summary>
+	/// 选卡模式下的卡槽数据实例
+	/// </summary>
+	public Selected_Card Selected_Card_Mode = null;
+	/// <summary>
+	/// 游戏中的卡槽数据
+	/// </summary>
+	public Gameing gameing_Mode = null;
+	/// <summary>
+	///处于分身模式下的卡槽数据
+	/// </summary>
+	public class Is_Selected_Card()
+	{
+		/// <summary>
+		/// 源父物体
+		/// </summary>
+		public Card Parent_Object = null;
+	}
+	/// <summary>
+	/// 选卡模式下的卡槽数据
+	/// </summary>
+	public class Selected_Card()
+	{
+		/// <summary>
+		/// 已实例化的处于分身模式下的卡槽数据
+		/// </summary>	
+		public Card is_Selected_Card_Object = null;
+	}
+	/// <summary>
+	/// 游戏中的卡槽数据
+	/// </summary>
+	public class Gameing()
+	{
+		/// <summary>
+		/// 处于游戏中的卡槽
+		/// </summary>
+		public Card is_Selected_Card_Object = null;
+	}
+	}
 }

@@ -10,6 +10,8 @@
 
 [node name="Card" type="Control" unique_id=811847334]
 self_modulate = Color(1, 1, 1, 0)
+z_as_relative = false
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 0
 offset_top = 1.0
@@ -29,6 +31,23 @@ offset_top = 35.5
 offset_right = 144.5
 offset_bottom = 180.0
 mouse_filter = 2
+
+[node name="TouchPad" type="Control" parent="Texture" unique_id=1179142387]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_behavior_recursive = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("4_dor43")
+Enable_Drag = false
+Long_Click_Variant = 0.1
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Panel" type="TextureRect" parent="Texture" unique_id=633136591]
 layout_mode = 1
@@ -52,26 +71,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_cgk2d")
 
-[node name="TouchPad" type="Control" parent="Texture" unique_id=1179142387]
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -32.5
-offset_right = -3.5
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 2
-mouse_default_cursor_shape = 2
-script = ExtResource("4_dor43")
-Drag_Velocity_Scope = Vector2(10, 10)
-Enable_Drag = false
-Long_Click_Variant = 0.5
-metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
-
 [node name="Reduce" type="Label" parent="." unique_id=736111170]
 custom_minimum_size = Vector2(134.5, 26)
 custom_maximum_size = Vector2(134.5, 26)
@@ -94,16 +93,15 @@ vertical_alignment = 1
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Image" type="ColorRect" parent="." unique_id=235504968]
+[node name="Image" type="Control" parent="." unique_id=434142580]
 clip_contents = true
-layout_mode = 0
+anchors_preset = 0
 offset_left = 3.0
 offset_top = 36.0
 offset_right = 141.485
 offset_bottom = 180.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_default_cursor_shape = 2
-color = Color(1, 1, 1, 0)
 
 [node name="Cilp_Node" type="Control" parent="." unique_id=1281372689]
 visible = false

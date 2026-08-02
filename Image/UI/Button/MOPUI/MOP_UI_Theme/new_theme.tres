@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://cnt8vlyj5qxwn"]
+
+[ext_resource type="StyleBox" uid="uid://d1p6irqo1kmry" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI5.tres" id="1_688td"]
+
+[resource]
+Test_/styles/_1 = ExtResource("1_688td")
+Test_/styles/_2 = null
+Test_/styles/_3 = null
+Test_/styles/_4 = null
+Test_/styles/_5 = null

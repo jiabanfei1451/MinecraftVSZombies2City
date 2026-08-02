@@ -1,7 +1,6 @@
 using Game;
 using Godot;
-using System;
-using System.Threading;
+using Touch;
 using System.Threading.Tasks;
 namespace UIObject{
 public partial class NodeScript : Control
@@ -45,7 +44,7 @@ public partial class NodeScript : Control
 		{
 			Objects.QueueFree();
 		}
-		int len = (Get_GlobalNode.Get_Card_Data(GetTree()).Data[0].Count);
+		int len = (Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data.Count);
 		for (int Index = 0;Index < len; Index++)
 		{
 			// 实例化
@@ -61,13 +60,16 @@ public partial class NodeScript : Control
 	/// </summary>
 	public async void Summand_Card()
 	{
+		int dex = 0;
 		foreach (Control node in GetNode<Control>("Global_Position_Index").GetChildren())
 		{
 			UIObject.Card cardObject = CardScene.Instantiate<UIObject.Card>();
 			cardObject.Position = node.Position;
+			cardObject.Card_Index = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data[dex];
 			cardObject.Scale = new Vector2(0.5f,0.5f);
 			cardObject.Name = "Card" + node.Name;
 			GetNode<Control>("Card").AddChild(cardObject);
+			dex += 1;
 		}
 	}
 }

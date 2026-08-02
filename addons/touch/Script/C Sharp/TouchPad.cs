@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Reflection.Metadata;
 using System.Threading.Tasks;
-
+namespace Touch;
 [GlobalClass()]
 [Icon("uid://sqy1gdavdj6y")]
 public partial class TouchPad : Godot.Control
@@ -311,6 +311,7 @@ public partial class TouchPad : Godot.Control
 						//抬起时
 						EmitSignal("Button_UPvoid");
 						EmitSignal("Button_UP",this,Temp_Vec2.Position);
+
 						//触发点击事件
 						if (Click_Type == on_Click_Type.Click)
 						{
@@ -338,16 +339,17 @@ public partial class TouchPad : Godot.Control
 						//条件是否满足
 						if (Drag == false && Temp_Vec2.Enable_Drag){
 							//触发拖拽开始时
-							if (Temp_Vec2.Velocity.X > Drag_Velocity_Scope.X && Temp_Vec2.Velocity.Y > Drag_Velocity_Scope.Y && Temp_Vec2.Velocity.X < -Drag_Velocity_Scope.X && Temp_Vec2.Velocity.Y < -Drag_Velocity_Scope.Y){return;}
+							if (!Velocity(Temp_Vec2.Velocity)){return;}
 							EmitSignal("Start_Dragvoid",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 							EmitSignal("Start_Drag");
+							Drag = true;
 						}else
 						{
 							//触发拖拽中
 							EmitSignal("Drag_Ing",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 							EmitSignal("Drag_Ingvoid");
 						}
-						Drag = true;
+						
 					}
 					//焦点
 					if (OK && Enable_Focus)
@@ -409,9 +411,10 @@ public partial class TouchPad : Godot.Control
 						Click_Type = on_Click_Type.Drag;
 						if (Drag == false)
 							{
-								if (Temp_Vec2.Velocity.X > Drag_Velocity_Scope.X && Temp_Vec2.Velocity.Y > Drag_Velocity_Scope.Y && Temp_Vec2.Velocity.X < -Drag_Velocity_Scope.X && Temp_Vec2.Velocity.Y < -Drag_Velocity_Scope.Y){return;}
+								if (!Velocity(Temp_Vec2.Velocity)){return;}
 								EmitSignal("Start_Dragvoid",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 								EmitSignal("Start_Drag");
+								Drag = true;
 							}
 							//拖拽中
 							else
@@ -419,7 +422,6 @@ public partial class TouchPad : Godot.Control
 								EmitSignal("Drag_Ing",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 								EmitSignal("Drag_Ingvoid");
 							}
-						Drag = true;
 					}
 					//焦点进入检测
 					if (OK)
@@ -477,6 +479,32 @@ public partial class TouchPad : Godot.Control
 				}
 				break;
 		}
+	}
+	public bool Velocity(Godot.Vector2 velocity)
+	{
+		bool x = false;
+		bool y = false;
+		if (velocity.X > Drag_Velocity_Scope.X){
+			GD.Print(1);
+			x = true;
+		}
+		if (velocity.Y > Drag_Velocity_Scope.Y){
+			GD.Print(2);
+			y = true;
+			}
+		if (velocity.X < -Drag_Velocity_Scope.X){
+			GD.Print(3);
+			x = true;
+			}
+		if (velocity.Y < -Drag_Velocity_Scope.Y){
+			GD.Print(4);
+			y = true;
+		}
+		GD.Print(Drag_Velocity_Scope);
+		GD.Print(velocity);
+		GD.Print(x,y);
+		if (x || y){return true;}
+		return false;
 	}
 	public Vec2 Get_Touch_Velocity(Godot.InputEvent @event)
 	{

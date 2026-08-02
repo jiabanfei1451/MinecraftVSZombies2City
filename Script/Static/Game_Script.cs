@@ -15,10 +15,6 @@ static class Level_Script : Object
 		Remove = 1,
 		Selection = 2,
 	}
-	public static void gss()
-	{
-		StringBuilder ss = new StringBuilder("s");
-	}
 	/// <summary>器械能</summary>
 	/// <summary>
 	/// 获取器械能

@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dngvrsbfs6hx6"]
+
+[ext_resource type="Texture2D" uid="uid://ddiarwgdp2c5h" path="res://Image/UI/Button/MOPUI/MOP_UI2.svg" id="1_4ux5w"]
+
+[resource]
+texture = ExtResource("1_4ux5w")
+texture_margin_left = 4.7032285
+texture_margin_top = 4.750591
+texture_margin_right = 4.3452644
+texture_margin_bottom = 4.2057385
+region_rect = Rect2(0, 0, 8, 8)

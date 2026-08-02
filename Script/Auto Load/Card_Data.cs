@@ -1,23 +1,56 @@
 using Godot;
-using System;
 namespace Game;
 public partial class Card_Data : Node
 {
 	[Export] public Godot.Collections.Array<Godot.Collections.Array> Data = new Godot.Collections.Array<Godot.Collections.Array>()
 	{
 	// 源器械读取
-	new Godot.Collections.Array(){GD.Load<PackedScene>("uid://bx76t0lp5w10a"),GD.Load<PackedScene>("uid://bx76t0lp5w10a"),GD.Load<PackedScene>("uid://bx76t0lp5w10a"),GD.Load<PackedScene>("uid://bx76t0lp5w10a")},
+	new Godot.Collections.Array(){},
 	// 消耗
-	new Godot.Collections.Array(){0},
+	new Godot.Collections.Array(){},
 	// 冷却
-	new Godot.Collections.Array(){0},
+	new Godot.Collections.Array(){},
 	// 开局减免
-	new Godot.Collections.Array(){0},
-	new Godot.Collections.Array(){new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),}
+	new Godot.Collections.Array(){},
+	// 已选定
+	new Godot.Collections.Array(){new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node()},
+	// 坐标偏移
+	new Godot.Collections.Array(){},
+	// 缩放
+	new Godot.Collections.Array(){}
 	};
+	[Export] public Godot.Collections.Array<int> Obtained_Data = new Godot.Collections.Array<int>(){0,1,2,3,4,5};
 	public override void _Ready() {
 		base._Ready();
 		Initialization();
+		#region 增加器械数据
+		Add_Data(GD.Load<PackedScene>("uid://du3y4377ebqq2"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
+		Add_Data(GD.Load<PackedScene>("uid://dhqc163eiuqrd"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(GD.Load<PackedScene>("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(GD.Load<PackedScene>("uid://djytruxu3c3qt"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(GD.Load<PackedScene>("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(GD.Load<PackedScene>("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
+		#endregion
+	}
+	/// <summary>
+	/// 添加数据
+	/// </summary>
+	/// <param name="Scene">物体</param>
+	/// <param name="sonsume">消耗</param>
+	/// <param name="CD">冷却</param>
+	/// <param name="RemoveCD">游戏开始时减少冷却</param>
+	/// <param name="Scale">大小</param>
+	/// <param name="Offset">材质偏移</param>
+	public void Add_Data(PackedScene Scene = null,int sonsume = 0,float CD = 0,float RemoveCD = 0,Vec Scale = null,Vec Offset = null)
+	{
+		Godot.Vector2 New_Scale = new Godot.Vector2(Scale.X,Scale.Y);
+		Godot.Vector2 New_Offset = new Godot.Vector2(Offset.X,Offset.Y);
+		Data[0].Add(Scene);
+		Data[1].Add(sonsume);
+		Data[2].Add(CD);
+		Data[3].Add(RemoveCD);
+		Data[5].Add(New_Offset);
+		Data[6].Add(New_Scale);
 	}
 	/// <summary>
 	/// 初始化
@@ -67,6 +100,18 @@ public partial class Card_Data : Node
 	/// <summary>
 	/// 排列
 	/// </summary>
+	public int Get_Selected_Card_Len()
+	{
+		int dex = -1;
+		foreach(Control control in Data[4])
+		{
+			if(control != null)
+			{
+				dex += 1;
+			}
+		}
+		return dex;
+	}
 	public void arrange_Card()
 	{
 		Godot.Collections.Array variants = [];
@@ -86,5 +131,62 @@ public partial class Card_Data : Node
 		}
 		GD.Print("TempData:",variants,"Data:",Data[4]);
 		Data[4] = variants;
+	}
+	/// <summary>
+	/// 获取卡槽数据
+	/// </summary>
+	/// <param name="Index"></param>
+	/// <returns></returns>
+	public BackData Get_CardData(int Index)
+	{
+		if (Index > -1)
+		{
+			PackedScene scene = (PackedScene)Data[0][Index];
+			int consume = (int)Data[1][Index];
+			float CD = (float)Data[2][Index];
+			float RemoveCD = (float)Data[3][Index];
+			Godot.Vector2 Offset = (Godot.Vector2)Data[5][Index];
+			Godot.Vector2 Scale = (Godot.Vector2)Data[6][Index]; 
+			BackData Back = new BackData(scene,consume,CD,RemoveCD,Scale,Offset);
+			return Back;
+		}
+		else{return null;}
+	}
+	/// <summary>
+	/// 坐标存储
+	/// </summary>
+	/// <param name="X"></param>
+	/// <param name="Y"></param>
+	public class Vec(float X,float Y)
+	{
+		public float X {get;set;} = X;
+		public float Y {get;set;} = Y;
+	}
+	public class BackData(PackedScene @Scene,int @sonsume,float @CD,float @RemoveCD,Godot.Vector2 @Scale,Godot.Vector2 @Offset)
+	{
+		/// <summary>
+		/// 物体场景
+		/// </summary>
+		public PackedScene Scene = @Scene;
+		/// <summary>
+		/// 消耗
+		/// </summary>
+		public int Sonsume = @sonsume;
+		/// <summary>
+		/// 冷却
+		/// </summary>
+		public float CD = @CD;
+		/// <summary>
+		/// 游戏开始时减少冷却
+		/// </summary>
+		public float RemoveCD = @RemoveCD;
+		/// <summary>
+		/// 材质大小
+		/// </summary>
+		public Godot.Vector2 Scale = @Scale;
+		/// <summary>
+		/// 材质偏移
+		/// </summary>
+		public Godot.Vector2 Offset = @Offset;
 	}
 }

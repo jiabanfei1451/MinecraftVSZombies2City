@@ -52,6 +52,7 @@ func load_data(path:String = "null",name:String = "null"):
 	if name == "null":
 		name = Filename
 	#region 初始化
+	printraw()
 	path = ProjectSettings.globalize_path(path) + name + ".json"
 	var file = FileAccess.open(path,FileAccess.READ) #创建变量
 	print(file.file_exists(path))

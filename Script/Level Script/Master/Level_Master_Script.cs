@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Level;
 /// <summary>
@@ -104,11 +105,24 @@ public partial class Level_Master_Script : Node2D{
 	/// </summary>
 	public async void choose_Card()
     {
-        Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("CH:选卡");
-        CreateTween().TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(125,0),1);
-    }
+		Tween Twee = CreateTween();
+        PackedScene Scene = GD.Load<PackedScene>("uid://bllinxtvttldn");
+		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("CH:选卡");
+        Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(125,0),1);
+		await ToSignal(Twee,Tween.SignalName.Finished);
+		CanvasLayer layer = Scene.Instantiate<CanvasLayer>();
+		AddChild(layer);
+	}
+	public async void Completed_Selected_Card()
+	{
+		Tween Twee = CreateTween();
+		Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(0,0),1);
+		await ToSignal(Twee,Tween.SignalName.Finished);
+	}
 	public override void _Ready() {
 		base._Ready();
+		Game.Get_GlobalNode.Node_Data.Clear_Node();
+		Game.Get_GlobalNode.Node_Data.Add_Node(this,"Level");
 		summand_Node();
 		if (Camera2D == null)
 		{
@@ -117,6 +131,7 @@ public partial class Level_Master_Script : Node2D{
 			Camera2D.Offset = Camera2D_Offset;
 			Camera2D.Zoom = Camera2D_Zoom;
 			AddChild(Camera2D);
+			Game.Get_GlobalNode.Node_Data.Add_Node(Camera2D,"Camera2D");
 		}
 		Lawn_Node = GetNode<Node2D>("Lawn");
 		Lawn_Data.Resize(Lawn_Array.Count);

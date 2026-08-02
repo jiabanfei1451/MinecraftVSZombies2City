@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://7b6d3hect1in"]
+
+[ext_resource type="Texture2D" uid="uid://b5j8ud8auobcs" path="res://Object/器械/好友/Haozi.jpg" id="1_wf7mr"]
+
+[node name="HuanChong152" type="CharacterBody2D" unique_id=1210219377]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712538110]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wf7mr")

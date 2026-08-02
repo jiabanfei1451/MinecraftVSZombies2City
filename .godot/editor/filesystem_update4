@@ -1,13 +1,15 @@
-res://UI/蓝图槽.tscn
+res://Scene/Level/序章.tscn
 res://UI/UI主题/MC主题.tres
-res://UI/card/LevelUI.tscn
 res://addons/touch/Theme/PadButton.tres
-res://UI/card/Slot.tscn
-res://UI/card/Card.tscn
-res://Script/Object/Auto_Free/PlaceholderBlock.cs
-res://Script/UI/Level/Card/Card.cs
 res://addons/touch/Theme/new_theme.tres
+res://Script/Level Script/Master/Level_Master_Script.cs
+res://Script/Level Script/Level/Preface.cs
+res://Script/UI/Level/Card/Start_Card.cs
+res://Script/UI/Level/Card/Card_Visible.cs
 res://Script/UI/Level/Card/NodeScript.cs
+res://Script/UI/Level/Card/Tween/LevelUi.cs
+res://Script/UI/Level/Card/Card.cs
+res://Script/UI/Level/Card/Selected_slot.cs
 res://addons/save_or_load_data/Script/Csharp/Data_For_CSharp.cs
 res://addons/save_or_load_data/Script/Csharp/JSONData.cs
 res://UI/TextLine/Line/QueneLine.cs
@@ -17,11 +19,6 @@ res://Script/Auto Load/Card_Data.cs
 res://UI/TextLine/Command_Edit/Command_Edit.cs
 res://Script/Auto Load/Muisc_Engine.cs
 res://Script/Auto Load/Audio_List.cs
-res://Script/Node/Audio_Plus.cs
-res://Script/Level Script/Level/Preface.cs
 res://Scene/Misc Scene/Music room/VBoxContainer.cs
-res://Script/Level Script/Master/Level_Master_Script.cs
-res://Scene/Thank List.tscn
-res://UI/第二层/按钮/按钮.tscn
-res://Script/Temp_Node.cs
-res://Script/Auto Load/PlayerData.cs
+res://Script/Object/Auto_Free/PlaceholderBlock.cs
+res://Script/Node/Audio_Plus.cs
