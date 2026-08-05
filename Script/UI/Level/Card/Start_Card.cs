@@ -14,8 +14,11 @@ public partial class Start_Card : TouchPad
 	{
 		var it = GetNode<UIObject.LevelUi>("../../..")?.hide_Select_CardUI();
 		await it;
+		CreateTween().TweenProperty(GetNode<Control>("../../../Card"),new NodePath(Control.PropertyName.Position),GetNode<Control>("../../../Y").Position - new Vector2((GetNode<Control>("../../../Card_Slot").Size.X+80) / 2,0),2).SetTrans(Tween.TransitionType.Cubic);
 		CreateTween().TweenProperty(GetNode<Control>("../../../Card_Slot"),new NodePath(Control.PropertyName.Position),GetNode<Control>("../../../Y").Position - new Vector2((GetNode<Control>("../../../Card_Slot").Size.X+80) / 2,0),2).SetTrans(Tween.TransitionType.Cubic);
-		Game.Get_GlobalNode.Node_Data.Get_Node<Level.Level_Master_Script>("Level").Completed_Selected_Card();;
+		Game.Get_GlobalNode.Node_Data.Get_Node<Level.Level_Master_Script>("Level").Completed_Selected_Card();
+		await ToSignal(GetTree().CreateTimer(2),SceneTreeTimer.SignalName.Timeout);
+		GetNode<Control>("../..").QueueFree();
 	}
 	public override void _Process(double delta)
 	{

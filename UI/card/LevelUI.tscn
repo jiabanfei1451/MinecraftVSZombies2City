@@ -106,6 +106,7 @@ mouse_force_pass_scroll_events = false
 texture = ExtResource("3_ri15h")
 
 [node name="Level" type="Control" parent="." unique_id=1275818106]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -375,7 +376,7 @@ metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 modulate = Color(0.735357, 0.735357, 0.735357, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.010521886
+anchor_left = 0.010521884
 anchor_top = 1.0
 anchor_right = 0.010521884
 anchor_bottom = 1.0

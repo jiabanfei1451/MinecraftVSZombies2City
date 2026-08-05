@@ -1,8 +1,9 @@
+SubViewport
+Sprite2D
 Control
 TouchPad_V2
 Label
 Panel
-Sprite2D
 CharacterBody2D
 TouchPad
 VBoxContainer
@@ -11,4 +12,3 @@ TextureRect
 Button
 GridContainer
 ColorRect
-JSONData

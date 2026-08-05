@@ -1,7 +1,5 @@
 using Godot;
 using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Level;
 /// <summary>
@@ -18,6 +16,12 @@ public partial class Level_Master_Script : Node2D{
 	/// 图层分配
 	/// </summary>
 	[Export] public int[] Layer_Index = [0,1,2];
+	/// <summary>
+	/// 类型分配
+	/// 0 = Node,
+	/// 1 = Viewport
+	/// </summary>
+	[Export] public int[] Node_Type = [0,0,1];
 	/// <summary>
 	/// 选中的草坪
 	/// </summary>
@@ -82,6 +86,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 草坪场景
 	/// </summary>
+	[Export] public Tween Camera2D_Easing = null;
 	[ExportGroup("Get_Node")]
 	[Export] public Node2D Lawn_Node;
 	/// <summary>
@@ -90,15 +95,21 @@ public partial class Level_Master_Script : Node2D{
 	[ExportGroup("Light")]
 	[Export] public float Light = 1;
 	/// <summary>
+	/// 光源偏移
+	/// </summary>
+	[Export] public float Light_Offset = 1;
+	/// <summary>
 	/// 用于摄像机缓动的process
 	/// </summary>
 	/// <param name="delta"></param>
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 		if (Camera2D == null){return;}
-		CreateTween().TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Position),Camera2D_Position,delta * (double)Fps_Easing);
-		CreateTween().TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Offset),Camera2D_Offset,delta * (double)Fps_Easing);
-		CreateTween().TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Zoom),Camera2D_Zoom,delta * (double)Fps_Easing);
+		if (Camera2D_Easing != null){Camera2D_Easing.Kill();}
+		Camera2D_Easing = CreateTween();
+		Camera2D_Easing.TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Position),Camera2D_Position,delta * (double)Fps_Easing);
+		Camera2D_Easing.Parallel().TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Offset),Camera2D_Offset,delta * (double)Fps_Easing);
+		Camera2D_Easing.Parallel().TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Zoom),Camera2D_Zoom,delta * (double)Fps_Easing);
 	}
 	/// <summary>
 	/// 选卡
@@ -195,17 +206,39 @@ public partial class Level_Master_Script : Node2D{
 		for (int Name_Index = 0; Name_Index < Node_Index.Length; Name_Index++)
 		{
 			GD.Print(Name_Index);
+			//检测
 			Node Get_Node = GetNode(Node_Index[Name_Index]);
 			if (Get_Node != null)
 			{
 				Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
 			}
+			//否则生成
 			else
 			{
+				if (Node_Type[Name_Index] == 0){
 				Get_Node = new Node2D();
 				Get_Node.Name = Node_Index[Name_Index];
 				AddChild(Get_Node);
 				Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
+				}
+				if (Node_Type[Name_Index] == 1)
+				{
+					// 生成SubViewprot
+					Get_Node = new SubViewport();
+					Get_Node.Name = Node_Index[Name_Index];
+					AddChild(Get_Node);
+					Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
+					// SubViewport设置
+					SubViewport viewport = (SubViewport)Get_Node; // 转换
+					Get_Node = new Sprite2D(); //生成纹理承载节点
+					Sprite2D sprite = (Sprite2D)Get_Node; // 转换
+					ViewportTexture texture = viewport.GetTexture();
+					viewport.TransparentBg = true;
+					Get_Node.Name = Node_Index[Name_Index] + "Sprite2D"; //继承纹理名称
+					AddChild(Get_Node);
+					Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]); //注册名称
+					sprite.Texture = texture; //获取纹理
+				}
 			}
 			if (Name_Index < Layer_Index.Length)
 			{

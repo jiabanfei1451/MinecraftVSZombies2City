@@ -1,6 +1,7 @@
 using Game;
 using Godot;
 using Touch;
+using GameUI;
 using System.Threading.Tasks;
 namespace UIObject{
 public partial class NodeScript : Control
@@ -63,7 +64,7 @@ public partial class NodeScript : Control
 		int dex = 0;
 		foreach (Control node in GetNode<Control>("Global_Position_Index").GetChildren())
 		{
-			UIObject.Card cardObject = CardScene.Instantiate<UIObject.Card>();
+			Card cardObject = CardScene.Instantiate<Card>();
 			cardObject.Position = node.Position;
 			cardObject.Card_Index = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data[dex];
 			cardObject.Scale = new Vector2(0.5f,0.5f);

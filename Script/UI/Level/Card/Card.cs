@@ -1,7 +1,7 @@
 using Touch;
 using Godot;
 using System.Threading.Tasks;
-namespace UIObject{
+namespace GameUI{
 public partial class Card : Control
 {
 	/// <summary>
@@ -35,7 +35,13 @@ public partial class Card : Control
 	/// </summary>
 	[ExportGroup("Card_Status")]
 	[Export] public Mode Card_Mode = Mode.Selected_Card;
+	/// <summary>
+	/// 选定
+	/// </summary>
 	[Export] public bool Selected = false;
+	/// <summary>
+	/// 卡槽索引
+	/// </summary>
 	[Export] public int Card_Index = -1;
 	/// <summary>
 	/// 选定卡分身模式的物体 仅在Selected_Card模式可以使用
@@ -46,6 +52,10 @@ public partial class Card : Control
 	/// 脚本所处坐标
 	/// </summary>
 	[Export] public Godot.Vector2 Script_Position = Vector2.Zero;
+	/// <summary>
+	/// 停止无限循环
+	/// </summary>
+	[Export] public bool Stop_While = false;
 	/// <summary>
 	/// 脚本所处坐标
 	/// </summary>
@@ -67,6 +77,10 @@ public partial class Card : Control
 	/// </summary>
 	int my_index {get;set;} = -1;
 	bool nono = false;
+	/// <summary>
+	/// 临时Tween
+	/// </summary>
+	private Tween Temp_Tween = null;
 	public override async void _Ready() {
 		base._Ready();
 		This_Ready();
@@ -97,11 +111,14 @@ public partial class Card : Control
 			break;
 		case Mode.is_Seleceed_Card:
 			Modulate = new Color(0,0,0,0);
-			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);
-			while (true){
-				CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
+			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);			
+			while (!Stop_While){
+				if (Temp_Tween != null){Temp_Tween.Kill();}
+				Temp_Tween = CreateTween();
+				Temp_Tween.TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
 				await Task.Delay(1000 / 60);
 			}
+			break;
 		}
 	}
 	public void nopre()

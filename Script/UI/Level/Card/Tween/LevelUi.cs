@@ -34,10 +34,17 @@ public partial class LevelUi : CanvasLayer
 	public async Task<bool> hide_Select_CardUI()
 	{
 		if (GetTween != null){GetTween.Kill();}
+		foreach (GameUI.Card card in GetNode("Card").GetChildren())
+		{
+			card.Stop_While = true;
+			card.Card_Mode = GameUI.Card.Mode.Gameing;
+		}
 		Tween sd = CreateTween();
 		GetTween = sd;
-		sd.Parallel().TweenProperty(GetNode<Control>("Select_CardUI"),new NodePath(Control.PropertyName.OffsetTransformPosition),new Godot.Vector2(0,900),0.75).SetTrans(Tween.TransitionType.Quart);
+		sd.TweenProperty(GetNode<Control>("Select_CardUI"),new NodePath(Control.PropertyName.OffsetTransformPosition),new Godot.Vector2(0,900),0.75).SetTrans(Tween.TransitionType.Quart);
 		await ToSignal(sd,Tween.SignalName.Finished);
+		GetNode<Control>("Level").Visible = true;
+
 		GetNode<Control>("Select_CardUI").Visible = false;
 		return true;
 	}
