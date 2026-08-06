@@ -147,6 +147,14 @@ public partial class TouchPad : Godot.Control
 	/// </summary>
 	[Export] public float Long_Click_Variant = 1;
 	/// <summary>
+	/// 检索索引是否启用
+	/// </summary>
+	[Export] public int Auto_Enable_Index = 0;
+	/// <summary>
+	/// 自动根据索引启用
+	/// </summary>
+	[Export] public bool Auto_Set_Enable = true;
+	/// <summary>
 	/// 触摸模式
 	/// </summary>
 	public enum _TouchPad_Mode
@@ -271,6 +279,13 @@ public partial class TouchPad : Godot.Control
 	
 	public void 判定(Godot.InputEvent @event)
 	{
+		if (Auto_Set_Enable == true)
+		{
+			if (Touch.Touch_Index.Get_Index(Auto_Enable_Index) == false)
+			{
+				return;
+			}
+		}
 		Godot.Vector2 Viewport_Position = GetGlobalTransformWithCanvas()[2];
 		Godot.Vector2 ViewPort_Scale = new Vector2(GetGlobalTransformWithCanvas()[0].X,GetGlobalTransformWithCanvas()[1].Y);
 		Godot.Vector2 ViewPort_Size = ViewPort_Scale * Size;

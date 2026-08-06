@@ -132,6 +132,7 @@ public partial class Level_Master_Script : Node2D{
 	}
 	public override void _Ready() {
 		base._Ready();
+		Touch.Touch_Index.Set_Index_Enable(0,false);
 		Game.Get_GlobalNode.Node_Data.Clear_Node();
 		Game.Get_GlobalNode.Node_Data.Add_Node(this,"Level");
 		summand_Node();
@@ -184,9 +185,11 @@ public partial class Level_Master_Script : Node2D{
 	/// <param name="This"></param>
 	public void Lawn_Green(ColorRect This)
 	{
+		if (Game.Level_Script.Lawn == This){
 		This.Color = new Color(0,1,0,1);
 		Selected_Lawn = This;
 		Game.Level_Script.Lawn = This;
+		}
 	}
 	/// <summary>
 	/// 让部分草坪变为透明

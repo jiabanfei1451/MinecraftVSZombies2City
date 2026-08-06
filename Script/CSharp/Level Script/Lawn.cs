@@ -18,6 +18,7 @@ public partial class Lawn : ColorRect
 		}
 		public void focus_Join()
 		{
+			Game.Level_Script.Lawn = this;
 			EmitSignal("ME_Join",this);
 		}
 		public void focus_exit()

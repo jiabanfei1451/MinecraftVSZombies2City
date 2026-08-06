@@ -102,13 +102,14 @@ public partial class Card : Control
 		texture.Scale = Data.Scale;
 		GetNode<Label>("Reduce").Text = Data.Sonsume.ToString();
 		GetNode<TouchPad>("Texture/TouchPad").Button_Pressedvoid += touchpressed;
-		GetNode<TouchPad>("Texture/TouchPad").Drag_Ingvoid += nopre;
 		switch (Card_Mode){
+		//选卡模式
 		case Mode.Selected_Card:
 			Mode_Data = new ModeObject();
 			Mode_Data.Selected_Card_Mode = new ModeObject.Selected_Card();
 			GetNode<Control>("Cilp_Node").GetNode<ColorRect>("CD").Scale = new Godot.Vector2(1,0);
 			break;
+		//选卡分身模式
 		case Mode.is_Seleceed_Card:
 			Modulate = new Color(0,0,0,0);
 			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);			
@@ -121,13 +122,16 @@ public partial class Card : Control
 			break;
 		}
 	}
-	public void nopre()
-	{
-		if (Modulate.A < 0.1){Visible = false;}else{Visible = true;}
-		nono = true;
-	}
+	/// <summary>
+	/// 被点击时
+	/// </summary>
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
+		switch (Card_Mode){
+			case Mode.Gameing:
+				
+				break;
+		}
 	}
 	public async void touchpressed()
 	{

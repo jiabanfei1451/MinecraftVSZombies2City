@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bllinxtvttldn"]
 
-[ext_resource type="Script" uid="uid://cluhpq6u57uck" path="res://Script/UI/Level/Card/Tween/LevelUi.cs" id="1_cid5c"]
+[ext_resource type="Script" uid="uid://cluhpq6u57uck" path="res://Script/CSharp/UI/Level/Card/Tween/LevelUi.cs" id="1_cid5c"]
 [ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="6_i0vqy"]
 [ext_resource type="Theme" uid="uid://c5xrknm7o3j2v" path="res://UI/UI主题/主题/按钮.tres" id="7_oc2sj"]
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
-[ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
+[ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/CSharp/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
-[ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
+[ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/CSharp/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="11_h5g1x"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
-[ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
+[ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/CSharp/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="15_b70vt"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
@@ -370,6 +370,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_h5g1x")
+Auto_Enable_Index = 1
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Panel3" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1231187989]
@@ -441,6 +442,7 @@ offset_right = 190.48438
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("14_b70vt")
+Auto_Enable_Index = 1
 metadata/_custom_type_script = "uid://blc413ky1v12"
 
 [node name="Panel6" type="Panel" parent="Select_CardUI/蓝图展示/TouchPad_V2" unique_id=319850770]

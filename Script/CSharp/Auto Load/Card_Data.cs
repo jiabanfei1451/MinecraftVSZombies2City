@@ -152,6 +152,44 @@ public partial class Card_Data : Node
 		}
 		else{return null;}
 	}
+	
+	#region Class
+	/// <summary>
+	/// 卡槽贴图实例
+	/// </summary>
+	/// <param name="Texture_PC">电脑端卡槽背景贴图</param>
+	/// <param name="Texture_Border_PC_Focus">电脑端卡槽选中边框贴图</param>
+	/// <param name="Texture_Border_PC">电脑端卡槽边框贴图</param>
+	/// <param name="Texture_PE">手机端卡槽背景贴图</param>
+	/// <param name="Texture_Border_PE_Focus">手机端卡槽选中边框贴图</param>
+	/// <param name="Texture_Border_PE">手机端卡槽边框贴图</param>
+	public class Card_Texture(Image @Texture_PC,Image @Texture_Border_PC,Image @Texture_Border_PC_Focus,Image @Texture_PE,Image @Texture_Border_PE,Image @Texture_Border_PE_Focus)
+	{
+		/// <summary>
+		/// 电脑端卡槽背景贴图
+		/// </summary>
+		Image Texture_PC = @Texture_PC;
+		/// <summary>
+		/// 电脑端卡槽选中边框贴图
+		/// </summary>
+		Image Texture_Border_PC_Focus = @Texture_Border_PC_Focus;
+		/// <summary>
+		/// 电脑端卡槽边框贴图
+		/// </summary>
+		Image Texture_Border_PC = @Texture_Border_PC;
+		/// <summary>
+		/// 手机端卡槽背景贴图
+		/// </summary>
+		Image Texture_PE = @Texture_PE;
+		/// <summary>
+		/// 手机端卡槽选中边框贴图
+		/// </summary>
+		Image Texture_Border_PE_Focus = @Texture_Border_PE_Focus;
+		/// <summary>
+		/// 手机端卡槽边框贴图
+		/// </summary>
+		Image Texture_Border_PE = @Texture_Border_PE;
+	}
 	/// <summary>
 	/// 坐标存储
 	/// </summary>
@@ -162,6 +200,15 @@ public partial class Card_Data : Node
 		public float X {get;set;} = X;
 		public float Y {get;set;} = Y;
 	}
+	/// <summary>
+	/// 返回数据
+	/// </summary>
+	/// <param name="Scene"></param>
+	/// <param name="sonsume"></param>
+	/// <param name="CD"></param>
+	/// <param name="RemoveCD"></param>
+	/// <param name="Scale"></param>
+	/// <param name="Offset"></param>
 	public class BackData(PackedScene @Scene,int @sonsume,float @CD,float @RemoveCD,Godot.Vector2 @Scale,Godot.Vector2 @Offset)
 	{
 		/// <summary>
@@ -189,4 +236,5 @@ public partial class Card_Data : Node
 		/// </summary>
 		public Godot.Vector2 Offset = @Offset;
 	}
+	#endregion
 }

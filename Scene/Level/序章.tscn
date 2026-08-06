@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cff7if8145pjk"]
 
-[ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
+[ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/CSharp/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://c6adwiouvitvd" path="res://Image/Level_Image/绝命矿坑.png" id="2_x1yc8"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
@@ -19,8 +19,6 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
-Lawn_Offset_Array = Array[Array]([])
-Lawn_Data = Array[Array]([])
 
 [node name="Map" type="Sprite2D" parent="." unique_id=272418162]
 visible = false

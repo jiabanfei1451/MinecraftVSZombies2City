@@ -16,6 +16,8 @@ public partial class LevelUi : CanvasLayer
 	/// </summary>
 	public async void show_Select_CardUI()
 	{
+		GD.Print(Touch.Touch_Index.TouchIndex);
+		GD.Print(Touch.Touch_Index.TouchIndex_Enable);
 		if (GetTween != null){GetTween.Kill();}
 		GetNode<Control>("Select_CardUI").Visible = true;
 		Tween sd = CreateTween();
@@ -33,6 +35,9 @@ public partial class LevelUi : CanvasLayer
 	/// </summary>
 	public async Task<bool> hide_Select_CardUI()
 	{
+		Touch.Touch_Index.Set_Index_Enable(0,true);
+		GD.Print(Touch.Touch_Index.TouchIndex);
+		GD.Print(Touch.Touch_Index.TouchIndex_Enable);
 		if (GetTween != null){GetTween.Kill();}
 		foreach (GameUI.Card card in GetNode("Card").GetChildren())
 		{
