@@ -52,13 +52,13 @@ static class Get_GlobalNode
 			switch (Get_Mode){
 				case Mode_Type.Name:
 					index = NodeData[1].IndexOf(Index);
-					GD.Print(index);
+					DEBUG.Info.Print(index);
 					break;
 				case Mode_Type.Index:
 					index = int.Parse(Index);
 					break;
 			}
-			GD.Print(NodeData[0].Count);
+			DEBUG.Info.Print(NodeData[0].Count);
 			if (index < NodeData[0].Count)
 			{
 				Get = (Node)NodeData[0][index];
@@ -77,7 +77,7 @@ static class Get_GlobalNode
 		{
 			NodeData[0].Add(Node);
 			NodeData[1].Add(Name);
-			GD.Print(NodeData);
+			DEBUG.Info.Print(NodeData);
 		}
 		/// <summary>
 		/// 清空已有节点索引
@@ -113,7 +113,7 @@ static class Get_GlobalNode
 			}
 			else
 			{
-				GD.PrintRich("[color=yellow][b]此节点不存在,正在执行自动筛选[/b][/color]");
+				DEBUG.Info.PrintRich("[color=yellow][b]此节点不存在,正在执行自动筛选[/b][/color]");
 				Screening_Not_Null_Node();
 			}
 		}

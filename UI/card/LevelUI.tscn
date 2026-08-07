@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://c5xrknm7o3j2v" path="res://UI/UI主题/主题/按钮.tres" id="7_oc2sj"]
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
 [ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/CSharp/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
+[ext_resource type="Script" uid="uid://bw8h7mmr7us05" path="res://Script/CSharp/Object/Follow_Mouse/Follow_Mouse.cs" id="8_oso7i"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
 [ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/CSharp/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="11_h5g1x"]
@@ -106,7 +107,6 @@ mouse_force_pass_scroll_events = false
 texture = ExtResource("3_ri15h")
 
 [node name="Level" type="Control" parent="." unique_id=1275818106]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,14 +140,21 @@ texture = ExtResource("5_tcpcs")
 [node name="取消" type="AudioStreamPlayer" parent="Level" unique_id=760228215]
 stream = ExtResource("6_i0vqy")
 
-[node name="物体贴图" type="Control" parent="Level" unique_id=1959201812]
+[node name="Texture" type="Control" parent="Level" unique_id=1959201812]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
+script = ExtResource("8_oso7i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Texture" unique_id=731402081]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Select_CardUI" type="Control" parent="." unique_id=1223407967]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

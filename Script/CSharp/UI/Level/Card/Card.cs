@@ -1,9 +1,12 @@
 using Touch;
 using Godot;
 using System.Threading.Tasks;
+using DEBUG;
+using My_Csharp_Node;
 namespace GameUI{
 public partial class Card : Control
 {
+	#region Enum
 	/// <summary>
 	/// 模式
 	/// </summary>
@@ -30,6 +33,12 @@ public partial class Card : Control
 		/// </summary>
 		GlobalPosition = 1
 	} 
+	#endregion
+	#region Object
+	[Export] public Audio_Plus Selected_Audio = null;
+	[Export] public Audio_Plus Cancel_Audio = null;
+	#endregion
+	#region Card_Status
 	/// <summary>
 	/// 缓动帧
 	/// </summary>
@@ -47,6 +56,8 @@ public partial class Card : Control
 	/// 选定卡分身模式的物体 仅在Selected_Card模式可以使用
 	/// </summary>
 	public ModeObject Mode_Data = null;
+	#endregion
+	#region Easing
 	[ExportGroup("Easing")] [Export] public float Easing_Time = 0.5f;
 	/// <summary>
 	/// 脚本所处坐标
@@ -67,6 +78,8 @@ public partial class Card : Control
 	/// <summary>
 	/// 是否完成初始化
 	/// </summary>
+	#endregion
+	#region misc
 	[Export] public bool is_Ready = false;
 	/// <summary>
 	/// 父节点
@@ -81,6 +94,7 @@ public partial class Card : Control
 	/// 临时Tween
 	/// </summary>
 	private Tween Temp_Tween = null;
+	#endregion
 	public override async void _Ready() {
 		base._Ready();
 		This_Ready();
@@ -112,6 +126,9 @@ public partial class Card : Control
 		//选卡分身模式
 		case Mode.is_Seleceed_Card:
 			Modulate = new Color(0,0,0,0);
+			Mode_Data.gameing_Mode = new ModeObject.Gameing();
+			Mode_Data.gameing_Mode.Card_Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+			DEBUG.Info.Print(Mode_Data.gameing_Mode.Card_Data);
 			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);			
 			while (!Stop_While){
 				if (Temp_Tween != null){Temp_Tween.Kill();}
@@ -129,7 +146,13 @@ public partial class Card : Control
 		base._PhysicsProcess(delta);
 		switch (Card_Mode){
 			case Mode.Gameing:
-				
+				if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object == this)
+				{
+					Modulate = new Color(0.5f,0.5f,0.5f,1);
+				}else
+				{
+					Modulate = new Color(1,1,1,1);	
+				}
 				break;
 		}
 	}
@@ -141,7 +164,6 @@ public partial class Card : Control
 				// 选定状态
 				if (Mode_Data.Selected_Card_Mode.is_Selected_Card_Object == null){
 					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > Game.PlayerData.Card_Quantity - 1){return;}
-					GD.Print(1);
 					PackedScene Temp_Scene = GD.Load<PackedScene>("uid://c2y62prxcbege");
 					Card Temp_Card = Temp_Scene.Instantiate<Card>();
 					Temp_Card.Card_Mode = Mode.is_Seleceed_Card;
@@ -159,7 +181,7 @@ public partial class Card : Control
 				}
 				else
 				{
-					GD.Print(Mode_Data.Selected_Card_Mode.is_Selected_Card_Object);
+					DEBUG.Info.Print(Mode_Data.Selected_Card_Mode.is_Selected_Card_Object);
 				}
 				break;
 			case Mode.is_Seleceed_Card:
@@ -173,6 +195,25 @@ public partial class Card : Control
 					await ToSignal(t,Tween.SignalName.Finished);
 					Mode_Data.is_Selected_Card_Mode.Parent_Object.Mode_Data.Selected_Card_Mode.is_Selected_Card_Object = null;
 					QueueFree();
+				}
+				break;
+			case Mode.Gameing:
+				if (Selected_Audio == null)
+					{
+						Selected_Audio = GetNode<Audio_Plus>("Selected");
+					}
+				if (Cancel_Audio == null)
+					{
+						Cancel_Audio = GetNode<Audio_Plus>("Cancel");
+					}
+				if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){
+				Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = this;
+				Selected_Audio.Play();
+					}
+				else
+				{
+					Cancel_Audio.Play();
+					Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null;
 				}
 				break;
 		}
@@ -195,47 +236,49 @@ public partial class Card : Control
 	/// 模式实例
 	/// </summary>
 	public class ModeObject(){
-	/// <summary>
-	/// 处于分身模式下的卡槽数据实例
-	/// </summary>
-	public Is_Selected_Card is_Selected_Card_Mode = null;
-	/// <summary>
-	/// 选卡模式下的卡槽数据实例
-	/// </summary>
-	public Selected_Card Selected_Card_Mode = null;
-	/// <summary>
-	/// 游戏中的卡槽数据
-	/// </summary>
-	public Gameing gameing_Mode = null;
-	/// <summary>
-	///处于分身模式下的卡槽数据
-	/// </summary>
-	public class Is_Selected_Card()
-	{
+		#region Data
 		/// <summary>
-		/// 源父物体
+		/// 处于分身模式下的卡槽数据实例
 		/// </summary>
-		public Card Parent_Object = null;
-	}
-	/// <summary>
-	/// 选卡模式下的卡槽数据
-	/// </summary>
-	public class Selected_Card()
-	{
+		public Is_Selected_Card is_Selected_Card_Mode = null;
 		/// <summary>
-		/// 已实例化的处于分身模式下的卡槽数据
-		/// </summary>	
-		public Card is_Selected_Card_Object = null;
-	}
-	/// <summary>
-	/// 游戏中的卡槽数据
-	/// </summary>
-	public class Gameing()
-	{
-		/// <summary>
-		/// 处于游戏中的卡槽
+		/// 选卡模式下的卡槽数据实例
 		/// </summary>
-		public Card is_Selected_Card_Object = null;
-	}
+		public Selected_Card Selected_Card_Mode = null;
+		/// <summary>
+		/// 游戏中的卡槽数据
+		/// </summary>
+		public Gameing gameing_Mode = null;
+		#endregion
+		
+		#region Class
+		/// <summary>
+		///处于分身模式下的卡槽数据
+		/// </summary>
+		public class Is_Selected_Card()
+		{
+			/// <summary>
+			/// 源父物体
+			/// </summary>
+			public Card Parent_Object = null;
+		}
+		/// <summary>
+		/// 选卡模式下的卡槽数据
+		/// </summary>
+		public class Selected_Card()
+		{
+			/// <summary>
+			/// 已实例化的处于分身模式下的卡槽数据
+			/// </summary>	
+			public Card is_Selected_Card_Object = null;
+		}
+		/// <summary>
+		/// 游戏中的卡槽数据
+		/// </summary>
+		public class Gameing()
+		{
+			public Game.Card_Data.BackData Card_Data;
+		}
+		#endregion
 	}
 }

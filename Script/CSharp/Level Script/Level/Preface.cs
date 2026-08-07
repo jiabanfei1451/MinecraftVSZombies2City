@@ -1,5 +1,5 @@
 using Godot;
-
+using DEBUG;
 namespace Level;
 /// <summary>
 /// 序章
@@ -11,5 +11,7 @@ public partial class Preface : Level_Master_Script
         base._Ready();
         await ToSignal(GetTree().CreateTimer(3),SceneTreeTimer.SignalName.Timeout);
         choose_Card();
+        await ToSignal(GetTree().CreateTimer(6),SceneTreeTimer.SignalName.Timeout);
+        DEBUG.Info.Save_Info("C:/Info.txt");
     }
 }

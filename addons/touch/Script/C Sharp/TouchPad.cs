@@ -500,24 +500,24 @@ public partial class TouchPad : Godot.Control
 		bool x = false;
 		bool y = false;
 		if (velocity.X > Drag_Velocity_Scope.X){
-			GD.Print(1);
+			DEBUG.Info.Print(1);
 			x = true;
 		}
 		if (velocity.Y > Drag_Velocity_Scope.Y){
-			GD.Print(2);
+			DEBUG.Info.Print(2);
 			y = true;
 			}
 		if (velocity.X < -Drag_Velocity_Scope.X){
-			GD.Print(3);
+			DEBUG.Info.Print(3);
 			x = true;
 			}
 		if (velocity.Y < -Drag_Velocity_Scope.Y){
-			GD.Print(4);
+			DEBUG.Info.Print(4);
 			y = true;
 		}
-		GD.Print(Drag_Velocity_Scope);
-		GD.Print(velocity);
-		GD.Print(x,y);
+		DEBUG.Info.Print(Drag_Velocity_Scope);
+		DEBUG.Info.Print(velocity);
+		DEBUG.Info.Print(x,y);
 		if (x || y){return true;}
 		return false;
 	}

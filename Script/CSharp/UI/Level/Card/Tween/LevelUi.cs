@@ -9,15 +9,15 @@ public partial class LevelUi : CanvasLayer
 	public override async void _Ready()
 	{
 		show_Select_CardUI();
-		GD.Print(Game.Get_GlobalNode.Node_Data.Get_Node<Control>("1"));
+		DEBUG.Info.Print(Game.Get_GlobalNode.Node_Data.Get_Node<Control>("1"));
 	}
 	/// <summary>
 	/// 显示选卡UI
 	/// </summary>
 	public async void show_Select_CardUI()
 	{
-		GD.Print(Touch.Touch_Index.TouchIndex);
-		GD.Print(Touch.Touch_Index.TouchIndex_Enable);
+		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex);
+		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex_Enable);
 		if (GetTween != null){GetTween.Kill();}
 		GetNode<Control>("Select_CardUI").Visible = true;
 		Tween sd = CreateTween();
@@ -36,8 +36,8 @@ public partial class LevelUi : CanvasLayer
 	public async Task<bool> hide_Select_CardUI()
 	{
 		Touch.Touch_Index.Set_Index_Enable(0,true);
-		GD.Print(Touch.Touch_Index.TouchIndex);
-		GD.Print(Touch.Touch_Index.TouchIndex_Enable);
+		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex);
+		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex_Enable);
 		if (GetTween != null){GetTween.Kill();}
 		foreach (GameUI.Card card in GetNode("Card").GetChildren())
 		{

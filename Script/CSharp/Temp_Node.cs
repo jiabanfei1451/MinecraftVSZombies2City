@@ -12,7 +12,7 @@ static partial class Temp_Node : Object
 		int dex = Strings.IndexOf(Name);
 		if (dex == -1)
 		{
-			GD.PrintErr("Node is Null");
+			DEBUG.Info.PrintErr("Node is Null");
 		}
 		return dex;
 	}

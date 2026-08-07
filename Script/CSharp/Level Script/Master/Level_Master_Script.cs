@@ -208,7 +208,7 @@ public partial class Level_Master_Script : Node2D{
 		Game.Temp_Node.Clear_Node();
 		for (int Name_Index = 0; Name_Index < Node_Index.Length; Name_Index++)
 		{
-			GD.Print(Name_Index);
+			DEBUG.Info.Print(Name_Index);
 			//检测
 			Node Get_Node = GetNode(Node_Index[Name_Index]);
 			if (Get_Node != null)
@@ -252,6 +252,6 @@ public partial class Level_Master_Script : Node2D{
 				}
 			}
 		}
-		GD.Print(Game.Temp_Node.nodes);
+		DEBUG.Info.Print(Game.Temp_Node.nodes);
 	}
 }

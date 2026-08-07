@@ -19,6 +19,8 @@ run/main_scene="uid://cff7if8145pjk"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="jiabanfei/MVZ2_City"
 config/features=PackedStringArray("4.7", "C#", "Mobile")
+run/low_processor_mode=true
+run/low_processor_mode_sleep_usec=10000
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/image="uid://yvjefvjdokp5"
@@ -30,8 +32,6 @@ AudioList="*uid://yt638ulpwvil"
 MuiscEngine="*uid://c7jdr8lln46bu"
 CommandEdit="*uid://hpvvup1148jw"
 CardData="*uid://cpmqdooq874b3"
-Start_Environment="*uid://be13c7hwell4p"
-Set_Environment="*uid://ckehdsfuaw7aj"
 
 [display]
 
@@ -50,7 +50,7 @@ project/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg", "res://addons/运行环境检测/plugin.cfg")
+enabled=PackedStringArray("res://addons/butter_and_debug/plugin.cfg", "res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg")
 
 [file_customization]
 

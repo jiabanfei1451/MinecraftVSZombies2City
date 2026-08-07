@@ -17,7 +17,7 @@ public partial class JSONData : Data_For_CSharp
 	{
 		String GlobalPath = ProjectSettings.GlobalizePath(Write_Path);
 		Json json = ResourceLoader.Load<Json>(GlobalPath);
-		GD.Print(json.Data);
+		DEBUG.Info.Print(json.Data);
 		if (json is Json && json != null)
 		{
 			return json;
@@ -79,7 +79,7 @@ public partial class JSONData : Data_For_CSharp
 				}
 			}
 		}
-		GD.Print(Data_Text);
+		DEBUG.Info.Print(Data_Text);
 		Save.StoreString(Data_Text);
 	}
 }

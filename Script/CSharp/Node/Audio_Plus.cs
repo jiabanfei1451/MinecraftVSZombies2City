@@ -38,19 +38,23 @@ public partial class Audio_Plus : AudioStreamPlayer
 		if (Audio_Type == Audio.Muisc){
 			Type_volume = AudioList_Object.Muisc_Volume;
 
-		AudioStream stream = Get_Muisc();
-		if (Current_Stream != stream)
-		{
-			Current_Stream = stream;
-			Stream = stream;
-		}
-		if (Autoplay == true)
+			AudioStream stream = Get_Muisc();
+			if (Current_Stream != stream)
 			{
-				if (!Playing && stream != null)
-				{
-					Play();
-				}
+				Current_Stream = stream;
+				Stream = stream;
 			}
+			if (Autoplay == true)
+				{
+					if (!Playing && stream != null)
+					{
+						Play();
+					}
+				}
+		}
+		else
+		{
+			Type_volume = AudioList_Object.Souds_Volume;
 		}
 		if (Type_volume / 100 * Multiplication * Current_Multiplication != 0){
 		VolumeDb = -40 + (40 + Add_Volume) * (Type_volume / 100 * Multiplication * Current_Multiplication);

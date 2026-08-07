@@ -1,6 +1,7 @@
+ColorRect
+Control
 SubViewport
 Sprite2D
-Control
 TouchPad_V2
 Label
 Panel
@@ -11,4 +12,3 @@ CanvasLayer
 TextureRect
 Button
 GridContainer
-ColorRect

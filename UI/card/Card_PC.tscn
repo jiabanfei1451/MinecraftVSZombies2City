@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="4_dor43"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="5_mj3bc"]
 [ext_resource type="AudioStream" uid="uid://dnlb1y62pkmcy" path="res://Sound/UI/card/选择.ogg" id="6_86c6v"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/CSharp/Node/Audio_Plus.cs" id="7_n61xx"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="7_ymopn"]
 
 [node name="Card" type="Control" unique_id=811847334]
@@ -138,6 +139,10 @@ grow_vertical = 2
 
 [node name="Selected" type="AudioStreamPlayer" parent="." unique_id=1999429575]
 stream = ExtResource("6_86c6v")
+script = ExtResource("7_n61xx")
+Audio_Type = 1
 
 [node name="Cancel" type="AudioStreamPlayer" parent="." unique_id=667751426]
 stream = ExtResource("7_ymopn")
+script = ExtResource("7_n61xx")
+Audio_Type = 1

@@ -119,9 +119,6 @@ font_size = 20
 [sub_resource type="LabelSettings" id="LabelSettings_qmgjs"]
 font_size = 20
 
-[sub_resource type="LabelSettings" id="LabelSettings_burho"]
-font_size = 20
-
 [sub_resource type="LabelSettings" id="LabelSettings_46fw6"]
 font_size = 20
 
@@ -153,6 +150,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
@@ -165,10 +163,8 @@ label_settings = SubResource("LabelSettings_wvhbo")
 [node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1931943886]
 material = SubResource("ShaderMaterial_23862")
 layout_mode = 2
-text = "GODOT Engine 4.7"
-
-[node name="Label3" type="Label" parent="Control/VBoxContainer" unique_id=1794884843]
-layout_mode = 2
+text = "GODOT Engine 4.7
+"
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer" unique_id=1060680410]
 layout_mode = 2
@@ -177,14 +173,9 @@ label_settings = SubResource("LabelSettings_23862")
 
 [node name="Label5" type="Label" parent="Control/VBoxContainer" unique_id=461262894]
 layout_mode = 2
-text = "缓冲发射器 - 无聊的缓冲152"
-
-[node name="Label16" type="Label" parent="Control/VBoxContainer" unique_id=1602742212]
-layout_mode = 2
-text = "魔法！茂密！ - 斯库拉"
-
-[node name="Label6" type="Label" parent="Control/VBoxContainer" unique_id=1921514281]
-layout_mode = 2
+text = "缓冲发射器 - 无聊的缓冲152
+魔法！茂密！ - 朗斯拉huh
+"
 
 [node name="Label7" type="Label" parent="Control/VBoxContainer" unique_id=222193736]
 layout_mode = 2
@@ -193,34 +184,10 @@ label_settings = SubResource("LabelSettings_qmgjs")
 
 [node name="Label10" type="Label" parent="Control/VBoxContainer" unique_id=734175637]
 layout_mode = 2
-text = "C# & GDScript - 脚本语言"
-
-[node name="Label9" type="Label" parent="Control/VBoxContainer" unique_id=841679745]
-layout_mode = 2
-text = "痊愈加班费 - 主要脚本"
-
-[node name="Label8" type="Label" parent="Control/VBoxContainer" unique_id=1381563025]
-layout_mode = 2
-text = "last zating 6主创 - 脚本指导"
-
-[node name="Label11" type="Label" parent="Control/VBoxContainer" unique_id=1258447184]
-visible = false
-layout_mode = 2
-
-[node name="Label22" type="Label" parent="Control/VBoxContainer" unique_id=546153886]
-visible = false
-layout_mode = 2
-text = "音乐："
-label_settings = SubResource("LabelSettings_burho")
-
-[node name="Label23" type="Label" parent="Control/VBoxContainer" unique_id=1747209271]
-visible = false
-layout_mode = 2
-text = "泰拉瑞亚 Calamity Studios"
-label_settings = SubResource("LabelSettings_burho")
-
-[node name="Label21" type="Label" parent="Control/VBoxContainer" unique_id=127970344]
-layout_mode = 2
+text = "C# & GDScript - 脚本语言
+痊愈加班费 - 主要脚本
+last zating 6主创 - 脚本指导
+"
 
 [node name="Label12" type="Label" parent="Control/VBoxContainer" unique_id=1420783353]
 layout_mode = 2
@@ -229,18 +196,10 @@ label_settings = SubResource("LabelSettings_46fw6")
 
 [node name="Label13" type="Label" parent="Control/VBoxContainer" unique_id=1643570337]
 layout_mode = 2
-text = "痊愈加班费 - 次要画师"
-
-[node name="Label14" type="Label" parent="Control/VBoxContainer" unique_id=89920459]
-layout_mode = 2
-text = "满天星地满尘 - 主要画师"
-
-[node name="Label15" type="Label" parent="Control/VBoxContainer" unique_id=1957376230]
-layout_mode = 2
-text = "斯库拉 - 副画师"
-
-[node name="Label17" type="Label" parent="Control/VBoxContainer" unique_id=1850330302]
-layout_mode = 2
+text = "痊愈加班费 - 次要画师
+满天星地满尘 - 主要画师
+朗斯拉huh - 副画师
+"
 
 [node name="Label18" type="Label" parent="Control/VBoxContainer" unique_id=1758400474]
 layout_mode = 2
@@ -249,12 +208,18 @@ label_settings = SubResource("LabelSettings_w3jva")
 
 [node name="Label19" type="Label" parent="Control/VBoxContainer" unique_id=909353709]
 layout_mode = 2
-text = "魔术力法箱子（因隐私原因不展示个人社交账号） - 地图画面指正"
+text = "魔术力法箱子（因隐私原因不展示个人社交账号） - 地图画面指正
+无聊的缓冲152（因隐私原因不展示个人社交账号） - 部分UI绘制
+理想乡（不展示群号）部分群友 - 游戏测试
+"
 
-[node name="Label24" type="Label" parent="Control/VBoxContainer" unique_id=1491703581]
+[node name="Label25" type="Label" parent="Control/VBoxContainer" unique_id=1888361488]
 layout_mode = 2
-text = "无聊的缓冲152（因隐私原因不展示个人社交账号） - 部分UI绘制"
+text = "音乐来源:"
+label_settings = SubResource("LabelSettings_w3jva")
 
-[node name="Label20" type="Label" parent="Control/VBoxContainer" unique_id=1629895222]
+[node name="Label27" type="Label" parent="Control/VBoxContainer" unique_id=874637083]
 layout_mode = 2
-text = "理想乡（不展示群号）部分群友 - 游戏测试"
+text = "泰拉瑞亚 灾厄Mod(Calamity Mod)
+我的世界 灾变Mod
+"

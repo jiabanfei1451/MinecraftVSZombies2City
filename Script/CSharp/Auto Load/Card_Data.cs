@@ -1,3 +1,4 @@
+using GameUI;
 using Godot;
 namespace Game;
 public partial class Card_Data : Node
@@ -12,13 +13,19 @@ public partial class Card_Data : Node
 	new Godot.Collections.Array(){},
 	// 开局减免
 	new Godot.Collections.Array(){},
-	// 已选定
-	new Godot.Collections.Array(){new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node()},
 	// 坐标偏移
 	new Godot.Collections.Array(){},
 	// 缩放
 	new Godot.Collections.Array(){}
 	};
+	/// <summary>
+	/// 选卡数据
+	/// </summary>
+	[Export] public Godot.Collections.Array Selected = [new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node()];
+	[Export] public Card Selected_raw_Object = null;
+	/// <summary>
+	/// 已拥有的器械
+	/// </summary>
 	[Export] public Godot.Collections.Array<int> Obtained_Data = new Godot.Collections.Array<int>(){0,1,2,3,4,5};
 	public override void _Ready() {
 		base._Ready();
@@ -49,21 +56,22 @@ public partial class Card_Data : Node
 		Data[1].Add(sonsume);
 		Data[2].Add(CD);
 		Data[3].Add(RemoveCD);
-		Data[5].Add(New_Offset);
-		Data[6].Add(New_Scale);
+		Data[4].Add(New_Offset);
+		Data[5].Add(New_Scale);
 	}
 	/// <summary>
 	/// 初始化
 	/// </summary>
 	public void Initialization()
 	{
-		Data[4].Clear();
+		
+		Selected.Clear();
 		for (int Count = 0;Count < Game.PlayerData.Card_Quantity; Count++)
 		{
 			Control New_Null = new Control();
 			New_Null.Name = "Null";
 			New_Null.QueueFree();
-			Data[4].Add(New_Null);
+			Selected.Add(New_Null);
 		}
 	}
 	/// <summary>
@@ -74,7 +82,7 @@ public partial class Card_Data : Node
 	public int Get_Card_Index(Control @Node = null)
 	{
 		int Index = -1;
-		Index = Data[4].IndexOf(@Node);
+		Index = Selected.IndexOf(@Node);
 		return Index;
 	}
 	/// <summary>
@@ -84,7 +92,7 @@ public partial class Card_Data : Node
 	public void Remove_Card_Index(Control @node = null)
 	{
 		if (@node == null){return;}
-		Data[4].Remove(@node);
+		Selected.Remove(@node);
 		arrange_Card();
 	}
 	/// <summary>
@@ -94,7 +102,7 @@ public partial class Card_Data : Node
 	public void Add_Card_Index(Control @node = null)
 	{
 		if (@node == null){return;}
-		Data[4].Add(@node);
+		Selected.Add(@node);
 		arrange_Card();
 	}
 	/// <summary>
@@ -103,7 +111,7 @@ public partial class Card_Data : Node
 	public int Get_Selected_Card_Len()
 	{
 		int dex = -1;
-		foreach(Control control in Data[4])
+		foreach(Control control in Selected)
 		{
 			if(control != null)
 			{
@@ -112,14 +120,16 @@ public partial class Card_Data : Node
 		}
 		return dex;
 	}
+	/// <summary>
+	/// 排列卡槽
+	/// </summary>
 	public void arrange_Card()
 	{
 		Godot.Collections.Array variants = [];
-		foreach (Control node in Data[4])
+		foreach (Control node in Selected)
 		{
 			if (node != null)
 			{
-				GD.Print("Null");
 				variants.Add(node);
 			}
 		}
@@ -129,8 +139,7 @@ public partial class Card_Data : Node
 			New_Null.QueueFree();
 			variants.Add(New_Null);
 		}
-		GD.Print("TempData:",variants,"Data:",Data[4]);
-		Data[4] = variants;
+		Selected = variants;
 	}
 	/// <summary>
 	/// 获取卡槽数据
@@ -145,8 +154,8 @@ public partial class Card_Data : Node
 			int consume = (int)Data[1][Index];
 			float CD = (float)Data[2][Index];
 			float RemoveCD = (float)Data[3][Index];
-			Godot.Vector2 Offset = (Godot.Vector2)Data[5][Index];
-			Godot.Vector2 Scale = (Godot.Vector2)Data[6][Index]; 
+			Godot.Vector2 Offset = (Godot.Vector2)Data[4][Index];
+			Godot.Vector2 Scale = (Godot.Vector2)Data[5][Index]; 
 			BackData Back = new BackData(scene,consume,CD,RemoveCD,Scale,Offset);
 			return Back;
 		}
@@ -209,8 +218,9 @@ public partial class Card_Data : Node
 	/// <param name="RemoveCD"></param>
 	/// <param name="Scale"></param>
 	/// <param name="Offset"></param>
-	public class BackData(PackedScene @Scene,int @sonsume,float @CD,float @RemoveCD,Godot.Vector2 @Scale,Godot.Vector2 @Offset)
+	public class BackData(PackedScene @Scene,int @sonsume,float @MaxCD,float @RemoveCD,Godot.Vector2 @Scale,Godot.Vector2 @Offset,float @CD = 0)
 	{
+
 		/// <summary>
 		/// 物体场景
 		/// </summary>
@@ -220,7 +230,11 @@ public partial class Card_Data : Node
 		/// </summary>
 		public int Sonsume = @sonsume;
 		/// <summary>
-		/// 冷却
+		/// 最大冷却
+		/// </summary>
+		public float MaxCD = @MaxCD;
+		/// <summary>
+		/// 当前CD
 		/// </summary>
 		public float CD = @CD;
 		/// <summary>
