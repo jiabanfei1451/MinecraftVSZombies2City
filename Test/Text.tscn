@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
+[ext_resource type="Script" uid="uid://cltrfvy7148cj" path="res://Test/new_script.gd" id="1_g3ouh"]
 [ext_resource type="Texture2D" uid="uid://rxcppgnt2gu6" path="res://Object/素材图/bubble.png" id="1_gtax4"]
 [ext_resource type="Texture2D" uid="uid://d1lmk8ul6iehw" path="res://Image/UI/UI.png" id="2_eja7b"]
 [ext_resource type="Script" uid="uid://dny4i8hbxykal" path="res://addons/save_or_load_data/Script/Csharp/JSONData.cs" id="3_eja7b"]
@@ -14,6 +15,7 @@ blend_mode = 1
 blend_mode = 2
 
 [node name="Text" type="Node2D" unique_id=1808771749]
+script = ExtResource("1_g3ouh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=687782665]
 position = Vector2(5000, 4999)

@@ -1,32 +1,57 @@
+using System;
 using GameUI;
 using Godot;
 namespace Game;
 public partial class Card_Data : Node
 {
+	[Signal] public delegate void Selected_ChangeEventHandler(Card card);
+
+
 	[Export] public Godot.Collections.Array<Godot.Collections.Array> Data = new Godot.Collections.Array<Godot.Collections.Array>()
 	{
-	// 源器械读取
+	// 源器械读取0
 	new Godot.Collections.Array(){},
-	// 消耗
+	// 消耗1
 	new Godot.Collections.Array(){},
-	// 冷却
+	// 冷却2
 	new Godot.Collections.Array(){},
-	// 开局减免
+	// 开局减免3
 	new Godot.Collections.Array(){},
-	// 坐标偏移
+	// 展示坐标偏移4
 	new Godot.Collections.Array(){},
-	// 缩放
+	// 缩放5
+	new Godot.Collections.Array(){},
+	// 光标坐标偏移6
+	new Godot.Collections.Array(){},
+	// 地图坐标偏移7
 	new Godot.Collections.Array(){}
 	};
 	/// <summary>
 	/// 选卡数据
 	/// </summary>
 	[Export] public Godot.Collections.Array Selected = [new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node(),new Node()];
+	/// <summary>
+	/// 选择卡的原数据
+	/// </summary>
 	[Export] public Card Selected_raw_Object = null;
+	/// <summary>
+	/// 当前卡槽的原数据
+	/// </summary>
+	GameUI.Card Current_Selected_raw_Object = null;
 	/// <summary>
 	/// 已拥有的器械
 	/// </summary>
 	[Export] public Godot.Collections.Array<int> Obtained_Data = new Godot.Collections.Array<int>(){0,1,2,3,4,5};
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+		if (Current_Selected_raw_Object != Selected_raw_Object)
+		{
+			Current_Selected_raw_Object = Selected_raw_Object;
+			EmitSignal("Selected_Change",Current_Selected_raw_Object);
+		}
+    }
+
 	public override void _Ready() {
 		base._Ready();
 		Initialization();
@@ -40,31 +65,11 @@ public partial class Card_Data : Node
 		#endregion
 	}
 	/// <summary>
-	/// 添加数据
-	/// </summary>
-	/// <param name="Scene">物体</param>
-	/// <param name="sonsume">消耗</param>
-	/// <param name="CD">冷却</param>
-	/// <param name="RemoveCD">游戏开始时减少冷却</param>
-	/// <param name="Scale">大小</param>
-	/// <param name="Offset">材质偏移</param>
-	public void Add_Data(PackedScene Scene = null,int sonsume = 0,float CD = 0,float RemoveCD = 0,Vec Scale = null,Vec Offset = null)
-	{
-		Godot.Vector2 New_Scale = new Godot.Vector2(Scale.X,Scale.Y);
-		Godot.Vector2 New_Offset = new Godot.Vector2(Offset.X,Offset.Y);
-		Data[0].Add(Scene);
-		Data[1].Add(sonsume);
-		Data[2].Add(CD);
-		Data[3].Add(RemoveCD);
-		Data[4].Add(New_Offset);
-		Data[5].Add(New_Scale);
-	}
-	/// <summary>
 	/// 初始化
 	/// </summary>
 	public void Initialization()
 	{
-		
+		Selected_raw_Object = null;
 		Selected.Clear();
 		for (int Count = 0;Count < Game.PlayerData.Card_Quantity; Count++)
 		{
@@ -141,12 +146,58 @@ public partial class Card_Data : Node
 		}
 		Selected = variants;
 	}
+	#region 数据管理
 	/// <summary>
 	/// 获取卡槽数据
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public BackData Get_CardData(int Index)
+		/// <summary>
+	/// 添加数据
+	/// </summary>
+	/// <param name="Scene">物体</param>
+	/// <param name="sonsume">消耗</param>
+	/// <param name="CD">冷却</param>
+	/// <param name="RemoveCD">游戏开始时减少冷却</param>
+	/// <param name="Scale">大小</param>
+	/// <param name="Offset">材质偏移</param>
+	public void Add_Data(
+		PackedScene Scene = null,
+		int sonsume = 0,
+		float CD = 0,
+		float RemoveCD = 0,
+		Vec Scale = null,
+		Vec Offset = null,
+		Vec Mouse_Offset = null,
+		Vec Map_Offset = null
+	){
+		Godot.Vector2 New_Scale = new Godot.Vector2(2,2);
+		Godot.Vector2 New_Offset = new Godot.Vector2(64,87);
+		Godot.Vector2 New_Mouse_Offset = Godot.Vector2.Zero;
+		Godot.Vector2 New_Map_Offset = new Godot.Vector2(40,48);
+		if (Scale != null){
+			New_Scale = new Godot.Vector2(Scale.X,Scale.Y);
+		}
+		if (Offset != null){
+			New_Offset = new Godot.Vector2(Offset.X,Offset.Y);
+		}
+		if (Mouse_Offset != null){
+			New_Mouse_Offset = new Godot.Vector2(Mouse_Offset.X,Mouse_Offset.Y);
+		}
+		if (Mouse_Offset != null){
+			New_Map_Offset = new Godot.Vector2(Mouse_Offset.X,Map_Offset.Y);
+		}
+		Data[0].Add(Scene);
+		Data[1].Add(sonsume);
+		Data[2].Add(CD);
+		Data[3].Add(RemoveCD);
+		Data[4].Add(New_Offset);
+		Data[5].Add(New_Scale);
+		Data[6].Add(New_Mouse_Offset);
+		Data[7].Add(New_Map_Offset);
+	}
+	#endregion
+	public GlobalData Get_CardData(int Index)
 	{
 		if (Index > -1)
 		{
@@ -156,7 +207,9 @@ public partial class Card_Data : Node
 			float RemoveCD = (float)Data[3][Index];
 			Godot.Vector2 Offset = (Godot.Vector2)Data[4][Index];
 			Godot.Vector2 Scale = (Godot.Vector2)Data[5][Index]; 
-			BackData Back = new BackData(scene,consume,CD,RemoveCD,Scale,Offset);
+			Godot.Vector2 Mouse_Offset = (Godot.Vector2)Data[6][Index];
+			Godot.Vector2 Map_Offset = (Godot.Vector2)Data[7][Index];
+			GlobalData Back = new GlobalData(scene,consume,CD,RemoveCD,Scale,Offset,Mouse_Offset,Map_Offset);
 			return Back;
 		}
 		else{return null;}
@@ -218,7 +271,15 @@ public partial class Card_Data : Node
 	/// <param name="RemoveCD"></param>
 	/// <param name="Scale"></param>
 	/// <param name="Offset"></param>
-	public class BackData(PackedScene @Scene,int @sonsume,float @MaxCD,float @RemoveCD,Godot.Vector2 @Scale,Godot.Vector2 @Offset,float @CD = 0)
+	public class GlobalData(
+		PackedScene @Scene,
+		int @sonsume,
+		float @CD,
+		float @RemoveCD,
+		Godot.Vector2 @Scale,
+		Godot.Vector2 @Offset,
+		Godot.Vector2 @Mouse_Offset,
+		Godot.Vector2 @Map_Offset)
 	{
 
 		/// <summary>
@@ -229,10 +290,6 @@ public partial class Card_Data : Node
 		/// 消耗
 		/// </summary>
 		public int Sonsume = @sonsume;
-		/// <summary>
-		/// 最大冷却
-		/// </summary>
-		public float MaxCD = @MaxCD;
 		/// <summary>
 		/// 当前CD
 		/// </summary>
@@ -249,6 +306,8 @@ public partial class Card_Data : Node
 		/// 材质偏移
 		/// </summary>
 		public Godot.Vector2 Offset = @Offset;
+		public Godot.Vector2 Mouse_Offset = @Mouse_Offset;
+		public Godot.Vector2 Map_Offset = @Map_Offset;
 	}
 	#endregion
 }

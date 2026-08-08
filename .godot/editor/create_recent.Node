@@ -1,3 +1,4 @@
+CharacterBody2D
 ColorRect
 Control
 SubViewport
@@ -5,7 +6,6 @@ Sprite2D
 TouchPad_V2
 Label
 Panel
-CharacterBody2D
 TouchPad
 VBoxContainer
 CanvasLayer

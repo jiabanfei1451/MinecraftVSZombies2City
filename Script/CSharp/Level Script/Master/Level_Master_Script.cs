@@ -45,7 +45,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 草坪实例化后的数据
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Collections.Array> Lawn_Data = new Godot.Collections.Array<Godot.Collections.Array>([[]]);
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Lawn>> Lawn_Data = new Godot.Collections.Array<Godot.Collections.Array<Lawn>>([[]]);
 	/// <summary>
 	/// 自动生成草坪
 	/// </summary>
@@ -162,15 +162,15 @@ public partial class Level_Master_Script : Node2D{
 					}
 				if (Lawn_Array[Y][X] == 0){
 				Level.Lawn Lawn = LawnScene.Instantiate<Level.Lawn>();
+				Lawn.ArrayPosition = new Vector2I(X,Y);
 				Lawn.Position = Lawn_Spawn_Position + new Godot.Vector2(Lawn_Spawn_Offect.X * X,Lawn_Spawn_Offect.Y * Y) + Spawn_Offset;
 				Lawn.Name = "Lawn(" + string.Concat(X) + "," + string.Concat(Y) + ")";
 				Lawn.ME_Join += Lawn_Green;
-				Lawn.ME_Exit += Lawn_Alpha;
 				Lawn_Data[Y].Add(Lawn);
 				Lawn_Node.AddChild(Lawn);
 				}else if(Lawn_Array[Y][X] == -1)
 					{
-						ColorRect s = new ColorRect();
+						Lawn s = new Lawn();
 						Lawn_Data[Y].Add(s);
 						s.QueueFree();
 
@@ -183,22 +183,43 @@ public partial class Level_Master_Script : Node2D{
 	/// 使选中的草坪变为绿色
 	/// </summary>
 	/// <param name="This"></param>
-	public void Lawn_Green(ColorRect This)
+	public void Lawn_Green(Lawn This)
 	{
-		if (Game.Level_Script.Lawn == This){
-		This.Color = new Color(0,1,0,1);
-		Selected_Lawn = This;
-		Game.Level_Script.Lawn = This;
+		if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object == null){return;}
+		foreach (var Arra in Lawn_Data)
+		{
+			foreach (Lawn ARR in Arra)
+			{
+				for (int i = 0; i < ARR.GetChildCount(); i++)
+				{
+					if(i > 0)
+					{
+						ARR.GetChild(i).QueueFree();
+					}
+				}
+				ARR.Color =  new Color(0,0,0,0);
+			}
 		}
-	}
-	/// <summary>
-	/// 让部分草坪变为透明
-	/// </summary>
-	/// <param name="This"></param>
-	public void Lawn_Alpha(ColorRect This)
-	{
-		This.Color = new Color(0,0,0,0);
-		Selected_Lawn = This;
+		foreach (Lawn lawn in Lawn_Data[This.ArrayPosition.Y])
+		{
+			lawn.Color = new Color(1,1,1,0.5f);
+		}
+		foreach(Godot.Collections.Array<Lawn> lawns in Lawn_Data)
+		{
+			lawns[This.ArrayPosition.X].Color = new Color(1,1,1,0.5f);
+		}
+		if (Game.Level_Script.Lawn == This){
+			Game.Card_Data.GlobalData Temp_Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+			PackedScene Scene = Temp_Data.Scene;
+			Node2D new_Node2d = Scene.Instantiate<Node2D>();
+			new_Node2d.SetScript("");
+			This.AddChild(new_Node2d);
+			new_Node2d.Position = Temp_Data.Map_Offset;
+			new_Node2d.Modulate = new Color(1,1,1,0.5f);
+			This.Color = new Color(0,1,0,1);
+			Selected_Lawn = This;
+			Game.Level_Script.Lawn = This;
+		}
 	}
 	/// <summary>
 	/// 生成节点(差不多就是初始化)

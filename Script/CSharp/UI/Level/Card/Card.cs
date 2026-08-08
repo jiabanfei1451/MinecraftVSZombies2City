@@ -109,7 +109,7 @@ public partial class Card : Control
 	public async void This_Ready()
 	{
 		//初始化材质
-		Game.Card_Data.BackData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Game.Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		CharacterBody2D texture = Data.Scene.Instantiate<CharacterBody2D>();
 		GetNode<Control>("Image").AddChild(texture);
 		texture.Position = Data.Offset;
@@ -277,7 +277,7 @@ public partial class Card : Control
 		/// </summary>
 		public class Gameing()
 		{
-			public Game.Card_Data.BackData Card_Data;
+			public Game.Card_Data.GlobalData Card_Data;
 		}
 		#endregion
 	}

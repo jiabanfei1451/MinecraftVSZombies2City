@@ -1,14 +1,8 @@
 [gd_scene format=3 uid="uid://cff7if8145pjk"]
 
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/CSharp/Level Script/Level/Preface.cs" id="1_vhc43"]
-[ext_resource type="Texture2D" uid="uid://c6adwiouvitvd" path="res://Image/Level_Image/绝命矿坑.png" id="2_x1yc8"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x1yc8"]
-atlas = ExtResource("2_x1yc8")
-region = Rect2(0, 0, 1400, 1020)
-filter_clip = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
@@ -20,27 +14,23 @@ texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
 
-[node name="Map" type="Sprite2D" parent="." unique_id=272418162]
-visible = false
-position = Vector2(-700, -510)
-texture = SubResource("AtlasTexture_x1yc8")
-centered = false
-metadata/_edit_lock_ = true
-
 [node name="Map2" type="Sprite2D" parent="." unique_id=939464027]
 position = Vector2(-686, -510)
 texture = ExtResource("3_codhf")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Map3" type="Sprite2D" parent="." unique_id=178686130]
 modulate = Color(0, 0, 0, 0.39215687)
 position = Vector2(-665, -510)
 texture = SubResource("AtlasTexture_iwsnv")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="House" type="Sprite2D" parent="." unique_id=499813370]
 position = Vector2(13, 0)
 texture = ExtResource("4_jq2xn")
+metadata/_edit_lock_ = true
 
 [node name="Lawn" type="Node2D" parent="." unique_id=963705123]
 
@@ -77,3 +67,5 @@ offset_top = -2483.0
 offset_right = -672.0
 offset_bottom = 1517.0
 color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=751585144]

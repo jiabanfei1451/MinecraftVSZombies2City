@@ -24,7 +24,9 @@ public partial class Audio_Plus : AudioStreamPlayer
 		base._Ready();
 		AudioList_Object = GetTree().Root.GetNode<Audio_List>("AudioList");
 		AudioStream stream = Get_Muisc();
+		if (Audio_Type == Audio.Muisc){
 		Fade_Join();
+		}
 		if (Current_Stream != stream)
 		{
 			Current_Stream = stream;
