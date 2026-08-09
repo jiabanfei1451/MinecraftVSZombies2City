@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c2y62prxcbege"]
 
-[ext_resource type="Script" uid="uid://v0ahtauyd8ii" path="res://Script/CSharp/UI/Level/Card/Card.cs" id="1_lcctc"]
+[ext_resource type="Script" uid="uid://v0ahtauyd8ii" path="res://Script/UI/Level/Card/Card.cs" id="1_lcctc"]
 [ext_resource type="Texture2D" uid="uid://dpri4otf6rdve" path="res://Image/UI/Card/card.png" id="2_y8qfr"]
 [ext_resource type="Texture2D" uid="uid://28o38kfo56m8" path="res://Image/UI/Card/card 边框.png" id="3_cgk2d"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="4_dor43"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="5_mj3bc"]
 [ext_resource type="AudioStream" uid="uid://dnlb1y62pkmcy" path="res://Sound/UI/card/选择.ogg" id="6_86c6v"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/CSharp/Node/Audio_Plus.cs" id="7_n61xx"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="7_n61xx"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="7_ymopn"]
 
 [node name="Card" type="Control" unique_id=811847334]
@@ -21,7 +21,7 @@ offset_bottom = 216.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
 layout_direction = 2
-mouse_default_cursor_shape = 2
+mouse_filter = 1
 theme_type_variation = &"FlatButton"
 script = ExtResource("1_lcctc")
 Easing_Time = 0.2
@@ -114,7 +114,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 
 [node name="CD" type="ColorRect" parent="Cilp_Node" unique_id=1466163188]
 modulate = Color(0, 0, 0, 0.4862745)
@@ -125,8 +124,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0)
-mouse_filter = 2
-mouse_behavior_recursive = 1
 
 [node name="Button" type="Button" parent="Cilp_Node/CD" unique_id=346949648]
 modulate = Color(1, 1, 1, 0)

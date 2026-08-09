@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch1hb4dqxmmh7"]
+
+[ext_resource type="Texture2D" uid="uid://y4ouwaydj31" path="res://Object/Equipment/好友/Joker.jpg" id="1_3llgw"]
+
+[node name="HuanChong152" type="CharacterBody2D" unique_id=1210219377]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712538110]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3llgw")

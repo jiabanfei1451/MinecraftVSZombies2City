@@ -1,14 +1,14 @@
+Label
+Sprite2D
+CanvasGroup
 CharacterBody2D
 ColorRect
 Control
 SubViewport
-Sprite2D
 TouchPad_V2
-Label
 Panel
 TouchPad
 VBoxContainer
 CanvasLayer
 TextureRect
 Button
-GridContainer

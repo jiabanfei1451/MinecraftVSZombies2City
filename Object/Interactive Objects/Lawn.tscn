@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dim8rk13omwvv"]
 
-[ext_resource type="Script" uid="uid://douel45ehxor8" path="res://Script/CSharp/Level Script/Lawn.cs" id="1_ftl3w"]
+[ext_resource type="Script" uid="uid://douel45ehxor8" path="res://Script/Level Script/Lawn.cs" id="1_ftl3w"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="2_jyavh"]
 
 [node name="Lawn" type="ColorRect" unique_id=1831605041]

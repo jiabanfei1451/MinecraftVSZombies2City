@@ -35,9 +35,10 @@ CardData="*uid://cpmqdooq874b3"
 
 [display]
 
+window/size/viewport_width=1225
+window/size/viewport_height=720
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://b0cg0w4pc066j"
 display_server/stretch/scale_mode="integer"

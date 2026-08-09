@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://bllinxtvttldn"]
 
-[ext_resource type="Script" uid="uid://cluhpq6u57uck" path="res://Script/CSharp/UI/Level/Card/Tween/LevelUi.cs" id="1_cid5c"]
+[ext_resource type="Script" uid="uid://cluhpq6u57uck" path="res://Script/UI/Level/Card/Tween/LevelUi.cs" id="1_cid5c"]
 [ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/取消.ogg" id="6_i0vqy"]
 [ext_resource type="Theme" uid="uid://c5xrknm7o3j2v" path="res://UI/UI主题/主题/按钮.tres" id="7_oc2sj"]
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
-[ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/CSharp/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
-[ext_resource type="Script" uid="uid://bw8h7mmr7us05" path="res://Script/CSharp/Object/Follow_Mouse/Follow_Mouse.cs" id="8_oso7i"]
+[ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
+[ext_resource type="Script" uid="uid://bw8h7mmr7us05" path="res://Script/Object/Follow_Mouse/Follow_Mouse.cs" id="8_oso7i"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
-[ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/CSharp/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
+[ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="11_h5g1x"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
-[ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/CSharp/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
+[ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="15_b70vt"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
@@ -53,6 +53,16 @@ texture_margin_top = 20.528923
 texture_margin_right = 22.839897
 texture_margin_bottom = 22.296425
 region_rect = Rect2(0, 0, 99, 99)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ifow5"]
+font = ExtResource("11_vnl24")
+font_size = 32
+stacked_outline_count = 1
+stacked_shadow_count = 1
+stacked_outline_0/size = 2
+stacked_outline_0/color = Color(1, 1, 1, 1)
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/outline_size = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_wvhbo"]
 font = ExtResource("11_vnl24")
@@ -154,7 +164,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Select_CardUI" type="Control" parent="." unique_id=1223407967]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,9 +175,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="蓝图展示" type="Control" parent="Select_CardUI" unique_id=1590141591]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.90416664
+anchor_bottom = 1.0239583
 offset_top = -562.0
 offset_right = 594.0
 offset_bottom = 136.75
@@ -385,9 +393,9 @@ modulate = Color(0.735357, 0.735357, 0.735357, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.010521884
-anchor_top = 1.0
+anchor_top = 0.90436536
 anchor_right = 0.010521884
-anchor_bottom = 1.0
+anchor_bottom = 1.0000001
 offset_left = 1.2499999
 offset_top = -697.49994
 offset_right = 7.499999
@@ -400,8 +408,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel4" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=1102048264]
 modulate = Color(0.7372549, 0.7372549, 0.7372549, 1)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.83917195
 anchor_bottom = 1.0
 offset_left = 583.74994
 offset_top = -650.0
@@ -414,8 +422,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=519398614]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 1.0
-anchor_bottom = 1.370304
+anchor_top = 0.8917198
+anchor_bottom = 1.2620237
 offset_top = -83.75006
 offset_right = 593.74994
 offset_bottom = -6.1035156e-05
@@ -425,9 +433,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=2067816038]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.0021043764
+anchor_top = 0.88853496
+anchor_right = -0.0021043771
+anchor_bottom = 0.88853496
 offset_left = 1.2499998
 offset_top = -697.49994
 offset_right = 594.99994
@@ -436,6 +446,18 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_hna80")
 metadata/_edit_use_anchors_ = true
 
+[node name="Selected_Your_Blueprint" type="Label" parent="Select_CardUI/蓝图展示/Panel2" unique_id=1112252916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "选择你的蓝图"
+label_settings = SubResource("LabelSettings_ifow5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TouchPad_V2" type="Control" parent="Select_CardUI/蓝图展示" unique_id=1200829566]
 layout_mode = 1
 anchors_preset = 7
@@ -443,9 +465,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -190.48438
-offset_top = -73.75
-offset_right = 190.48438
+offset_left = -190.75
+offset_top = -88.75
+offset_right = 190.21875
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("14_b70vt")

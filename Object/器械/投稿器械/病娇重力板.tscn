@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8y2et6d5jwyh"]
 
 [ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="1_xgfr8"]
-[ext_resource type="PackedScene" uid="uid://du3y4377ebqq2" path="res://Object/器械/发射器.tscn" id="2_jm50e"]
+[ext_resource type="PackedScene" uid="uid://du3y4377ebqq2" path="res://Object/器械/Transmitter.tscn" id="2_jm50e"]
 [ext_resource type="Theme" uid="uid://l4176xm8imnj" path="res://UI/UI主题/MC文字主题.tres" id="3_15xua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jculc"]

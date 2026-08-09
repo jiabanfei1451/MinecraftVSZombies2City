@@ -15,6 +15,17 @@ namespace DEBUG{
     /// </summary>
 	static class Info
 	{
+        public enum ERROR_Info
+        {
+            /// <summary>
+            /// 没有脚本 错误代码: 0
+            /// </summary>
+            NOScript = 0,
+            /// <summary>
+            /// 物体没有脚本 错误代码 :1
+            /// </summary>
+            Object_no_Script = 1,
+        }
         public static string[] Info_Text = [];
         /// <summary>
         /// 打印
@@ -52,6 +63,18 @@ namespace DEBUG{
             s.Add("["+DateTimeOffset.Now.ToUniversalTime().ToString()+"]" + sd);
             Info_Text = s.ToArray<String>();
 		}
+        public static void ERROR(ERROR_Info ERROR)
+        {
+            switch (ERROR)
+            {
+                case ERROR_Info.NOScript:
+                    PrintErr("ERROR - 0:Script is Null");
+                    break;
+                case ERROR_Info.Object_no_Script:
+                    PrintErr("ERROR - 1:Object not has Script");
+                    break;
+            }
+        }
 		public static void PrintErr(params object[] what)
 		{
 			if (Data.Enable == true) {

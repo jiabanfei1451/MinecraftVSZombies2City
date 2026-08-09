@@ -6,10 +6,10 @@
 [ext_resource type="StyleBox" uid="uid://b6ulwmhcmypwb" path="res://UI/UI主题/主题需要/MC按钮悬停.tres" id="4_usfkx"]
 [ext_resource type="StyleBox" uid="uid://b7xv588q1st15" path="res://UI/UI主题/主题需要/MC按钮按下状态.tres" id="5_dfuad"]
 [ext_resource type="StyleBox" uid="uid://dfswcfh5fcy7b" path="res://UI/UI主题/主题/背景板/背景板.tres" id="6_tilnr"]
-[ext_resource type="Texture2D" uid="uid://cy5lht0fkogyg" path="res://Image/misc/button_disabled.png" id="7_pq23k"]
-[ext_resource type="Texture2D" uid="uid://bn5h68lg1rxek" path="res://Image/misc/button_pressed.png" id="8_1fgwt"]
+[ext_resource type="Texture2D" uid="uid://cy5lht0fkogyg" path="res://Test/misc/button_disabled.png" id="7_pq23k"]
+[ext_resource type="Texture2D" uid="uid://bn5h68lg1rxek" path="res://Test/misc/button_pressed.png" id="8_1fgwt"]
 [ext_resource type="Texture2D" uid="uid://d1lmk8ul6iehw" path="res://Image/UI/UI.png" id="9_6fsmu"]
-[ext_resource type="Texture2D" uid="uid://bvif77d85dy7w" path="res://Image/misc/button_2.png" id="9_vo40m"]
+[ext_resource type="Texture2D" uid="uid://bvif77d85dy7w" path="res://Test/misc/button_2.png" id="9_vo40m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fgwt"]
 texture = ExtResource("9_6fsmu")

@@ -304,6 +304,7 @@ public partial class TouchPad : Godot.Control
 		//普通模式
 		if (TouchPad_Mode == _TouchPad_Mode.Normal){
 			//触摸设备
+#region 触摸部分
 			if (Temp_Vec2.Input_Type == Vec2.Button_Type.Touch){
 				//按钮
 				if (Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Button){
@@ -315,7 +316,17 @@ public partial class TouchPad : Godot.Control
 						Click_Type = on_Click_Type.Click;
 						EmitSignal("Button_Downvoid");
 						EmitSignal("Button_Down",this,Temp_Vec2.Position);
-						
+						if (OK && Enable_Focus){
+						//如果当前状态为not则设置焦点
+							if (Click_Type == on_Click_Type.not){Click_Type = on_Click_Type.foucs;}
+							
+							if (!Focus){
+								EmitSignal("Focus_Join",this,Temp_Vec2.Position);
+								EmitSignal("Focus_Joinvoid");
+							}
+						//设置焦点状态
+						Focus = true;
+						}
 					}
 					else{
 						//拖拽状态
@@ -390,6 +401,8 @@ public partial class TouchPad : Godot.Control
 					}
 				}
 			}
+#endregion
+#region 鼠标设备
 			//鼠标设备
 			else if(Temp_Vec2.Input_Type == Vec2.Button_Type.Mouse)
 			{
@@ -463,6 +476,7 @@ public partial class TouchPad : Godot.Control
 			}
 		}
 	}
+#endregion
 	/// <summary>
 	/// 如果 <seealso cref="int"/> Index 存在时返回当前的Index 否则返回 -1
 	/// </summary>
@@ -495,6 +509,11 @@ public partial class TouchPad : Godot.Control
 				break;
 		}
 	}
+	/// <summary>
+	/// 检测速度能否触发滑动
+	/// </summary>
+	/// <param name="velocity"></param>
+	/// <returns></returns>
 	public bool Velocity(Godot.Vector2 velocity)
 	{
 		bool x = false;
@@ -521,6 +540,11 @@ public partial class TouchPad : Godot.Control
 		if (x || y){return true;}
 		return false;
 	}
+	/// <summary>
+	/// 获取数值
+	/// </summary>
+	/// <param name="event"></param>
+	/// <returns></returns>
 	public Vec2 Get_Touch_Velocity(Godot.InputEvent @event)
 	{
 		Vec2 vec = new Vec2(); 
@@ -572,6 +596,13 @@ public partial class TouchPad : Godot.Control
 		}
 		return null;
 	}
+	/// <summary>
+	/// 计算是否进入范围
+	/// </summary>
+	/// <param name="Event_Position"></param>
+	/// <param name="Object_Position"></param>
+	/// <param name="Scope"></param>
+	/// <returns></returns>
 	public bool Touch_Calculation(Godot.Vector2 Event_Position,Godot.Vector2 Object_Position,Godot.Vector2 Scope)
 	{	
 		Godot.Vector2 Calculation = (Object_Position - Event_Position) * -1;
@@ -584,6 +615,9 @@ public partial class TouchPad : Godot.Control
 			return true;
 		}
 	}
+	/// <summary>
+	/// 临时数据
+	/// </summary>
 	public class Vec2 : Object
 	{
 		public enum Button_Type{

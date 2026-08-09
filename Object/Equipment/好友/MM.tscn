@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cwvdh0ica1sas"]
+
+[ext_resource type="Texture2D" uid="uid://bns7157l4vntb" path="res://Object/Equipment/好友/MM.jpg" id="1_cir81"]
+
+[node name="HuanChong152" type="CharacterBody2D" unique_id=1210219377]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712538110]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cir81")

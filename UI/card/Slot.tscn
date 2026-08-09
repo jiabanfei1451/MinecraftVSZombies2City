@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://5805tg30ooiu"]
 
 [ext_resource type="Texture2D" uid="uid://gfnhkojwnb7r" path="res://Image/UI/Slot/energy_slot.png" id="1_djfh2"]
-[ext_resource type="Script" uid="uid://uio24h2cxw7n" path="res://Script/CSharp/UI/Level/Card/Selected_slot.cs" id="1_ro343"]
+[ext_resource type="Script" uid="uid://uio24h2cxw7n" path="res://Script/UI/Level/Card/Selected_slot.cs" id="1_ro343"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="2_ro343"]
 [ext_resource type="PackedScene" uid="uid://cmynf4hbibom4" path="res://UI/card/Placeholder_Slot.tscn" id="3_3ca1k"]
+[ext_resource type="Script" uid="uid://bi8ybqmyyi4wv" path="res://Script/Object/UIObject/ShowEquipment.cs" id="4_3ca1k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgk2d"]
 
@@ -67,7 +68,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="Panel" type="TextureRect" parent="." unique_id=799106747]
+[node name="show_equipment" type="TextureRect" parent="." unique_id=799106747]
 clip_children = 2
 layout_mode = 1
 anchors_preset = 15
@@ -80,8 +81,9 @@ offset_bottom = 1.2500076
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_djfh2")
+script = ExtResource("4_3ca1k")
 
-[node name="Label" type="Label" parent="Panel" unique_id=1531215138]
+[node name="Label" type="Label" parent="show_equipment" unique_id=1531215138]
 custom_minimum_size = Vector2(50.5, 22)
 custom_maximum_size = Vector2(50.5, 22)
 layout_mode = 0
