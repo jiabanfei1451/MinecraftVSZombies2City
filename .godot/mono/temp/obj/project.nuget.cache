@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "kwfCc/tfz4g=",
+  "dgSpecHash": "K984fxBMWq8=",
   "success": true,
-  "projectFilePath": "D:\\工具\\Godot\\项目\\MinecraftVSZombies2City\\MinecraftVSZombies2 City.csproj",
+  "projectFilePath": "D:\\Tool\\Project\\Godot\\MinecraftVSZombies2 City.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\godot.sourcegenerators\\4.7.1\\godot.sourcegenerators.4.7.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\godotsharp\\4.7.1\\godotsharp.4.7.1.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.android-arm64\\9.0.18\\microsoft.netcore.app.runtime.mono.android-arm64.9.0.18.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\godotsharpeditor\\4.7.1\\godotsharpeditor.4.7.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.29\\microsoft.netcore.app.ref.8.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.29\\microsoft.windowsdesktop.app.ref.8.0.29.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.29\\microsoft.aspnetcore.app.ref.8.0.29.nupkg.sha512"
   ],
   "logs": []
 }

@@ -6,7 +6,7 @@ MinecraftvsZombies2_City（MVZ2_City）是[痊愈加班费](https://space.bilibi
 
 使用GODOT Engine引擎制作的重制版和使用创游引擎 4.x制作的未重制版
 
-如需游玩可在[GitHub](https://github.com/jiabanfei1451/minecraftVSzombies2-CityGodot)下载预发布版源码游玩，目前仅有beta0.0.5标签拥有源代码压缩包
+如需游玩可在[GitHub](https://github.com/jiabanfei1451/minecraftVSzombies2-CityGodot)下载预发布版源码游玩
 |游戏引擎
 |-
 重制版引擎：GODOT Engine
@@ -16,7 +16,6 @@ MinecraftvsZombies2_City（MVZ2_City）是[痊愈加班费](https://space.bilibi
 # 琐事
 
 该作者曾多次强调过City只是后缀，游戏内没有真正的City（城市）
-未重制版最新版本为0.3.0-KB001
 
 # 建议构建引擎
 我们建议制作此作品同人时推荐的构建引擎为Godot4.6.3.NET
