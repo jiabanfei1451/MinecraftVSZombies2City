@@ -1,6 +1,7 @@
 # 介绍
-## Change Language: 
-### [English](#Introduction)
+|Change Language
+|-
+|[English](#Introduction)
 
 MinecraftvsZombies2_City（MVZ2_City）是[痊愈加班费](https://space.bilibili.com/3546884492757767)以MC大战僵尸2为蓝本并从零开始制作的 MVZ2 同人游戏
 >[!Warning]
@@ -29,8 +30,9 @@ MinecraftvsZombies2_City（MVZ2_City）是[痊愈加班费](https://space.bilibi
 
 # Introduction
 
-## Change Language:
-### [Chinese](#介绍)
+|切换语言:
+|-
+|[Chinese](#介绍)
 
 MinecraftvsZombies2_City (MVZ2_City) is a MVZ2 fan-made game created from scratch by [JiabanfeiQuanyv](https://space.bilibili.com/3546884492757767), based on MinecraftVSZombies2
 >[!Warning]
