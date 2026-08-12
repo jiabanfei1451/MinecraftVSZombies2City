@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tool\\Project\\Godot\\MinecraftVSZombies2 City.csproj": {}
+    "D:\\Tool\\Project\\Godot\\MVZ2_City\\MinecraftVSZombies2 City.csproj": {}
   },
   "projects": {
-    "D:\\Tool\\Project\\Godot\\MinecraftVSZombies2 City.csproj": {
+    "D:\\Tool\\Project\\Godot\\MVZ2_City\\MinecraftVSZombies2 City.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tool\\Project\\Godot\\MinecraftVSZombies2 City.csproj",
+        "projectUniqueName": "D:\\Tool\\Project\\Godot\\MVZ2_City\\MinecraftVSZombies2 City.csproj",
         "projectName": "MinecraftVSZombies2 City",
-        "projectPath": "D:\\Tool\\Project\\Godot\\MinecraftVSZombies2 City.csproj",
+        "projectPath": "D:\\Tool\\Project\\Godot\\MVZ2_City\\MinecraftVSZombies2 City.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\Tool\\Project\\Godot\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "D:\\Tool\\Project\\Godot\\MVZ2_City\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"

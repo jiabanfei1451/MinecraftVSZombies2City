@@ -21,6 +21,15 @@ public partial class Lawn : ColorRect{
 		Get_GlobalNode.Get_Card_Data(GetTree()).Selected_Change += Card_Change;
 		pad = GetNode<TouchPad>("TouchPad");
 		pad.Focus_Joinvoid += focus_Join;
+		pad.Button_Pressedvoid += pressed;
+	}
+	public void pressed()
+	{
+		Level_Master_Script Level_ = (Level_Master_Script)GetTree().CurrentScene;
+		if (Level_.Selected_Lawn != this){return;}
+		Card_Data card_Data = Get_GlobalNode.Get_Card_Data(GetTree());
+		if (card_Data.Selected_raw_Object == null){return;}
+		card_Data.Selected_raw_Object.Placed();
 	}
 	public void focus_Join()
 	{

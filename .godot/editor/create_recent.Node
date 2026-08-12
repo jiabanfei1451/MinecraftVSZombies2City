@@ -1,4 +1,10 @@
 Label
+LineEdit
+CanvasLayer
+Button
+TouchPad
+Audio_Plus
+AudioStreamPlayer
 Sprite2D
 CanvasGroup
 CharacterBody2D
@@ -6,9 +12,3 @@ ColorRect
 Control
 SubViewport
 TouchPad_V2
-Panel
-TouchPad
-VBoxContainer
-CanvasLayer
-TextureRect
-Button

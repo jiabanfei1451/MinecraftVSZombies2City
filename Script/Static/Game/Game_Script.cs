@@ -6,7 +6,8 @@ namespace Game{
 /// </summary>
 static class Level_Script : Object
 {
-	public static short Equipment_Capable = 50;
+	public static bool Card_Drag = false;
+	public static short Equipment_Capable = 91;
 	public static Godot.ColorRect Lawn;
 	public enum Calculation_Type
 	{

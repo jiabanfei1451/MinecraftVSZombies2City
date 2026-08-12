@@ -3,6 +3,7 @@ using Godot;
 using System.Threading.Tasks;
 using My_Csharp_Node;
 using Game;
+using DEBUG;
 namespace GameUI{
 public partial class Card : Control
 {
@@ -131,7 +132,9 @@ public partial class Card : Control
 		GetNode<Label>("Reduce").Text = Data.Sonsume.ToString();
 		GetNode<TouchPad>("Texture/TouchPad").Button_Pressedvoid += touchpressed;
 		GetNode<TouchPad>("Texture/TouchPad").Button_Downvoid += TouchDown;
-		GetNode<TouchPad>("Texture/TouchPad").Button_UPvoid += TouchUP;
+		if (OS.GetName() != "Windows") {
+		GetNode<TouchPad>("Texture/TouchPad").End_Dragvoid += TouchDragEnd;
+		}
 		switch (Card_Mode){
 		//选卡模式
 		case Mode.Selected_Card:
@@ -173,26 +176,14 @@ public partial class Card : Control
 		}
 	}
 	#region 触摸事件
-	public async void TouchUP()
+	public void TouchDragEnd()
 	{
-		if (Get_Selected_rawObject() != this){return;}
-		Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
-		if (level.Selected_Lawn == null){return;}
-		if (level.Selected_Lawn.Current_Object.Equipment_Object != null){return;}
-		Card_Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		Node2D node = data.Scene.Instantiate<Node2D>();
-		if (node is Level.Object.Data){
-		node.Position = data.Map_Offset;
-		level.Selected_Lawn.Current_Object.Equipment_Object = (Level.Object.Data)node;
-		level.Selected_Lawn.AddChild(node);
-		}
-		else
-		{
-			DEBUG.Info.ERROR(DEBUG.Info.ERROR_Info.Object_no_Script);
-			node.QueueFree();
-		}
+		Placed();
 	}
-	public async void TouchDown()
+	public void TouchUP()
+	{
+	}
+	public void TouchDown()
 	{
 		if (Card_Mode == Mode.Gameing)
 		{
@@ -256,10 +247,34 @@ public partial class Card : Control
 		return getCard;	
 	}
 	/// <summary>
+	/// 放置
+	/// </summary>
+	public void Placed(bool Sousume = true)
+	{
+		Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
+		Card_Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		if (Game.Level_Script.Equipment_Capable < data.Sonsume || Sousume == false){return;}
+		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){return;}
+		if (level.Selected_Lawn == null){return;}
+		Game.Level_Script.Equipment_Capable -= data.Sonsume;
+		Level.Lawn Lawn = level.Selected_Lawn;
+		Level.Object.Data node = data.Scene.Instantiate<Level.Object.Data>();
+		node.Position = data.Map_Offset;
+		node.Scale = data.Map_Scale;
+		Lawn.Current_Object.Equipment_Object = node;
+		Lawn.AddChild(Lawn.Current_Object.Equipment_Object);
+	}
+	/// <summary>
 	/// 选定
 	/// </summary>
 	public void _Selected()
 	{
+		Game.Card_Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume)
+		{
+			GetNode<Audio_Plus>("buzzer").Play();
+			return;
+		}
 		if (Selected_Audio == null)
 			{
 				Selected_Audio = GetNode<Audio_Plus>("Selected");
