@@ -245,7 +245,7 @@ public partial class Level_Master_Script : Node2D{
 			Node Get_Node = GetNode(Node_Index[Name_Index]);
 			if (Get_Node != null)
 			{
-				Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
+				Game.Get_GlobalNode.Node_Data.Add_Node(Get_Node,Node_Index[Name_Index]);
 			}
 			//否则生成
 			else
@@ -256,14 +256,14 @@ public partial class Level_Master_Script : Node2D{
 						Get_Node = new Node2D();
 						Get_Node.Name = Node_Index[Name_Index];
 						AddChild(Get_Node);
-						Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
+						Game.Get_GlobalNode.Node_Data.Add_Node(Get_Node,Node_Index[Name_Index]);
 						break;
 					case 1:
 						// 生成SubViewprot
 						Get_Node = new SubViewport();
 						Get_Node.Name = Node_Index[Name_Index];
 						AddChild(Get_Node);
-						Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
+						Game.Get_GlobalNode.Node_Data.Add_Node(Get_Node,Node_Index[Name_Index]);
 						// SubViewport设置
 						SubViewport viewport = (SubViewport)Get_Node; // 转换
 						Get_Node = new Sprite2D(); //生成纹理承载节点
@@ -272,14 +272,14 @@ public partial class Level_Master_Script : Node2D{
 						viewport.TransparentBg = true;
 						Get_Node.Name = Node_Index[Name_Index] + "Sprite2D"; //继承纹理名称
 						AddChild(Get_Node);
-						Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]); //注册名称
+						Game.Get_GlobalNode.Node_Data.Add_Node(Get_Node,Node_Index[Name_Index]); //注册名称
 						sprite.Texture = texture; //获取纹理
 						break;
 					case 2:
 						Get_Node = new CanvasGroup();
 						Get_Node.Name = Node_Index[Name_Index];
 						AddChild(Get_Node);
-						Game.Temp_Node.Add_Node(Get_Node,Node_Index[Name_Index]);
+						Game.Get_GlobalNode.Node_Data.Add_Node(Get_Node,Node_Index[Name_Index]);
 						break;
 				}
 			
@@ -293,6 +293,6 @@ public partial class Level_Master_Script : Node2D{
 				}
 			}
 		}
-		DEBUG.Info.Print(Game.Temp_Node.nodes);
+		DEBUG.Info.Print(Game.Get_GlobalNode.NodeData);
 	}
 }

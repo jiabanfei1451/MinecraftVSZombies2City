@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b75tnln3bhdt3"]
 
-[ext_resource type="AudioStream" uid="uid://casidmhjb6xn8" path="res://Sound/UI/card/铲子.ogg" id="1_w0bda"]
+[ext_resource type="AudioStream" uid="uid://casidmhjb6xn8" path="res://Sound/Souds/UI/card/铲子.ogg" id="1_w0bda"]
 [ext_resource type="Script" path="res://Script/组件/音频.gd" id="2_0l0ov"]
-[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/Cancel.ogg" id="3_88f1a"]
+[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/Souds/UI/card/Cancel.ogg" id="3_88f1a"]
 
 [node name="音效" type="Node" unique_id=1931247518]
 

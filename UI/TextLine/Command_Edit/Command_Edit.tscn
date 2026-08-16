@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="1_p5q30"]
 [ext_resource type="Script" uid="uid://dauo0agsdpefb" path="res://UI/TextLine/Command_Edit/Command_Edit.cs" id="2_prk4m"]
+[ext_resource type="Script" uid="uid://blc413ky1v12" path="res://addons/touch/Script/触摸控制器new.gd" id="3_prk4m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5q30"]
 bg_color = Color(0, 0, 0, 0)
@@ -37,6 +38,7 @@ member_keyword_colors = {
 }
 
 [node name="CommandEdit" type="CanvasLayer" unique_id=1869150785]
+layer = 30
 
 [node name="TextLine" type="VBoxContainer" parent="." unique_id=1500483758]
 anchors_preset = 9
@@ -84,3 +86,13 @@ context_menu_enabled = false
 emoji_menu_enabled = false
 syntax_highlighter = SubResource("CodeHighlighter_p5q30")
 script = ExtResource("2_prk4m")
+
+[node name="TouchPad_V2" type="Control" parent="EditNode/TextEdit" unique_id=817093542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_prk4m")
+metadata/_custom_type_script = "uid://blc413ky1v12"

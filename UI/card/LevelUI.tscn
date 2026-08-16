@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
-[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/Cancel.ogg" id="6_i0vqy"]
+[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/Souds/UI/card/Cancel.ogg" id="6_i0vqy"]
 [ext_resource type="Theme" uid="uid://c5xrknm7o3j2v" path="res://UI/UI主题/主题/按钮.tres" id="7_oc2sj"]
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="8_bf20k"]
 [ext_resource type="Script" uid="uid://c2502xkvbyj1x" path="res://Script/UI/Level/Card/NodeScript.cs" id="8_k06p6"]
@@ -16,7 +16,9 @@
 [ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="15_b70vt"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
-[ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/好.准备.安放器械！.ogg" id="18_woa1d"]
+[ext_resource type="Script" uid="uid://b8t4wfcrby1v" path="res://Script/UI/Level/Card/TipUI.cs" id="18_oso7i"]
+[ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/Souds/Game/Level/Ready.ogg" id="18_woa1d"]
+[ext_resource type="FontFile" uid="uid://b2h2yj5mfnkym" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Black.ttf" id="19_hna80"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvhbo"]
 texture = ExtResource("8_bf20k")
@@ -69,6 +71,25 @@ font = ExtResource("11_vnl24")
 font_size = 30
 outline_size = 1
 shadow_color = Color(1, 1, 1, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oso7i"]
+font = ExtResource("19_hna80")
+font_size = 36
+font_color = Color(1, 0, 0, 1)
+outline_color = Color(1, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0.42, 0.43)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ibjym"]
+font = ExtResource("11_vnl24")
+font_size = 36
+font_color = Color(0.9400848, 0.4131163, 3.85046e-07, 1)
+outline_size = 1
+outline_color = Color(0.8286289, 0.3931683, 1.92523e-07, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 0)
 
 [node name="LevelUI" type="CanvasLayer" unique_id=37875330]
@@ -434,7 +455,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Panel2" type="Panel" parent="Select_CardUI/蓝图展示" unique_id=2067816038]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0021043764
+anchor_left = -0.0021043771
 anchor_top = 0.88853496
 anchor_right = -0.0021043771
 anchor_bottom = 0.88853496
@@ -533,6 +554,59 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Text" type="Control" parent="." unique_id=1325566636]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_oso7i")
+
+[node name="Ready" type="Label" parent="Text" unique_id=2047895063]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+label_settings = SubResource("LabelSettings_oso7i")
+horizontal_alignment = 1
+
+[node name="Tip" type="Control" parent="Text" unique_id=849014833]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="ColorRect" parent="Text/Tip" unique_id=178193240]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Text" type="Label" parent="Text/Tip" unique_id=675666489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_ibjym")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="X" type="Control" parent="." unique_id=1898478021]
 layout_mode = 3

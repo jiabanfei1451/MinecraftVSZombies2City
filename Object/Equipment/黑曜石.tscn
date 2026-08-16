@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cmf2omvjtctqj"]
 
-[ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/石头挖掘音效/stone1.ogg" id="1_btkm2"]
-[ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/石头挖掘音效/stone2.ogg" id="2_grf57"]
-[ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/石头挖掘音效/stone3.ogg" id="3_jjwmf"]
-[ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/石头挖掘音效/stone4.ogg" id="4_p4d4l"]
-[ext_resource type="AudioStream" uid="uid://mppyitekgw72" path="res://Sound/黑曜石升级.ogg" id="5_n01dh"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/开大.ogg" id="6_ylwhe"]
+[ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/Souds/石头挖掘音效/stone1.ogg" id="1_btkm2"]
+[ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/石头挖掘音效/stone2.ogg" id="2_grf57"]
+[ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/石头挖掘音效/stone3.ogg" id="3_jjwmf"]
+[ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/石头挖掘音效/stone4.ogg" id="4_p4d4l"]
+[ext_resource type="AudioStream" uid="uid://mppyitekgw72" path="res://Sound/Souds/黑曜石升级.ogg" id="5_n01dh"]
+[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="6_ylwhe"]
 [ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="7_ncyls"]
 
 [sub_resource type="Resource" id="Resource_g24gl"]

@@ -1,14 +1,12 @@
 using Godot;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Reflection.Metadata;
 using System.Threading.Tasks;
 namespace Touch;
 [GlobalClass()]
 [Icon("uid://sqy1gdavdj6y")]
 public partial class TouchPad : Godot.Control
 {
+	#region Signal
 	/// <summary>
 	/// 触点按下时
 	/// </summary>
@@ -106,21 +104,22 @@ public partial class TouchPad : Godot.Control
 	/// </summary>
 	[Signal]public delegate void Focus_ExitvoidEventHandler();
 
-
+	#endregion
+	#region Variant
 	/// <summary>
 	/// 范围 仅Auto_Settings关闭时有效
 	/// </summary>
 	[ExportGroup("TouchPad")]
 	[ExportSubgroup("Attribute")]
-	[Export] public Godot.Vector2 Scope = Vector2.Zero;
+	[Export] public Godot.Vector2 Scope = Godot.Vector2.Zero;
 	/// <summary>
 	/// 拖拽判定范围
 	/// </summary>
-	[Export] public Godot.Vector2 Drag_Velocity_Scope = new Vector2(5,5);
+	[Export] public Godot.Vector2 Drag_Velocity_Scope = new Godot.Vector2(5,5);
 	/// <summary>
 	/// 触摸判定偏移
 	/// </summary>
-	[Export] public Godot.Vector2 Area_Offect = Vector2.Zero;
+	[Export] public Godot.Vector2 Area_Offect = Godot.Vector2.Zero;
 	
 	/// <summary>
 	/// 自动设置
@@ -242,6 +241,7 @@ public partial class TouchPad : Godot.Control
 	/// 循环类型
 	/// </summary>
 	[Export] public Cycle_Type Cycle_mode = Cycle_Type._PhysicsProcess;
+	#endregion
 	// Called when the node enters the scene tree for the first time.
 	public override async void _Ready() {
 		base._Ready();
@@ -276,7 +276,6 @@ public partial class TouchPad : Godot.Control
 		base._Input(@event);
 		判定(@event);
 	}
-	
 	public void 判定(Godot.InputEvent @event)
 	{
 		if (Auto_Set_Enable == true)
@@ -304,7 +303,7 @@ public partial class TouchPad : Godot.Control
 		//普通模式
 		if (TouchPad_Mode == _TouchPad_Mode.Normal){
 			//触摸设备
-#region 触摸部分
+	#region 触摸部分
 			if (Temp_Vec2.Input_Type == Vec2.Button_Type.Touch){
 				//按钮
 				if (Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Button){
@@ -476,7 +475,7 @@ public partial class TouchPad : Godot.Control
 			}
 		}
 	}
-#endregion
+	#endregion
 	/// <summary>
 	/// 如果 <seealso cref="int"/> Index 存在时返回当前的Index 否则返回 -1
 	/// </summary>

@@ -20,10 +20,14 @@ public partial class Audio_Plus : AudioStreamPlayer
 	[Export] public Audio Audio_Type = Audio.Muisc;
 	[Export] public Audio_List AudioList_Object;
 	[Export] public float fade_Time = 5;
+	[Export] public bool Auto_QueneFree = false;
 	public override void _Ready() {
 		base._Ready();
 		AudioList_Object = GetTree().Root.GetNode<Audio_List>("AudioList");
 		AudioStream stream = Get_Muisc();
+		if (Auto_QueneFree == true){
+			this.Finished += auto_QueneFree;
+		}
 		if (Audio_Type == Audio.Muisc){
 		Fade_Join();
 		}
@@ -32,6 +36,11 @@ public partial class Audio_Plus : AudioStreamPlayer
 			Current_Stream = stream;
 			Stream = stream;
 		}
+	}
+	public void auto_QueneFree()
+	{
+		this.Finished -= auto_QueneFree;
+		this.QueueFree();	
 	}
     public override void _PhysicsProcess(double delta)
     {

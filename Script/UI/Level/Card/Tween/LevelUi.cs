@@ -1,4 +1,5 @@
 using Godot;
+using My_Csharp_Node;
 using System;
 using System.Threading.Tasks;
 namespace UIObject;
@@ -6,7 +7,7 @@ public partial class LevelUi : CanvasLayer
 {
 	Tween GetTween = null;
 	// Called when the node enters the scene tree for the first time.
-	public override async void _Ready()
+	public override void _Ready()
 	{
 		show_Select_CardUI();
 		DEBUG.Info.Print(Game.Get_GlobalNode.Node_Data.Get_Node<Control>("1"));
@@ -14,7 +15,7 @@ public partial class LevelUi : CanvasLayer
 	/// <summary>
 	/// 显示选卡UI
 	/// </summary>
-	public async void show_Select_CardUI()
+	public void show_Select_CardUI()
 	{
 		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex);
 		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex_Enable);
@@ -37,18 +38,20 @@ public partial class LevelUi : CanvasLayer
 		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex);
 		DEBUG.Info.Print(Touch.Touch_Index.TouchIndex_Enable);
 		if (GetTween != null){GetTween.Kill();}
+		Tween sd = CreateTween();
+		GetTween = sd;
+		sd.TweenProperty(GetNode<Control>("Select_CardUI"),new NodePath(Control.PropertyName.OffsetTransformPosition),new Godot.Vector2(0,900),0.75).SetTrans(Game.TweenType.GetTweenType(Game.TweenType.Twee.三次));
+		await ToSignal(sd,Tween.SignalName.Finished);
+		GetNode<Control>("Level").Visible = true;
+		GetNode<Control>("Select_CardUI").Visible = false;
+		return true;
+	}
+	public void Card_Initialization()
+	{
 		foreach (GameUI.Card card in GetNode("Card").GetChildren())
 		{
 			card.Stop_While = true;
 			card.Card_Mode = GameUI.Card.Mode.Gameing;
 		}
-		Tween sd = CreateTween();
-		GetTween = sd;
-		sd.TweenProperty(GetNode<Control>("Select_CardUI"),new NodePath(Control.PropertyName.OffsetTransformPosition),new Godot.Vector2(0,900),0.75).SetTrans(Tween.TransitionType.Quart);
-		await ToSignal(sd,Tween.SignalName.Finished);
-		GetNode<Control>("Level").Visible = true;
-
-		GetNode<Control>("Select_CardUI").Visible = false;
-		return true;
 	}
 }

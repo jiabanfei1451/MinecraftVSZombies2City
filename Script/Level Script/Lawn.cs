@@ -25,6 +25,7 @@ public partial class Lawn : ColorRect{
 	}
 	public void pressed()
 	{
+		if (Current_Object.Equipment_Object != null){return;}
 		Level_Master_Script Level_ = (Level_Master_Script)GetTree().CurrentScene;
 		if (Level_.Selected_Lawn != this){return;}
 		Card_Data card_Data = Get_GlobalNode.Get_Card_Data(GetTree());
@@ -63,7 +64,6 @@ public partial class Lawn : ColorRect{
 						Level.Object.Data Temp_Get = (Level.Object.Data)Get;
 						if (Temp_Get.Enable == false)
 						{
-							Info.Print(Temp_Get.Enable);
 							Temp_Get.QueueFree();
 						}
 					}

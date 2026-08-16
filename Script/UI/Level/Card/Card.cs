@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using My_Csharp_Node;
 using Game;
 using DEBUG;
+using System;
 namespace GameUI{
 public partial class Card : Control
 {
@@ -36,6 +37,7 @@ public partial class Card : Control
 	} 
 	#endregion
 	#region Object
+	[Export] public ColorRect CD_Mask = null;
 	[Export] public Audio_Plus Selected_Audio = null;
 	[Export] public Audio_Plus Cancel_Audio = null;
 	#endregion
@@ -46,17 +48,41 @@ public partial class Card : Control
 	[ExportGroup("Card_Status")]
 	[Export] public Mode Card_Mode = Mode.Selected_Card;
 	/// <summary>
+	/// 卡槽在选定数据中的索引
+	/// </summary>
+	[Export] public int Selected_Index = -1;
+	/// <summary>
 	/// 选定
 	/// </summary>
 	[Export] public bool Selected = false;
 	/// <summary>
-	/// 卡槽索引
+	/// 卡槽索引，用于索引放置该卡槽放置的器械
 	/// </summary>
 	[Export] public int Card_Index = -1;
+	int Current_Card_Index = -1;
+	[Export] public int Sonsume = 0;
 	/// <summary>
 	/// 选定卡分身模式的物体 仅在Selected_Card模式可以使用
 	/// </summary>
 	public ModeObject Mode_Data = null;
+	/// <summary>
+	/// 冷却中
+	/// </summary>
+	[ExportSubgroup("CD")]
+	[Export] public bool CDing = false;
+	/// <summary>
+	/// 最大冷却时间
+	/// </summary>
+	[Export] public float MAXCD_Time = 0;
+	/// <summary>
+	/// 冷却时间
+	/// </summary>
+	[Export] public float CD_Time = 0;
+	[Export] public Label Show_CD_Label = null;
+	/// <summary>
+	/// 已开始第一次冷却
+	/// </summary>
+	[Export] public bool first_Time_ReduceCD = false;
 	#endregion
 	#region Easing
 	[ExportGroup("Easing")] [Export] public float Easing_Time = 0.5f;
@@ -110,7 +136,7 @@ public partial class Card : Control
 				}
 			}
 	}
-	public override async void _Ready() {
+	public override void _Ready() {
 		base._Ready();
 		This_Ready();
 		parent_Object = Get_Parent_Object();
@@ -132,6 +158,9 @@ public partial class Card : Control
 		GetNode<Label>("Reduce").Text = Data.Sonsume.ToString();
 		GetNode<TouchPad>("Texture/TouchPad").Button_Pressedvoid += touchpressed;
 		GetNode<TouchPad>("Texture/TouchPad").Button_Downvoid += TouchDown;
+		GetNode<Control>("Cilp_Node").Visible =false;
+		CD_Mask = GetNode<ColorRect>("Cilp_Node/CD");
+		Show_CD_Label = GetNode<Label>("Cilp_Node/ShowCD");
 		if (OS.GetName() != "Windows") {
 		GetNode<TouchPad>("Texture/TouchPad").End_Dragvoid += TouchDragEnd;
 		}
@@ -150,9 +179,15 @@ public partial class Card : Control
 			DEBUG.Info.Print(Mode_Data.gameing_Mode.Card_Data);
 			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);			
 			while (!Stop_While){
-				if (Temp_Tween != null){Temp_Tween.Kill();}
-				Temp_Tween = CreateTween();
-				Temp_Tween.TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
+				if (this == null){return;}
+				if (Temp_Tween != null){
+					Temp_Tween.Kill();
+					Temp_Tween = null;
+				}
+				if (Temp_Tween == null){
+					Temp_Tween = this.CreateTween();
+					Temp_Tween.TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
+				}
 				await Task.Delay(1000 / 60);
 			}
 			break;
@@ -161,10 +196,25 @@ public partial class Card : Control
 	/// <summary>
 	/// 被点击时
 	/// </summary>
-	public override void _PhysicsProcess(double delta) {
-		base._PhysicsProcess(delta);
+	public override void _Process(double delta) {
+		base._Process(delta);
 		switch (Card_Mode){
 			case Mode.Gameing:
+				if (first_Time_ReduceCD == false)
+				{
+					var Temp = Start_CD();
+				}
+				if (Current_Card_Index != Card_Index)
+					{
+						GetNode<Control>("Cilp_Node").Visible =true;	
+						Current_Card_Index = Card_Index;
+						Sonsume = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index).Sonsume;
+					}
+				if (Selected_Index == -1)
+					{
+						Selected_Index = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this);
+						Info.Print($"数组索引:{Selected_Index} 取值:",Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_CD[Selected_Index]);
+					}
 				if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object == this)
 				{
 					Modulate = new Color(0.5f,0.5f,0.5f,1);
@@ -172,8 +222,51 @@ public partial class Card : Control
 				{
 					Modulate = new Color(1,1,1,1);	
 				}
+				if (CD_Mask != null){
+					if (CD_Time > 0){
+						if (CDing == false)
+						{
+							CDing = true;
+						}
+						#region 显示状态切换
+						if (CD_Mask.Visible == false){
+							CD_Mask.Visible = true;
+						}
+						if (Show_CD_Label.Visible == false)
+						{
+							Show_CD_Label.Visible = true;	
+						}
+						#endregion
+						Show_CD_Label.Text = Math.Round(CD_Time,1).ToString();
+						CD_Mask.Scale = new Vector2(1,CD_Time / MAXCD_Time);
+						CD_Time -= (float)delta;
+					}
+					else
+					{	
+						#region 显示状态切换
+						if (Game.Level_Script.Equipment_Capable < Sonsume)
+						{
+							Show_CD_Label.Visible = true;	
+							Show_CD_Label.Text = "不足";
+							CD_Mask.Visible = true;
+							CD_Mask.Scale = new Vector2(1,1);
+						}
+						else
+						{
+							Show_CD_Label.Visible = false;
+							CD_Mask.Visible = false;
+						}
+						#endregion
+						if (CDing == true)
+						{
+							GetNode<AnimationPlayer>("Animation").Play("Twinkle");
+							CDing = false;
+						}
+					}
+				}
 				break;
 		}
+		
 	}
 	#region 触摸事件
 	public void TouchDragEnd()
@@ -218,7 +311,7 @@ public partial class Card : Control
 				}
 				else
 				{
-					DEBUG.Info.Print(Mode_Data.Selected_Card_Mode.is_Selected_Card_Object);
+					Info.Print(Mode_Data.Selected_Card_Mode.is_Selected_Card_Object);
 				}
 				break;
 			case Mode.is_Seleceed_Card:
@@ -253,16 +346,40 @@ public partial class Card : Control
 	{
 		Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
 		Card_Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		if (CDing == true){return;}
 		if (Game.Level_Script.Equipment_Capable < data.Sonsume || Sousume == false){return;}
 		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){return;}
 		if (level.Selected_Lawn == null){return;}
+		var Temp = Start_CD();
 		Game.Level_Script.Equipment_Capable -= data.Sonsume;
 		Level.Lawn Lawn = level.Selected_Lawn;
 		Level.Object.Data node = data.Scene.Instantiate<Level.Object.Data>();
-		node.Position = data.Map_Offset;
+		node.Position = Lawn.Position + data.Map_Offset;
 		node.Scale = data.Map_Scale;
 		Lawn.Current_Object.Equipment_Object = node;
-		Lawn.AddChild(Lawn.Current_Object.Equipment_Object);
+		Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").AddChild(Lawn.Current_Object.Equipment_Object);
+		Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null;
+	}
+	/// <summary>
+	/// 开始冷却
+	/// </summary>
+	/// <returns></returns>
+	public async Task<bool> Start_CD()
+	{
+		if (CDing == true)
+		{
+			Info.PrintErr("当前卡槽正在冷却请勿重复执行!");
+			return false;
+		}
+		Game.Card_Data.GlobalData data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		MAXCD_Time = data.CD;
+		CD_Time = data.CD;
+		if (first_Time_ReduceCD == false)
+		{
+			CD_Time -= data.First_Time_RemoveCD;
+			first_Time_ReduceCD = true;
+		}
+		return true;
 	}
 	/// <summary>
 	/// 选定
@@ -270,7 +387,7 @@ public partial class Card : Control
 	public void _Selected()
 	{
 		Game.Card_Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume)
+		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
 		{
 			GetNode<Audio_Plus>("buzzer").Play();
 			return;

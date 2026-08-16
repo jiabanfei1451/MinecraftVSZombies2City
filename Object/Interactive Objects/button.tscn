@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bft0faqonck1h"]
 
-[ext_resource type="Script" uid="uid://bqncl76oyxqll" path="res://Script/Scene Script/Level-Button/Level-Button.gd" id="1_ybi62"]
+[ext_resource type="Script" path="res://Script/Scene Script/Level-Button/Level-Button.gd" id="1_ybi62"]
 [ext_resource type="Texture2D" uid="uid://bfwevmciduc6p" path="res://Image/Level-Button/LevelButton.png" id="2_6err8"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="3_qrhcs"]
 [ext_resource type="Script" uid="uid://bipb8tqmjfceb" path="res://addons/touch/Script/touch.gd" id="4_obqig"]
 [ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="5_o6rnx"]
-[ext_resource type="AudioStream" uid="uid://1sawltbm45jp" path="res://Sound/Scene/Level-Button/spring.ogg" id="6_6err8"]
+[ext_resource type="AudioStream" uid="uid://1sawltbm45jp" path="res://Sound/Souds/Scene/Level-Button/spring.ogg" id="6_6err8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4eds"]
 atlas = ExtResource("2_6err8")

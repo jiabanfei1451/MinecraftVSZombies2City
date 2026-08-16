@@ -15,7 +15,7 @@ public partial class Card_Data : Node
 	new Godot.Collections.Array(){},
 	// 冷却2
 	new Godot.Collections.Array(){},
-	// 开局减免3
+	// 第一次冷却减免3
 	new Godot.Collections.Array(){},
 	// 展示坐标偏移4
 	new Godot.Collections.Array(){},
@@ -28,10 +28,11 @@ public partial class Card_Data : Node
 	// 地图大小8
 	new Godot.Collections.Array(){}
 	};
-	[Export] public Godot.Collections.Array<Godot.Collections.Array> Selected_Data = new Godot.Collections.Array<Godot.Collections.Array>()
-	{
-		new Godot.Collections.Array(){}
-	};
+	/// <summary>
+	/// 已选择卡槽的剩余冷却
+	/// </summary>
+	[Export] public Godot.Collections.Array<float> Selected_CD = new Godot.Collections.Array<float>()
+	{};
 	/// <summary>
 	/// 选卡物体原数据
 	/// </summary>
@@ -69,6 +70,14 @@ public partial class Card_Data : Node
 		Add_Data(GD.Load<PackedScene>("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(GD.Load<PackedScene>("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
 		#endregion
+	}
+	public void CD_Initialization()
+	{
+		Selected_CD.Resize(Data[0].Count);
+		for (int i = 0 ; i < Selected_CD.Count; i++)
+		{
+			Selected_CD[i] = 0;
+		}
 	}
 	/// <summary>
 	/// 初始化
@@ -283,7 +292,7 @@ public partial class Card_Data : Node
 	/// <param name="Scene">场景</param>
 	/// <param name="sonsume">消耗</param>
 	/// <param name="CD">冷却</param>
-	/// <param name="RemoveCD">游戏开始时减少冷却</param>
+	/// <param name="First_Time_RemoveCD">游戏开始时减少冷却</param>
 	/// <param name="Scale">大小</param>
 	/// <param name="Offset">偏移</param>
 	/// <param name="Mouse_Offset">光标坐标偏移</param>
@@ -293,7 +302,7 @@ public partial class Card_Data : Node
 		PackedScene @Scene,
 		short @sonsume,
 		float @CD,
-		float @RemoveCD,
+		float @First_Time_RemoveCD,
 		Godot.Vector2 @Scale,
 		Godot.Vector2 @Offset,
 		Godot.Vector2 @Mouse_Offset,
@@ -311,13 +320,13 @@ public partial class Card_Data : Node
 		/// </summary>
 		public short Sonsume = @sonsume;
 		/// <summary>
-		/// 当前CD
+		/// 冷却时间
 		/// </summary>
 		public float CD = @CD;
 		/// <summary>
-		/// 游戏开始时减少冷却
+		/// 首次冷却时减少冷却
 		/// </summary>
-		public float RemoveCD = @RemoveCD;
+		public float First_Time_RemoveCD = @First_Time_RemoveCD;
 		/// <summary>
 		/// 材质大小
 		/// </summary>

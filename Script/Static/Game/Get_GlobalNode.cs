@@ -11,7 +11,7 @@ static class Get_GlobalNode
 	/// <summary>
 	/// 当前关卡可读取的节点数据
 	/// </summary>
-	static Godot.Collections.Array<Godot.Collections.Array> NodeData = new Godot.Collections.Array<Godot.Collections.Array>()
+	public static Godot.Collections.Array<Godot.Collections.Array> NodeData = new Godot.Collections.Array<Godot.Collections.Array>()
 	{
 		// Node
 		new Godot.Collections.Array(){},
@@ -59,11 +59,14 @@ static class Get_GlobalNode
 					break;
 			}
 			DEBUG.Info.Print(NodeData[0].Count);
+			if (index < 0){return null;}
 			if (index < NodeData[0].Count)
 			{
+				GD.Print($"索引:{index}");
 				Get = (Node)NodeData[0][index];
 			}else
 			{
+				GD.Print("?");
 				Get = null;
 			}
 			return Get as T;

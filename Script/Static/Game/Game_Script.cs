@@ -7,7 +7,10 @@ namespace Game{
 static class Level_Script : Object
 {
 	public static bool Card_Drag = false;
-	public static short Equipment_Capable = 91;
+	/// <summary>
+	/// 器械能
+	/// </summary>
+	public static short Equipment_Capable = 200;
 	public static Godot.ColorRect Lawn;
 	public enum Calculation_Type
 	{
@@ -15,21 +18,9 @@ static class Level_Script : Object
 		Remove = 1,
 		Selection = 2,
 	}
-	public static short Remove_Equipment_Capable(short Number)
-	{
-		Equipment_Capable -= Number;
-		return Equipment_Capable;
-	}
-	public static short Add_Equipment_Capable(short Number)
-	{
-		Equipment_Capable += Number;
-		return Equipment_Capable;
-	}
-	public static short Set_Equipment_Capable(short Number)
-	{
-		Equipment_Capable -= Number;
-		return Equipment_Capable;
-	}
+	/// <summary>
+	/// 初始化
+	/// </summary>
 	public static void initialize()
 	{
 		Equipment_Capable = 50;	

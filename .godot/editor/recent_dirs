@@ -1,3 +1,7 @@
+res://Object/Equipment/
+res://R18n/
+res://
+res://Script/UI/Level/Card/
 D:/Tool/Project/
 D:/工具/Godot/导出/
 D:/godot/bin/
@@ -12,7 +16,6 @@ res://Image/UI/Button/MOPUI/MOP_UI_Theme/
 res://Image/UI/Button/MOPUI/
 res://UI/card/
 res://2/Icon/
-res://
 res://UI/TextLine/Command_Edit/
 D:/工具/Godot/version/Godot_v4.7.1-stable_mono_win64/
 res://addons/touch/Script/C Sharp/

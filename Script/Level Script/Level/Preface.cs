@@ -9,7 +9,6 @@ public partial class Preface : Level_Master_Script
     public override async void _Ready() {
         
         base._Ready();
-        await ToSignal(GetTree().CreateTimer(3),SceneTreeTimer.SignalName.Timeout);
         choose_Card();
         await ToSignal(GetTree().CreateTimer(6),SceneTreeTimer.SignalName.Timeout);
         DEBUG.Info.Save_Info("C:/Info.txt");

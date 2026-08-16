@@ -59,7 +59,7 @@ public partial class NodeScript : Control
 	/// <summary>
 	/// 生成卡槽
 	/// </summary>
-	public async void Summand_Card()
+	public void Summand_Card()
 	{
 		int dex = 0;
 		foreach (Control node in GetNode<Control>("Global_Position_Index").GetChildren())

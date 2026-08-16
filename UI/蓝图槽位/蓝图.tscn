@@ -6,9 +6,9 @@
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="4_1yhyd"]
 [ext_resource type="Texture2D" uid="uid://28o38kfo56m8" path="res://Image/UI/Card/card 边框.png" id="4_vuhmo"]
 [ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="5_3wgn6"]
-[ext_resource type="AudioStream" uid="uid://dnlb1y62pkmcy" path="res://Sound/UI/card/Selected.ogg" id="6_v313u"]
+[ext_resource type="AudioStream" uid="uid://dnlb1y62pkmcy" path="res://Sound/Souds/UI/card/Selected.ogg" id="6_v313u"]
 [ext_resource type="Script" path="res://Script/组件/音频.gd" id="7_pbpnj"]
-[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/UI/card/Cancel.ogg" id="8_316vl"]
+[ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/Souds/UI/card/Cancel.ogg" id="8_316vl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ykfso"]
 atlas = ExtResource("1_ofj4x")

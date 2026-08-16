@@ -56,7 +56,9 @@ namespace DEBUG{
             String sd = "";
             foreach (var ds in what)
             {
-                sd += ds.ToString();
+                if (ds != null){
+                    sd += ds.ToString();
+                }
             }
             if (!Data.Auto_Add_Info){return;}
             List<String> s = new List<string>(Info_Text);

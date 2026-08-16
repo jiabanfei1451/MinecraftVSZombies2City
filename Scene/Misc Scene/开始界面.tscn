@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://df03u8hamm06t"]
 
-[ext_resource type="Script" uid="uid://dpofwyeos6kcw" path="res://Script/UIscript/场景脚本/开始界面.gd" id="1_4jfjb"]
+[ext_resource type="Script" path="res://Script/UIscript/场景脚本/开始界面.gd" id="1_4jfjb"]
 [ext_resource type="FontFile" uid="uid://c648sdvgjnhyj" path="res://Font/HYPixel11pxU-2.ttf" id="3_ldvf4"]
 [ext_resource type="PackedScene" uid="uid://bu5sil4uavngv" path="res://UI/第二层/按钮/按钮.tscn" id="3_qujov"]
-[ext_resource type="Script" uid="uid://rijcxcod2xqk" path="res://Script/开始游戏按钮.gd" id="4_k7g5d"]
-[ext_resource type="AudioStream" uid="uid://b60h48bgorsrw" path="res://Sound/MC按钮点击.ogg" id="5_qujov"]
-[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://Script/组件/音频.gd" id="5_tv76o"]
-[ext_resource type="FontFile" uid="uid://dxovffsca2jsd" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans/HarmonyOS_Sans_Black.ttf" id="6_m38fi"]
+[ext_resource type="Script" path="res://Script/开始游戏按钮.gd" id="4_k7g5d"]
+[ext_resource type="AudioStream" uid="uid://b60h48bgorsrw" path="res://Sound/Souds/MC按钮点击.ogg" id="5_qujov"]
+[ext_resource type="Script" path="res://Script/组件/音频.gd" id="5_tv76o"]
+[ext_resource type="FontFile" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans/HarmonyOS_Sans_Black.ttf" id="6_m38fi"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ldvf4"]
 load_path = "res://.godot/imported/开始界面.png-cc1e9b6da932b869035e590b1d3d5b2b.ctex"
