@@ -9,115 +9,25 @@
 
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_wvhbo"]
 
-[sub_resource type="Animation" id="Animation_6dm62"]
-length = 0.06666667
+[sub_resource type="Animation" id="Animation_adcis"]
+length = 2.9333334
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("手:rotation")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Skeleton2D/Subject/Body/Hand2:rotation")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.33333334, 0.53, 0.7, 1, 1.2333333, 1.4250001, 1.6916667, 1.8916667, 2.083859, 2.4423249),
+"transitions": PackedFloat32Array(-2, 1, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 0.7853981633974483, 0.9075712110370514, 0.7819075048934598, 0.7853982, -1.0122909661567112, -0.8290313946973066, -0.2181661564992912, 0.2879793265790644, 0.49741883681838395, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("手2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_e0qyl"]
-resource_name = "手_挖掘"
-length = 0.6
-step = 0.1
-capture_included = true
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("手:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(0.8, -2, 1),
-"update": 2,
-"values": [0.0, 0.13962634015954636, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("手2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(0.8, -2, 1),
-"update": 2,
-"values": [0.0, 0.13962634015954636, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_5kiw1"]
-resource_name = "手（摆动）"
-capture_included = true
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("手:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(0.8, -2, 1),
-"update": 2,
-"values": [0.0, 0.05235987755982989, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("手2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(0.8, -2, 1),
-"update": 2,
-"values": [0.0, 0.08726646259971647, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dbgh"]
-_data = {
-&"RESET": SubResource("Animation_6dm62"),
-&"手_挖掘": SubResource("Animation_e0qyl"),
-&"手（摆动）": SubResource("Animation_5kiw1")
-}
-
-[sub_resource type="Animation" id="Animation_xat8n"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [0.0, 1.5707963267948966]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("手2:rotation")
+tracks/1/path = NodePath("Skeleton2D/Subject/Body/Hand2:skew")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -129,7 +39,207 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Subject/Leg/LegTexture:rotation")
+tracks/2/path = NodePath("Skeleton2D/Subject/Body/Hand:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.34166667, 0.53, 0.7, 0.9916667, 1.2250001, 1.4250001, 1.6916667, 1.8916667, 2.083859, 2.4423249),
+"transitions": PackedFloat32Array(-2, 1, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [0.0, 1.136209343048309, 1.2409290981679688, 1.0262536001726659, 1.1362094, -0.9669124056048581, -0.8098327729253685, -0.1308996938995747, 0.2181661564992912, 0.2879793265790644, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Subject/Body/Hand:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Subject/Body:skew")
+tracks/4/interp = 3
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/Subject/Body:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.34166667, 0.5, 0.7, 1, 1.2333333, 1.4250001, 1.6916667, 1.8880484, 2.083859, 2.4423249),
+"transitions": PackedFloat32Array(2, 0.5, -2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [0.0, 0.10995574287564296, 0.16231562043547285, 0.05934119456780681, 0.1710422666954445, -0.5532693728822022, -0.7365289443416069, 0.08726646259971647, 0.12217304763960307, -0.061086523819801536, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/Subject/Body/Bodytexture/Haed:skew")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/Subject/Body/Bodytexture/Haed:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.53333336, 0.7, 1, 1.2333333, 1.4250001, 1.6916667, 1.8916667, 2.083859, 2.4423249),
+"transitions": PackedFloat32Array(-2, 1, 2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 1),
+"update": 0,
+"values": [0.0, -0.16580627893946132, -0.08726646259971647, -0.22689280275926285, -0.16580628, -0.4537856055185257, -0.2617993877991494, 0.11344640137963143, 0.15707963267948966, 0.13962634015954636, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3rh0c"]
+length = 3.3333333
+loop_mode = 2
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Subject/Body/Hand2:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7666667, 3.3333333),
+"transitions": PackedFloat32Array(-2, -1.6817932, 1),
+"update": 0,
+"values": [0.0, 0.17627825445142767, 0.017453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Subject/Body/Hand2:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Subject/Body/Hand:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4666668, 3.3),
+"transitions": PackedFloat32Array(-1.4640856, -1.741101, 0.8),
+"update": 0,
+"values": [0.0, 0.13962634015954636, -0.03490658503988659]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Subject/Body/Hand:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Subject/Body:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4333335, 3.3),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.017453292519943295]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/Subject/Body:skew")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/Subject/Body/Bodytexture/Haed:skew")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [0.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/Subject/Body/Bodytexture/Haed:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.9333333, 3.2666667),
+"transitions": PackedFloat32Array(-2, 0.7578583, -2),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6dm62"]
+length = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Subject/Body/Hand2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Subject/Body/Hand2:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Subject/Body/Hand:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -141,7 +251,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("手:rotation")
+tracks/3/path = NodePath("Skeleton2D/Subject/Body/Hand:skew")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -150,10 +260,60 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Subject/Body:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/Subject/Body:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/Subject/Body/Bodytexture/Haed:skew")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/Subject/Body/Bodytexture/Haed:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nfmb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3dbgh"]
 _data = {
-&"死亡": SubResource("Animation_xat8n")
+&"Hand_Dig": SubResource("Animation_adcis"),
+&"Hand_Swing": SubResource("Animation_3rh0c"),
+&"RESET": SubResource("Animation_6dm62")
 }
 
 [sub_resource type="Animation" id="Animation_13cn4"]
@@ -425,7 +585,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6kba"]
 size = Vector2(20, 90)
 
-[node name="僵尸" type="CharacterBody2D" unique_id=838965622 groups=["怪物"]]
+[node name="Zombies" type="CharacterBody2D" unique_id=838965622 groups=["怪物"]]
 z_as_relative = false
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=907380684]
@@ -434,19 +594,15 @@ modification_stack = SubResource("SkeletonModificationStack2D_wvhbo")
 [node name="Subject" type="Bone2D" parent="Skeleton2D" unique_id=429935977]
 position = Vector2(-1.5940285, -61.595554)
 rest = Transform2D(40, 40, 40, 40, 40, 0)
-auto_calculate_length_and_angle = false
-length = 16.0
-bone_angle = 90.0
 
 [node name="Leg" type="Bone2D" parent="Skeleton2D/Subject" unique_id=1963176867]
 position = Vector2(-3.435943, 30.360535)
 rotation = 1.5707964
-scale = Vector2(0.999843, 0.999843)
+scale = Vector2(0.99982923, 0.99982923)
 rest = Transform2D(0.76, 0, 1.925, 0, 0, 0)
 auto_calculate_length_and_angle = false
-length = 16.0
-bone_angle = 90.0
-editor_settings/show_bone_gizmo = false
+length = 31.269
+bone_angle = -10.298999
 
 [node name="LegTexture" type="Sprite2D" parent="Skeleton2D/Subject/Leg" unique_id=1012561622]
 z_as_relative = false
@@ -459,12 +615,11 @@ offset = Vector2(4, 15)
 [node name="Leg2" type="Bone2D" parent="Skeleton2D/Subject" unique_id=581157156]
 position = Vector2(-0.44494128, 33.528168)
 rotation = 1.5707964
-scale = Vector2(0.99984384, 0.99984384)
+scale = Vector2(0.9998368, 0.9998368)
 rest = Transform2D(0.76, 0, 1.925, 0, 0, 0)
 auto_calculate_length_and_angle = false
-length = 16.0
-bone_angle = 90.0
-editor_settings/show_bone_gizmo = false
+length = 31.269
+bone_angle = -7.631999
 
 [node name="LegTexture" type="Sprite2D" parent="Skeleton2D/Subject/Leg2" unique_id=1448498021]
 z_as_relative = false
@@ -474,44 +629,58 @@ rotation = -1.5707964
 texture = ExtResource("1_milox")
 offset = Vector2(4, 15)
 
-[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Subject" unique_id=2090594731]
+[node name="Body" type="Bone2D" parent="Skeleton2D/Subject" unique_id=2090594731]
+position = Vector2(-1.4059715, 25.595554)
+scale = Vector2(0.99981976, 0.99981976)
 rest = Transform2D(0, 0, 1, 0, 0, 0)
+editor_settings/show_bone_gizmo = false
+
+[node name="Hand2" type="Bone2D" parent="Skeleton2D/Subject/Body" unique_id=1633492514]
+position = Vector2(5.9999995, -22)
+scale = Vector2(0.9998295, 0.9998295)
+rest = Transform2D(0.76, 0, 1.925, 0, 0, 0)
 auto_calculate_length_and_angle = false
-length = 1.0
-bone_angle = 0.0
+length = 31.269
+bone_angle = -184.03899
 
-[node name="身体" type="Sprite2D" parent="Skeleton2D/Subject/Bone2D" unique_id=1443924810]
+[node name="HandTexture" type="Sprite2D" parent="Skeleton2D/Subject/Body/Hand2" unique_id=975059091]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(0.53429985, 14.475487)
-texture = ExtResource("3_0hs0x")
-
-[node name="手2" type="Sprite2D" parent="." unique_id=63302073]
-z_as_relative = false
-texture_filter = 1
-position = Vector2(6.6100883, -58.5)
-skew = 0.087266445
+position = Vector2(4.000636, 1.4311149e-06)
 texture = ExtResource("2_t861y")
 offset = Vector2(-20, -1)
 
-[node name="头" type="Sprite2D" parent="." unique_id=597025696]
+[node name="Bodytexture" type="Sprite2D" parent="Skeleton2D/Subject/Body" unique_id=1443924810]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(-1.3899117, -65.5)
+position = Vector2(2, -11)
+texture = ExtResource("3_0hs0x")
+
+[node name="Haed" type="Sprite2D" parent="Skeleton2D/Subject/Body/Bodytexture" unique_id=597025696]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(-0.53429985, -17.475487)
 texture = ExtResource("4_xn1ud")
 offset = Vector2(0, -11)
 
-[node name="手" type="Sprite2D" parent="." unique_id=1283660904]
+[node name="Hand" type="Bone2D" parent="Skeleton2D/Subject/Body" unique_id=1806501835]
+position = Vector2(8.000001, -19)
+scale = Vector2(0.9998283, 0.9998283)
+rest = Transform2D(0.76, 0, 1.925, 0, 0, 0)
+auto_calculate_length_and_angle = false
+length = 31.269
+bone_angle = -178.56499
+
+[node name="HandTexture" type="Sprite2D" parent="Skeleton2D/Subject/Body/Hand" unique_id=63302073]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(8.610088, -56.5)
+position = Vector2(4.000636, 1.4311149e-06)
 texture = ExtResource("2_t861y")
-offset = Vector2(-19, -1)
+offset = Vector2(-20, -1)
 
-[node name="手部动画" type="AnimationPlayer" parent="." unique_id=694720033]
+[node name="Hand_Animation" type="AnimationPlayer" parent="." unique_id=694720033]
 libraries/ = SubResource("AnimationLibrary_3dbgh")
-"libraries/死亡" = SubResource("AnimationLibrary_4nfmb")
-autoplay = &"RESET"
+autoplay = &"Hand_Swing"
 playback_auto_capture_transition_type = 1
 playback_default_blend_time = 0.25
 movie_quit_on_finish = true
