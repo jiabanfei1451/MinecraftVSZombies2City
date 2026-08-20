@@ -18,8 +18,12 @@ config/version="beta0.1.3"
 run/main_scene="uid://hshuh7jvvs2k"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="jiabanfei/MVZ2_City"
+<<<<<<< Updated upstream
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 run/max_fps=60
+=======
+config/features=PackedStringArray("4.7", "Mobile")
+>>>>>>> Stashed changes
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
