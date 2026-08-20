@@ -1,14 +1,15 @@
+@tool
 @icon("uid://c8ukwanv0jfm0")
 ## 触摸控制器的2.0版本，更好的支持罢了,都叫触摸板了，你难不成还要其他形状？
 class_name TouchPad_V2
 extends Control
-signal 点击时(event:InputEvent,TouchPad:TouchPad_V2)
-signal 长按时(event:InputEvent,TouchPad:TouchPad_V2)
-signal 按下时(event:InputEvent,TouchPad:TouchPad_V2)
-signal 抬起时(event:InputEvent,TouchPad:TouchPad_V2)
-signal 拖拽开始时(event:InputEvent,TouchPad:TouchPad_V2)
-signal 拖拽时(event:InputEvent,TouchPad:TouchPad_V2)
-signal 拖拽结束时(event:InputEvent,TouchPad:TouchPad_V2)
+signal 点击时(event:InputEventScreenTouch,TouchPad:TouchPad_V2)
+signal 长按时(event:InputEventScreenTouch,TouchPad:TouchPad_V2)
+signal 按下时(event:InputEventScreenTouch,TouchPad:TouchPad_V2)
+signal 抬起时(event:InputEventScreenTouch,TouchPad:TouchPad_V2)
+signal 拖拽开始时(event:InputEventScreenDrag,TouchPad:TouchPad_V2)
+signal 拖拽时(event:InputEventScreenDrag,TouchPad:TouchPad_V2)
+signal 拖拽结束时(event:InputEventScreenDrag,TouchPad:TouchPad_V2)
 signal 点击时void()
 signal 长按时void()
 signal 按下时void()
@@ -20,29 +21,21 @@ signal 拖拽结束时void()
 var touchID : Array[int]
 ## 范围
 @export_group("Rect")
-#region
 ## 检测范围大小
 @export var Rect_size : Vector2 = Vector2(20,20)
 ## 范围矩形偏移
 @export var Rect_Offset : Vector2
 ## 自动设置范围取值由 'Size'
 @export var Auto_Set : bool = true
-#endregion
 @export_group("Pad")
-#region
-## 根据物体按下时长,如果超过阈值触发长按事件否则触发点击事件
 @export var 长按阈值 :float = 0.5
-## 开启物体的长按
 @export var 启用长按 :bool = false
-@export_enum("普通:0","可串流:1") var Touch_Mode : int = 0
-#endregion
 ## 是否处于拖拽状态
 var Draging : bool = false
 ## 按下时间
 var PreTime : float = 0
-## 按下状态
+## 按下
 var Pre : bool = 0
-var Mouse : bool = false
 func _ready() -> void:
 	初始化()
 func _process(delta: float) -> void:
@@ -60,84 +53,47 @@ func p2(delta:float):
 		PreTime = 0
 ## 进行异步_Input
 func i2(event:InputEvent):
-	if Touch_Mode == 0:
-		if event is InputEventScreenTouch:
-			if event.pressed:
-				var bs = 计算(event)
-				if bs == true:
-					if touchID.has(event.index) == true:
-						touchID.erase(event.index)
-					touchID.append(event.index)
-					emit_signal("按下时",event,$".")
-					emit_signal("按下时void")
-					Pre = true
-			else:
-				if Pre == true:
-					Pre = false
-					if Draging == true:
-						emit_signal("拖拽结束时",event,$".")
-						emit_signal("拖拽结束时void")
-						Draging = false
-					if Draging == false:
-						if PreTime >= 长按阈值 and 启用长按 == true:
-							emit_signal("长按时",event,$".")
-							emit_signal("长按时void")
-						else:
-							var vs = 计算(event)
-							if vs == true:
-								emit_signal("点击时",event,$".")
-								emit_signal("点击时void")
-						emit_signal("抬起时",event,$".")
-						emit_signal("抬起时void")
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			var bs = 计算(event)
+			if bs == true:
+				if touchID.has(event.index) == true:
 					touchID.erase(event.index)
-		if event is InputEventScreenDrag:
-			if touchID.has(event.index) == true:
-				if Draging == false:
-					Draging = true
-					emit_signal("拖拽开始时",event,$".")
-					emit_signal("拖拽开始时void")
-				else:
-					emit_signal("拖拽时",event,$".")
-					emit_signal("拖拽时void")
-	elif Touch_Mode == 1:
-		if event is InputEventScreenDrag or event is InputEventScreenTouch:
-			var s = 计算(event)
-			if s == true and Pre == false:
-				Pre = true
-				if touchID.has(event.index) == false:
-					touchID.append(event.index)
+				touchID.append(event.index)
 				emit_signal("按下时",event,$".")
 				emit_signal("按下时void")
-			elif s == false and Pre == true:
+				Pre = true
+		else:
+			if Pre == true:
 				Pre = false
-				if touchID.has(event.index):
-					touchID.erase(event.index)
-				emit_signal("抬起时",event,$".")
-				emit_signal("抬起时void")
-		if event is InputEventScreenTouch:
-			if event.pressed == false and touchID.has(event.index) and Pre == true:
-				if PreTime >= 长按阈值 and  启用长按 == true:
-					if touchID.has(event.index):
-						touchID.erase(event.index)
-					emit_signal("长按时",event,$".")
-					emit_signal("长按时void")
-				else:
-					Pre = false
-					if touchID.has(event.index):
-						touchID.erase(event.index)
-					emit_signal("点击时",event,$".")
-					emit_signal("点击时void")
-	if event is InputEventMouseMotion:
-		var s = 计算(event)
-		if s == true:
-			Mouse = true
-			emit_signal("mouse_entered")
-		elif s == false:
-			Mouse = false
-			emit_signal("mouse_exited")
+				if Draging == true:
+					emit_signal("拖拽结束时",event,$".")
+					emit_signal("拖拽结束时void")
+					Draging = false
+				if Draging == false:
+					if PreTime >= 长按阈值 and 启用长按 == true:
+						emit_signal("长按时",event,$".")
+						emit_signal("长按时void")
+					else:
+						var vs = 计算(event)
+						if vs == true:
+							emit_signal("点击时",event,$".")
+							emit_signal("点击时void")
+					emit_signal("抬起时",event,$".")
+					emit_signal("抬起时void")
+				touchID.erase(event.index)
+	if event is InputEventScreenDrag:
+		if touchID.has(event.index) == true:
+			if Draging == false:
+				Draging = true
+				emit_signal("拖拽开始时",event,$".")
+				emit_signal("拖拽开始时void")
+			else:
+				emit_signal("拖拽时",event,$".")
+				emit_signal("拖拽时void")
 ## 计算Touch是否在范围内
 func 计算(event:InputEvent):
-	if event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouseMotion:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		var mypos : Vector2 = get_global_transform_with_canvas()[2]
 		var touchpos : Vector2 = event.position
 		var myscale : Vector2 = Vector2(get_global_transform_with_canvas().x.x,get_global_transform_with_canvas().y.y)

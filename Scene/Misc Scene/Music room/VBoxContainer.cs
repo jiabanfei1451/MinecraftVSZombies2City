@@ -4,7 +4,7 @@ using Godot;
 public partial class VBoxContainer : Node {
 	public override void _Ready() {
 		base._Ready();
-		void PrintHello() {
+		async void PrintHello() {
 			for (int i = 0; i < 9; i++)
 			{
 				var Scene = GD.Load<PackedScene>("res://Scene/Misc Scene/Music room/List.tscn");

@@ -1,3 +1,4 @@
+@tool
 @icon("uid://csusj4vdseyph")
 ## 适用于config的存档
 class_name ConfigFileData
@@ -14,13 +15,27 @@ func add_Data(name:String = "node",keydata_name:String = "node",array:Array = []
 		data.append(array)
 	else:
 		data.append(array[0])
-func load_Data(name:String = "", key:String = "", Value:Variant = [],filepath:String = Dataname):
+	print(data)
+func load_Data(name:String = "", key:String = "", Value:Array = [],filepath:String = Dataname):
 	config.load(filepath)
 	if config.load(filepath) == OK:
-		if config.get_value(name,key,Value) != null:
-			return config.get_value(name,key,Value)
+		var v
+		if Value.size() > 0:
+			if Value.size() < 2:
+				v = Value[0]
+			else:
+				v = Value
+		print(Dataname)
+		print(config.get_value(name,key,v))
+		if config.get_value(name,key,v) != null:
+			print("not null")
+			return config.get_value(name,key,v)
 		else:
-			return Value
+			print("is null")
+			if v.size > 1:
+				return v
+			else:
+				return v[0]
 func save_Data(path:String = "user://",pathname:String = "data",passworld:bool = false):
 	if saveing == false:
 		saveing = true

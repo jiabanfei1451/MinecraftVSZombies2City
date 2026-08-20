@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bu52y8brjumxr"]
+
+[ext_resource type="Script" uid="uid://bipb8tqmjfceb" path="res://addons/touch/Script/touch.gd" id="1_yqmaq"]
+[ext_resource type="Theme" uid="uid://dvka2rktyelip" path="res://addons/touch/Theme/new_theme.tres" id="2_qubrq"]
+
+[node name="Node2D" type="Node2D" unique_id=1619412238]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137482986]
+
+[node name="触控按钮" type="Control" parent="CanvasLayer" unique_id=1266996520]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_qubrq")
+script = ExtResource("1_yqmaq")
+"偏移" = Vector2(20, 20)
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="触控按钮" type="Control" parent="CanvasLayer/触控按钮" unique_id=547395613]
+anchors_preset = 0
+offset_left = -27.0
+offset_top = 5.0
+offset_right = 64.0
+offset_bottom = 30.0
+theme = ExtResource("2_qubrq")
+script = ExtResource("1_yqmaq")
+"偏移" = Vector2(45.5, 12.5)
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"

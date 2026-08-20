@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dmfh4n0f07n05"]
 
+[ext_resource type="Script" uid="uid://yxnkf5q00kiw" path="res://Script/选卡动画.gd" id="1_6ud2f"]
 [ext_resource type="PackedScene" uid="uid://dwxsiq3xxwxk2" path="res://UI/遮挡.tscn" id="2_piygm"]
 
-[node name="Card_Administration" type="Node2D" unique_id=909901913]
+[node name="选卡动画" type="Node2D" unique_id=909901913]
+script = ExtResource("1_6ud2f")
 
 [node name="遮挡" parent="." unique_id=1581256646 instance=ExtResource("2_piygm")]
 visible = false
 
-[node name="Camera" type="Camera2D" parent="." unique_id=594041383]
+[node name="摄像头" type="Camera2D" parent="." unique_id=594041383]
 ignore_rotation = false
 zoom = Vector2(1.1, 1.1)

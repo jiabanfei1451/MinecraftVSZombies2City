@@ -51,8 +51,6 @@ func load_data(path:String = "null",name:String = "null"):
 		path = FilePath
 	if name == "null":
 		name = Filename
-	#region 初始化
-	printraw()
 	path = ProjectSettings.globalize_path(path) + name + ".json"
 	var file = FileAccess.open(path,FileAccess.READ) #创建变量
 	print(file.file_exists(path))
@@ -68,7 +66,6 @@ func load_data(path:String = "null",name:String = "null"):
 			return null
 	else:
 		return null
-	#endregion
 ## 读取内部数据，用于读取导出后 (Res://) 的数据，适用于手机设备内容的读取，但是这可能会加重性能负担，可使用轻量化的Load_data
 func res_load_data(path:String = "null",name:String = "null"):
 	var re = ResourceLoader

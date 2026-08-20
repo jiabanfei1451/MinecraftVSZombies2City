@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvhsodcglxjm4"]
+
+[ext_resource type="Script" uid="uid://ccmbo7kytryhk" path="res://脚本/检测.gd" id="1_gttig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwm1"]
+size = Vector2(34, 55)
+
+[node name="检测" type="Area2D" unique_id=1216636809 node_paths=PackedStringArray("父节点") groups=["判定"]]
+priority = 1
+script = ExtResource("1_gttig")
+"父节点" = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1173799647 groups=["判定"]]
+position = Vector2(-8, -23.5)
+shape = SubResource("RectangleShape2D_cwwm1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

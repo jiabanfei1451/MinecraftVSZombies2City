@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dh6wamumky7d8"]
+
+[ext_resource type="Texture2D" uid="uid://ccl8denqxgtwx" path="res://Image/UI/Error.png" id="1_o50ts"]
+[ext_resource type="Script" uid="uid://cqgiaj5bx6rum" path="res://Test/error.gd" id="1_sgfdq"]
+
+[node name="Error" type="Area2D" unique_id=1031310172]
+script = ExtResource("1_sgfdq")
+
+[node name="Error" type="Sprite2D" parent="." unique_id=1846254298]
+texture = ExtResource("1_o50ts")

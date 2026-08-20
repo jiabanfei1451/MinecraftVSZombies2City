@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bavjh2fi56p7m"]
+
+[ext_resource type="Script" uid="uid://c3k2sp2sdnbph" path="res://脚本/组件/音频.gd" id="1_p8g2i"]
+
+[node name="音频" type="AudioStreamPlayer" unique_id=1721396988]
+script = ExtResource("1_p8g2i")

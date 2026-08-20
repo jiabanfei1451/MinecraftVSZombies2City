@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bft0faqonck1h"]
+
+[ext_resource type="Script" uid="uid://bqncl76oyxqll" path="res://Script/Scene Script/Level-Button/Level-Button.gd" id="1_ybi62"]
+[ext_resource type="Texture2D" uid="uid://bfwevmciduc6p" path="res://Image/Level-Button/LevelButton.png" id="2_6err8"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="3_qrhcs"]
+[ext_resource type="Script" uid="uid://bipb8tqmjfceb" path="res://addons/touch/Script/touch.gd" id="4_obqig"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="5_o6rnx"]
+[ext_resource type="AudioStream" uid="uid://1sawltbm45jp" path="res://Sound/Scene/Level-Button/spring.ogg" id="6_6err8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4eds"]
+atlas = ExtResource("2_6err8")
+region = Rect2(51, 23, 42, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8fur"]
+atlas = ExtResource("2_6err8")
+region = Rect2(48, 6, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nbd5"]
+atlas = ExtResource("2_6err8")
+region = Rect2(3, 66, 44, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_todb2"]
+atlas = ExtResource("2_6err8")
+region = Rect2(48, 46, 48, 16)
+
+[node name="Button" type="Node2D" unique_id=1381559995]
+position = Vector2(538, 425)
+script = ExtResource("1_ybi62")
+ID = 1
+
+[node name="底座" type="Sprite2D" parent="." unique_id=1182186264]
+position = Vector2(0, -6)
+texture = SubResource("AtlasTexture_w4eds")
+
+[node name="背景" type="Sprite2D" parent="." unique_id=1541389677]
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_p8fur")
+
+[node name="Button2" type="Sprite2D" parent="." unique_id=1754350926]
+self_modulate = Color(0.013499987, 0.81, 0, 1)
+clip_children = 1
+position = Vector2(0, -10)
+texture = SubResource("AtlasTexture_4nbd5")
+
+[node name="Button" type="Sprite2D" parent="Button2" unique_id=1109528758]
+self_modulate = Color(0.013499987, 0.81, 0, 1)
+texture = SubResource("AtlasTexture_4nbd5")
+
+[node name="边框" type="Sprite2D" parent="." unique_id=802155424]
+texture = SubResource("AtlasTexture_todb2")
+
+[node name="Label" type="Label" parent="." unique_id=434732559]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 23.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.01, 0.01, 0.01, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_qrhcs")
+text = "11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Touchbutton" type="Control" parent="." unique_id=57561203 node_paths=PackedStringArray("纹理物体")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -22.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = 5.0
+focus_mode = 2
+script = ExtResource("4_obqig")
+"偏移" = Vector2(22, 15)
+notTexture = true
+"纹理物体" = NodePath("../../../../../../../../../@WindowWrapper@10779/@ScriptEditor@10778/@VBoxContainer@9993/@HBoxContainer@9994/@HBoxContainer@694963/@MenuButton@694925/@PopupMenu@694653/@PopupMenu@694941/@PanelContainer@694934")
+"物体纹理" = ExtResource("5_o6rnx")
+object_array = [null, null]
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1532268581]
+stream = ExtResource("6_6err8")

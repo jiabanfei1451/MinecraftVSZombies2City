@@ -15,47 +15,56 @@ config/name_localized={
 "ch_CN": "MinecraftVSZombies2 City"
 }
 config/version="beta0.1.3"
-run/main_scene="uid://cff7if8145pjk"
+run/main_scene="uid://hshuh7jvvs2k"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="jiabanfei/MVZ2_City"
-config/features=PackedStringArray("4.7", "C#", "Mobile")
+config/features=PackedStringArray("4.6", "C#", "Mobile")
+run/max_fps=60
 run/low_processor_mode=true
-run/low_processor_mode_sleep_usec=10000
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/image="uid://yvjefvjdokp5"
+config/icon="uid://h36bdro1snsu"
 config/windows_native_icon="res://2/Icon/City2.ico"
+
+[audio]
+
+driver/output_latency=1
 
 [autoload]
 
-AudioList="*uid://yt638ulpwvil"
-MuiscEngine="*uid://c7jdr8lln46bu"
-CommandEdit="*uid://hpvvup1148jw"
-CardData="*uid://cpmqdooq874b3"
+"音乐列表"="*uid://dyv1568phymm2"
+"精灵图列表"="*uid://qg20ddd545wi"
+"节点提供变量"="*uid://cvkwkanf0vbaq"
+"全局变量"="*uid://th8rwru8seyn"
+Game_Ready="*uid://b685w1gwqhj4m"
+"设置存储"="*uid://d0spt4jhr6bdp"
+"获取Json文本"="*uid://bmb5esni20lsd"
+MuiscEngine="*uid://cpninxbbmfjyj"
 
 [display]
 
+window/size/transparent=true
 window/subwindows/embed_subwindows=false
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/vsync/vsync_mode=0
-mouse_cursor/custom_image="uid://b0cg0w4pc066j"
+window/per_pixel_transparency/allowed=true
+window/ios/allow_high_refresh_rate=false
 display_server/stretch/scale_mode="integer"
-window/version="beta0.1.3"
 
 [dotnet]
 
-project/assembly_name="MinecraftVSZombies2 City"
+project/assembly_name="Minecraft VS Zombies2 City"
 project/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/butter_and_debug/plugin.cfg", "res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg")
+enabled=PackedStringArray("res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg", "res://addons/模板/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://Script/": "green",
+"res://2/C#Script/": "green",
 "res://Sound/": "teal",
 "res://UI/": "orange",
 "res://图片/": "gray",
@@ -231,10 +240,6 @@ pointing/emulate_mouse_from_touch=false
 rendering/root_node_layout_direction=1
 locale/locale_filter_mode=0
 
-[memory]
-
-limits/message_queue/max_size_mb=256
-
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -242,23 +247,13 @@ limits/message_queue/max_size_mb=256
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+rendering_device/fallback_to_opengl3=false
 gl_compatibility/driver="Vulkan"
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
-reflections/sky_reflections/fast_filter_high_quality=true
-global_illumination/gi/use_half_resolution=true
 textures/default_filters/anisotropic_filtering_level=3
-global_illumination/sdfgi/probe_ray_count=0
-global_illumination/sdfgi/frames_to_converge=0
-global_illumination/sdfgi/frames_to_update_lights=0
-lights_and_shadows/tighter_shadow_caster_culling=false
+viewport/transparent_background=true
 occlusion_culling/use_occlusion_culling=true
-lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=0
-lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=0
-lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=0
-lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=0
 
 [xr]
 

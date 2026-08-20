@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://bx78lmkp8si7e"]
 
 [ext_resource type="Texture2D" uid="uid://b66rva3e3mbiy" path="res://Object/素材图/zombin5.png" id="1_milox"]
-[ext_resource type="Script" path="res://Script/怪物AI/僵尸.gd" id="1_vvpvw"]
+[ext_resource type="Script" uid="uid://va6o0dx2ux58" path="res://Script/怪物AI/僵尸.gd" id="1_vvpvw"]
 [ext_resource type="Texture2D" uid="uid://bh7q48qfv8wob" path="res://Object/素材图/zombin2.png" id="2_t861y"]
 [ext_resource type="Texture2D" uid="uid://dysmprheeepu8" path="res://Object/素材图/zombin3.png" id="3_0hs0x"]
 [ext_resource type="Texture2D" uid="uid://b8jjy3thxqdcq" path="res://Object/素材图/zombin.png" id="4_xn1ud"]
 [ext_resource type="PackedScene" uid="uid://c2qbnurx2pxnj" path="res://UI/血条.tscn" id="11_e0qyl"]
-[ext_resource type="PackedScene" path="res://Script/组件/物理组件.tscn" id="13_kyjuj"]
-[ext_resource type="PackedScene" uid="uid://dvhsodcglxjm4" path="res://Object/Interactive Objects/物体检测.tscn" id="14_jofpg"]
-
+[ext_resource type="PackedScene" uid="uid://dq2hxvboug84f" path="res://Script/组件/物理组件.tscn" id="13_kyjuj"]
+[ext_resource type="PackedScene" uid="uid://dvhsodcglxjm4" path="res://Object/可互动/物体检测.tscn" id="14_jofpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g861k"]
 size = Vector2(45, 10)

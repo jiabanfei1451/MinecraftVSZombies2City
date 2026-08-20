@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bu52y8brjumxr"]
+
+[ext_resource type="Script" uid="uid://dy2s1ul6sko4h" path="res://测试/输入行测试.gd" id="2_p3e8q"]
+[ext_resource type="Theme" uid="uid://dvka2rktyelip" path="res://addons/touch/Theme/new_theme.tres" id="2_qubrq"]
+[ext_resource type="Script" uid="uid://1e5edv8mn2j6" path="res://addons/touch/Script/触控按钮.gd" id="2_wvj3s"]
+[ext_resource type="StyleBox" uid="uid://ciadyrsksiodo" path="res://addons/touch/Theme/nolan.tres" id="3_rbp2s"]
+[ext_resource type="Script" uid="uid://c4227vcbp38oc" path="res://测试/触摸控制器.gd" id="4_rbp2s"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_rbp2s"]
+
+[node name="Node2D" type="Node2D" unique_id=1619412238]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137482986]
+
+[node name="CodeEdit" type="CodeEdit" parent="CanvasLayer" unique_id=1147079748]
+offset_left = 1.0
+offset_right = 214.0
+offset_bottom = 83.0
+mouse_filter = 2
+scroll_smooth = true
+scroll_v_scroll_speed = 10.0
+minimap_draw = true
+syntax_highlighter = SubResource("CodeHighlighter_rbp2s")
+highlight_all_occurrences = true
+draw_control_chars = true
+draw_tabs = true
+draw_spaces = true
+symbol_lookup_on_click = true
+symbol_tooltip_on_hover = true
+line_folding = true
+delimiter_strings = Array[String](["\" \"", "' '"])
+code_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="Touchbutton" type="Control" parent="CanvasLayer/CodeEdit" unique_id=55771089 node_paths=PackedStringArray("纹理物体")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_qubrq")
+script = ExtResource("2_p3e8q")
+"偏移" = Vector2(20, 20)
+"纹理物体" = NodePath("@Panel@45844")
+"物体纹理" = ExtResource("3_rbp2s")
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="触控按钮" type="Control" parent="CanvasLayer" unique_id=941077891 node_paths=PackedStringArray("纹理物体")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 129.0
+offset_top = 66.0
+offset_right = 351.0
+offset_bottom = 101.0
+mouse_default_cursor_shape = 3
+theme = ExtResource("2_qubrq")
+script = ExtResource("2_wvj3s")
+"偏移" = Vector2(111, 17.5)
+"纹理物体" = NodePath("@Panel@18872")
+"物体纹理" = ExtResource("3_rbp2s")
+metadata/_custom_type_script = "uid://bipb8tqmjfceb"
+
+[node name="触摸控制器2" type="ColorRect" parent="CanvasLayer" unique_id=1376397116]
+offset_left = 176.0
+offset_top = 130.0
+offset_right = 216.0
+offset_bottom = 170.0
+mouse_filter = 2
+color = Color(0, 0.302, 1, 0.4)
+script = ExtResource("4_rbp2s")
+"范围" = Vector2(40, 40)
+metadata/_custom_type_script = "uid://sc48ukg1du60"
+
+[node name="触摸控制器3" type="ColorRect" parent="CanvasLayer" unique_id=1852899915]
+offset_left = 269.0
+offset_top = 149.0
+offset_right = 309.0
+offset_bottom = 189.0
+mouse_filter = 2
+color = Color(0, 0.302, 1, 0.4)
+script = ExtResource("4_rbp2s")
+"范围" = Vector2(40, 40)
+metadata/_custom_type_script = "uid://sc48ukg1du60"
+
+[connection signal="点击时void" from="CanvasLayer/CodeEdit/Touchbutton" to="CanvasLayer/CodeEdit/Touchbutton" method="_on_点击时void"]
+[connection signal="点击时void" from="CanvasLayer/触控按钮" to="CanvasLayer/触控按钮" method="_on_点击时void"]
+[connection signal="拖拽时" from="CanvasLayer/触摸控制器2" to="CanvasLayer/触摸控制器2" method="_on_拖拽时"]
+[connection signal="鼠标触碰时" from="CanvasLayer/触摸控制器2" to="CanvasLayer/触摸控制器2" method="_on_鼠标触碰时"]
+[connection signal="拖拽时" from="CanvasLayer/触摸控制器3" to="CanvasLayer/触摸控制器3" method="_on_拖拽时"]
+[connection signal="鼠标触碰时" from="CanvasLayer/触摸控制器3" to="CanvasLayer/触摸控制器3" method="_on_鼠标触碰时"]

@@ -1,3 +1,4 @@
+@tool
 @icon("uid://dittpp2ukt1lg")
 extends Control
 ## 适用于可多指触控设备点击操作按钮，目前可以在地图中放置使用（大概吧？）
@@ -70,7 +71,7 @@ func 按下():
 		if 启用 == true:
 			pre = true
 			if Debug == true:
-				pass
+				print(2)
 			if get_focus_mode_with_override() != 0:
 				if 按下时给予焦点给 == null:
 					grab_focus(true)
@@ -83,7 +84,7 @@ func 抬起():
 	if get_node("..").visible == true:
 		if 启用 == true:
 			if Debug == true:
-				pass
+				print(1)
 			pre = false
 			if pretime <= 短按阈值 and notPre == false:
 				emit_signal("点击时",name)

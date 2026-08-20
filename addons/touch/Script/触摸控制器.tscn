@@ -5,8 +5,5 @@
 [node name="触摸控制器" type="ColorRect" unique_id=1241107812 groups=["UI判定"]]
 offset_right = 50.0
 offset_bottom = 50.0
-focus_mode = 2
-color = Color(0, 0.302, 1, 0.4)
 script = ExtResource("1_5ssha")
-"范围" = Vector2(50, 50)
 metadata/_custom_type_script = "uid://sc48ukg1du60"
