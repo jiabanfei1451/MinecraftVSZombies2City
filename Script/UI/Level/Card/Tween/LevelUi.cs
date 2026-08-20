@@ -40,7 +40,7 @@ public partial class LevelUi : CanvasLayer
 		if (GetTween != null){GetTween.Kill();}
 		Tween sd = CreateTween();
 		GetTween = sd;
-		sd.TweenProperty(GetNode<Control>("Select_CardUI"),new NodePath(Control.PropertyName.OffsetTransformPosition),new Godot.Vector2(0,900),0.75).SetTrans(Game.TweenType.GetTweenType(Game.TweenType.Twee.三次));
+		sd.TweenProperty(GetNode<Control>("Select_CardUI"),new NodePath(Control.PropertyName.OffsetTransformPosition),new Godot.Vector2(0,900),0.75).SetTrans(Game.Get.TweenType.GetTweenType(Game.Get.TweenType.Twee.三次));
 		await ToSignal(sd,Tween.SignalName.Finished);
 		GetNode<Control>("Level").Visible = true;
 		GetNode<Control>("Select_CardUI").Visible = false;
@@ -48,8 +48,15 @@ public partial class LevelUi : CanvasLayer
 	}
 	public void Card_Initialization()
 	{
+		Key[] key_List = new Key[]{Key.Key1,Key.Key2,Key.Key3,Key.Key4,Key.Key5,Key.Key6,Key.Key7,Key.Key8,Key.Key9,Key.Key0,};
+		int Key_index = 0;
 		foreach (GameUI.Card card in GetNode("Card").GetChildren())
 		{
+			if (Key_index < 10)
+			{
+				card.Trigger_Key = key_List[Key_index];
+			}
+			Key_index += 1;
 			card.Stop_While = true;
 			card.Card_Mode = GameUI.Card.Mode.Gameing;
 		}

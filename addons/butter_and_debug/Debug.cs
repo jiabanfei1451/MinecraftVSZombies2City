@@ -25,6 +25,10 @@ namespace DEBUG{
             /// 物体没有脚本 错误代码 :1
             /// </summary>
             Object_no_Script = 1,
+            /// <summary>
+            /// 此方式,在某些情况下无法调用
+            /// </summary>
+            Invalid_method = 2,
         }
         public static string[] Info_Text = [];
         /// <summary>
@@ -74,6 +78,9 @@ namespace DEBUG{
                     break;
                 case ERROR_Info.Object_no_Script:
                     PrintErr("ERROR - 1:Object not has Script");
+                    break;
+                case ERROR_Info.Invalid_method:
+                    PrintErr($"ERROR - 2:Object Method is Invalid Because Method Script a Enable not true");
                     break;
             }
         }

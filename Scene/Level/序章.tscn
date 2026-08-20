@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
-[ext_resource type="PackedScene" uid="uid://wldy1n7d52ji" path="res://Object/Equipment/Transmitter.tscn" id="4_vhc43"]
+[ext_resource type="PackedScene" uid="uid://bx78lmkp8si7e" path="res://Object/Monster/僵尸.tscn" id="5_vhc43"]
+[ext_resource type="Script" uid="uid://cxir0ru4fseee" path="res://Script/Object/Type/Health.cs" id="5_w3plg"]
+[ext_resource type="PackedScene" uid="uid://wldy1n7d52ji" path="res://Object/Equipment/Transmitter.tscn" id="5_xb2ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
+
+[sub_resource type="Resource" id="Resource_r0ieh"]
+script = ExtResource("5_w3plg")
 
 [node name="Level" type="Node2D" unique_id=835649732]
 z_as_relative = false
@@ -14,6 +19,7 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
+Level_BGMID = "4"
 Layer_Index = PackedInt32Array(1, 2, 3)
 Node_Type = PackedInt32Array(0, 0, 2)
 
@@ -25,12 +31,14 @@ metadata/_edit_lock_ = true
 
 [node name="Map3" type="Sprite2D" parent="." unique_id=178686130]
 modulate = Color(0, 0, 0, 0.39215687)
+z_index = 20
 position = Vector2(-665, -510)
 texture = SubResource("AtlasTexture_iwsnv")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="House" type="Sprite2D" parent="." unique_id=499813370]
+z_index = 20
 position = Vector2(13, 0)
 texture = ExtResource("4_jq2xn")
 metadata/_edit_lock_ = true
@@ -71,5 +79,14 @@ offset_right = -672.0
 offset_bottom = 1517.0
 color = Color(0, 0, 0, 1)
 
-[node name="Transmitter" parent="." unique_id=765598594 instance=ExtResource("4_vhc43")]
-position = Vector2(-386, 25)
+[node name="Monster" type="Node2D" parent="." unique_id=554991016]
+
+[node name="Zombies" parent="Monster" unique_id=838965622 instance=ExtResource("5_vhc43")]
+position = Vector2(285, 32)
+Health = SubResource("Resource_r0ieh")
+
+[node name="Equipment" type="Node2D" parent="." unique_id=519040572]
+y_sort_enabled = true
+
+[node name="Transmitter" parent="." unique_id=1207108687 instance=ExtResource("5_xb2ch")]
+position = Vector2(-390, 24)

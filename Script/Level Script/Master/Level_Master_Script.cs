@@ -10,6 +10,7 @@ namespace Level;
 public partial class Level_Master_Script : Node2D{
 	#region 变量
 	[ExportCategory("看什么?难道你不知道脚本里有中文注释吗?")]
+	[ExportGroup("BGM")][Export] public String Level_BGMID = "0";
 	/// <summary>
 	/// 节点生成
 	/// </summary>
@@ -22,7 +23,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 类型分配
 	/// 0 = Node,
-	/// 1 = Viewport
+	/// 1 = Viewport,
 	/// </summary>
 	[Export] public int[] Node_Type = [0,0,1];
 	/// <summary>
@@ -129,8 +130,13 @@ public partial class Level_Master_Script : Node2D{
 		CanvasLayer layer = Scene.Instantiate<CanvasLayer>();
 		AddChild(layer);
 	}
+	/// <summary>
+	/// 完成选卡
+	/// </summary>
 	public async void Completed_Selected_Card()
 	{
+		Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").YSortEnabled = true;
+		Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Master").YSortEnabled = true;
 		Tween Twee = CreateTween();
 		Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(-105,0),1);
 		await ToSignal(Twee,Tween.SignalName.Finished);
@@ -209,18 +215,7 @@ public partial class Level_Master_Script : Node2D{
 			lawns[This.ArrayPosition.X].Color = new Color(1,1,1,0.5f);
 		}
 		if (Level_Script.Lawn == This && This.Current_Object.Equipment_Object == null){
-			Card_Data.GlobalData Temp_Data = Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
-			PackedScene Scene = Temp_Data.Scene;
-			Node2D new_Node2d = Scene.Instantiate<Node2D>();
-			new_Node2d.Name = "-1+1-1+1_CS";
-			if (new_Node2d is Level.Object.Data)
-			{
-				Level.Object.Data Temp_Node = (Level.Object.Data)new_Node2d;
-				Temp_Node.Enable = false;
-			}
-			This.AddChild(new_Node2d);
-			new_Node2d.Position = Temp_Data.Map_Offset;
-			new_Node2d.Modulate = new Color(1,1,1,0.5f);
+			This.Summand_Phantom();
 			This.Color = new Color(0,1,0,1);
 			Selected_Lawn = This;
 			Level_Script.Lawn = This;

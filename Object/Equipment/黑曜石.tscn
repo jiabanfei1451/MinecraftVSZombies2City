@@ -108,9 +108,6 @@ func _process(delta: float) -> void:
 [sub_resource type="Resource" id="Resource_v31l5"]
 metadata/__load_path__ = "res://Script/组件/音频.gd"
 
-[sub_resource type="Resource" id="Resource_y3i53"]
-metadata/__load_path__ = "res://Script/组件/物理组件.tscn"
-
 [sub_resource type="Resource" id="Resource_q6b6c"]
 metadata/__load_path__ = "res://Script/组件/音频.gd"
 
@@ -118,7 +115,7 @@ metadata/__load_path__ = "res://Script/组件/音频.gd"
 atlas = ExtResource("7_ncyls")
 region = Rect2(688, 1252, 48, 56)
 
-[node name="黑曜石" type="Area2D" unique_id=806003581 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["器械"]]
+[node name="黑曜石" type="Area2D" unique_id=806003581 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -24)
 script = SubResource("Resource_g24gl")

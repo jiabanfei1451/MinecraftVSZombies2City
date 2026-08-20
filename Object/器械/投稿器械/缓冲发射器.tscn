@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b3eg8w4jkw8lo"]
 
-[ext_resource type="Script" path="res://Object/器械/投稿器械/缓冲发射器.gd" id="1_4hn8b"]
 [ext_resource type="Texture2D" uid="uid://qnctkrhlq1y8" path="res://Test/misc/182E3D3D89DA18D376091BC33CF00D3F.png" id="1_m37q3"]
 [ext_resource type="Texture2D" uid="uid://bp5paukqmhn7x" path="res://Test/misc/095C4384EC714B9248FB3A9CE1D15267 - 副本.png" id="2_2fxwh"]
+
+[sub_resource type="Resource" id="Resource_d7ck4"]
+metadata/__load_path__ = "res://Object/器械/投稿器械/缓冲发射器.gd"
 
 [sub_resource type="Animation" id="Animation_pnjre"]
 length = 0.9
@@ -340,8 +342,8 @@ _data = {
 &"表演魔术": SubResource("Animation_ay14q")
 }
 
-[node name="缓冲发射器" type="Area2D" unique_id=1104473596 groups=["器械"]]
-script = ExtResource("1_4hn8b")
+[node name="缓冲发射器" type="Area2D" unique_id=1104473596 groups=["Equipment"]]
+script = SubResource("Resource_d7ck4")
 
 [node name="躯干" type="Sprite2D" parent="." unique_id=599362164]
 position = Vector2(0, -30)

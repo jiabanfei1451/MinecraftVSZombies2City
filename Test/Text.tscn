@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
-[ext_resource type="Script" uid="uid://dmyct7axrhhnq" path="res://Test/CharacterBody2d.cs" id="1_75sm5"]
 [ext_resource type="Script" uid="uid://dd5kn47ifj0lw" path="res://Test/area_2d.gd" id="1_gtax4"]
 
 [sub_resource type="GDScript" id="GDScript_38ak1"]
@@ -16,8 +15,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifow5"]
 
 [node name="Text" type="Node2D" unique_id=1808771749]
 script = SubResource("GDScript_38ak1")
@@ -87,20 +84,6 @@ script = ExtResource("1_gtax4")
 shape = SubResource("RectangleShape2D_wvhbo")
 
 [node name="ColorRect" type="ColorRect" parent="Area2D" unique_id=773665135]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1892283624]
-position = Vector2(212, 47)
-script = ExtResource("1_75sm5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=703150737]
-shape = SubResource("RectangleShape2D_ifow5")
-debug_color = Color(0.013561063, 0, 0.0016488035, 0.41960785)
-
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D" unique_id=264553037]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0

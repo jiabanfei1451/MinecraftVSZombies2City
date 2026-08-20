@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://5vhqfhtp874u"]
 
-[ext_resource type="Script" path="res://Script/器械AI/熔炉.gd" id="1_eumal"]
 [ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/Souds/石头挖掘音效/stone1.ogg" id="2_16xe3"]
 [ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/石头挖掘音效/stone2.ogg" id="3_xn644"]
 [ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/石头挖掘音效/stone3.ogg" id="4_olhwo"]
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/石头挖掘音效/stone4.ogg" id="5_sw2od"]
-[ext_resource type="Script" path="res://Script/组件/音频.gd" id="10_16xe3"]
 [ext_resource type="AudioStream" uid="uid://cpx8ijstvb6wx" path="res://Sound/Souds/熔炉大招产出.ogg" id="10_kol7k"]
 [ext_resource type="AudioStream" uid="uid://cguivqb2xx2yj" path="res://Sound/Souds/红石产出.ogg" id="11_6ipin"]
-[ext_resource type="PackedScene" path="res://Script/组件/物理组件.tscn" id="12_k5347"]
 [ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="12_sh54p"]
 [ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="13_u1pv1"]
 [ext_resource type="PackedScene" uid="uid://ckiok4d47oivw" path="res://Object/光源/光源.tscn" id="14_kol7k"]
+
+[sub_resource type="Resource" id="Resource_yc08q"]
+metadata/__load_path__ = "res://Script/器械AI/熔炉.gd"
 
 [sub_resource type="Animation" id="Animation_kol7k"]
 length = 0.001
@@ -87,6 +87,24 @@ func _process(delta: float) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqnmb"]
 size = Vector2(48, 48)
 
+[sub_resource type="Resource" id="Resource_nxhvr"]
+metadata/__load_path__ = "res://Script/组件/音频.gd"
+
+[sub_resource type="Resource" id="Resource_eaql3"]
+metadata/__load_path__ = "res://Script/组件/音频.gd"
+
+[sub_resource type="Resource" id="Resource_mpjf2"]
+metadata/__load_path__ = "res://Script/组件/音频.gd"
+
+[sub_resource type="Resource" id="Resource_ihyek"]
+metadata/__load_path__ = "res://Script/组件/音频.gd"
+
+[sub_resource type="Resource" id="Resource_kvl2e"]
+metadata/__load_path__ = "res://Script/组件/物理组件.tscn"
+
+[sub_resource type="Resource" id="Resource_2qv84"]
+metadata/__load_path__ = "res://Script/组件/音频.gd"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ipin"]
 atlas = ExtResource("12_sh54p")
 region = Rect2(64, 0, 64, 64)
@@ -115,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5k0ri")
 }],
-"loop": true,
+"loop": 1,
 "name": &"点燃",
 "speed": 12.0
 }, {
@@ -123,15 +141,15 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8d8c5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"熄灭",
 "speed": 5.0
 }]
 
-[node name="熔炉" type="Area2D" unique_id=806003581 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["器械"]]
+[node name="熔炉" type="Area2D" unique_id=806003581 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -24)
-script = ExtResource("1_eumal")
+script = SubResource("Resource_yc08q")
 "碰撞自动生成" = true
 "死亡音效播放节点" = NodePath("死亡音效")
 "大招音效播放节点" = NodePath("大招音效")
@@ -157,32 +175,32 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_aqnmb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=224536014]
-script = ExtResource("10_16xe3")
+script = SubResource("Resource_nxhvr")
 "选项" = "音效"
 
 [node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=2130859636]
 stream = ExtResource("11_6ipin")
-script = ExtResource("10_16xe3")
+script = SubResource("Resource_eaql3")
 "选项" = "音效"
 
 [node name="开大产出" type="AudioStreamPlayer" parent="发射音效" unique_id=1692853163]
 stream = ExtResource("10_kol7k")
 max_polyphony = 6
-script = ExtResource("10_16xe3")
+script = SubResource("Resource_mpjf2")
 "选项" = "音效"
 
 [node name="死亡音效" type="AudioStreamPlayer" parent="." unique_id=1567539103]
-script = ExtResource("10_16xe3")
+script = SubResource("Resource_ihyek")
 "选项" = "音效"
 
-[node name="物理组件" parent="." unique_id=908775390 node_paths=PackedStringArray("生成节点") instance=ExtResource("12_k5347")]
+[node name="物理组件" parent="." unique_id=908775390 node_paths=PackedStringArray("生成节点")]
 "阴影缩放" = Vector2(0.25, 0.06)
 "阴影生成向量" = Vector2(0, 25)
 "生成节点" = NodePath("..")
 
 [node name="大招音效" type="AudioStreamPlayer" parent="." unique_id=71104241]
 stream = ExtResource("13_u1pv1")
-script = ExtResource("10_16xe3")
+script = SubResource("Resource_2qv84")
 "选项" = "音效"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=539912915]

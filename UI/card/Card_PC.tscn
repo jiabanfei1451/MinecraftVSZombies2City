@@ -202,3 +202,4 @@ metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1503240152]
 libraries/ = SubResource("AnimationLibrary_62d8l")
 autoplay = &"RESET"
+speed_scale = 1.5

@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using DEBUG;
 using Godot;
+using Microsoft.VisualBasic;
 namespace Level.Object;
 /// <summary>
 /// 用于器械，怪物BOSS的整体数据
@@ -15,29 +16,43 @@ public partial class Data : CharacterBody2D
     [ExportGroup("Object")]
     [Export] public Godot.Area2D Area = null;
     /// <summary>
-    /// 启用状态
+    /// 生命类
     /// </summary>
     [ExportGroup("status")]
-    [Export] public bool Enable = true;
+    #region 生命组件
+    [ExportSubgroup("Health")] [Export] public Health Health = new Health();
+    /// <summary>
+    /// 启用生命组件
+    /// </summary>
+    [Export] public bool Enable_Health = true;
+    #endregion
+    /// <summary>
+    /// 启用状态
+    /// </summary>
+    
+    [ExportGroup("status")] [Export] public bool Enable = true;
     /// <summary>
     /// 伤害值
     /// </summary>
     [Export] public float Damage;
     /// <summary>
-    /// 生命类
-    /// </summary>
-    public _Health Health = new _Health();
-    /// <summary>
     /// 已检测到的object
     /// </summary>
     [Export] public Godot.Collections.Array<Level.Object.Data> Current_detection_object = new Godot.Collections.Array<Level.Object.Data>(){};
+    /// <summary>
+    /// 检测阵营
+    /// </summary>
     [Export]public Godot.Collections.Array<StringName> detection_Group = new Godot.Collections.Array<StringName>(){};
-    
+    /// <summary>
+    /// 排除阵营
+    /// </summary>
+    [Export] public Godot.Collections.Array<StringName> Exclude_Group = new Godot.Collections.Array<StringName>(){"Projectile","Area"};
     /// <summary>
     /// 速度
     /// </summary>
     [ExportGroup("Vector")]
     [Export] public Godot.Vector2 Speed = Vector2.Zero;
+    [Export] public float Speed_Multiplication = 1;
     [Export] public bool Move_Ing = false;
     /// <summary>
     /// 启用物理
@@ -72,9 +87,17 @@ public partial class Data : CharacterBody2D
     /// 加速度
     /// </summary>
     [Export] public float Acceleration = 0;
+    
     public override void _Ready() {
         base._Ready();
-        GD.Print(GetGroups()[0]);
+        if (!Enable_Health)
+        {
+            Health.Free();
+        }
+        else
+        {
+            Health.Reset();
+        }
         if (!Enable){return;}
         practical_Position = Position;
         Area = GetNode<Godot.Area2D>("Area");
@@ -82,18 +105,63 @@ public partial class Data : CharacterBody2D
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
         if (!Enable){return;}
+            Position = practical_Position + new Vector2(0,Height);
             if (Move_Ing == true){
-               practical_Position += Speed;
+               practical_Position += (Speed * new Vector2(Speed_Multiplication,Speed_Multiplication)) * new Vector2((float)delta,(float)delta);
         }
     }
+    public async Task Reset_Area()
+    {
+        if (!Enable)
+        {
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return;
+        }
+        Area.Monitoring = false;
+        Area.Monitorable = false;
+        await ToSignal(GetTree().CreateTimer(0.05),SceneTreeTimer.SignalName.Timeout);
+        Area.Monitoring = true;
+        Area.Monitorable = true;
+    }
     /// <summary>
-    /// 让Area变量索引的物体初始化
+    /// 检测
     /// </summary>
+    /// <param name="node"></param>
+    /// <returns></returns>
+    public bool Check_Object_Group(Node2D node)
+    {
+        if (!Enable)
+        {
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return false;
+        }
+        Godot.Collections.Array<StringName> Group_String = node.GetGroups();
+        foreach (StringName @string in Group_String)
+        {
+            if (Exclude_Group.IndexOf(@string) != -1)
+            {
+                return false;
+            }
+        }
+        foreach (StringName @string in Group_String)
+        {
+            if (detection_Group.IndexOf(@string) != -1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     /// <summary>
     /// 移除空物体
     /// </summary>
     public void Remove_Null_Object()
     {
+        if (!Enable)
+        {
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return;
+        }
         foreach(Level.Object.Data Body in Current_detection_object)
         {
             if (Body == null)
@@ -107,6 +175,11 @@ public partial class Data : CharacterBody2D
     /// </summary>
     public void Add_Object(Node2D node)
     {
+        if (!Enable)
+        {
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return;
+        }
         if (node is Level.Object.Data && node != this)
         {
             Current_detection_object.Add((Level.Object.Data)node);
@@ -118,6 +191,11 @@ public partial class Data : CharacterBody2D
     /// <param name="node"></param>
     public void Remove_Object(Node2D node)
     {
+        if (!Enable)
+        {
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return;
+        }
         if (node is Level.Object.Data && node != this){
             Level.Object.Data Body = (Level.Object.Data)node;
             if (Current_detection_object.IndexOf(Body) != -1)
@@ -132,6 +210,11 @@ public partial class Data : CharacterBody2D
     /// <param name="Index"></param>
     public void Remove_Object(int Index)
     {
+        if (!Enable)
+        {
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return;
+        }
         Current_detection_object.RemoveAt(Index);
     }
     /// <summary>
@@ -139,32 +222,19 @@ public partial class Data : CharacterBody2D
     /// </summary>
     public async Task Physics_ON()
     {
-        Physics_Enable = true;
-        while (Physics_Enable)
+        if (!Enable)
         {
-            if (Height >= 0)
-            {
-                Position = practical_Position;
-            }
+            Info.ERROR(Info.ERROR_Info.Invalid_method);
+            return;
+        }
+        Physics_Enable = true;
+        while (Physics_Enable && Enable)
+        {
             await Task.Delay((int)Math.Round(1000 / Performance.GetMonitor(Performance.Monitor.TimeFps),0));
         }
     }
     /// <summary>
     /// 生命
     /// </summary>
-    public class _Health
-    {
-        /// <summary>
-        /// 最大血量
-        /// </summary>
-        [Export] public static float MaxHP = 10;
-        /// <summary>
-        /// 最小血量
-        /// </summary>
-        [Export] public static float MinHP = 0;
-        /// <summary>
-        /// 当前血量
-        /// </summary>
-        [Export] public static float HP = MaxHP;
-    }
+
 }

@@ -39,9 +39,6 @@ func _process(delta: float) -> void:
 [sub_resource type="Resource" id="Resource_nvrs1"]
 metadata/__load_path__ = "res://Script/组件/音频.gd"
 
-[sub_resource type="Resource" id="Resource_xwrut"]
-metadata/__load_path__ = "res://Script/组件/物理组件.tscn"
-
 [sub_resource type="Resource" id="Resource_o2iia"]
 metadata/__load_path__ = "res://Script/组件/音频.gd"
 
@@ -105,7 +102,7 @@ point_count = 5
 offsets = PackedFloat32Array(0, 0.19858156, 0.4574468, 0.7340425, 1)
 colors = PackedColorArray(0.3158576, 0.25116035, 0.16831501, 1, 0.17775077, 0.12291435, 0.06900272, 1, 0.23036289, 0.1599779, 0.101546586, 1, 0.24351591, 0.14499444, 0.089728236, 1, 0.29612803, 0.29612803, 0.29612803, 1)
 
-[node name="地雷" type="Area2D" unique_id=351946721 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["器械"]]
+[node name="地雷" type="Area2D" unique_id=351946721 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -23)
 script = SubResource("Resource_jm7db")
@@ -227,11 +224,11 @@ position = Vector2(0, 19)
 scale = Vector2(1.25, 1.25)
 texture = SubResource("AtlasTexture_korwg")
 
-[node name="检测" type="Area2D" parent="." unique_id=1216636809 groups=["判定"]]
+[node name="检测" type="Area2D" parent="." unique_id=1216636809 groups=["Area"]]
 position = Vector2(0, 3)
 priority = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="检测" unique_id=1173799647 groups=["判定"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="检测" unique_id=1173799647 groups=["Area"]]
 shape = SubResource("RectangleShape2D_l0cb5")
 debug_color = Color(1, 0, 0.0333333, 0.23137255)
 

@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://caymc0p7rsog"]
 
-[ext_resource type="Script" uid="uid://ci2dsr0wqjbfr" path="res://Script/area_2d.gd" id="1_0vpb6"]
 [ext_resource type="Texture2D" uid="uid://bu88hxcq3eddc" path="res://Object/素材图/dispenser.png" id="2_idlxt"]
 [ext_resource type="Shader" uid="uid://ww76aly7osdr" path="res://Shader/着色器2.0.gdshader" id="2_u38hb"]
-[ext_resource type="PackedScene" uid="uid://dq2hxvboug84f" path="res://Script/组件/物理组件.tscn" id="3_idlxt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mly43"]
 shader = ExtResource("2_u38hb")
@@ -17,8 +15,6 @@ size = Vector2(33, 10)
 
 [node name="箭失" type="Area2D" unique_id=970804522 groups=["射弹"]]
 z_as_relative = false
-script = ExtResource("1_0vpb6")
-"速度" = Vector2(10, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=571456383]
 material = SubResource("ShaderMaterial_mly43")
@@ -28,11 +24,5 @@ texture = ExtResource("2_idlxt")
 visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5aoox")
-
-[node name="物理组件" parent="." unique_id=908775390 node_paths=PackedStringArray("生成节点") instance=ExtResource("3_idlxt")]
-"阴影缩放" = Vector2(0.19, 0.04)
-"生成节点" = NodePath("..")
-"高度偏移" = true
-"高度偏移向量" = Vector2(-2, 2)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -99,9 +99,6 @@ metadata/__load_path__ = "res://Script/组件/音频.gd"
 [sub_resource type="Resource" id="Resource_r6bg3"]
 metadata/__load_path__ = "res://Script/组件/音频.gd"
 
-[sub_resource type="Resource" id="Resource_y1u2c"]
-metadata/__load_path__ = "res://Script/组件/物理组件.tscn"
-
 [sub_resource type="Resource" id="Resource_3xfcy"]
 metadata/__load_path__ = "res://Script/组件/音频.gd"
 
@@ -146,7 +143,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="熔炉" type="Area2D" unique_id=806003581 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["器械"]]
+[node name="熔炉" type="Area2D" unique_id=806003581 node_paths=PackedStringArray("死亡音效播放节点", "大招音效播放节点", "物理节点") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -24)
 script = SubResource("Resource_yuv4g")

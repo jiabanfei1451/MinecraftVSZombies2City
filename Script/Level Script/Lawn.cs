@@ -50,6 +50,22 @@ public partial class Lawn : ColorRect{
 			SelfModulate = new Color(1,1,1,1);
 		}
 	}
+	public void Summand_Phantom()
+	{
+		Card_Data.GlobalData Temp_Data = Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		PackedScene Scene = Temp_Data.Scene;
+		Node2D new_Node2d = Scene.Instantiate<Node2D>();
+		new_Node2d.Name = "-1+1-1+1_CS";
+		if (new_Node2d is Level.Object.Data)
+		{
+			Level.Object.Data Temp_Node = (Level.Object.Data)new_Node2d;
+			Temp_Node.Enable = false;
+			Temp_Node.Enable_Health = false;
+		}
+		this.AddChild(new_Node2d);
+		new_Node2d.Position = Temp_Data.Map_Offset;
+		new_Node2d.Modulate = new Color(1,1,1,0.3f);
+	}
 	public void Free_Object(){
 		for (int i = 0; i < this.GetChildCount(); ++i)
 			{

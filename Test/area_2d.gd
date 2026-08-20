@@ -1,9 +1,5 @@
 extends Area2D
 
-
-func _on_body_entered(body: Node2D) -> void:
-	print(1)
-
-
-func _on_body_exited(body: Node2D) -> void:
-	print(2)
+func _process(delta: float) -> void:
+	rotation = get_global_mouse_position().angle_to_point(position)
+	position += Vector2(1,1).from_angle(3.14 / 180 * 45) 

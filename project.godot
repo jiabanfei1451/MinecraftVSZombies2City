@@ -72,11 +72,12 @@ import/blender/enabled.web=true
 
 [global_group]
 
-"怪物"=""
-"器械"=""
-"判定"=""
-"射弹"=""
-"UI判定"=""
+Flight="飞行单位"
+Area="判定检测区域组"
+Equipment="器械"
+Monster="怪物"
+Projectile="射弹"
+UI_Area="UI区域"
 
 [input]
 

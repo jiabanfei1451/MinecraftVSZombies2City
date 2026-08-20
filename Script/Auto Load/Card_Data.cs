@@ -63,7 +63,7 @@ public partial class Card_Data : Node
 		base._Ready();
 		Initialization();
 		#region 增加器械数据
-		Add_Data(GD.Load<PackedScene>("uid://du3y4377ebqq2"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
+		Add_Data(GD.Load<PackedScene>("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
 		Add_Data(GD.Load<PackedScene>("uid://dhqc163eiuqrd"),78,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(GD.Load<PackedScene>("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(GD.Load<PackedScene>("uid://djytruxu3c3qt"),0,0,0,new Vec(2,2),new Vec(64,87));

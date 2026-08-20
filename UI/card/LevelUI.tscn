@@ -579,6 +579,7 @@ label_settings = SubResource("LabelSettings_oso7i")
 horizontal_alignment = 1
 
 [node name="Tip" type="Control" parent="Text" unique_id=849014833]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c2qbnurx2pxnj"]
 
-[ext_resource type="Script" uid="uid://bdseq3fcwme42" path="res://Script/UIscript/血条.gd" id="1_0tqef"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="2_yux0m"]
 
 [node name="血条" type="ColorRect" unique_id=2115989242]
@@ -17,7 +16,6 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("1_0tqef")
 
 [node name="当前值" type="ColorRect" parent="." unique_id=320503046]
 modulate = Color(0.51462185, 0, 0, 1)
@@ -28,8 +26,8 @@ offset_right = 70.0
 offset_bottom = 8.0
 
 [node name="显示" type="Label" parent="." unique_id=783352736]
-clip_contents = true
 custom_minimum_size = Vector2(70, 7)
+clip_contents = true
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 7.0

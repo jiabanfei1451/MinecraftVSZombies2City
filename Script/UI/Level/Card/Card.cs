@@ -112,6 +112,7 @@ public partial class Card : Control
 	/// 父节点
 	/// </summary>
 	[Export] public Node parent_Object = null;
+	[Export] public Key Trigger_Key = Key.None;
 	/// <summary>
 	/// 索引
 	/// </summary>
@@ -125,6 +126,13 @@ public partial class Card : Control
 	public override void _Input(InputEvent @event) {
 		base._Input(@event);
 		if (Card_Mode != Mode.Gameing){return;}
+		if (@event is InputEventKey)
+		{
+			if (((InputEventKey)@event).Keycode == Trigger_Key && ((InputEventKey)@event).Pressed)
+			{
+				_Selected();
+			}	
+		}
 		if (Get_Selected_rawObject() != this){return;}
 		if (@event is InputEventMouseButton)
 			{
@@ -138,24 +146,39 @@ public partial class Card : Control
 	}
 	public override void _Ready() {
 		base._Ready();
+		
 		This_Ready();
 		parent_Object = Get_Parent_Object();
 		is_Ready = true;
 	}
-	
-	
+	/// <summary>
+	/// 初始化材质
+	/// </summary>
+	public void Reset_Texture()
+	{
+		foreach(Node Nodes in GetNode<Control>("Image").GetChildren())
+		{
+			Nodes.QueueFree();
+		}
+		//初始化材质
+		Game.Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		CharacterBody2D texture = Data.Scene.Instantiate<CharacterBody2D>();
+		if (texture is Level.Object.Data)
+		{
+			((Level.Object.Data)texture).Enable = false;
+			((Level.Object.Data)texture).Enable_Health = false;
+		}
+		GetNode<Control>("Image").AddChild(texture);
+		texture.Position = Data.Offset;
+		texture.Scale = Data.Scale;
+		GetNode<Label>("Reduce").Text = Data.Sonsume.ToString();
+	}
 	/// <summary>
 	/// 节点初始化
 	/// </summary>
 	public async void This_Ready()
 	{
-		//初始化材质
-		Game.Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		CharacterBody2D texture = Data.Scene.Instantiate<CharacterBody2D>();
-		GetNode<Control>("Image").AddChild(texture);
-		texture.Position = Data.Offset;
-		texture.Scale = Data.Scale;
-		GetNode<Label>("Reduce").Text = Data.Sonsume.ToString();
+		Reset_Texture();
 		GetNode<TouchPad>("Texture/TouchPad").Button_Pressedvoid += touchpressed;
 		GetNode<TouchPad>("Texture/TouchPad").Button_Downvoid += TouchDown;
 		GetNode<Control>("Cilp_Node").Visible =false;
@@ -364,7 +387,7 @@ public partial class Card : Control
 	/// 开始冷却
 	/// </summary>
 	/// <returns></returns>
-	public async Task<bool> Start_CD()
+	public bool Start_CD()
 	{
 		if (CDing == true)
 		{

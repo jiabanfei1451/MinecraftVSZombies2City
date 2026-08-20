@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1787045728
+::res://::1787197517
 export_presets.cfg::TextFile::-1::1786875424::0::1::::<><><>0<>0<><>::
 LICENSE.txt::TextFile::-1::1786875424::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1786875424::0::1::::<><><>0<>0<><>::
@@ -79,13 +79,13 @@ UI碰撞.gd::GDScript::1103384883181333613::1786875347::0::1::::AreaUI<>Referenc
 触摸控制器.tscn::PackedScene::1737719504523165125::1786875347::0::1::::<><><>0<>0<><>::uid://sc48ukg1du60::::res://addons/touch/Script/触摸控制器.gd
 触摸控制器new.gd::GDScript::93071630290565619::1786875347::0::1::::TouchPad_V2<>Control<>uid://c8ukwanv0jfm0<>0<>0<><>::
 ::res://addons/touch/Script/C Sharp/::1786875424
-TouchPad.cs::CSharpScript::8779093016445400381::1786875424::0::1::::TouchPad<>Control<>uid://sqy1gdavdj6y<>0<>0<><>::
+TouchPad.cs::CSharpScript::8779093016445400381::1787124803::0::1::::TouchPad<>Control<>uid://sqy1gdavdj6y<>0<>0<><>::
 Touch_Index.cs::CSharpScript::7268242969643000635::1786875347::0::1::::<><><>0<>0<><>::
-::res://addons/touch/Theme/::1786875347
+::res://addons/touch/Theme/::1787197328
 Focus.tres::StyleBoxTexture::5310995359976570259::1786875347::0::1::::<><><>0<>0<><>::uid://bc45c8wivcpch::::res://addons/touch/img/button_pressed.png
-new_theme.tres::Theme::8653920670694525131::1786875347::0::1::::<><><>0<>0<><>::uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres<>uid://c4ffe4u1spmqk::::res://addons/touch/Theme/per.tres
+new_theme.tres::Theme::8653920670694525131::1787193886::0::1::::<><><>0<>0<><>::uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres<>uid://c4ffe4u1spmqk::::res://addons/touch/Theme/per.tres
 nolan.tres::StyleBoxTexture::5334578047704649036::1786875347::0::1::::<><><>0<>0<><>::uid://bololgfrudwwn::::res://addons/touch/img/button_2.png
-PadButton.tres::Theme::5986597351519488132::1786875347::0::1::::<><><>0<>0<><>::
+PadButton.tres::Theme::5986597351519488132::1787197328::0::1::::<><><>0<>0<><>::
 per.tres::StyleBoxTexture::6818952005078113586::1786875347::0::1::::<><><>0<>0<><>::uid://bc45c8wivcpch::::res://addons/touch/img/button_pressed.png
 ::res://addons/touch/tsch/::1786875347
 功能测试.gd::GDScript::8548157425982737674::1786875347::0::1::::touchBar<>Panel<>uid://bvgyfyblhy6wr<>0<>1<><>::
@@ -126,13 +126,16 @@ HarmonyOS_Sans_TC_Medium.ttf::FontFile::6865576671132163152::1786875345::1786875
 HarmonyOS_Sans_TC_Regular.ttf::FontFile::2885648778969085275::1786875345::1786875345::1::::<><><>0<>0<>ccb942f3f05bc37d0352165373d8751c<>res://.godot/imported/HarmonyOS_Sans_TC_Regular.ttf-38b4288448d789c8d6f25566691672b6.fontdata::
 HarmonyOS_Sans_TC_Thin.ttf::FontFile::6756501014420052844::1786875345::1786875345::1::::<><><>0<>0<>18f22d56cc90d6258f395449ea12df78<>res://.godot/imported/HarmonyOS_Sans_TC_Thin.ttf-c83c10700856e0c4b25404c5ac475b57.fontdata::
 LICENSE.txt::TextFile::-1::1786875345::0::1::::<><><>0<>0<><>::
-::res://Image/::1786875424
+::res://Image/::1787195054
 ::res://Image/Effect/::1786875424
 ::res://Image/Effect/Launch/::1786875444
 flash.png::CompressedTexture2D::7287441592421986625::1786875424::1786875444::1::::<><><>0<>0<>44b0e897e2de8e85ca22254b994a8577<>res://.godot/imported/flash.png-3068ddf7a83771e844633a1f5bd0eb67.ctex::
 ::res://Image/HUD/::1786875444
 arrow(City).png::CompressedTexture2D::3493208710930694422::1786875424::1786875444::1::::<><><>0<>0<>6bc02861df29bff03a6cc07450f66d73<>res://.godot/imported/arrow(City).png-32b52969d8b1ea757c21ce9b31745b17.ctex::
 arrow.png::CompressedTexture2D::4145680677954506155::1786875424::1786875444::1::::<><><>0<>0<>6ba9f8b9802d11bcd91b6774787ad1f2<>res://.godot/imported/arrow.png-aa9ea3fe9b4556e187d6def53b3adf18.ctex::
+::res://Image/Icon/::1787195060
+::res://Image/Icon/Script/::1787197013
+Health_Script.png::CompressedTexture2D::8132400203212959139::1787197011::1787197013::1::::<><><>0<>0<>e73186acda7095b780bcd3b5ceb7e0d9<>res://.godot/imported/Health_Script.png-ca89929a995c5b0e1e3b72534f85113c.ctex::
 ::res://Image/Level-Button/::1786875345
 LevelButton.png::CompressedTexture2D::2783062215853739141::1786875345::1786875345::1::::<><><>0<>0<>9dbf5167da22cd7d904185d50932d92e<>res://.godot/imported/LevelButton.png-9dc24da66fc924ce72c645e47ed9ab90.ctex::
 ::res://Image/Level_Image/::1786875380
@@ -197,7 +200,7 @@ UI1.png::CompressedTexture2D::2031673715573147819::1786875346::1786875346::1::::
 UI2.png::CompressedTexture2D::3444369571991616917::1786875346::1786875346::1::::<><><>0<>0<>e33d07ce0eb51849b4096f0329e27847<>res://.godot/imported/UI2.png-d23f744213d1c2699fb2e8ea6b649102.ctex::
 UI3.png::CompressedTexture2D::5514034776800048833::1786875346::1786875346::1::::<><><>0<>0<>ec2fa0639784f8debfdafcb04055ea2e<>res://.godot/imported/UI3.png-2c3147e3ac4ca5a6e884483e1fac4c83.ctex::
 UI4.png::CompressedTexture2D::2984581485664001261::1786875346::1786875346::1::::<><><>0<>0<>7735e9f2f5f0837b5802f6b41ea49db5<>res://.godot/imported/UI4.png-7e9bf36b538d03d3b495db04d4d05b92.ctex::
-::res://Image/UI/Card/::1786875424
+::res://Image/UI/Card/::1787197015
 card 边框.png::CompressedTexture2D::1964125033204614693::1786875346::1786875346::1::::<><><>0<>0<>bcf55267d88828bf212e7f35337dcb6b<>res://.godot/imported/card 边框.png-d3983839ab66c6db2d9c8853d53dfcd9.ctex::
 card(null).png::CompressedTexture2D::7403429542564157571::1786875346::1786875346::1::::<><><>0<>0<>8af3ce5c9890c011b2ef6cbb42a0fbb2<>res://.godot/imported/card(null).png-076113b80feda6a12e8f945ac86672b6.ctex::
 card.png::CompressedTexture2D::8247727416381640626::1786875346::1786875346::1::::<><><>0<>0<>1eb2b66dddfb93262aebf2ac81167069<>res://.godot/imported/card.png-7cb86885b8829f41cc4871a1439785e7.ctex::
@@ -226,15 +229,15 @@ energy_slot.png::CompressedTexture2D::432257319361386173::1786875346::1786875379
 12.png::CompressedTexture2D::2600386116096263796::1786875346::1786875346::1::::<><><>0<>0<>9eea37f440352a8816ffa628f1042ab4<>res://.godot/imported/12.png-62e899f85dd122ac03171c6567bb3024.ctex::
 13.png::CompressedTexture2D::2930739849014046749::1786875346::1786875346::1::::<><><>0<>0<>e4ae9dacdb1898c823e592f4bbbe2b59<>res://.godot/imported/13.png-c72066cc70e46fa1544f8678dec11f45.ctex::
 14.png::CompressedTexture2D::7401114843444846578::1786875346::1786875346::1::::<><><>0<>0<>f9c302aa36881805334e761a3d7f530f<>res://.godot/imported/14.png-f1e6d89df07459ba2e237896112afd65.ctex::
-::res://Object/::1786875424
+::res://Object/::1787193808
 一次性音效.tscn::PackedScene::5563763255084335395::1786875346::0::1::::<><><>0<>0<><>::uid://b8r58kyhh0lxp::::res://脚本/一次性音效.gd
 暗.tscn::PackedScene::9193060512019734921::1786875346::0::1::::<><><>0<>0<><>::uid://cnqd336ph3e8y::::res://Shader/暗.tres<>uid://b5wrq8e5edxet::::res://Object/素材图/Default-ParticleSystem.png
 阴影.tscn::PackedScene::1932658641961060720::1786875346::0::1::::<><><>0<>0<><>::uid://rxcppgnt2gu6::::res://Object/素材图/bubble.png<>uid://cmfx2xas4vyq::::res://Script/组件/阴影.gd
-::res://Object/Equipment/::1786875424
-Transmitter.tscn::PackedScene::1567089112512101254::1786875424::0::1::::<><><>0<>0<><>::uid://bbvxsgj2xswfv::::res://Object/素材图/dispenser_6.png<>uid://cot1u4gy4n2be::::res://Script/Object/Level_Object/equipment/Transmitter.cs<>uid://b7ch57uppqgrk::::res://Object/素材图/dispenser_5.png<>uid://ca1m1lsptgv1::::res://Sound/Souds/发射.ogg<>uid://db3ddlwk0qt6h::::res://Image/Effect/Launch/flash.png
-地雷.tscn::PackedScene::821728412861256646::1786875424::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://xolfnppvoj7i::::res://Sound/Souds/地雷出土.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://cp3yhos5yfovv::::res://Object/素材图/mine_dirt.png<>uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png
-熔炉.tscn::PackedScene::9098225388106931150::1786875424::0::1::::<><><>0<>0<><>::uid://ckiok4d47oivw::::res://Object/光源/光源.tscn<>uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://cguivqb2xx2yj::::res://Sound/Souds/红石产出.ogg<>uid://cpx8ijstvb6wx::::res://Sound/Souds/熔炉大招产出.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://dgxcb6en1kf14::::res://Object/素材图/furnace_3.png
-黑曜石.tscn::PackedScene::5627094402887757461::1786875424::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://mppyitekgw72::::res://Sound/Souds/黑曜石升级.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png
+::res://Object/Equipment/::1787197328
+Transmitter.tscn::PackedScene::1567089112512101254::1787197328::0::1::::<><><>0<>0<><>::uid://bbvxsgj2xswfv::::res://Object/素材图/dispenser_6.png<>uid://cot1u4gy4n2be::::res://Script/Object/Level_Object/equipment/Transmitier/Transmitter.cs<>uid://cxir0ru4fseee::::res://Script/Object/Type/Health.cs<>uid://b7ch57uppqgrk::::res://Object/素材图/dispenser_5.png<>uid://ca1m1lsptgv1::::res://Sound/Souds/Shoot.ogg<>uid://db3ddlwk0qt6h::::res://Image/Effect/Launch/flash.png<>uid://dheg8f4rhxhut::::res://Script/Node/Audio_Plus.cs
+地雷.tscn::PackedScene::821728412861256646::1787127110::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://xolfnppvoj7i::::res://Sound/Souds/地雷出土.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://cp3yhos5yfovv::::res://Object/素材图/mine_dirt.png<>uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png
+熔炉.tscn::PackedScene::9098225388106931150::1787127061::0::1::::<><><>0<>0<><>::uid://ckiok4d47oivw::::res://Object/光源/光源.tscn<>uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://cguivqb2xx2yj::::res://Sound/Souds/红石产出.ogg<>uid://cpx8ijstvb6wx::::res://Sound/Souds/熔炉大招产出.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://dgxcb6en1kf14::::res://Object/素材图/furnace_3.png
+黑曜石.tscn::PackedScene::5627094402887757461::1787127061::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://mppyitekgw72::::res://Sound/Souds/黑曜石升级.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png
 ::res://Object/Equipment/好友/::1786875444
 b_55b11ee7de24b7e7339369b254b853a9.jpg::CompressedTexture2D::4254163986679510622::1786875424::1786875444::1::::<><><>0<>0<>059a910c7751ecf98395cab6d5e583a2<>res://.godot/imported/b_55b11ee7de24b7e7339369b254b853a9.jpg-c337a3a02982581c0c4fe99d309c58ae.ctex::
 Haozi.jpg::CompressedTexture2D::7227036125871610147::1786875424::1786875444::1::::<><><>0<>0<>5378469abf7a0eab3b153ec423b82ed2<>res://.godot/imported/Haozi.jpg-20593ee2a212c6f8a0d5282ef62f4191.ctex::
@@ -246,24 +249,27 @@ MM.jpg::CompressedTexture2D::3338025450644282259::1786875424::1786875444::1::::<
 MM.tscn::PackedScene::6360543837327906026::1786875424::0::1::::<><><>0<>0<><>::uid://bns7157l4vntb::::res://Object/Equipment/好友/MM.jpg
 QQ.jpg::CompressedTexture2D::848107959842439090::1786875424::1786875444::1::::<><><>0<>0<>39518f8e7ec1dbab0b433ed32784d794<>res://.godot/imported/QQ.jpg-0c468c3dd64f0c0cf5b7ff858c7c7788.ctex::
 QQ.tscn::PackedScene::1313175730279958354::1786875424::0::1::::<><><>0<>0<><>::uid://mc3hjup1p1j7::::res://Object/Equipment/好友/QQ.jpg
-::res://Object/Equipment/投稿器械/::1786875424
+::res://Object/Equipment/投稿器械/::1787127058
 病娇重力板.tscn::PackedScene::5899317590221969918::1786875424::0::1::::<><><>0<>0<><>::uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://wldy1n7d52ji::::res://Object/Equipment/Transmitter.tscn<>uid://l4176xm8imnj::::res://UI/UI主题/MC文字主题.tres
-缓冲发射器.tscn::PackedScene::784720211441816804::1786875424::0::1::::<><><>0<>0<><>::uid://qnctkrhlq1y8::::res://Test/misc/182E3D3D89DA18D376091BC33CF00D3F.png<>uid://bp5paukqmhn7x::::res://Test/misc/095C4384EC714B9248FB3A9CE1D15267 - 副本.png
-::res://Object/Interactive Objects/::1786875424
+缓冲发射器.tscn::PackedScene::784720211441816804::1787127058::0::1::::<><><>0<>0<><>::uid://qnctkrhlq1y8::::res://Test/misc/182E3D3D89DA18D376091BC33CF00D3F.png<>uid://bp5paukqmhn7x::::res://Test/misc/095C4384EC714B9248FB3A9CE1D15267 - 副本.png
+::res://Object/Interactive Objects/::1787129683
 button.tscn::PackedScene::2778114958369514819::1786875424::0::1::::<><><>0<>0<><>::res://Script/Scene Script/Level-Button/Level-Button.gd<>uid://bfwevmciduc6p::::res://Image/Level-Button/LevelButton.png<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://bipb8tqmjfceb::::res://addons/touch/Script/touch.gd<>uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres<>uid://1sawltbm45jp::::res://Sound/Souds/Scene/Level-Button/spring.ogg
 Lawn.tscn::PackedScene::7747579919179770743::1786875424::0::1::::<><><>0<>0<><>::uid://douel45ehxor8::::res://Script/Level Script/Lawn.cs<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs
-物体检测.tscn::PackedScene::8648796479688752897::1786875346::0::1::::<><><>0<>0<><>::uid://ccmbo7kytryhk::::res://脚本/检测.gd
+物体检测.tscn::PackedScene::8648796479688752897::1787129683::0::1::::<><><>0<>0<><>::
 红石.tscn::PackedScene::8012153466732608731::1786875346::0::1::::<><><>0<>0<><>::uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://nppgv2j03j27::::res://2/C#Script/单场景脚本/红石.cs<>uid://blc413ky1v12::::res://addons/touch/Script/触摸控制器new.gd
 音频.tscn::PackedScene::2430332996279875104::1786875346::0::1::::<><><>0<>0<><>::uid://c3k2sp2sdnbph::::res://脚本/组件/音频.gd
-::res://Object/Monster/::1786875424
-僵尸.tscn::PackedScene::4068848126446600036::1786875424::0::1::::<><><>0<>0<><>::uid://b66rva3e3mbiy::::res://Object/素材图/zombin5.png<>uid://bh7q48qfv8wob::::res://Object/素材图/zombin2.png<>uid://dysmprheeepu8::::res://Object/素材图/zombin3.png<>uid://b8jjy3thxqdcq::::res://Object/素材图/zombin.png<>uid://c2qbnurx2pxnj::::res://UI/血条.tscn<>uid://dvhsodcglxjm4::::res://Object/Interactive Objects/物体检测.tscn
+::res://Object/Monster/::1787131053
+僵尸.tscn::PackedScene::4068848126446600036::1787131053::0::1::::<><><>0<>0<><>::uid://bu3lgchubqvad::::res://Script/Object/Level_Object/Monster/Zombies/Zombies.cs<>uid://b66rva3e3mbiy::::res://Object/素材图/zombin5.png<>uid://bh7q48qfv8wob::::res://Object/素材图/zombin2.png<>uid://dysmprheeepu8::::res://Object/素材图/zombin3.png<>uid://b8jjy3thxqdcq::::res://Object/素材图/zombin.png<>uid://c2qbnurx2pxnj::::res://UI/血条.tscn<>uid://dvhsodcglxjm4::::res://Object/Interactive Objects/物体检测.tscn
+::res://Object/Shoot/::1787193880
+::res://Object/Shoot/Arrow/::1787194533
+Arrow.tscn::PackedScene::141856469021112914::1787194533::0::1::::<><><>0<>0<><>::uid://bu88hxcq3eddc::::res://Object/素材图/dispenser.png<>uid://ww76aly7osdr::::res://Shader/着色器2.0.gdshader
 ::res://Object/光源/::1786875346
 光源.tscn::PackedScene::5492114250809301328::1786875346::0::1::::<><><>0<>0<><>::uid://dwm5vkfwudbfu::::res://Script/光源.gd<>uid://b5wrq8e5edxet::::res://Object/素材图/Default-ParticleSystem.png
-::res://Object/器械/::1786875424
-Transmitter.tscn::PackedScene::8622352018350144323::1786875424::0::1::::<><><>0<>0<><>::uid://cot1u4gy4n2be::::res://Script/Object/Level_Object/equipment/Transmitter.cs<>uid://bbvxsgj2xswfv::::res://Object/素材图/dispenser_6.png<>uid://b7ch57uppqgrk::::res://Object/素材图/dispenser_5.png<>uid://ca1m1lsptgv1::::res://Sound/Souds/发射.ogg
-地雷.tscn::PackedScene::6058639734143747017::1786875424::0::1::::<><><>0<>0<><>::res://Script/器械AI/地雷.gd<>uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://xolfnppvoj7i::::res://Sound/Souds/地雷出土.ogg<>res://Script/组件/音频.gd<>uid://cp3yhos5yfovv::::res://Object/素材图/mine_dirt.png<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>res://Script/组件/物理组件.tscn<>uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>res://Script/碰撞.gd
-熔炉.tscn::PackedScene::2149471107943105158::1786875424::0::1::::<><><>0<>0<><>::res://Script/器械AI/熔炉.gd<>uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>res://Script/组件/音频.gd<>uid://cpx8ijstvb6wx::::res://Sound/Souds/熔炉大招产出.ogg<>uid://cguivqb2xx2yj::::res://Sound/Souds/红石产出.ogg<>res://Script/组件/物理组件.tscn<>uid://dgxcb6en1kf14::::res://Object/素材图/furnace_3.png<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://ckiok4d47oivw::::res://Object/光源/光源.tscn
-黑曜石.tscn::PackedScene::2191444387926109226::1786875424::0::1::::<><><>0<>0<><>::res://Script/器械AI/黑曜石.gd<>uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://mppyitekgw72::::res://Sound/Souds/黑曜石升级.ogg<>res://Script/组件/物理组件.tscn<>res://Script/组件/音频.gd<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png
+::res://Object/器械/::1787129976
+Transmitter.tscn::PackedScene::8622352018350144323::1787129975::0::1::::<><><>0<>0<><>::uid://cot1u4gy4n2be::::res://Script/Object/Level_Object/equipment/Transmitier/Transmitter.cs<>uid://bbvxsgj2xswfv::::res://Object/素材图/dispenser_6.png<>uid://b7ch57uppqgrk::::res://Object/素材图/dispenser_5.png<>uid://ca1m1lsptgv1::::res://Sound/Souds/Shoot.ogg
+地雷.tscn::PackedScene::6058639734143747017::1787127110::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://xolfnppvoj7i::::res://Sound/Souds/地雷出土.ogg<>uid://cp3yhos5yfovv::::res://Object/素材图/mine_dirt.png<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg
+熔炉.tscn::PackedScene::2149471107943105158::1787127062::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://cpx8ijstvb6wx::::res://Sound/Souds/熔炉大招产出.ogg<>uid://cguivqb2xx2yj::::res://Sound/Souds/红石产出.ogg<>uid://dgxcb6en1kf14::::res://Object/素材图/furnace_3.png<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://ckiok4d47oivw::::res://Object/光源/光源.tscn
+黑曜石.tscn::PackedScene::2191444387926109226::1787127063::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://mppyitekgw72::::res://Sound/Souds/黑曜石升级.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png
 ::res://Object/器械/好友/::1786875379
 b_55b11ee7de24b7e7339369b254b853a9.jpg::CompressedTexture2D::5752401155519284522::1786875346::1786875379::1::::<><><>0<>0<>6cb3ca65f2802bdcd933df6e2a40ea98<>res://.godot/imported/b_55b11ee7de24b7e7339369b254b853a9.jpg-c209fd2369191d9fdeb924fa1ce9dcc8.ctex::
 Haozi.jpg::CompressedTexture2D::4512704977835876170::1786875346::1786875379::1::::<><><>0<>0<>643c74fcd3d972c52808f37a325f33f7<>res://.godot/imported/Haozi.jpg-12b0543eca60331d42b457ede8840a28.ctex::
@@ -275,11 +281,9 @@ MM.jpg::CompressedTexture2D::5578885999183500933::1786875346::1786875379::1::::<
 MM.tscn::PackedScene::3391125013959547118::1786875346::0::1::::<><><>0<>0<><>::uid://clqpo4sp66jmb::::res://Object/器械/好友/MM.jpg
 QQ.jpg::CompressedTexture2D::277101427530044123::1786875346::1786875379::1::::<><><>0<>0<>bb6acf09aac08ed2c5a582e5022e29a2<>res://.godot/imported/QQ.jpg-e36a74c3ac27ad67e6778d3f1dcdf2eb.ctex::
 QQ.tscn::PackedScene::2537909537143729847::1786875346::0::1::::<><><>0<>0<><>::uid://d7h247k16uul::::res://Object/器械/好友/QQ.jpg
-::res://Object/器械/投稿器械/::1786875424
+::res://Object/器械/投稿器械/::1787127062
 病娇重力板.tscn::PackedScene::4753845137835284439::1786875424::0::1::::<><><>0<>0<><>::uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://du3y4377ebqq2::::res://Object/器械/Transmitter.tscn<>uid://l4176xm8imnj::::res://UI/UI主题/MC文字主题.tres
-缓冲发射器.tscn::PackedScene::4360390250465923896::1786875424::0::1::::<><><>0<>0<><>::res://Object/器械/投稿器械/缓冲发射器.gd<>uid://qnctkrhlq1y8::::res://Test/misc/182E3D3D89DA18D376091BC33CF00D3F.png<>uid://bp5paukqmhn7x::::res://Test/misc/095C4384EC714B9248FB3A9CE1D15267 - 副本.png
-::res://Object/箭/::1786875346
-箭.tscn::PackedScene::141856469021112914::1786875346::0::1::::<><><>0<>0<><>::uid://ci2dsr0wqjbfr::::res://Script/area_2d.gd<>uid://bu88hxcq3eddc::::res://Object/素材图/dispenser.png<>uid://ww76aly7osdr::::res://Shader/着色器2.0.gdshader<>uid://dq2hxvboug84f::::res://Script/组件/物理组件.tscn
+缓冲发射器.tscn::PackedScene::4360390250465923896::1787127061::0::1::::<><><>0<>0<><>::uid://qnctkrhlq1y8::::res://Test/misc/182E3D3D89DA18D376091BC33CF00D3F.png<>uid://bp5paukqmhn7x::::res://Test/misc/095C4384EC714B9248FB3A9CE1D15267 - 副本.png
 ::res://Object/粒子/::1786875346
 怪物消散粒子.tscn::PackedScene::3928166531312196766::1786875346::0::1::::<><><>0<>0<><>::uid://du0cv7pa0exii::::res://Object/素材图/sactx-0-1024x1024-DXT5_BC3-effects-5ecf9be5.png<>uid://bfvpqplws7aou::::res://2/C#Script/单场景脚本/怪物消散粒子.cs
 粒子.tscn::PackedScene::5234779234831115541::1786875346::0::1::::<><><>0<>0<><>::uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png<>uid://dlh57l13cdcbn::::res://2/C#Script/单场景脚本/粒子.cs<>uid://bjlc1baksta0k::::res://2/C#Script/单场景脚本/粒子.gd
@@ -320,10 +324,10 @@ MonsterValue_Button.tscn::PackedScene::1785495807243615224::1786875346::0::1::::
 Wave_Button.tscn::PackedScene::7734317026513795751::1786875346::0::1::::<><><>0<>0<><>::uid://cjtwq320iuujg::::res://Script/Debug/Create_Level/wave_button.gd<>uid://b6b0v11prf283::::res://Script/Debug/Create_Level/Boolbutton.gd
 ::res://Scene/Debug/Placeholder/::1786875424
 Placeholder_Block.tscn::PackedScene::4068741663156831338::1786875424::0::1::::<><><>0<>0<><>::uid://wtorir0orqjv::::res://Script/Object/Auto_Free/PlaceholderBlock.cs
-::res://Scene/Level/::1786875424
+::res://Scene/Level/::1787193886
 Level not Script.tscn::PackedScene::5978114354108261867::1786875346::0::1::::<><><>0<>0<><>::uid://c6adwiouvitvd::::res://Image/Level_Image/绝命矿坑.png<>uid://1ftos56re06y::::res://Script/自动拆分地图.gd<>uid://dh773s3jptynh::::res://Image/Level_Image/绝命矿坑-house.png
 Test.tscn::PackedScene::1434050148563142786::1786875346::0::1::::<><><>0<>0<><>::uid://bj6kh70jl7kvb::::res://Script/Level Script/序章.gd<>uid://c6adwiouvitvd::::res://Image/Level_Image/绝命矿坑.png<>uid://1ftos56re06y::::res://Script/自动拆分地图.gd<>uid://dh773s3jptynh::::res://Image/Level_Image/绝命矿坑-house.png<>uid://ckiok4d47oivw::::res://Object/光源/光源.tscn
-序章.tscn::PackedScene::5136065019282996920::1786875424::0::1::::<><><>0<>0<><>::uid://cx8c2laor14oo::::res://Script/Level Script/Level/Preface.cs<>uid://rrsrig34tnk3::::res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png<>uid://3yxnsi0wig3i::::res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png<>uid://wldy1n7d52ji::::res://Object/Equipment/Transmitter.tscn
+序章.tscn::PackedScene::5136065019282996920::1787193886::0::1::::<><><>0<>0<><>::uid://cx8c2laor14oo::::res://Script/Level Script/Level/Preface.cs<>uid://rrsrig34tnk3::::res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png<>uid://3yxnsi0wig3i::::res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png<>uid://bx78lmkp8si7e::::res://Object/Monster/僵尸.tscn<>uid://wldy1n7d52ji::::res://Object/Equipment/Transmitter.tscn
 ::res://Scene/Map/::1786875424
 绝命矿坑.tscn::PackedScene::5218562816868621755::1786875346::0::1::::<><><>0<>0<><>::uid://dliw6yskwobhy::::res://Image/Map/Image_1773758552231_504.png<>uid://bft0faqonck1h::::res://Object/Interactive Objects/button.tscn<>res://Script/Scene Script/Level-Button/Level/1-1.gd<>res://Script/Scene Script/Map/camera_2d.gd<>res://Script/Scene Script/Map/touchpad.gd
 ::res://Scene/Misc Scene/::1786875424
@@ -339,8 +343,8 @@ VBoxContainer.cs::CSharpScript::5238315150851934897::1786875346::0::1::::<>Node<
 ::res://Script/::1786875424
 Temp_Node.cs::CSharpScript::2056329090477613478::1786875424::0::1::::<><><>0<>0<><>::
 ::res://Script/Auto Load/::1786875424
-Audio_List.cs::CSharpScript::1725689418332377455::1786875424::0::1::::<>Node<><>0<>0<><>::
-Card_Data.cs::CSharpScript::5851424141997904322::1786875424::0::1::::<>Node<><>0<>0<><>::
+Audio_List.cs::CSharpScript::1725689418332377455::1787123353::0::1::::<>Node<><>0<>0<><>::
+Card_Data.cs::CSharpScript::5851424141997904322::1787130452::0::1::::<>Node<><>0<>0<><>::
 Muisc_Engine.cs::CSharpScript::7037678023846200074::1786875424::0::1::::<>Node<><>0<>0<><>::
 PlayerData.cs::CSharpScript::2885110433259997785::1786875424::0::1::::<><><>0<>0<><>::
 ::res://Script/Level Script/::1786875424
@@ -348,7 +352,7 @@ Lawn.cs::CSharpScript::8183457498510275267::1786875424::0::1::::<>ColorRect<><>0
 ::res://Script/Level Script/Level/::1786875424
 Preface.cs::CSharpScript::6455479465782605822::1786875424::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Script/Level Script/Master/::1786875424
-Level_Master_Script.cs::CSharpScript::8703991476539810848::1786875424::0::1::::<>Node2D<><>0<>0<><>::
+Level_Master_Script.cs::CSharpScript::8703991476539810848::1787125995::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Script/Node/::1786875424
 Audio_Plus.cs::CSharpScript::7659265008915977439::1786875424::0::1::::Audio_Plus<>AudioStreamPlayer<><>0<>0<><>::
 ::res://Script/Object/::1786875424
@@ -356,12 +360,18 @@ Audio_Plus.cs::CSharpScript::7659265008915977439::1786875424::0::1::::Audio_Plus
 PlaceholderBlock.cs::CSharpScript::1584258581362719439::1786875424::0::1::::<>Node<><>0<>0<><>::
 ::res://Script/Object/Follow_Mouse/::1786875424
 Follow_Mouse.cs::CSharpScript::3999182523601935480::1786875424::0::1::::<>Control<><>0<>0<><>::
-::res://Script/Object/Level_Object/::1786875424
-Data.cs::CSharpScript::6171469115297288486::1786875424::0::1::::<>CharacterBody2D<><>0<>0<><>::
-::res://Script/Object/Level_Object/equipment/::1786875424
-Transmitter.cs::CSharpScript::5796324246911544010::1786875424::0::1::::<>CharacterBody2D<><>0<>0<><>::
-::res://Script/Object/Type/::1786875424
-TweenType.cs::CSharpScript::5073161221618513037::1786875424::0::1::::<><><>0<>0<><>::
+::res://Script/Object/Level_Object/::1787097472
+Data.cs::CSharpScript::6171469115297288486::1787197506::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Script/Object/Level_Object/equipment/::1787097497
+::res://Script/Object/Level_Object/equipment/Transmitier/::1787097497
+Transmitter.cs::CSharpScript::5796324246911544010::1787130806::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Script/Object/Level_Object/Monster/::1787097503
+::res://Script/Object/Level_Object/Monster/Zombies/::1787097514
+Zombies.cs::CSharpScript::3848678852022312103::1787130842::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Script/Object/Type/::1787194940
+Health.cs::CSharpScript::6404777551936139420::1787197212::0::1::::Health<>Resource<>res://Image/Icon/Script/Health_Script.png<>0<>0<><>::
+Random.cs::CSharpScript::1119255272998757545::1787110005::0::1::::<><><>0<>0<><>::
+TweenType.cs::CSharpScript::5073161221618513037::1787124177::0::1::::<><><>0<>0<><>::
 ::res://Script/Object/UIObject/::1786875424
 ShowEquipment.cs::CSharpScript::3017515752335759029::1786875424::0::1::::<>TextureRect<><>0<>0<><>::
 ::res://Script/Server/::1786875424
@@ -376,15 +386,15 @@ Tip.cs::CSharpScript::6797413611954749527::1786875424::0::1::::<><><>0<>0<><>::
 ::res://Script/UI/::1786875424
 ::res://Script/UI/Level/::1786875424
 ::res://Script/UI/Level/Card/::1786875424
-Card.cs::CSharpScript::1525588659692098356::1786875424::0::1::::<>Control<><>0<>0<><>::
+Card.cs::CSharpScript::1525588659692098356::1787125732::0::1::::<>Control<><>0<>0<><>::
 Card_Visible.cs::CSharpScript::6593055088860088772::1786875424::0::1::::<>Control<><>0<>0<><>::
 NodeScript.cs::CSharpScript::6731438843930995871::1786875424::0::1::::<>Control<><>0<>0<><>::
 Selected_slot.cs::CSharpScript::1421191684348433309::1786875424::0::1::::<>GridContainer<><>0<>0<><>::
-Start_Card.cs::CSharpScript::6291707035779710333::1786875424::0::1::::<>TouchPad<><>0<>0<><>::
-TipUI.cs::CSharpScript::139519883759191553::1786875424::0::1::::<>Control<><>0<>0<><>::
+Start_Card.cs::CSharpScript::6291707035779710333::1787124829::0::1::::<>TouchPad<><>0<>0<><>::
+TipUI.cs::CSharpScript::139519883759191553::1787124674::0::1::::<>Control<><>0<>0<><>::
 ::res://Script/UI/Level/Card/Tween/::1786875424
-LevelUi.cs::CSharpScript::5586658897556311230::1786875424::0::1::::<>CanvasLayer<><>0<>0<><>::
-::res://Shader/::1786875346
+LevelUi.cs::CSharpScript::5586658897556311230::1787125213::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://Shader/::1787197328
 3D2.gdshader::Shader::2975673264123008838::1786875346::0::1::::<><><>0<>0<><>::
 30.tres::VisualShader::2569139147757103630::1786875346::0::1::::<><><>0<>0<><>::
 new_shader.gdshader::Shader::4156777110415812385::1786875346::0::1::::<><><>0<>0<><>::
@@ -395,27 +405,30 @@ new_shader.gdshader::Shader::4156777110415812385::1786875346::0::1::::<><><>0<>0
 暗黑.gdshader::Shader::5292050274665110306::1786875346::0::1::::<><><>0<>0<><>::
 模糊.gdshader::Shader::6235272139657791828::1786875346::0::1::::<><><>0<>0<><>::
 渐变.gdshader::Shader::5173152440506826171::1786875346::0::1::::<><><>0<>0<><>::
-着色器2.0.gdshader::Shader::1591569192132238831::1786875346::0::1::::<><><>0<>0<><>::
+着色器2.0.gdshader::Shader::1591569192132238831::1787197328::0::1::::<><><>0<>0<><>::
 神秘着色器.tscn::PackedScene::5520748210227848234::1786875346::0::1::::<><><>0<>0<><>::uid://bcxm5lfsl83xt::::res://Shader/序章.gdshader<>uid://b0aucscsmmfg4::::res://icon.svg
 闪烁.gdshader::Shader::6777434100976898790::1786875346::0::1::::<><><>0<>0<><>::
 ::res://Shader/MaterialShader/::1786875346
 不知道.tres::ShaderMaterial::8441585952707971779::1786875346::0::1::::<><><>0<>0<><>::
 ::res://Sound/::1786875424
-::res://Sound/Muisc/::1786875379
-Cataclysm Walker.ogg::AudioStreamOggVorbis::8672155417852855910::1786875346::1786875378::1::::<><><>0<>0<>2a9396d8aa7bcda816a2aba176cce98e<>res://.godot/imported/Cataclysm Walker.ogg-7158f180d50952f9ec8f19fab1590dfb.oggvorbisstr::
+::res://Sound/Muisc/::1787112571
 double-trouble-BlackOut.ogg::AudioStreamOggVorbis::3972096666999363038::1786875346::1786875378::1::::<><><>0<>0<>5eabaafb3f83c94ea293f80e9a37f4ae<>res://.godot/imported/double-trouble-BlackOut.ogg-4b57c1e31cc5829fa6352a61cc5789b2.oggvorbisstr::
 double-trouble.ogg::AudioStreamOggVorbis::4880480485607434530::1786875346::1786875379::1::::<><><>0<>0<>d4d82ee476014583922d3f49744d4eda<>res://.godot/imported/double-trouble.ogg-01d80e10e21d8a2a7c2ded276e5955e6.oggvorbisstr::
 Menu.ogg::AudioStreamOggVorbis::2616666640354374712::1786875346::1786875379::1::::<><><>0<>0<>bf2d53fb573cebd282b1774fe5cfaae6<>res://.godot/imported/Menu.ogg-48d49907ae596cc64f500d12c8317c71.oggvorbisstr::
+mus_a1_battle.ogg::AudioStreamOggVorbis::6029207032485552567::1787112430::1787112430::1::::<><><>0<>0<>ce56c10fbc6e36ff606c62907cfc95e2<>res://.godot/imported/mus_a1_battle.ogg-004736fa7b27a7d83c33994db1b6a94a.oggvorbisstr::
 Select Blueprint.ogg::AudioStreamOggVorbis::1635484929496133602::1786875346::1786875378::1::::<><><>0<>0<>49a7f0a8c7a2ec89ca637539b0556921<>res://.godot/imported/Select Blueprint.ogg-88320cb4afa1555941298c0808e62cad.oggvorbisstr::
 万圣夜.ogg::AudioStreamOggVorbis::1572192797929423115::1786875346::1786875378::1::::<><><>0<>0<>47f3205b3709583fbe796a58403aebc9<>res://.godot/imported/万圣夜.ogg-0b94bada8999aee89d6dbd58c05b0b14.oggvorbisstr::
 旧版零号病患(Redemption).mp3::AudioStreamMP3::1839462760897156678::1786875346::1786875378::1::::<><><>0<>0<>7ba6a7b0432da50c78b54637b911665c<>res://.godot/imported/旧版零号病患(Redemption).mp3-48bcc17ab598a349237b7e268d224338.mp3str::
 零号病患2020.mp3::AudioStreamMP3::7760097236497844073::1786875346::1786875378::1::::<><><>0<>0<>fd9020f2a993ecaaf1f7989b80e86323<>res://.godot/imported/零号病患2020.mp3-4d4f435a100d681093336e491f51c825.mp3str::
 零号病患.mp3::AudioStreamMP3::6133069944029150811::1786875346::1786875378::1::::<><><>0<>0<>b73b6b8130b8d3debf173327e8cd66c2<>res://.godot/imported/零号病患.mp3-c06c7b84691a46594104d9838ce2bba9.mp3str::
-::res://Sound/Souds/::1786875443
+::res://Sound/Muisc/Kill_Stone/::1787112579
+KillStone.ogg::AudioStreamOggVorbis::8672155417852855910::1786875346::1787112579::1::::<><><>0<>0<>811f8bcee193a5a67748bef07662c088<>res://.godot/imported/KillStone.ogg-33458dc6d23ea2c8c63302b8c5c9ff65.oggvorbisstr::
+killStone_Boss.ogg::AudioStreamOggVorbis::8038794752237569112::1787112451::1787112554::1::::<><><>0<>0<>b794c77bd7a2be18a98d9f96e36ad4d4<>res://.godot/imported/killStone_Boss.ogg-0a5835a02da8f415bbce4d64605da7af.oggvorbisstr::
+::res://Sound/Souds/::1787128114
 MC按钮点击.ogg::AudioStreamOggVorbis::4614362822403576584::1786875424::1786875443::1::::<><><>0<>0<>3e6556cd21cd2c6b3dd57d88b315955e<>res://.godot/imported/MC按钮点击.ogg-9f3db692d8933301dd05bb57de0904ce.oggvorbisstr::
+Shoot.ogg::AudioStreamOggVorbis::141979142053441028::1786875424::1787128114::1::::<><><>0<>0<>ca6cc0bcaa787ff45e85c58730548968<>res://.godot/imported/Shoot.ogg-fb853b2b3324b93cd42ef420faaa5db9.oggvorbisstr::
 wings4.ogg::AudioStreamOggVorbis::2282180016384832085::1786875424::1786875443::1::::<><><>0<>0<>6595dbce622270adeb0fb42a5ad2fece<>res://.godot/imported/wings4.ogg-4ada9ff7d006800f18d4febc1a121ae3.oggvorbisstr::
 一大波怪物进攻音效.ogg::AudioStreamOggVorbis::7303987599624337731::1786875424::1786875443::1::::<><><>0<>0<>d80bc90d65723d1756edec7dd375bd2f<>res://.godot/imported/一大波怪物进攻音效.ogg-05ce19c445b4fb21f0f5d6152963268e.oggvorbisstr::
-发射.ogg::AudioStreamOggVorbis::141979142053441028::1786875424::1786875443::1::::<><><>0<>0<>0a005f9c5d22ca84a7474e35f66e822f<>res://.godot/imported/发射.ogg-cd61d67b248e5e514071cb045227ae4e.oggvorbisstr::
 地雷出土.ogg::AudioStreamOggVorbis::1643922214807311564::1786875424::1786875443::1::::<><><>0<>0<>9e5d2f1a31564aa4b5d10c471bc5fdba<>res://.godot/imported/地雷出土.ogg-aef4ed1b98e9bbfb7c837392dbfba344.oggvorbisstr::
 地雷爆炸.ogg::AudioStreamOggVorbis::7158802328248070628::1786875424::1786875443::1::::<><><>0<>0<>43aa6473dd38e70726fcad4e8901e872<>res://.godot/imported/地雷爆炸.ogg-e4f58fa97903cc4a1c3ae0a7dae3c3e9.oggvorbisstr::
 开大.ogg::AudioStreamOggVorbis::8326922373585481544::1786875424::1786875443::1::::<><><>0<>0<>b1f230e96ab373cca3eeb3f7259f78ba<>res://.godot/imported/开大.ogg-3712215a5dc8edf3e147fd82fbc75e2d.oggvorbisstr::
@@ -454,8 +467,8 @@ stone4.ogg::AudioStreamOggVorbis::5500393421508198654::1786875424::1786875443::1
 stone_hatch.ogg::AudioStreamOggVorbis::7703163453226228570::1786875424::1786875443::1::::<><><>0<>0<>0398ea90ed7fb3e7727d041fc1c04204<>res://.godot/imported/stone_hatch.ogg-eb7fad28697c9cdb597e705cafe75d05.oggvorbisstr::
 ::res://Sound/Souds/闲的/::1786875443
 obj_w5rDlsOJwrLDjj7CmsOj_77406153694_2722_c4b0_5f43_c0e1aea1fb040fae63a676a17b5f13f0.mp3::AudioStreamMP3::8302336030439635972::1786875424::1786875443::1::::<><><>0<>0<>27a9e987b8718fdb27d8e814ab3907d9<>res://.godot/imported/obj_w5rDlsOJwrLDjj7CmsOj_77406153694_2722_c4b0_5f43_c0e1aea1fb040fae63a676a17b5f13f0.mp3-b9c5e6bba1b7970f6975ebfce171db6b.mp3str::
-::res://Test/::1786875424
-area_2d.gd::GDScript::7432391872845065480::1786875424::0::1::::<>Area2D<><>0<>0<><>::
+::res://Test/::1787129878
+area_2d.gd::GDScript::7432391872845065480::1787129878::0::1::::<>Area2D<><>0<>0<><>::
 Button2.cs::CSharpScript::3786078050028489417::1786875424::0::1::::<><><>0<>0<><>::
 Button.cs::CSharpScript::7547462407551757615::1786875424::0::1::::<><><>0<>0<><>::
 CharacterBody2d.cs::CSharpScript::8051230286718073102::1786875424::0::1::::<>CharacterBody2D<><>0<>0<><>::
@@ -479,12 +492,12 @@ frankenstein_0.png::CompressedTexture2D::3986423142066766954::1786875424::178687
 开始界面.png::CompressedTexture2D::2093933279608405693::1786875424::1786875444::1::::<><><>0<>0<>cb7413373d2552233a00d72d1ec0e992<>res://.godot/imported/开始界面.png-73734bbc0aeabcf762797e468084da29.ctex::
 普通伤害进度条.png::CompressedTexture2D::9062954521823182101::1786875424::1786875443::1::::<><><>0<>0<>f4d27a3d08fa055b8433cd289bd206a4<>res://.godot/imported/普通伤害进度条.png-12819c4c4396f8f32d504fd6d4113305.ctex::
 转化进度条.png::CompressedTexture2D::8541889915404945416::1786875424::1786875443::1::::<><><>0<>0<>ccacd3f1655af620725cc5809e8f6316<>res://.godot/imported/转化进度条.png-970b5fa156a39a8c54183f97a6347c46.ctex::
-::res://UI/::1786875424
+::res://UI/::1787107483
 描述框.tscn::PackedScene::7121970965738132667::1786875346::0::1::::<><><>0<>0<><>::uid://dugkgsj6f4eyl::::res://Script/UIscript/场景脚本/描述框.gd
 神秘滑动条.tscn::PackedScene::5924066888964541199::1786875347::0::1::::<><><>0<>0<><>::uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://84hgbhgdlcku::::res://Script/UIscript/不知道用不上.gd
 菜单.tscn::PackedScene::4347249416433997933::1786875347::0::1::::<><><>0<>0<><>::uid://cu3oaypq4i3xg::::res://Shader/模糊.gdshader<>uid://bu5sil4uavngv::::res://UI/第二层/按钮/按钮.tscn<>uid://c4arglk4ci36x::::res://UI/第二层/文字/MC文字.tscn
 蓝图槽.tscn::PackedScene::5316694814281039209::1786875347::0::1::::<><><>0<>0<><>::uid://gfnhkojwnb7r::::res://Image/UI/Slot/energy_slot.png<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://bipb8tqmjfceb::::res://addons/touch/Script/touch.gd<>uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres
-血条.tscn::PackedScene::6701055199801953383::1786875347::0::1::::<><><>0<>0<><>::uid://bdseq3fcwme42::::res://Script/UIscript/血条.gd<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf
+血条.tscn::PackedScene::6701055199801953383::1787107483::0::1::::<><><>0<>0<><>::uid://drufi2oet6818::::res://Font/minecraft_font.ttf
 触摸控制器.tscn::PackedScene::8951477246494249117::1786875347::0::1::::<><><>0<>0<><>::uid://sc48ukg1du60::::res://addons/touch/Script/触摸控制器.gd
 设置.tscn::PackedScene::4028516389817513559::1786875424::0::1::::<><><>0<>0<><>::uid://cu3oaypq4i3xg::::res://Shader/模糊.gdshader<>res://Script/UIscript/场景脚本/设置触摸板滑动.gd<>uid://dxs5v6m2mmuog::::res://addons/touch/tsch/选项卡.tscn<>uid://05pbp0kxbc20::::res://addons/touch/tsch/选项卡-单一选项.tscn<>res://Script/UIscript/场景脚本/设置-单一选项.gd<>res://Script/UIscript/场景脚本/设置-窗口模式选项.gd<>res://Script/UIscript/场景脚本/设置/l_54.gd<>res://Script/UIscript/场景脚本/设置窗口背景.gd<>res://Script/UIscript/场景脚本/选项卡_保存.gd<>res://Script/UIscript/场景脚本/设置-修改缩放.gd<>uid://bsballpnnbgjv::::res://UI/UI主题/MC主题.tres<>uid://b60h48bgorsrw::::res://Sound/Souds/MC按钮点击.ogg<>res://Script/UIscript/场景脚本/设置/读取配置.gd<>uid://bydmxaoxdidn8::::res://Image/UI/Button/form.png<>res://Script/UIscript/场景脚本/设置-返回.gd<>uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres<>res://Script/UIscript/场景脚本/设置-开启卡槽动效.gd<>res://Script/UIscript/场景脚本/设置/触控播放音效.gd<>uid://l4176xm8imnj::::res://UI/UI主题/MC文字主题.tres<>uid://dd3t4mqik4sv3::::res://addons/touch/Script/TouchTextEdit.gd<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://dt115y6ceqeby::::res://addons/touch/tsch/功能测试.gd<>uid://cfx6chamlduit::::res://Shader/渐变.gdshader
 遮挡.tscn::PackedScene::8752005376385194059::1786875347::0::1::::<><><>0<>0<><>::uid://d1lmk8ul6iehw::::res://Image/UI/UI.png
@@ -500,10 +513,10 @@ UpspeedButton.png::CompressedTexture2D::2535477702565510065::1786875346::1786875
 Meui-hollow.tres::StyleBoxTexture::7536450222973568078::1786875346::0::1::::<><><>0<>0<><>::uid://cinldlcw44is2::::res://UI/Button/Meui/MeUi-hollow.png
 Meui.tres::StyleBoxTexture::8554886214511898730::1786875346::0::1::::<><><>0<>0<><>::uid://tp7bhmegjr7k::::res://UI/Button/Meui/MeUIbutton.png
 MeUitheme.tres::Theme::8942748800449219411::1786875346::0::1::::<><><>0<>0<><>::
-::res://UI/card/::1786875424
-Card_PC.tscn::PackedScene::6719416470081362472::1786875424::0::1::::<><><>0<>0<><>::uid://v0ahtauyd8ii::::res://Script/UI/Level/Card/Card.cs<>uid://dpri4otf6rdve::::res://Image/UI/Card/card.png<>uid://28o38kfo56m8::::res://Image/UI/Card/card 边框.png<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://dnlb1y62pkmcy::::res://Sound/Souds/UI/card/Selected.ogg<>uid://b43ch04a7o2vq::::res://Image/UI/Card/card_recharge_flash.png<>uid://dheg8f4rhxhut::::res://Script/Node/Audio_Plus.cs<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://dxdj7dtlw6x5j::::res://Sound/Souds/UI/card/buzzer.wav<>uid://bnt35736wh3uq::::res://Twinkle.res
+::res://UI/card/::1787125558
+Card_PC.tscn::PackedScene::6719416470081362472::1787124627::0::1::::<><><>0<>0<><>::uid://v0ahtauyd8ii::::res://Script/UI/Level/Card/Card.cs<>uid://dpri4otf6rdve::::res://Image/UI/Card/card.png<>uid://28o38kfo56m8::::res://Image/UI/Card/card 边框.png<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://dnlb1y62pkmcy::::res://Sound/Souds/UI/card/Selected.ogg<>uid://b43ch04a7o2vq::::res://Image/UI/Card/card_recharge_flash.png<>uid://dheg8f4rhxhut::::res://Script/Node/Audio_Plus.cs<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://dxdj7dtlw6x5j::::res://Sound/Souds/UI/card/buzzer.wav<>uid://bnt35736wh3uq::::res://Twinkle.res
 Card_Placeholder.tscn::PackedScene::4023095232952466309::1786875346::0::1::::<><><>0<>0<><>::
-LevelUI.tscn::PackedScene::3181716308637641287::1786875424::0::1::::<><><>0<>0<><>::uid://cluhpq6u57uck::::res://Script/UI/Level/Card/Tween/LevelUi.cs<>uid://dd8fvsjugqam6::::res://Image/UI/pickaxe.png<>uid://ugolr2rk0njp::::res://Image/UI/default.png<>uid://gpvqcekdmvgn::::res://Image/UI/gear.png<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://c5xrknm7o3j2v::::res://UI/UI主题/主题/按钮.tres<>uid://bqcf8vara2mq3::::res://Image/UI/Button/MOPUI/MOP_UI3.svg<>uid://c2502xkvbyj1x::::res://Script/UI/Level/Card/NodeScript.cs<>uid://bw8h7mmr7us05::::res://Script/Object/Follow_Mouse/Follow_Mouse.cs<>uid://bxk215b41db4p::::res://UI/card/Card_Placeholder.tscn<>uid://c06ywida0hudg::::res://Script/UI/Level/Card/Card_Visible.cs<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://cvv0q38aegby0::::res://Script/UI/Level/Card/Start_Card.cs<>uid://cmegohxjbl1ju::::res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres<>uid://5805tg30ooiu::::res://UI/card/Slot.tscn<>uid://b8t4wfcrby1v::::res://Script/UI/Level/Card/TipUI.cs<>uid://doqxxw08vbj5i::::res://Sound/Souds/Game/Level/Ready.ogg<>uid://b2h2yj5mfnkym::::res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Black.ttf
+LevelUI.tscn::PackedScene::3181716308637641287::1787125558::0::1::::<><><>0<>0<><>::uid://cluhpq6u57uck::::res://Script/UI/Level/Card/Tween/LevelUi.cs<>uid://dd8fvsjugqam6::::res://Image/UI/pickaxe.png<>uid://ugolr2rk0njp::::res://Image/UI/default.png<>uid://gpvqcekdmvgn::::res://Image/UI/gear.png<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://c5xrknm7o3j2v::::res://UI/UI主题/主题/按钮.tres<>uid://bqcf8vara2mq3::::res://Image/UI/Button/MOPUI/MOP_UI3.svg<>uid://c2502xkvbyj1x::::res://Script/UI/Level/Card/NodeScript.cs<>uid://bw8h7mmr7us05::::res://Script/Object/Follow_Mouse/Follow_Mouse.cs<>uid://bxk215b41db4p::::res://UI/card/Card_Placeholder.tscn<>uid://c06ywida0hudg::::res://Script/UI/Level/Card/Card_Visible.cs<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://cvv0q38aegby0::::res://Script/UI/Level/Card/Start_Card.cs<>uid://cmegohxjbl1ju::::res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres<>uid://5805tg30ooiu::::res://UI/card/Slot.tscn<>uid://b8t4wfcrby1v::::res://Script/UI/Level/Card/TipUI.cs<>uid://doqxxw08vbj5i::::res://Sound/Souds/Game/Level/Ready.ogg<>uid://b2h2yj5mfnkym::::res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Black.ttf
 Placeholder_Slot.tscn::PackedScene::5665452341062480981::1786875346::0::1::::<><><>0<>0<><>::uid://ddqjnx1bcbukx::::res://Image/UI/Card/card(null).png<>uid://28o38kfo56m8::::res://Image/UI/Card/card 边框.png
 Slot.tscn::PackedScene::2175362282179898844::1786875424::0::1::::<><><>0<>0<><>::uid://gfnhkojwnb7r::::res://Image/UI/Slot/energy_slot.png<>uid://uio24h2cxw7n::::res://Script/UI/Level/Card/Selected_slot.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://cmynf4hbibom4::::res://UI/card/Placeholder_Slot.tscn<>uid://bi8ybqmyyi4wv::::res://Script/Object/UIObject/ShowEquipment.cs
 ::res://UI/LevelUI/::1786875424

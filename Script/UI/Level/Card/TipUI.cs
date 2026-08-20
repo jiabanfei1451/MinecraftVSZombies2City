@@ -14,7 +14,6 @@ public partial class TipUI : Control
         Game.Tip.Tip_Text = GetNode<Label>("Tip/Text");
         TipPanel = GetNode<Control>("Tip");
         Label = GetNode<Label>("Tip/Text");
-        Game.Tip.Set_Tip_Text("Test");
     }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);

@@ -342,7 +342,7 @@ _data = {
 &"表演魔术": SubResource("Animation_ay14q")
 }
 
-[node name="缓冲发射器" type="Area2D" unique_id=1104473596 groups=["器械"]]
+[node name="缓冲发射器" type="Area2D" unique_id=1104473596 groups=["Equipment"]]
 script = SubResource("Resource_xm4ru")
 
 [node name="躯干" type="Sprite2D" parent="." unique_id=599362164]

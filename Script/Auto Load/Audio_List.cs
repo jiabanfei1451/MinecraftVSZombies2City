@@ -58,6 +58,8 @@ public partial class Audio_List : Node
 	public override void _Ready() {
 		base._Ready();
 		#region 添加音效
+		Add_Muisc(Load.Load_External_Audio_File( Load.File_Type.ogg,"E:/UT入/ink/ink_bgm1.ogg"),"Ink_Phase1","File:ink");
+		Add_Muisc("uid://dmsb1maakx8lg","mus_a1_battle","MVZ2_City:KillStone_Final");
 		Add_Souds("uid://doqxxw08vbj5i","好,准备,安放器械","MVZ2:Ready");
 		#endregion
 	}
@@ -74,6 +76,63 @@ public partial class Audio_List : Node
 		Muisc_List[0].Add(Name);
 		Muisc_List[1].Add(Internal_Name);
 		Muisc_List[2].Add(Addstream);
+	}
+	/// <summary>
+	/// 直接添加音频
+	/// </summary>
+	/// <param name="FilePath"></param>
+	/// <param name="Name"></param>
+	/// <param name="Internal_Name"></param>
+	public void Add_Muisc(AudioStream FilePath,String Name,String Internal_Name)
+	{
+		Assembly assembly = Assembly.GetExecutingAssembly();
+		Muisc_List[0].Add(Name);
+		Muisc_List[1].Add(Internal_Name);
+		Muisc_List[2].Add(FilePath);
+	}
+	/// <summary>
+	/// 加载音频
+	/// </summary>
+	public static class Load
+	{
+		public enum File_Type
+		{
+			/// <summary>
+			/// Wav音频文件
+			/// </summary>
+			wav = 0,
+			/// <summary>
+			/// Ogg音频文件
+			/// </summary>
+			ogg = 1,
+			/// <summary>
+			/// Mp3音频文件
+			/// </summary>
+			mp3 = 2
+		}
+		/// <summary>
+		/// 加载外部音频
+		/// </summary>
+		/// <param name="fileType"></param>
+		/// <param name="FilePath"></param>
+		/// <returns></returns>
+		public static AudioStream Load_External_Audio_File(File_Type fileType,String FilePath)
+		{
+			AudioStream Stream = null;
+			switch (fileType)
+			{
+				case File_Type.mp3:
+				Stream = AudioStreamMP3.LoadFromFile(FilePath);
+				break;
+				case File_Type.ogg:
+				Stream = AudioStreamOggVorbis.LoadFromFile(FilePath);
+				break;
+				case File_Type.wav:
+				Stream = AudioStreamWav.LoadFromFile(FilePath);
+				break;
+			}
+			return Stream;
+		}
 	}
 	/// <summary>
 	/// 添加音效

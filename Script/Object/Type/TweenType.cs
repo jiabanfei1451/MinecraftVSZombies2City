@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Game;
+namespace Game.Get;
 public static partial class TweenType
 {
     public enum Twee

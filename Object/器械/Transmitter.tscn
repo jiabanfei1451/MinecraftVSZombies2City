@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://du3y4377ebqq2"]
 
-[ext_resource type="Script" uid="uid://cot1u4gy4n2be" path="res://Script/Object/Level_Object/equipment/Transmitter.cs" id="1_8qig5"]
+[ext_resource type="Script" uid="uid://cot1u4gy4n2be" path="res://Script/Object/Level_Object/equipment/Transmitier/Transmitter.cs" id="1_8qig5"]
 [ext_resource type="Texture2D" uid="uid://bbvxsgj2xswfv" path="res://Object/素材图/dispenser_6.png" id="2_nssbu"]
 [ext_resource type="Texture2D" uid="uid://b7ch57uppqgrk" path="res://Object/素材图/dispenser_5.png" id="3_53r0l"]
-[ext_resource type="AudioStream" uid="uid://ca1m1lsptgv1" path="res://Sound/Souds/发射.ogg" id="5_p5kym"]
+[ext_resource type="AudioStream" uid="uid://ca1m1lsptgv1" path="res://Sound/Souds/Shoot.ogg" id="5_p5kym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_333bt"]
 
@@ -65,7 +65,7 @@ size = Vector2(20, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwm1"]
 size = Vector2(720, 47)
 
-[node name="Transmitter" type="CharacterBody2D" unique_id=765598594 groups=["器械"]]
+[node name="Transmitter" type="CharacterBody2D" unique_id=765598594 groups=["Equipment"]]
 texture_filter = 1
 position = Vector2(0, -23)
 script = ExtResource("1_8qig5")
@@ -93,15 +93,21 @@ shape = SubResource("RectangleShape2D_aqnmb")
 stream = ExtResource("5_p5kym")
 max_polyphony = 20
 
-[node name="Area" type="Area2D" parent="." unique_id=1216636809 groups=["判定"]]
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1087430218]
+
+[node name="Area" type="Area2D" parent="." unique_id=1216636809 groups=["Area"]]
 collision_layer = 3
 collision_mask = 3
 priority = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1173799647 groups=["判定"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1173799647 groups=["Area"]]
 position = Vector2(353, -0.5)
 shape = SubResource("RectangleShape2D_cwwm1")
 debug_color = Color(1, 0, 0.0333333, 0.17254902)
+
+[node name="Timer" type="Timer" parent="." unique_id=2075048647]
+wait_time = 1.5
+one_shot = true
 
 [connection signal="area_entered" from="Area" to="." method="_碰到时"]
 [connection signal="area_exited" from="Area" to="." method="_离开时"]

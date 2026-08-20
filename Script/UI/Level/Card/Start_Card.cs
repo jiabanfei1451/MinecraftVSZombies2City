@@ -27,14 +27,14 @@ public partial class Start_Card : TouchPad
 		s.Stream = Game.Get_GlobalNode.Get_Audio_List(GetTree()).Get_Souds("MVZ2:Ready");
 		AddChild(s);
 		s.Play();
-		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("2");
+		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc(((Level.Level_Master_Script)GetTree().CurrentScene).Level_BGMID);
 		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"好!");
 		await Task.Delay(500);
 		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"准备!");
 		await Task.Delay(500);
 		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"安放器械!!!");
 		await Task.Delay(1000);
-		GetNode<UIObject.LevelUi>("../../..")?.Card_Initialization();
+		GetNode<UIObject.LevelUi>("../../..").Card_Initialization();
 		Game.Tip.Set_Ready_Text("");
 		await ToSignal(GetTree().CreateTimer(2),SceneTreeTimer.SignalName.Timeout);
 		GetNode<Control>("../..").QueueFree();
