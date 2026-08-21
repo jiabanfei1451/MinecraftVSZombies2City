@@ -4,26 +4,34 @@ using System;
 namespace Level.Object;
 [Icon("res://Image/Icon/Script/Health_Script.png")]
 [GlobalClass]
-public partial class Health : Godot.Resource
+public partial class Health() : Godot.Resource
 {
+    [ExportGroup("Health Points")]
     /// <summary>
     /// 最大血量
     /// </summary>
-    [Export] public float MaxHP = 10;
+    [Export] public int MaxHP = 10;
     /// <summary>
     /// 最小血量
     /// </summary>
-    [Export] public float MinHP = 0;
+    [Export] public int MinHP = 0;
     /// <summary>
     /// 当前血量
     /// </summary>
-    [Export] public float HP = -1;
+    [Export] public int HP = -1;
+    /// <summary>
+    /// 是否死亡
+    /// </summary>
+    [ExportGroup("Status")]
+    [Export] public bool kill = false;
     /// <summary>
     /// 初始化当前生命
     /// </summary>
     public void Reset()
     {
-        HP = MaxHP;
+        if (HP == -1){
+            HP = MaxHP;
+        }
         Info.Print(MaxHP);
     }
 }

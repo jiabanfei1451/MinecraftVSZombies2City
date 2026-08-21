@@ -1,15 +1,12 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.8.12023.21 stable
-MinimumVisualStudioVersion = 10.0.40219.1
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinecraftVSZombies2 City", "MinecraftVSZombies2 City.csproj", "{1F737DF5-7904-4D69-897A-AD66E42B7BBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		ExportDebug|Any CPU = ExportDebug|Any CPU
-		ExportRelease|Any CPU = ExportRelease|Any CPU
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1F737DF5-7904-4D69-897A-AD66E42B7BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -18,11 +15,5 @@ Global
 		{1F737DF5-7904-4D69-897A-AD66E42B7BBF}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{1F737DF5-7904-4D69-897A-AD66E42B7BBF}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{1F737DF5-7904-4D69-897A-AD66E42B7BBF}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {65051101-D25A-4E74-ACBA-61D2DF3C80E0}
 	EndGlobalSection
 EndGlobal

@@ -169,7 +169,6 @@ size = Vector2(720, 47)
 
 [node name="Transmitter" type="CharacterBody2D" unique_id=1207108687 node_paths=PackedStringArray("Area") groups=["Equipment"]]
 texture_filter = 1
-position = Vector2(0, -23)
 slide_on_ceiling = false
 script = ExtResource("1_ius62")
 Area = NodePath("Area")

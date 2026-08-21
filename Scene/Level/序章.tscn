@@ -48,6 +48,9 @@ metadata/_edit_lock_ = true
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2009114607]
 position = Vector2(-428, -181)
 
+[node name="Lawn_Position" type="Marker2D" parent="." unique_id=757083903]
+position = Vector2(-428, 219)
+
 [node name="边框" type="Node2D" parent="." unique_id=145045159]
 z_index = 999
 

@@ -50,6 +50,7 @@ public partial class Level_Master_Script : Node2D{
 	/// 草坪实例化后的数据
 	/// </summary>
 	[Export] public Godot.Collections.Array<Godot.Collections.Array<Lawn>> Lawn_Data = new Godot.Collections.Array<Godot.Collections.Array<Lawn>>([[]]);
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Object.Data>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Object.Data>>();
 	/// <summary>
 	/// 自动生成草坪
 	/// </summary>
@@ -103,6 +104,10 @@ public partial class Level_Master_Script : Node2D{
 	/// </summary>
 	[Export] public float Light_Offset = 1;
 	/// <summary>
+	/// Ready执行完成
+	/// </summary>
+	[Export] public bool Game_Reset_Done = false;
+	/// <summary>
 	/// 用于摄像机缓动的process
 	/// </summary>
 	/// <param name="delta"></param>
@@ -141,8 +146,77 @@ public partial class Level_Master_Script : Node2D{
 		Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(-105,0),1);
 		await ToSignal(Twee,Tween.SignalName.Finished);
 	}
+	#region 草坪方法
+	/// <summary>
+	/// 初始化草坪行数索引
+	/// </summary>
+	public void Reset_Lawn_Index()
+	{
+		Lawn_Object_Index.Resize(Lawn_Array.Count);
+	}
+	/// <summary>
+	/// 移动索引物体
+	/// </summary>
+	public void Move_Lawn_Index(Level.Object.Data Data_Object,int Index)
+	{
+		if (!Check_Lawn_Index(Index)){return;}
+		if (!Check_Lawn_Index(Data_Object.Lawn_Index)){return;}
+		int Temp_Index = Data_Object.Lawn_Index;
+		if (Temp_Index == Index){return;}
+		Data_Object.Lawn_Index = Index;
+		Add_Lawn_Index(Data_Object,Index);
+		Remove_Lawn_Index(Data_Object,Temp_Index);
+	}
+	/// <summary>
+	/// 添加索引物体
+	/// </summary>
+	public void Add_Lawn_Index(Level.Object.Data Data_Object,int Index)
+	{
+		if (!Check_Lawn_Index(Index)){return;}
+		Lawn_Object_Index[Index].Add(Data_Object);
+	}
+	/// <summary>
+	/// 删除索引物体
+	/// </summary>
+	public void Remove_Lawn_Index(Level.Object.Data Data_Object,int Index)
+	{
+		if (!Check_Lawn_Index(Index)){return;}
+		Lawn_Object_Index[Index].Remove(Data_Object);
+	}
+	/// <summary>
+	/// 遍历数组删除空值
+	/// </summary>
+	/// <param name="Auto_Delete"></param>
+	public void Remove_Lawn_Index(bool Auto_Delete)
+	{
+		for(int i = 0;i < Lawn_Data.Count;i++)
+		{
+			foreach(Level.Object.Data Data_Object in Lawn_Object_Index[i])
+			{
+				if (Data_Object is null)
+				{
+					Lawn_Object_Index[i].Remove(Data_Object);
+				}
+			}
+		}
+	}
+	/// <summary>
+	/// 检查此草坪行索引是否存在
+	/// </summary>
+	/// <param name="Index"></param>
+	/// <returns></returns>
+	private bool Check_Lawn_Index(int Index)
+	{
+		if (Index < Lawn_Object_Index.Count)
+		{
+			return true;
+		}
+		return false;
+	}
+	#endregion
 	public override void _Ready() {
 		base._Ready();
+		Reset_Lawn_Index();
 		LawnScene = GD.Load<PackedScene>("uid://dim8rk13omwvv");
 		Touch.Touch_Index.Set_Index_Enable(0,false);
 		Game.Get_GlobalNode.Node_Data.Clear_Node();
@@ -190,6 +264,7 @@ public partial class Level_Master_Script : Node2D{
 			}
 		}
 		}
+		Game_Reset_Done = true;
 	}
 	/// <summary>
 	/// 使选中的草坪变为绿色

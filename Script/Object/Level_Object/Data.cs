@@ -10,9 +10,18 @@ namespace Level.Object;
 public partial class Data : CharacterBody2D
 {
     /// <summary>
-    /// 检测
+    /// 当前草坪行数索引
     /// </summary>
     [ExportCategory("看什么看?变量在Data中")]
+    [ExportGroup("Index")]
+    [Export] public int Lawn_Index = -1;
+    /// <summary>
+    /// 自动设置草坪行数索引
+    /// </summary>
+    [Export] public bool AutoSet_Lawn_Index = true;
+    /// <summary>
+    /// 检测
+    /// </summary>
     [ExportGroup("Object")]
     [Export] public Godot.Area2D Area = null;
     /// <summary>
@@ -30,11 +39,12 @@ public partial class Data : CharacterBody2D
     /// 启用状态
     /// </summary>
     
-    [ExportGroup("status")] [Export] public bool Enable = true;
+    [ExportGroup("status")] 
+    [Export] public bool Enable = true;
     /// <summary>
     /// 伤害值
     /// </summary>
-    [Export] public float Damage;
+    [Export] public int Damage;
     /// <summary>
     /// 已检测到的object
     /// </summary>
@@ -51,9 +61,41 @@ public partial class Data : CharacterBody2D
     /// 速度
     /// </summary>
     [ExportGroup("Vector")]
+    #region 移动
+    [ExportSubgroup("Move")]
     [Export] public Godot.Vector2 Speed = Vector2.Zero;
+    /// <summary>
+    /// 移动速度的倍率
+    /// </summary>
     [Export] public float Speed_Multiplication = 1;
+    /// <summary>
+    /// 移动状态
+    /// </summary>
     [Export] public bool Move_Ing = false;
+    /// <summary>
+    /// 移动类型
+    /// </summary>
+    [Export] public Move_Type MoveType = Move_Type.Linear_Motion;
+    /// <summary>
+    /// 移动类型
+    /// </summary>
+    public enum Move_Type
+    {
+        /// <summary>
+        /// 平移
+        /// </summary>
+        Linear_Motion = 0,
+        /// <summary>
+        /// 使用脚本驱动
+        /// </summary>
+        Script_Driver = 1,
+    }
+    /// <summary>
+    /// 基于Practical_Position的偏移量
+    /// </summary>
+    #endregion
+    [ExportGroup("Vector")]
+    [Export] public Godot.Vector2 position_Offset = Godot.Vector2.Zero;
     /// <summary>
     /// 启用物理
     /// </summary>
@@ -87,9 +129,17 @@ public partial class Data : CharacterBody2D
     /// 加速度
     /// </summary>
     [Export] public float Acceleration = 0;
-    
-    public override void _Ready() {
+    Level_Master_Script level = null;
+    float Temp_Position_Y = -1;
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level").Remove_Lawn_Index(this,Lawn_Index);
+    }
+    public override async void _Ready() {
         base._Ready();
+        Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level").Add_Lawn_Index(this,Lawn_Index);
         if (!Enable_Health)
         {
             Health.Free();
@@ -100,15 +150,67 @@ public partial class Data : CharacterBody2D
         }
         if (!Enable){return;}
         practical_Position = Position;
+        Temp_Position_Y = practical_Position.Y + position_Offset.Y;
         Area = GetNode<Godot.Area2D>("Area");
+        if (level.Game_Reset_Done == true){
+            await Task.Delay(100);
+        }
+        Lawn_Index = AutoGet_LawnIndex();
     }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
         if (!Enable){return;}
-            Position = practical_Position + new Vector2(0,Height);
-            if (Move_Ing == true){
-               practical_Position += (Speed * new Vector2(Speed_Multiplication,Speed_Multiplication)) * new Vector2((float)delta,(float)delta);
+            Position = practical_Position + position_Offset + new Vector2(0,Height);
+            switch (MoveType){
+                case Move_Type.Linear_Motion:
+                    if (Move_Ing == true){
+                        practical_Position += (Speed * new Vector2(Speed_Multiplication,Speed_Multiplication)) * new Vector2((float)delta,(float)delta);
+                    }
+                break;
+            }
+        if (Health != null)
+        {
+            if (Health.kill == true)
+            {
+                Health.Free();
+                QueueFree();
+            }
         }
+        if (level != null && AutoSet_Lawn_Index == true)
+        {
+            if (Temp_Position_Y != practical_Position.Y + position_Offset.Y)
+            {
+                Temp_Position_Y = practical_Position.Y + position_Offset.Y;
+                level.Move_Lawn_Index(this,AutoGet_LawnIndex());
+            }
+        }
+    }
+    public int AutoGet_LawnIndex()
+    {
+        if (level == null){return -1;}
+        float Position_Y = level.Lawn_Spawn_Position.Y;
+        float IndexNumber = level.Lawn_Spawn_Offect.Y;
+        float Index = practical_Position.Y;
+        int Current_Lawn_Index = 0;
+        int MaxIndex = level.Lawn_Object_Index.Count;
+        while(Index >= Position_Y)
+        {
+            if (Index >= Position_Y)
+            {
+                Index -= IndexNumber;
+                Current_Lawn_Index += 1;
+            }
+        }
+        Current_Lawn_Index -= 1;
+        if (Current_Lawn_Index >= MaxIndex)
+        {
+            Current_Lawn_Index = MaxIndex -1;
+        }
+        if (Current_Lawn_Index < 0)
+        {
+            Current_Lawn_Index = 0;
+        }
+        return Current_Lawn_Index;
     }
     public async Task Reset_Area()
     {

@@ -112,7 +112,11 @@ public partial class Card : Control
 	/// 父节点
 	/// </summary>
 	[Export] public Node parent_Object = null;
+	/// <summary>
+	/// 热键
+	/// </summary>
 	[Export] public Key Trigger_Key = Key.None;
+	[Export] public bool Key_Pressed = false;
 	/// <summary>
 	/// 索引
 	/// </summary>
@@ -128,10 +132,12 @@ public partial class Card : Control
 		if (Card_Mode != Mode.Gameing){return;}
 		if (@event is InputEventKey)
 		{
-			if (((InputEventKey)@event).Keycode == Trigger_Key && ((InputEventKey)@event).Pressed)
-			{
-				_Selected();
-			}	
+			if (((InputEventKey)@event).Keycode == Trigger_Key && Key_Pressed != ((InputEventKey)@event).IsPressed()){
+				Key_Pressed = ((InputEventKey)@event).IsPressed();
+				if (((InputEventKey)@event).IsPressed() == true){
+					_Selected();
+				}
+			}
 		}
 		if (Get_Selected_rawObject() != this){return;}
 		if (@event is InputEventMouseButton)
