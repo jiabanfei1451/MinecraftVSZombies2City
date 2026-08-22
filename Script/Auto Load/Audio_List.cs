@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+namespace Game.AutoLoad;
 /// <summary>
 /// Audio_List是负责存储预加载的音乐与音效,预计之后推出分片式预加载
 /// </summary>

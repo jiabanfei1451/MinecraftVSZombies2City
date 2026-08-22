@@ -1,8 +1,11 @@
 using Godot;
 using DEBUG;
+using System.Threading.Tasks;
 
-public partial class Transmitter : Level.Object.Data
+public partial class Transmitter : Level.Object.LevelData
 {
+    [ExportGroup("Summand_Node")]
+    [Export] public PackedScene Shoot = Game.ResourceTool.LoadScene("uid://caymc0p7rsog");
     /// <summary>
     /// 计时器节点
     /// </summary>
@@ -16,15 +19,18 @@ public partial class Transmitter : Level.Object.Data
     /// 发射音效节点
     /// </summary>
     [Export] public Godot.AudioStreamPlayer Shoot_Sound = null;
-    public override void _Ready() {
+    public override async void _Ready() {
         base._Ready();
         if (!Enable){return;}
         this.Timer = GetNode<Timer>("Timer");
         Shoot_Sound = GetNode<AudioStreamPlayer>("Souds");
         this.AnimationPlayer = GetNode<AnimationPlayer>("Animation");
+        if (Area == null){return;}
         Area.BodyEntered += Object_join;
         Area.BodyExited += Object_Exit;
         var @r = Reset_Area();
+        await Task.Delay(100);
+        level.Object_Change_Line += Check_Change_line;
     }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
@@ -38,16 +44,33 @@ public partial class Transmitter : Level.Object.Data
             this.Timer.Start(Time);
         }
     }
+    public void Check_Change_line(Level.Object.LevelData levelData)
+    {
+        if (!Check_Object_Group(levelData)){return;}
+        var s = ReEnable_Area();
+    }
+    public async Task ReEnable_Area()
+    {
+        GD.Print(3);
+        Area.Monitoring = false;
+        await Task.Delay(10);
+        GD.Print(4);
+        Area.Monitoring = true;
+    } 
     public void Object_join (Node2D Node)
     {
-        bool Check = Check_Object_Group(Node);
-        if (Check == true)
-        {
-            Add_Object(Node);
+        GD.Print(1);
+        if (Node is Level.Object.LevelData){
+            bool Check = Check_Object_Group(Node);
+            if (Check == true && ((Level.Object.LevelData)Node).Lawn_Index == this.Lawn_Index)
+            {
+                Add_Object(Node);
+            }
         }
     }
     public void Object_Exit (Node2D Node)
     {
+        GD.Print(0);
         Remove_Object(Node);
         Remove_Null_Object();
     }

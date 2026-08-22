@@ -2,6 +2,7 @@ using Godot;
 using Touch;
 using My_Csharp_Node;
 using System.Threading.Tasks;
+using Level;
 
 public partial class Start_Card : TouchPad
 {
@@ -11,9 +12,12 @@ public partial class Start_Card : TouchPad
 	public override void _Ready() {
 		base._Ready();
 		Button_Pressedvoid += pressed;
+		Game.Get_GlobalNode.Node_Data.Add_Node(GetNode<UIObject.LevelUi>("../../.."),"LevelUI");
+		Game.Get_GlobalNode.Node_Data.Add_Node(GetNode<Control>("../.."),"LevelUI2");
 	}
 	public async void pressed()
 	{
+		Touch.Touch_Index.Set_Index_Enable(1,false);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
 		var it = GetNode<UIObject.LevelUi>("../../..")?.hide_Select_CardUI();
 		await it;
@@ -21,24 +25,7 @@ public partial class Start_Card : TouchPad
 		CreateTween().TweenProperty(GetNode<Control>("../../../Card_Slot"),new NodePath(Control.PropertyName.Position),GetNode<Control>("../../../Y").Position - new Vector2((GetNode<Control>("../../../Card_Slot").Size.X+80) / 2,0),2).SetTrans(Tween.TransitionType.Cubic);
 		Game.Get_GlobalNode.Node_Data.Get_Node<Level.Level_Master_Script>("Level").Completed_Selected_Card();
 		await Task.Delay(1000);
-		Audio_Plus s = new Audio_Plus();
-		s.Audio_Type = Audio_Plus.Audio.Souds;
-		s.Auto_QueneFree = true;
-		s.Stream = Game.Get_GlobalNode.Get_Audio_List(GetTree()).Get_Souds("MVZ2:Ready");
-		AddChild(s);
-		s.Play();
-		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc(((Level.Level_Master_Script)GetTree().CurrentScene).Level_BGMID);
-		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"好!");
-		await Task.Delay(500);
-		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"准备!");
-		await Task.Delay(500);
-		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"安放器械!!!");
-		await Task.Delay(1000);
-		GetNode<UIObject.LevelUi>("../../..").Card_Initialization();
-		Game.Tip.Set_Ready_Text("");
-		await ToSignal(GetTree().CreateTimer(2),SceneTreeTimer.SignalName.Timeout);
-		GetNode<Control>("../..").QueueFree();
-		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
+		Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level").Game_Start();
 	}
 	public override void _Process(double delta)
 	{

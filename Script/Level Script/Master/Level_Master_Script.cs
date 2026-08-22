@@ -1,13 +1,20 @@
 using Game;
 using Godot;
 using System;
-using DEBUG;
+using My_Csharp_Node;
+using System.Threading.Tasks;
 
 namespace Level;
 /// <summary>
 /// 关卡主脚本
 /// </summary>
 public partial class Level_Master_Script : Node2D{
+	/// <summary>
+	/// 关卡Data实例更改行时
+	/// </summary>
+	/// <param name="Data_Object"></param>
+	[Signal]
+	public delegate void Object_Change_LineEventHandler(Level.Object.LevelData Data_Object);
 	#region 变量
 	[ExportCategory("看什么?难道你不知道脚本里有中文注释吗?")]
 	[ExportGroup("BGM")][Export] public String Level_BGMID = "0";
@@ -50,7 +57,7 @@ public partial class Level_Master_Script : Node2D{
 	/// 草坪实例化后的数据
 	/// </summary>
 	[Export] public Godot.Collections.Array<Godot.Collections.Array<Lawn>> Lawn_Data = new Godot.Collections.Array<Godot.Collections.Array<Lawn>>([[]]);
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Object.Data>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Object.Data>>();
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Object.LevelData>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Object.LevelData>>();
 	/// <summary>
 	/// 自动生成草坪
 	/// </summary>
@@ -127,13 +134,37 @@ public partial class Level_Master_Script : Node2D{
 	public async void choose_Card()
     {
 		Tween Twee = CreateTween();
-        PackedScene Scene = GD.Load<PackedScene>("uid://bllinxtvttldn");
+        PackedScene Scene = Game.ResourceTool.LoadScene("uid://bllinxtvttldn");
 		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("CH:选卡");
 		Camera2D_Zoom = new Godot.Vector2(1.1f,1.1f);
         Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(140,0),1);
 		await ToSignal(Twee,Tween.SignalName.Finished);
 		CanvasLayer layer = Scene.Instantiate<CanvasLayer>();
 		AddChild(layer);
+	}
+	public async void Game_Start()
+	{
+		Audio_Plus s = new Audio_Plus();
+		s.Audio_Type = Audio_Plus.Audio.Souds;
+		s.Auto_QueneFree = true;
+		s.Stream = Game.Get_GlobalNode.Get_Audio_List(GetTree()).Get_Souds("MVZ2:Ready");
+		AddChild(s);
+		s.Play();
+		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"好!");
+		await Task.Delay(500);
+		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"准备!");
+		await Task.Delay(500);
+		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"安放器械!!!");
+		await Task.Delay(1000);
+		Game.Tip.Set_Ready_Text("");
+		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc(((Level.Level_Master_Script)GetTree().CurrentScene).Level_BGMID);
+		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
+		Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI").Card_Initialization();
+		Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name).QueueFree();
+		Touch.Touch_Index.Set_Index_Enable(1,true);
+		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2") != null){
+			Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2").QueueFree();
+		}
 	}
 	/// <summary>
 	/// 完成选卡
@@ -157,7 +188,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 移动索引物体
 	/// </summary>
-	public void Move_Lawn_Index(Level.Object.Data Data_Object,int Index)
+	public void Move_Lawn_Index(Level.Object.LevelData Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		if (!Check_Lawn_Index(Data_Object.Lawn_Index)){return;}
@@ -166,11 +197,13 @@ public partial class Level_Master_Script : Node2D{
 		Data_Object.Lawn_Index = Index;
 		Add_Lawn_Index(Data_Object,Index);
 		Remove_Lawn_Index(Data_Object,Temp_Index);
+		EmitSignal("Object_Change_Line",Data_Object);
+		GD.Print($"Object Change Line,Current Line:{Data_Object.Lawn_Index}");
 	}
 	/// <summary>
 	/// 添加索引物体
 	/// </summary>
-	public void Add_Lawn_Index(Level.Object.Data Data_Object,int Index)
+	public void Add_Lawn_Index(Level.Object.LevelData Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		Lawn_Object_Index[Index].Add(Data_Object);
@@ -178,7 +211,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 删除索引物体
 	/// </summary>
-	public void Remove_Lawn_Index(Level.Object.Data Data_Object,int Index)
+	public void Remove_Lawn_Index(Level.Object.LevelData Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		Lawn_Object_Index[Index].Remove(Data_Object);
@@ -191,7 +224,7 @@ public partial class Level_Master_Script : Node2D{
 	{
 		for(int i = 0;i < Lawn_Data.Count;i++)
 		{
-			foreach(Level.Object.Data Data_Object in Lawn_Object_Index[i])
+			foreach(Level.Object.LevelData Data_Object in Lawn_Object_Index[i])
 			{
 				if (Data_Object is null)
 				{
@@ -214,14 +247,15 @@ public partial class Level_Master_Script : Node2D{
 		return false;
 	}
 	#endregion
-	public override void _Ready() {
+	public override async void _Ready() {
 		base._Ready();
 		Reset_Lawn_Index();
-		LawnScene = GD.Load<PackedScene>("uid://dim8rk13omwvv");
+		LawnScene = Game.ResourceTool.LoadScene("uid://dim8rk13omwvv");
 		Touch.Touch_Index.Set_Index_Enable(0,false);
 		Game.Get_GlobalNode.Node_Data.Clear_Node();
 		Game.Get_GlobalNode.Node_Data.Add_Node(this,"Level");
 		summand_Node();
+		await Task.Delay(100);
 		if (Camera2D == null)
 		{
 			Camera2D = new Camera2D(); 

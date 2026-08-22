@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace Game{
+namespace Game.AutoLoad{
 public static class PlayerData : Object
 {
     /// <summary>

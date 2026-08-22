@@ -3,6 +3,7 @@ using Godot;
 using System.Threading.Tasks;
 using My_Csharp_Node;
 using Game;
+using Game.AutoLoad;
 using DEBUG;
 using System;
 namespace GameUI{
@@ -167,12 +168,12 @@ public partial class Card : Control
 			Nodes.QueueFree();
 		}
 		//初始化材质
-		Game.Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		CharacterBody2D texture = Data.Scene.Instantiate<CharacterBody2D>();
-		if (texture is Level.Object.Data)
+		if (texture is Level.Object.LevelData)
 		{
-			((Level.Object.Data)texture).Enable = false;
-			((Level.Object.Data)texture).Enable_Health = false;
+			((Level.Object.LevelData)texture).Enable = false;
+			((Level.Object.LevelData)texture).Enable_Health = false;
 		}
 		GetNode<Control>("Image").AddChild(texture);
 		texture.Position = Data.Offset;
@@ -322,8 +323,8 @@ public partial class Card : Control
 				if (GlobalPosition.Y < 80){return;}
 				// 选定状态
 				if (Mode_Data.Selected_Card_Mode.is_Selected_Card_Object == null){
-					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > Game.PlayerData.Card_Quantity - 1){return;}
-					PackedScene Temp_Scene = GD.Load<PackedScene>("uid://c2y62prxcbege");
+					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > PlayerData.Card_Quantity - 1){return;}
+					PackedScene Temp_Scene = Game.ResourceTool.LoadScene("uid://c2y62prxcbege");
 					Card Temp_Card = Temp_Scene.Instantiate<Card>();
 					Temp_Card.Card_Mode = Mode.is_Seleceed_Card;
 					Temp_Card.Mode_Data = new ModeObject();
@@ -382,7 +383,7 @@ public partial class Card : Control
 		var Temp = Start_CD();
 		Game.Level_Script.Equipment_Capable -= data.Sonsume;
 		Level.Lawn Lawn = level.Selected_Lawn;
-		Level.Object.Data node = data.Scene.Instantiate<Level.Object.Data>();
+		Level.Object.LevelData node = data.Scene.Instantiate<Level.Object.LevelData>();
 		node.Position = Lawn.Position + data.Map_Offset;
 		node.Scale = data.Map_Scale;
 		Lawn.Current_Object.Equipment_Object = node;
@@ -400,7 +401,7 @@ public partial class Card : Control
 			Info.PrintErr("当前卡槽正在冷却请勿重复执行!");
 			return false;
 		}
-		Game.Card_Data.GlobalData data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Card_Data.GlobalData data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		MAXCD_Time = data.CD;
 		CD_Time = data.CD;
 		if (first_Time_ReduceCD == false)
@@ -415,7 +416,7 @@ public partial class Card : Control
 	/// </summary>
 	public void _Selected()
 	{
-		Game.Card_Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Card_Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
 		{
 			GetNode<Audio_Plus>("buzzer").Play();
@@ -500,7 +501,7 @@ public partial class Card : Control
 		/// </summary>
 		public class Gameing()
 		{
-			public Game.Card_Data.GlobalData Card_Data;
+			public Card_Data.GlobalData Card_Data;
 		}
 		#endregion
 	}

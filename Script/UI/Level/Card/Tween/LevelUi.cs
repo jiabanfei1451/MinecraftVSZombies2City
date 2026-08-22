@@ -46,6 +46,9 @@ public partial class LevelUi : CanvasLayer
 		GetNode<Control>("Select_CardUI").Visible = false;
 		return true;
 	}
+	/// <summary>
+	/// 给予卡槽快捷键
+	/// </summary>
 	public void Card_Initialization()
 	{
 		Key[] key_List = new Key[]{Key.Key1,Key.Key2,Key.Key3,Key.Key4,Key.Key5,Key.Key6,Key.Key7,Key.Key8,Key.Key9,Key.Key0,};

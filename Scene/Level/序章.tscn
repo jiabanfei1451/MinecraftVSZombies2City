@@ -85,11 +85,23 @@ color = Color(0, 0, 0, 1)
 [node name="Monster" type="Node2D" parent="." unique_id=554991016]
 
 [node name="Zombies" parent="Monster" unique_id=838965622 instance=ExtResource("5_vhc43")]
-position = Vector2(285, 32)
+position = Vector2(286, 54)
 Health = SubResource("Resource_r0ieh")
 
 [node name="Equipment" type="Node2D" parent="." unique_id=519040572]
 y_sort_enabled = true
 
-[node name="Transmitter" parent="." unique_id=1207108687 instance=ExtResource("5_xb2ch")]
+[node name="Transmitter" parent="Equipment" unique_id=1207108687 instance=ExtResource("5_xb2ch")]
 position = Vector2(-390, 24)
+
+[node name="Transmitter2" parent="Equipment" unique_id=1986255240 instance=ExtResource("5_xb2ch")]
+position = Vector2(-390, -56)
+
+[node name="Transmitter3" parent="Equipment" unique_id=1143780879 instance=ExtResource("5_xb2ch")]
+position = Vector2(-390, 104)
+
+[node name="Transmitter4" parent="Equipment" unique_id=384868490 instance=ExtResource("5_xb2ch")]
+position = Vector2(-389, -134)
+
+[node name="Transmitter5" parent="Equipment" unique_id=67858164 instance=ExtResource("5_xb2ch")]
+position = Vector2(-390, 185)

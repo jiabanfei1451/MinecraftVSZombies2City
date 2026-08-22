@@ -11,9 +11,6 @@ config_version=5
 [application]
 
 config/name="MinecraftVSZombies2 City"
-config/name_localized={
-"ch_CN": "MinecraftVSZombies2 City"
-}
 config/version="beta0.1.3"
 run/main_scene="uid://ctupg5y2pblky"
 config/use_custom_user_dir=true
@@ -231,7 +228,7 @@ pointing/emulate_touch_from_mouse=true
 
 rendering/root_node_layout_direction=1
 locale/translation_remaps={}
-locale/translation_add_builtin_strings_to_pot=true
+locale/test="zh_CN"
 locale/locale_filter_mode=0
 
 [memory]

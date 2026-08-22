@@ -54,7 +54,7 @@ public static class Server
             {
                 TcpClient Player = await TCPServer.AcceptTcpClientAsync();
                 Server_Stream = Player.GetStream();
-                GD.Print("进入");
+                DEBUG.Info.Print("进入");
                 Handle_Player(Player);
                 
             }
@@ -62,11 +62,11 @@ public static class Server
         }
         catch(Exception EX)
         {
-            GD.Print(EX.Message);
+            DEBUG.Info.Print(EX.Message);
         }
         finally
         {
-            GD.Print("服务器已关闭");
+            DEBUG.Info.Print("服务器已关闭");
         }
     }
      /// <summary>
@@ -91,27 +91,27 @@ public static class Server
         }
         if (TCPServer != null)
         {
-            GD.Print("当前为服务端!");
+            DEBUG.Info.Print("当前为服务端!");
         }else{
         Client = new TcpClient();
-        GD.Print("正在加入游戏...");
+        DEBUG.Info.Print("正在加入游戏...");
         try
         {
             await Client.ConnectAsync(IPs,Port);
-            GD.Print($"已成功加入游戏IP{IPs}");
+            DEBUG.Info.Print($"已成功加入游戏IP{IPs}");
             Server_Stream = Client.GetStream();
 
             while (true){
             byte[] Buffer = new byte[1024];
             var s = await Server_Stream.ReadAsync(Buffer,0,Buffer.Length);
             string str = Encoding.UTF8.GetString(Buffer,0,s);
-            GD.Print(str);
+            DEBUG.Info.Print(str);
             }
         }
         catch(Exception EX)
         {
-            GD.PrintErr(EX.Message);
-            GD.Print(IPs,Port);
+            DEBUG.Info.PrintErr(EX.Message);
+            DEBUG.Info.Print(IPs,Port);
         }
         finally
         {
@@ -123,7 +123,7 @@ public static class Server
             Server_Stream.Close();
             }
             Server_Stream = null;
-            GD.Print("结束");
+            DEBUG.Info.Print("结束");
         }
         }
     }
@@ -136,10 +136,10 @@ public static class Server
         try{
             if (Server_Stream == null){return;}
             if (Online_Player.Count <= 0){
-                GD.Print("啊哦,没有客户端连接当前客户端为零");
+                DEBUG.Info.Print("啊哦,没有客户端连接当前客户端为零");
                 return;
             }
-            GD.Print($"服务端正在向{Online_Player.Count}个已连接的客户端发送信息:{Text}");
+            DEBUG.Info.Print($"服务端正在向{Online_Player.Count}个已连接的客户端发送信息:{Text}");
             foreach (TcpClient tcp in Online_Player){
                 NetworkStream network = tcp.GetStream();
                 await network.WriteAsync(Encoding.UTF8.GetBytes(Text));
@@ -147,7 +147,7 @@ public static class Server
         }
         catch(Exception EX)
         {
-            GD.Print(EX.Message);
+            DEBUG.Info.Print(EX.Message);
         }
         finally
         {
@@ -169,7 +169,7 @@ public static class Server
                 byte[] Buffer = new byte[1024];
                 int Len = await PlayerStream.ReadAsync(Buffer,0,Buffer.Length);
                 string str = Encoding.UTF8.GetString(Buffer,0,Len);
-                GD.Print(str);
+                DEBUG.Info.Print(str);
                 Currend_Data.Add(str);
             }
         }
@@ -177,11 +177,11 @@ public static class Server
         {
             if (EX.ToString().Find("ystem.Net.Sockets.SocketException") != -1)
             {
-                GD.Print("一个客户端已断开连接");
+                DEBUG.Info.Print("一个客户端已断开连接");
             }
             else
             {
-                GD.Print(EX);
+                DEBUG.Info.Print(EX);
             }
         }
         finally

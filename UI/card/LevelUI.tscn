@@ -493,6 +493,7 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("14_b70vt")
+Enable_Drag = false
 Auto_Enable_Index = 1
 metadata/_custom_type_script = "uid://blc413ky1v12"
 

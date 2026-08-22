@@ -2,7 +2,7 @@ using Godot;
 using Level;
 using System;
 
-public partial class Zombies : Level.Object.Data
+public partial class Zombies : Level.Object.LevelData
 {
     [ExportGroup("Animation")][Export] public String Current_Hand_Animation = "";
     [Export] public String Current_Leg_Animation = "";

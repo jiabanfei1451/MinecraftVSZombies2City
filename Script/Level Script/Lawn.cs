@@ -2,6 +2,7 @@ using Godot;
 using Touch;
 using DEBUG;
 using Game;
+using Game.AutoLoad;
 using GameUI;
 namespace Level{
 public partial class Lawn : ColorRect{
@@ -13,7 +14,7 @@ public partial class Lawn : ColorRect{
 	public CurrentObject Current_Object = null;
 	public class CurrentObject
 	{
-		public Level.Object.Data Equipment_Object = null;
+		public Level.Object.LevelData Equipment_Object = null;
 	}
 	public override void _Ready() {
 		base._Ready();
@@ -56,9 +57,9 @@ public partial class Lawn : ColorRect{
 		PackedScene Scene = Temp_Data.Scene;
 		Node2D new_Node2d = Scene.Instantiate<Node2D>();
 		new_Node2d.Name = "-1+1-1+1_CS";
-		if (new_Node2d is Level.Object.Data)
+		if (new_Node2d is Level.Object.LevelData)
 		{
-			Level.Object.Data Temp_Node = (Level.Object.Data)new_Node2d;
+			Level.Object.LevelData Temp_Node = (Level.Object.LevelData)new_Node2d;
 			Temp_Node.Enable = false;
 			Temp_Node.Enable_Health = false;
 		}
@@ -70,14 +71,14 @@ public partial class Lawn : ColorRect{
 		for (int i = 0; i < this.GetChildCount(); ++i)
 			{
 				Node Get = this.GetChild(i);
-				if (Get.GetScript().ToString() == "" && !(Get is Level.Object.Data)){
+				if (Get.GetScript().ToString() == "" && !(Get is Level.Object.LevelData)){
 					Info.ERROR(Info.ERROR_Info.NOScript);
 					Get.QueueFree();
 				}
 				else
 				{
-					if (Get is Level.Object.Data){
-						Level.Object.Data Temp_Get = (Level.Object.Data)Get;
+					if (Get is Level.Object.LevelData){
+						Level.Object.LevelData Temp_Get = (Level.Object.LevelData)Get;
 						if (Temp_Get.Enable == false)
 						{
 							Temp_Get.QueueFree();

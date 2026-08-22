@@ -3,6 +3,7 @@ using My_Csharp_Node;
 using System;
 using System.IO;
 
+namespace Game.AutoLoad;
 /// <summary>
 /// 音乐引擎
 /// </summary>

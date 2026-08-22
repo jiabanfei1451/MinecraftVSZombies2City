@@ -1,7 +1,7 @@
 
 using Godot;
 using System;
-
+using Game.AutoLoad;
 namespace Game{
 /// <summary>
 /// 获取全局节点
@@ -62,11 +62,11 @@ static class Get_GlobalNode
 			if (index < 0){return null;}
 			if (index < NodeData[0].Count)
 			{
-				GD.Print($"索引:{index}");
+				DEBUG.Info.Print($"索引:{index}");
 				Get = (Node)NodeData[0][index];
 			}else
 			{
-				GD.Print("?");
+				DEBUG.Info.Print("?");
 				Get = null;
 			}
 			return Get as T;
@@ -164,7 +164,7 @@ static class Get_GlobalNode
 	/// </summary>
 	/// <param name="tree"></param>
 	/// <returns></returns>
-	public static Audio_List Get_Audio_List(SceneTree tree){
+	public static Game.AutoLoad.Audio_List Get_Audio_List(SceneTree tree){
 		Audio_List audio_List = tree.Root.GetNode<Audio_List>("AudioList");
 		return audio_List;	
 	}

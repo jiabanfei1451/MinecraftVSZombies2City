@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bu3lgchubqvad" path="res://Script/Object/Level_Object/Monster/Zombies/Zombies.cs" id="1_eyntl"]
 [ext_resource type="Texture2D" uid="uid://b66rva3e3mbiy" path="res://Object/素材图/zombin5.png" id="1_milox"]
+[ext_resource type="Script" uid="uid://cxir0ru4fseee" path="res://Script/Object/Type/Health.cs" id="2_13cn4"]
 [ext_resource type="Texture2D" uid="uid://bh7q48qfv8wob" path="res://Object/素材图/zombin2.png" id="2_t861y"]
 [ext_resource type="Texture2D" uid="uid://dysmprheeepu8" path="res://Object/素材图/zombin3.png" id="3_0hs0x"]
 [ext_resource type="Texture2D" uid="uid://b8jjy3thxqdcq" path="res://Object/素材图/zombin.png" id="4_xn1ud"]
 [ext_resource type="PackedScene" uid="uid://c2qbnurx2pxnj" path="res://UI/血条.tscn" id="11_e0qyl"]
 [ext_resource type="PackedScene" uid="uid://dvhsodcglxjm4" path="res://Object/Interactive Objects/物体检测.tscn" id="14_jofpg"]
+
+[sub_resource type="Resource" id="Resource_h1tac"]
+script = ExtResource("2_13cn4")
 
 [sub_resource type="Animation" id="Animation_4dvsa"]
 resource_name = "Dig"
@@ -722,17 +726,22 @@ size = Vector2(20, 90)
 z_as_relative = false
 script = ExtResource("1_eyntl")
 Area = NodePath("Area")
+Health = SubResource("Resource_h1tac")
 detection_Group = Array[StringName]([&"Equipment"])
 Speed = Vector2(-15, 0)
 Move_Ing = true
 
-[node name="Subject" type="Node2D" parent="." unique_id=357297052]
+[node name="Subject" type="Skeleton2D" parent="." unique_id=875477114]
 position = Vector2(-1.5940285, -61.595554)
 
-[node name="Leg" type="Node2D" parent="Subject" unique_id=800148496]
+[node name="Leg" type="Bone2D" parent="Subject" unique_id=390463941]
 position = Vector2(-3.435943, 30.360533)
 rotation = 1.5707964
 scale = Vector2(0.9998304, 0.9998304)
+rest = Transform2D(0.225, 0, 0, 1.525, 0, 0)
+auto_calculate_length_and_angle = false
+length = 31.367
+bone_angle = 0.0
 
 [node name="LegTexture" type="Sprite2D" parent="Subject/Leg" unique_id=1012561622]
 z_as_relative = false
@@ -742,10 +751,14 @@ rotation = -1.5707964
 texture = ExtResource("1_milox")
 offset = Vector2(4, 15)
 
-[node name="Leg2" type="Node2D" parent="Subject" unique_id=452686009]
+[node name="Leg2" type="Bone2D" parent="Subject" unique_id=81692928]
 position = Vector2(-0.44494128, 33.52817)
 rotation = 1.5707964
 scale = Vector2(0.99983335, 0.99983335)
+rest = Transform2D(0.225, 0, 0, 1.525, 0, 0)
+auto_calculate_length_and_angle = false
+length = 30.864
+bone_angle = 0.0
 
 [node name="LegTexture" type="Sprite2D" parent="Subject/Leg2" unique_id=1448498021]
 z_as_relative = false
@@ -755,13 +768,19 @@ rotation = -1.5707964
 texture = ExtResource("1_milox")
 offset = Vector2(4, 15)
 
-[node name="Body" type="Node2D" parent="Subject" unique_id=458256976]
+[node name="Body" type="Bone2D" parent="Subject" unique_id=703207199]
 position = Vector2(-1.4059715, 25.595554)
 scale = Vector2(0.99982446, 0.99982446)
+rest = Transform2D(0.225, 0, 0, 1.525, 0, 0)
 
-[node name="Hand2" type="Node2D" parent="Subject/Body" unique_id=1342092338]
+[node name="Hand2" type="Bone2D" parent="Subject/Body" unique_id=1518632099]
 position = Vector2(5.9999995, -22)
 scale = Vector2(0.99982846, 0.99982846)
+rest = Transform2D(0.225, 0, 0, 1.525, 0, 0)
+auto_calculate_length_and_angle = false
+length = 1.0
+bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
 
 [node name="HandTexture" type="Sprite2D" parent="Subject/Body/Hand2" unique_id=975059091]
 z_as_relative = false
@@ -783,9 +802,14 @@ position = Vector2(-0.53429985, -17.475487)
 texture = ExtResource("4_xn1ud")
 offset = Vector2(0, -11)
 
-[node name="Hand" type="Node2D" parent="Subject/Body" unique_id=1155654502]
+[node name="Hand" type="Bone2D" parent="Subject/Body" unique_id=274682981]
 position = Vector2(8.000001, -19)
 scale = Vector2(0.9998315, 0.9998315)
+rest = Transform2D(0.225, 0, 0, 1.525, 0, 0)
+auto_calculate_length_and_angle = false
+length = 1.0
+bone_angle = 0.0
+editor_settings/show_bone_gizmo = false
 
 [node name="HandTexture" type="Sprite2D" parent="Subject/Body/Hand" unique_id=63302073]
 z_as_relative = false

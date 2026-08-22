@@ -1,7 +1,7 @@
 using Godot;
 using Game;
 using System;
-using System.Threading.Tasks;
+using Game.AutoLoad;
 namespace My_Csharp_Node
 {
 [GlobalClass]
@@ -18,7 +18,7 @@ public partial class Audio_Plus : AudioStreamPlayer
 		Souds = 1
 	}
 	[Export] public Audio Audio_Type = Audio.Muisc;
-	[Export] public Audio_List AudioList_Object;
+	[Export] public Game.AutoLoad.Audio_List AudioList_Object = null;
 	[Export] public float fade_Time = 5;
 	[Export] public bool Auto_QueneFree = false;
 	public override void _Ready() {

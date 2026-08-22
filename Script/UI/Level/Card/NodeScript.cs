@@ -9,8 +9,8 @@ public partial class NodeScript : Control
 	float is_Y = 0;
 	float m = 1;
 	Vector2 pos;
-	PackedScene BorderScene = GD.Load<PackedScene>("uid://bxk215b41db4p");
-	PackedScene CardScene = GD.Load<PackedScene>("uid://c2y62prxcbege");
+	PackedScene BorderScene = Game.ResourceTool.LoadScene("uid://bxk215b41db4p");
+	PackedScene CardScene = Game.ResourceTool.LoadScene("uid://c2y62prxcbege");
 	public override async void _Ready()
 	{
 		GetNode<TouchPad>("TouchPad").Drag_Ing += Add_YPosition;

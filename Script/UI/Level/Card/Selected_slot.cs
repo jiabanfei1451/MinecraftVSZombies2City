@@ -10,7 +10,7 @@ public partial class Selected_slot : GridContainer
 		int dex = 0;
 		foreach (Control node in GetChildren())
 		{
-			if (dex <= Game.PlayerData.Card_Quantity)
+			if (dex <= Game.AutoLoad.PlayerData.Card_Quantity)
 			{
 				node.Visible = true;
 			}
