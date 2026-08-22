@@ -346,7 +346,7 @@ public partial class Level_Master_Script : Node2D{
 		{
 			DEBUG.Info.Print(Name_Index);
 			//检测
-			Node Get_Node = GetNode(Node_Index[Name_Index]);
+			Node Get_Node = GetNodeOrNull(Node_Index[Name_Index]);
 			if (Get_Node != null)
 			{
 				Game.Get_GlobalNode.Node_Data.Add_Node(Get_Node,Node_Index[Name_Index]);

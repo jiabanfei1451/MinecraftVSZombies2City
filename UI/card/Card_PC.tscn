@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="7_n61xx"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/Souds/UI/card/Cancel.ogg" id="7_ymopn"]
 [ext_resource type="AudioStream" uid="uid://dxdj7dtlw6x5j" path="res://Sound/Souds/UI/card/buzzer.wav" id="9_1ywmh"]
-[ext_resource type="Animation" uid="uid://bnt35736wh3uq" path="res://Twinkle.res" id="11_1g1or"]
+[ext_resource type="Animation" uid="uid://bnt35736wh3uq" path="res://Animation/Card/Twinkle.res" id="11_1g1or"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wvhbo"]
 font = ExtResource("5_mj3bc")
