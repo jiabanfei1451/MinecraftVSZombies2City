@@ -51,15 +51,11 @@ public partial class Transmitter : Level.Object.LevelData
     }
     public async Task ReEnable_Area()
     {
-        GD.Print(3);
         Area.Monitoring = false;
-        await Task.Delay(10);
-        GD.Print(4);
         Area.Monitoring = true;
     } 
     public void Object_join (Node2D Node)
     {
-        GD.Print(1);
         if (Node is Level.Object.LevelData){
             bool Check = Check_Object_Group(Node);
             if (Check == true && ((Level.Object.LevelData)Node).Lawn_Index == this.Lawn_Index)
@@ -70,7 +66,6 @@ public partial class Transmitter : Level.Object.LevelData
     }
     public void Object_Exit (Node2D Node)
     {
-        GD.Print(0);
         Remove_Object(Node);
         Remove_Null_Object();
     }
