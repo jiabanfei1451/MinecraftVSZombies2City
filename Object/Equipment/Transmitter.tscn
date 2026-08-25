@@ -165,7 +165,7 @@ _data = {
 size = Vector2(20, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwwm1"]
-size = Vector2(720, 940)
+size = Vector2(720, 80)
 
 [node name="Transmitter" type="CharacterBody2D" unique_id=1207108687 node_paths=PackedStringArray("Area") groups=["Equipment"]]
 texture_filter = 1
@@ -210,6 +210,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_buk1g")
 
 [node name="Area" type="Area2D" parent="." unique_id=1216636809 groups=["Area"]]
+position = Vector2(-29, -7)
 collision_layer = 3
 collision_mask = 3
 priority = 1

@@ -14,7 +14,7 @@ public partial class Level_Master_Script : Node2D{
 	/// </summary>
 	/// <param name="Data_Object"></param>
 	[Signal]
-	public delegate void Object_Change_LineEventHandler(Level.Object.LevelData Data_Object);
+	public delegate void Object_Change_LineEventHandler(Level.Object.LevelObject Data_Object);
 	#region 变量
 	[ExportCategory("看什么?难道你不知道脚本里有中文注释吗?")]
 	[ExportGroup("BGM")][Export] public String Level_BGMID = "0";
@@ -57,7 +57,14 @@ public partial class Level_Master_Script : Node2D{
 	/// 草坪实例化后的数据
 	/// </summary>
 	[Export] public Godot.Collections.Array<Godot.Collections.Array<Lawn>> Lawn_Data = new Godot.Collections.Array<Godot.Collections.Array<Lawn>>([[]]);
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Object.LevelData>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Object.LevelData>>();
+	/// <summary>
+	/// 物体索引
+	/// </summary>
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Object.LevelObject>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Object.LevelObject>>();
+	/// <summary>
+	/// 物体索引坐标偏移
+	/// </summary>
+	[Export] public Godot.Collections.Array<Godot.Vector2> Check_Position_Offset = new Godot.Collections.Array<Vector2>();
 	/// <summary>
 	/// 自动生成草坪
 	/// </summary>
@@ -188,7 +195,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 移动索引物体
 	/// </summary>
-	public void Move_Lawn_Index(Level.Object.LevelData Data_Object,int Index)
+	public void Move_Lawn_Index(Level.Object.LevelObject Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		if (!Check_Lawn_Index(Data_Object.Lawn_Index)){return;}
@@ -203,7 +210,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 添加索引物体
 	/// </summary>
-	public void Add_Lawn_Index(Level.Object.LevelData Data_Object,int Index)
+	public void Add_Lawn_Index(Level.Object.LevelObject Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		Lawn_Object_Index[Index].Add(Data_Object);
@@ -211,7 +218,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 删除索引物体
 	/// </summary>
-	public void Remove_Lawn_Index(Level.Object.LevelData Data_Object,int Index)
+	public void Remove_Lawn_Index(Level.Object.LevelObject Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		Lawn_Object_Index[Index].Remove(Data_Object);
@@ -224,7 +231,7 @@ public partial class Level_Master_Script : Node2D{
 	{
 		for(int i = 0;i < Lawn_Data.Count;i++)
 		{
-			foreach(Level.Object.LevelData Data_Object in Lawn_Object_Index[i])
+			foreach(Level.Object.LevelObject Data_Object in Lawn_Object_Index[i])
 			{
 				if (Data_Object is null)
 				{
@@ -245,6 +252,89 @@ public partial class Level_Master_Script : Node2D{
 			return true;
 		}
 		return false;
+	}
+	public int Get_LawnIndex(Level.Object.LevelObject This)
+    {
+		// 草坪生成坐标
+        float Position_Y = Lawn_Spawn_Position.Y;
+        // 增加索引偏移量
+		float IndexNumber = Lawn_Spawn_Offect.Y;
+		// 当前草坪索引
+        int Current_Lawn_Index = 0;
+		// 最大索引
+        int MaxIndex = Lawn_Object_Index.Count;
+        // Y坐标偏移
+		float Y_offset = Get_This_Offset(This).Y;
+		// 坐标索引
+		float Index = This.practical_Position.Y + This.position_Offset.Y + Y_offset;
+
+        while(Index >= Position_Y)
+        {
+            if (Index >= Position_Y)
+            {
+                Index -= IndexNumber;
+                Current_Lawn_Index += 1;
+            }
+        }
+        Current_Lawn_Index -= 1;
+        if (Current_Lawn_Index >= MaxIndex)
+        {
+            Current_Lawn_Index = MaxIndex -1;
+        }
+        if (Current_Lawn_Index < 0)
+        {
+            Current_Lawn_Index = 0;
+        }
+        return Current_Lawn_Index;
+    }
+	/// <summary>
+	/// 获取偏移坐标
+	/// </summary>
+	/// <param name="This"></param>
+	/// <returns></returns>
+	public Vector2 Get_This_Offset (Level.Object.LevelObject This)
+	{
+		GD.Print("坐标索引:",Check_Position_Offset.Count);
+		Vector2 Back_Vector2 = Vector2.Zero;
+		if (Check_Position_Offset.Count == 0)
+		{
+			return Vector2.Zero;
+		}
+		foreach(Vector2 vector in Check_Position_Offset)
+		{
+			GD.Print(vector.X);
+			GD.Print(This.Position.X);
+			GD.Print(This.Position.X > vector.X);
+			Back_Vector2 = vector;
+			if (This.Position.X > vector.X)
+			{
+				break;
+			}
+		}
+		GD.Print("坐标返回:",Back_Vector2);
+		return Back_Vector2;
+	}
+	/// <summary>
+	/// 获取当前偏移索引
+	/// </summary>
+	/// <param name="This"></param>
+	/// <returns></returns>
+	public int Get_Offset_Index(Level.Object.LevelObject This)
+	{
+		int Back_Index = -1;
+		if (Check_Position_Offset.Count == 0)
+		{
+			return -1;
+		}
+		foreach(Vector2 vector in Check_Position_Offset)
+		{
+			Back_Index += 1;
+			if (This.Position.X > vector.X)
+			{
+				return Back_Index;
+			}
+		}
+		return -1;
 	}
 	#endregion
 	public override async void _Ready() {

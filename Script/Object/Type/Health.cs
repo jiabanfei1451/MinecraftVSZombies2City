@@ -1,11 +1,14 @@
 using DEBUG;
 using Godot;
-using System;
 namespace Level.Object;
+/// <summary>
+/// 生命基类
+/// </summary>
 [Icon("res://Image/Icon/Script/Health_Script.png")]
 [GlobalClass]
 public partial class Health() : Godot.Resource
 {
+    [Signal] public delegate void Health_ReduceEventHandler(Node Damage_Object);
     [ExportGroup("Health Points")]
     /// <summary>
     /// 最大血量
@@ -34,4 +37,5 @@ public partial class Health() : Godot.Resource
         }
         Info.Print(MaxHP);
     }
+
 }

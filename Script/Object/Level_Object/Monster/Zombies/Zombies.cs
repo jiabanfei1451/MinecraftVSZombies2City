@@ -1,8 +1,11 @@
 using Godot;
 using Level;
 using System;
-
-public partial class Zombies : Level.Object.LevelData
+namespace Level.Object.Monster;
+/// <summary>
+/// 普通僵尸
+/// </summary>
+public partial class Zombies : Level.Object.LevelObject
 {
     [ExportGroup("Animation")][Export] public String Current_Hand_Animation = "";
     [Export] public String Current_Leg_Animation = "";

@@ -1,7 +1,10 @@
+Label
+ColorRect
+Node2D
+Marker2D
+CanvasModulate
 Bone2D
 Skeleton2D
-Label
-Node2D
 Timer
 AudioStreamPlayer
 CharacterBody2D
@@ -9,6 +12,3 @@ Polygon2D
 Area2D
 TextureRect
 AnimationPlayer
-TouchPad_V2
-ColorRect
-CollisionShape2D

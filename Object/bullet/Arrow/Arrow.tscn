@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://caymc0p7rsog"]
 
+[ext_resource type="Script" uid="uid://c4goda1jl4q7p" path="res://Script/Object/Shoot/Arrow/Arrow.cs" id="1_8t2dg"]
 [ext_resource type="Texture2D" uid="uid://bu88hxcq3eddc" path="res://Object/素材图/dispenser.png" id="2_idlxt"]
 [ext_resource type="Shader" uid="uid://ww76aly7osdr" path="res://Shader/着色器2.0.gdshader" id="2_u38hb"]
 
@@ -13,15 +14,18 @@ shader_parameter/lc = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aoox"]
 size = Vector2(33, 10)
 
-[node name="箭失" type="Area2D" unique_id=970804522 groups=["射弹"]]
+[node name="Arrow" type="Area2D" unique_id=970804522 groups=["射弹"]]
 z_as_relative = false
+position = Vector2(518, 329)
+script = ExtResource("1_8t2dg")
+Damage = 1
+Damage_End_AutoRemove_Object = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=571456383]
 material = SubResource("ShaderMaterial_mly43")
 texture = ExtResource("2_idlxt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248437638]
-visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5aoox")
 

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Game;
+/// <summary>
+/// 场景资源加载器
+/// </summary>
 public static class ResourceTool
 {
     /// <summary>
@@ -60,6 +63,7 @@ public static class ResourceTool
                     Scene_Path[Load_Scene.IndexOf(scene)] = Path;
                 }
                 Info.Print(Scene_Path);
+                Info.Print("路径加载完成:",Path);
             }
             return Load_Scene[Scene_Path.IndexOf(Path)];
         }
@@ -78,6 +82,7 @@ public static class ResourceTool
                     Scene_UID[Load_Scene.IndexOf(scene)] = Path;
                 }
                 Info.Print(Scene_UID);
+                Info.Print("UID索引加载完成:",Path);
             }
             return Load_Scene[Scene_UID.IndexOf(Path)];
         }

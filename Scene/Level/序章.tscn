@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bx78lmkp8si7e" path="res://Object/Monster/僵尸.tscn" id="5_vhc43"]
 [ext_resource type="Script" uid="uid://cxir0ru4fseee" path="res://Script/Object/Type/Health.cs" id="5_w3plg"]
 [ext_resource type="PackedScene" uid="uid://wldy1n7d52ji" path="res://Object/Equipment/Transmitter.tscn" id="5_xb2ch"]
+[ext_resource type="PackedScene" uid="uid://caymc0p7rsog" path="res://Object/bullet/Arrow/Arrow.tscn" id="7_w3plg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
@@ -22,6 +23,7 @@ script = ExtResource("1_vhc43")
 Level_BGMID = "4"
 Layer_Index = PackedInt32Array(1, 2, 3)
 Node_Type = PackedInt32Array(0, 0, 2)
+Check_Position_Offset = Array[Vector2]([Vector2(217, 0), Vector2(69, -20)])
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=939464027]
 position = Vector2(-686, -510)
@@ -32,7 +34,7 @@ metadata/_edit_lock_ = true
 [node name="Map3" type="Sprite2D" parent="." unique_id=178686130]
 modulate = Color(0, 0, 0, 0.39215687)
 z_index = 20
-position = Vector2(-665, -510)
+position = Vector2(-660.85, -510)
 texture = SubResource("AtlasTexture_iwsnv")
 centered = false
 metadata/_edit_lock_ = true
@@ -85,7 +87,7 @@ color = Color(0, 0, 0, 1)
 [node name="Monster" type="Node2D" parent="." unique_id=554991016]
 
 [node name="Zombies" parent="Monster" unique_id=838965622 instance=ExtResource("5_vhc43")]
-position = Vector2(286, 54)
+position = Vector2(308.05, 54)
 Health = SubResource("Resource_r0ieh")
 
 [node name="Equipment" type="Node2D" parent="." unique_id=519040572]
@@ -94,14 +96,10 @@ y_sort_enabled = true
 [node name="Transmitter" parent="Equipment" unique_id=1207108687 instance=ExtResource("5_xb2ch")]
 position = Vector2(-390, 24)
 
-[node name="Transmitter2" parent="Equipment" unique_id=1986255240 instance=ExtResource("5_xb2ch")]
-position = Vector2(-390, -56)
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1336448921]
+position = Vector2(-69, 0)
 
-[node name="Transmitter3" parent="Equipment" unique_id=1143780879 instance=ExtResource("5_xb2ch")]
-position = Vector2(-390, 104)
-
-[node name="Transmitter4" parent="Equipment" unique_id=384868490 instance=ExtResource("5_xb2ch")]
-position = Vector2(-389, -134)
-
-[node name="Transmitter5" parent="Equipment" unique_id=67858164 instance=ExtResource("5_xb2ch")]
-position = Vector2(-390, 185)
+[node name="Arrow2" parent="." unique_id=970804522 node_paths=PackedStringArray("Check_Object") instance=ExtResource("7_w3plg")]
+position = Vector2(-189, 19)
+Check_Object = [NodePath("../Monster/Zombies")]
+Speed = Vector2(2, 1)

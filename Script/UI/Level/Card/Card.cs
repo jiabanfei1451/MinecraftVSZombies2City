@@ -7,6 +7,9 @@ using Game.AutoLoad;
 using DEBUG;
 using System;
 namespace GameUI{
+/// <summary>
+/// 卡槽
+/// </summary>
 public partial class Card : Control
 {
 	#region Enum
@@ -169,11 +172,11 @@ public partial class Card : Control
 		}
 		//初始化材质
 		Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		CharacterBody2D texture = Data.Scene.Instantiate<CharacterBody2D>();
-		if (texture is Level.Object.LevelData)
+		Node2D texture = Data.Scene.Instantiate<Node2D>();
+		if (texture is Level.Object.LevelObject)
 		{
-			((Level.Object.LevelData)texture).Enable = false;
-			((Level.Object.LevelData)texture).Enable_Health = false;
+			((Level.Object.LevelObject)texture).Enable = false;
+			((Level.Object.LevelObject)texture).Enable_Health = false;
 		}
 		GetNode<Control>("Image").AddChild(texture);
 		texture.Position = Data.Offset;
@@ -383,7 +386,7 @@ public partial class Card : Control
 		var Temp = Start_CD();
 		Game.Level_Script.Equipment_Capable -= data.Sonsume;
 		Level.Lawn Lawn = level.Selected_Lawn;
-		Level.Object.LevelData node = data.Scene.Instantiate<Level.Object.LevelData>();
+		Level.Object.LevelObject node = data.Scene.Instantiate<Level.Object.LevelObject>();
 		node.Position = Lawn.Position + data.Map_Offset;
 		node.Scale = data.Map_Scale;
 		Lawn.Current_Object.Equipment_Object = node;

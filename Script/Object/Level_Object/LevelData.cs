@@ -2,13 +2,21 @@ using System;
 using System.Threading.Tasks;
 using DEBUG;
 using Godot;
-using Microsoft.VisualBasic;
 namespace Level.Object;
 /// <summary>
-/// 用于器械，怪物BOSS的整体数据
+/// 用于器械，怪物BOSS在关卡内的整体数据
+/// <para>
+/// 列如:
+/// </para>
+/// <para>草坪基类 当前草坪行索引 自动索引开关</para>
+/// <para>区域检测物体 生命组件 启用生命组件</para>
+/// <para>启用 伤害 >是否检测/排除xx阵营</para>
 /// </summary>
-public partial class LevelData : CharacterBody2D
+public partial class LevelObject : Node2D
 {
+    #region 信号
+    [Signal] public delegate void Health_ReduceEventHandler(Node Damage_Object);
+    #endregion
     /// <summary>
     /// 当前草坪行数索引
     /// </summary>
@@ -44,11 +52,11 @@ public partial class LevelData : CharacterBody2D
     /// <summary>
     /// 伤害值
     /// </summary>
-    [Export] public int Damage;
+    [Export] public int Damage = 0;
     /// <summary>
     /// 已检测到的object
     /// </summary>
-    [Export] public Godot.Collections.Array<Level.Object.LevelData> Current_detection_object = new Godot.Collections.Array<Level.Object.LevelData>(){};
+    [Export] public Godot.Collections.Array<Level.Object.LevelObject> Current_detection_object = new Godot.Collections.Array<Level.Object.LevelObject>(){};
     /// <summary>
     /// 检测阵营
     /// </summary>
@@ -190,43 +198,17 @@ public partial class LevelData : CharacterBody2D
             {
                 Temp_Position_Y = practical_Position.Y + position_Offset.Y;
                 if (Lawn_Index != -1){
-                    level.Move_Lawn_Index(this,AutoGet_LawnIndex());
+                    level.Move_Lawn_Index(this,level.Get_LawnIndex(this));
                 }
                 else
                 {
-                    Lawn_Index = AutoGet_LawnIndex();
+                    Lawn_Index = level.Get_LawnIndex(this);
                     level.Add_Lawn_Index(this,Lawn_Index);
                 }
             }
         }
     }
-    public int AutoGet_LawnIndex()
-    {
-        if (level == null){return -1;}
-        float Position_Y = level.Lawn_Spawn_Position.Y;
-        float IndexNumber = level.Lawn_Spawn_Offect.Y;
-        float Index = practical_Position.Y + position_Offset.Y;
-        int Current_Lawn_Index = 0;
-        int MaxIndex = level.Lawn_Object_Index.Count;
-        while(Index >= Position_Y)
-        {
-            if (Index >= Position_Y)
-            {
-                Index -= IndexNumber;
-                Current_Lawn_Index += 1;
-            }
-        }
-        Current_Lawn_Index -= 1;
-        if (Current_Lawn_Index >= MaxIndex)
-        {
-            Current_Lawn_Index = MaxIndex -1;
-        }
-        if (Current_Lawn_Index < 0)
-        {
-            Current_Lawn_Index = 0;
-        }
-        return Current_Lawn_Index;
-    }
+
     public async Task Reset_Area()
     {
         if (!Enable)
@@ -279,7 +261,7 @@ public partial class LevelData : CharacterBody2D
             Info.ERROR(Info.ERROR_Info.Invalid_method);
             return;
         }
-        foreach(Level.Object.LevelData Body in Current_detection_object)
+        foreach(Level.Object.LevelObject Body in Current_detection_object)
         {
             if (Body == null)
             {
@@ -297,9 +279,9 @@ public partial class LevelData : CharacterBody2D
             Info.ERROR(Info.ERROR_Info.Invalid_method);
             return;
         }
-        if (node is Level.Object.LevelData && node != this)
+        if (node is Level.Object.LevelObject && node != this)
         {
-            Current_detection_object.Add((Level.Object.LevelData)node);
+            Current_detection_object.Add((Level.Object.LevelObject)node);
         }
     }
     /// <summary>
@@ -313,8 +295,8 @@ public partial class LevelData : CharacterBody2D
             Info.ERROR(Info.ERROR_Info.Invalid_method);
             return;
         }
-        if (node is Level.Object.LevelData && node != this){
-            Level.Object.LevelData Body = (Level.Object.LevelData)node;
+        if (node is Level.Object.LevelObject && node != this){
+            Level.Object.LevelObject Body = (Level.Object.LevelObject)node;
             if (Current_detection_object.IndexOf(Body) != -1)
             {
                 Current_detection_object.Remove(Body);
@@ -350,8 +332,9 @@ public partial class LevelData : CharacterBody2D
             await Task.Delay((int)Math.Round(1000 / Performance.GetMonitor(Performance.Monitor.TimeFps),0));
         }
     }
-    /// <summary>
-    /// 生命
-    /// </summary>
-
+    public void Reduce_Health(int Reduce_Number,Node Damage_Object = null)
+    {
+        Health.HP -= Reduce_Number;
+        EmitSignal("Health_Reduce",Damage_Object);
+    }
 }

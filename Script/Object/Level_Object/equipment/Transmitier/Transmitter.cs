@@ -1,8 +1,11 @@
 using Godot;
 using DEBUG;
 using System.Threading.Tasks;
-
-public partial class Transmitter : Level.Object.LevelData
+namespace Level.Object.Equipment;
+/// <summary>
+/// 发射器
+/// </summary>
+public partial class Transmitter : Level.Object.LevelObject
 {
     [ExportGroup("Summand_Node")]
     [Export] public PackedScene Shoot = Game.ResourceTool.LoadScene("uid://caymc0p7rsog");
@@ -44,21 +47,22 @@ public partial class Transmitter : Level.Object.LevelData
             this.Timer.Start(Time);
         }
     }
-    public void Check_Change_line(Level.Object.LevelData levelData)
+    public void Check_Change_line(Level.Object.LevelObject LevelObject)
     {
-        if (!Check_Object_Group(levelData)){return;}
-        var s = ReEnable_Area();
+        if (!Check_Object_Group(LevelObject)){return;}
+        ReEnable_Area();
     }
-    public async Task ReEnable_Area()
+    public void ReEnable_Area()
     {
         Area.Monitoring = false;
         Area.Monitoring = true;
+
     } 
     public void Object_join (Node2D Node)
     {
-        if (Node is Level.Object.LevelData){
+        if (Node is Level.Object.LevelObject){
             bool Check = Check_Object_Group(Node);
-            if (Check == true && ((Level.Object.LevelData)Node).Lawn_Index == this.Lawn_Index)
+            if (Check == true && ((Level.Object.LevelObject)Node).Lawn_Index == this.Lawn_Index)
             {
                 Add_Object(Node);
             }

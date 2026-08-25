@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgt1bw4ifodlt"]
+
+[ext_resource type="Texture2D" uid="uid://dyrr7usc6b2ei" path="res://Object/素材图/normal.png" id="1_u7v5k"]
+[ext_resource type="Script" uid="uid://dh4vxx7hyoiia" path="res://Script/Node/Particie/Particie.cs" id="2_nxkir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aicqy"]
+atlas = ExtResource("1_u7v5k")
+
+[node name="Particle" type="Sprite2D" unique_id=591650605]
+z_as_relative = false
+position = Vector2(516, 328.045)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("AtlasTexture_aicqy")
+script = ExtResource("2_nxkir")
+Max_Rise_Strength = 100.0
+Multiplication = Vector2(1, 5)
+MaxHeight = Vector2(0, 30)
+MAX_PositionX_Offset = 80.0
+Max_bounce_Number = 5
+Reduced_bounce_force = 1.5
+QueneFree_Time = 10.0
