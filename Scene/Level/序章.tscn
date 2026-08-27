@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bx78lmkp8si7e" path="res://Object/Monster/僵尸.tscn" id="5_vhc43"]
 [ext_resource type="Script" uid="uid://cxir0ru4fseee" path="res://Script/Object/Type/Health.cs" id="5_w3plg"]
 [ext_resource type="PackedScene" uid="uid://wldy1n7d52ji" path="res://Object/Equipment/Transmitter.tscn" id="5_xb2ch"]
-[ext_resource type="PackedScene" uid="uid://caymc0p7rsog" path="res://Object/bullet/Arrow/Arrow.tscn" id="7_w3plg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
 
 [sub_resource type="Resource" id="Resource_r0ieh"]
+script = ExtResource("5_w3plg")
+
+[sub_resource type="Resource" id="Resource_xb2ch"]
 script = ExtResource("5_w3plg")
 
 [node name="Level" type="Node2D" unique_id=835649732]
@@ -89,17 +91,15 @@ color = Color(0, 0, 0, 1)
 [node name="Zombies" parent="Monster" unique_id=838965622 instance=ExtResource("5_vhc43")]
 position = Vector2(308.05, 54)
 Health = SubResource("Resource_r0ieh")
+Physics_Enable = true
 
 [node name="Equipment" type="Node2D" parent="." unique_id=519040572]
 y_sort_enabled = true
 
 [node name="Transmitter" parent="Equipment" unique_id=1207108687 instance=ExtResource("5_xb2ch")]
 position = Vector2(-390, 24)
+Health = SubResource("Resource_xb2ch")
+Physics_Enable = false
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1336448921]
 position = Vector2(-69, 0)
-
-[node name="Arrow2" parent="." unique_id=970804522 node_paths=PackedStringArray("Check_Object") instance=ExtResource("7_w3plg")]
-position = Vector2(-189, 19)
-Check_Object = [NodePath("../Monster/Zombies")]
-Speed = Vector2(2, 1)

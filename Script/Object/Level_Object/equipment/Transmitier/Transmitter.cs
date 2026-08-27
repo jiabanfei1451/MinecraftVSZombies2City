@@ -7,8 +7,15 @@ namespace Level.Object.Equipment;
 /// </summary>
 public partial class Transmitter : Level.Object.LevelObject
 {
+    /// <summary>
+    /// 射弹场景
+    /// </summary>
     [ExportGroup("Summand_Node")]
     [Export] public PackedScene Shoot = Game.ResourceTool.LoadScene("uid://caymc0p7rsog");
+    /// <summary>
+    /// 箭矢生成坐标
+    /// </summary>
+    [Export] public Marker2D Summand_shoot_Position = null;
     /// <summary>
     /// 计时器节点
     /// </summary>
@@ -22,7 +29,7 @@ public partial class Transmitter : Level.Object.LevelObject
     /// 发射音效节点
     /// </summary>
     [Export] public Godot.AudioStreamPlayer Shoot_Sound = null;
-    public override async void _Ready() {
+    public override void _Ready() {
         base._Ready();
         if (!Enable){return;}
         this.Timer = GetNode<Timer>("Timer");
@@ -32,8 +39,6 @@ public partial class Transmitter : Level.Object.LevelObject
         Area.BodyEntered += Object_join;
         Area.BodyExited += Object_Exit;
         var @r = Reset_Area();
-        await Task.Delay(100);
-        level.Object_Change_Line += Check_Change_line;
     }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);

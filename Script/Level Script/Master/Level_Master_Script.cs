@@ -431,7 +431,6 @@ public partial class Level_Master_Script : Node2D{
 	/// </summary>
 	public void summand_Node()
 	{
-		Game.Temp_Node.Clear_Node();
 		for (int Name_Index = 0; Name_Index < Node_Index.Length; Name_Index++)
 		{
 			DEBUG.Info.Print(Name_Index);

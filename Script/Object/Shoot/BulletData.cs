@@ -1,11 +1,12 @@
 using System;
 using Godot;
+using Level.Module;
 
 namespace Level.Object;
 /// <summary>
 /// 射弹基础数据类型
 /// </summary>
-public partial class BulletData : Node2D
+public partial class BulletData : ObjectPhysics
 {
     [ExportGroup("Array")]
     /// <summary>

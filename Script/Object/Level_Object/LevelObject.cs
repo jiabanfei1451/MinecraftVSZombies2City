@@ -46,7 +46,39 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// <summary>
     /// 启用状态
     /// </summary>
-    
+    #region 移动
+    [ExportSubgroup("Move")]
+    [Export] public Godot.Vector2 Speed = Vector2.Zero;
+    /// <summary>
+    /// 移动速度的倍率
+    /// </summary>
+    [Export] public float Speed_Multiplication = 1;
+    /// <summary>
+    /// 移动状态
+    /// </summary>
+    [Export] public bool Move_Ing = false;
+    /// <summary>
+    /// 移动类型
+    /// </summary>
+    [Export] public Move_Type MoveType = Move_Type.Linear_Motion;
+    /// <summary>
+    /// 移动类型
+    /// </summary>
+    public enum Move_Type
+    {
+        /// <summary>
+        /// 平移
+        /// </summary>
+        Linear_Motion = 0,
+        /// <summary>
+        /// 使用脚本驱动
+        /// </summary>
+        Script_Driver = 1,
+    }
+    /// <summary>
+    /// 基于Practical_Position的偏移量
+    /// </summary>
+    #endregion
     [ExportGroup("status")] 
     [Export] public bool Enable = true;
     /// <summary>
@@ -69,6 +101,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// 临时坐标
     /// </summary>
     float Temp_Position_Y = -1;
+    internal Level_Master_Script level {get;set;} = null;
 
     public override void _ExitTree()
     {
@@ -89,10 +122,15 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         if (!Enable){return;}
         Reset_Position();
         Area = GetNode<Godot.Area2D>("Area");
-        if (level != null){
-            if (level.Game_Reset_Done == true){
-                await Task.Delay(100);
-            }
+    }
+    public void Object_Move(double delta)
+    {
+        switch (MoveType){
+            case Move_Type.Linear_Motion:
+                if (Move_Ing == true){
+                    practical_Position += (Speed * new Vector2(Speed_Multiplication,Speed_Multiplication)) * new Vector2((float)delta,(float)delta);
+                }
+            break;
         }
     }
     public override void _PhysicsProcess(double delta) {
@@ -107,6 +145,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
                 QueueFree();
             }
         }
+        Object_Move(delta);
         if (level == null)
         {
             Level_Master_Script Get_Level = Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level");
