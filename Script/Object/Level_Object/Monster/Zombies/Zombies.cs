@@ -1,12 +1,16 @@
 using Godot;
 using Level;
+using My_Csharp_Node;
 using System;
+using System.Threading.Tasks;
 namespace Level.Object.Monster;
 /// <summary>
 /// 普通僵尸
 /// </summary>
 public partial class Zombies : Level.Object.LevelObject
 {
+    [Export] Temp_Object.Damage Damage_Souds = null;
+    [Export] Tween Damage_Tween = null;
     [ExportGroup("Animation")][Export] public String Current_Hand_Animation = "";
     [Export] public String Current_Leg_Animation = "";
     [Export] public Godot.Collections.Array<String> Leg_AnimationList = [];
@@ -18,9 +22,10 @@ public partial class Zombies : Level.Object.LevelObject
     [Export] public bool attack = false;
     public override void _Ready() {
         base._Ready();
+        Health_Reduce += Object_damage;
         var @re = Reset_Area();
-        Area.BodyEntered += Object_join;
-        Area.BodyExited += Object_Exit;
+        Area.BodyEntered += Add_Object;
+        Area.BodyExited += ObjectExit;
         Leg_Play = GetNode<AnimationPlayer>("Lag_Animation");
         Hand_Play = GetNode<AnimationPlayer>("Hand_Animation");
         Random random = new Random();
@@ -34,6 +39,28 @@ public partial class Zombies : Level.Object.LevelObject
         foreach (String s in Hand_Play.GetAnimationList())
         {
             Hand_AnimationList.Add(s);
+        }
+    }
+    async void Object_damage(Node Damage_Object)
+    {
+        Damage_Souds.change_Souds();
+        Damage_Souds.Play();
+        if (Damage_Tween != null)
+        {
+            Damage_Tween.Kill();
+        }
+        Damage_Tween = CreateTween();
+        Damage_Tween.TweenProperty(this,new NodePath(Node2D.PropertyName.Modulate),new Color(1,0,0,1),0.1);
+        Tween Temp_Tween = Damage_Tween;
+        await ToSignal(Temp_Tween,Tween.SignalName.Finished);
+        if (Temp_Tween == Damage_Tween)
+        {
+            if (Damage_Tween != null)
+            {
+            Damage_Tween.Kill();
+            }
+            Damage_Tween = CreateTween();
+            Damage_Tween.TweenProperty(this,new NodePath(Node2D.PropertyName.Modulate),new Color(1,1,1,1),0.3);
         }
     }
     public override void _Process(double delta) {
@@ -99,15 +126,7 @@ public partial class Zombies : Level.Object.LevelObject
             }
         }
     }
-    public void Object_join(Node2D Node)
-    {
-        bool Check = Game.Cheak.CheakGroup.Cheak_Object_Group(Node,detection_Group,Exclude_Group);
-        if (Check == true)
-        {
-            Add_Object(Node);
-        }
-    }
-    public void Object_Exit(Node2D Node)
+    public void ObjectExit(Node2D Node)
     {
         Remove_Object(Node);
         Remove_Null_Object();

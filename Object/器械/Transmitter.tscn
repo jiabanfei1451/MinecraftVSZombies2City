@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cot1u4gy4n2be" path="res://Script/Object/Level_Object/equipment/Transmitier/Transmitter.cs" id="1_8qig5"]
 [ext_resource type="Texture2D" uid="uid://bbvxsgj2xswfv" path="res://Object/素材图/dispenser_6.png" id="2_nssbu"]
 [ext_resource type="Texture2D" uid="uid://b7ch57uppqgrk" path="res://Object/素材图/dispenser_5.png" id="3_53r0l"]
-[ext_resource type="AudioStream" uid="uid://ca1m1lsptgv1" path="res://Sound/Souds/Shoot.ogg" id="5_p5kym"]
+[ext_resource type="AudioStream" uid="uid://ca1m1lsptgv1" path="res://Sound/Souds/Bullet/Shoot.ogg" id="5_p5kym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_333bt"]
 

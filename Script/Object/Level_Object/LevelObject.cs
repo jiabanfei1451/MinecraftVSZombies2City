@@ -15,6 +15,20 @@ namespace Level.Object;
 public partial class LevelObject : Level.Module.ObjectPhysics
 {
     #region 信号
+    /// <summary>
+    /// 物体进入时
+    /// </summary>
+    /// <param name="Object"></param>
+    [Signal] public delegate void Object_JoinEventHandler(Node2D Object);
+    /// <summary>
+    /// 物体离开时
+    /// </summary>
+    /// <param name="Object"></param>
+    [Signal] public delegate void Object_ExitEventHandler(Node2D Object);
+    /// <summary>
+    /// 血量减少
+    /// </summary>
+    /// <param name="Damage_Object"></param>
     [Signal] public delegate void Health_ReduceEventHandler(Node Damage_Object);
     #endregion
     /// <summary>
@@ -216,7 +230,10 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         }
         if (node is Level.Object.LevelObject && node != this)
         {
+            bool Cheak = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
+            if (!Cheak){return;}
             Current_detection_object.Add((Level.Object.LevelObject)node);
+            EmitSignal("Object_Join",node);
         }
     }
     /// <summary>
@@ -234,6 +251,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
             Level.Object.LevelObject Body = (Level.Object.LevelObject)node;
             if (Current_detection_object.IndexOf(Body) != -1)
             {
+                EmitSignal("Object_Exit",Body);
                 Current_detection_object.Remove(Body);
             }
         }

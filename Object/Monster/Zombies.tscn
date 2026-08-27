@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bh7q48qfv8wob" path="res://Object/素材图/zombin2.png" id="2_t861y"]
 [ext_resource type="Texture2D" uid="uid://dysmprheeepu8" path="res://Object/素材图/zombin3.png" id="3_0hs0x"]
 [ext_resource type="Texture2D" uid="uid://b8jjy3thxqdcq" path="res://Object/素材图/zombin.png" id="4_xn1ud"]
+[ext_resource type="Script" uid="uid://ckxbqpx6mmji6" path="res://Script/Object/Audio/Normal Hit Souds/Damage.cs" id="9_y6qwl"]
 [ext_resource type="PackedScene" uid="uid://c2qbnurx2pxnj" path="res://UI/血条.tscn" id="11_e0qyl"]
 [ext_resource type="PackedScene" uid="uid://dvhsodcglxjm4" path="res://Object/Interactive Objects/物体检测.tscn" id="14_jofpg"]
 
@@ -722,14 +723,15 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6kba"]
 size = Vector2(20, 90)
 
-[node name="Zombies" type="CharacterBody2D" unique_id=838965622 node_paths=PackedStringArray("Area") groups=["Monster"]]
+[node name="Zombies" type="CharacterBody2D" unique_id=838965622 node_paths=PackedStringArray("Damage_Souds", "Area") groups=["Monster"]]
 z_as_relative = false
 script = ExtResource("1_eyntl")
+Damage_Souds = NodePath("DamageSouds")
 Area = NodePath("Area")
 Health = SubResource("Resource_h1tac")
-detection_Group = Array[StringName]([&"Equipment"])
 Speed = Vector2(-15, 0)
 Move_Ing = true
+detection_Group = Array[StringName]([&"Equipment"])
 
 [node name="Subject" type="Skeleton2D" parent="." unique_id=875477114]
 position = Vector2(-1.5940285, -61.595554)
@@ -830,7 +832,7 @@ autoplay = &"RESET"
 playback_auto_capture = false
 playback_default_blend_time = 0.25
 
-[node name="判定" type="CollisionShape2D" parent="." unique_id=630432921]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630432921]
 position = Vector2(-1, -41)
 shape = SubResource("RectangleShape2D_r6kba")
 debug_color = Color(0, 0.5950001, 0.7, 0)
@@ -848,5 +850,11 @@ offset_left = -35.0
 offset_top = -97.0
 offset_right = 35.0
 offset_bottom = -90.0
+
+[node name="DamageSouds" type="AudioStreamPlayer" parent="." unique_id=1949179761]
+autoplay = true
+script = ExtResource("9_y6qwl")
+Audio_Type = 1
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [editable path="Area"]

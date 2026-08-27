@@ -75,8 +75,8 @@ Flight="飞行单位"
 Area="判定检测区域组"
 Equipment="器械"
 Monster="怪物"
-Projectile="射弹"
 UI_Area="UI区域"
+Bullet="射弹"
 
 [input]
 

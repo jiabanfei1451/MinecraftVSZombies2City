@@ -17,6 +17,10 @@ public partial class Transmitter : Level.Object.LevelObject
     /// </summary>
     [Export] public Marker2D Summand_shoot_Position = null;
     /// <summary>
+    /// 生成高度
+    /// </summary>
+    [Export] public float Summand_Height = 0;
+    /// <summary>
     /// 计时器节点
     /// </summary>
     [ExportGroup("Node")]
@@ -36,8 +40,8 @@ public partial class Transmitter : Level.Object.LevelObject
         Shoot_Sound = GetNode<AudioStreamPlayer>("Souds");
         this.AnimationPlayer = GetNode<AnimationPlayer>("Animation");
         if (Area == null){return;}
-        Area.BodyEntered += Object_join;
-        Area.BodyExited += Object_Exit;
+        Area.BodyEntered += Add_Object;
+        Area.BodyExited += ObjectExit;
         var @r = Reset_Area();
     }
     public override void _PhysicsProcess(double delta) {
@@ -46,6 +50,7 @@ public partial class Transmitter : Level.Object.LevelObject
         if (Timer == null || Shoot_Sound == null){return;}
         if (this.Timer.TimeLeft == 0 && Current_detection_object.Count > 0)
         {
+            Summand_Shoot();
             this.AnimationPlayer.Play("Shoot");
             Shoot_Sound.Play();
             double Time = Game.Get.Random.NextFloat_64(1.4,1.6);
@@ -63,17 +68,17 @@ public partial class Transmitter : Level.Object.LevelObject
         Area.Monitoring = true;
 
     } 
-    public void Object_join (Node2D Node)
+    /// <summary>
+    /// 生成射弹
+    /// </summary>
+    public void Summand_Shoot()
     {
-        if (Node is Level.Object.LevelObject){
-            bool Check = Game.Cheak.CheakGroup.Cheak_Object_Group(Node,detection_Group,Exclude_Group);
-            if (Check == true && ((Level.Object.LevelObject)Node).Lawn_Index == this.Lawn_Index)
-            {
-                Add_Object(Node);
-            }
-        }
+        PackedScene Shoot_Scene = Game.ResourceTool.LoadScene("uid://caymc0p7rsog");
+        Node2D shoot = Shoot_Scene.Instantiate<Node2D>();
+        Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Shoot").AddChild(shoot);
+        shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition;
     }
-    public void Object_Exit (Node2D Node)
+    public void ObjectExit (Node2D Node)
     {
         Remove_Object(Node);
         Remove_Null_Object();

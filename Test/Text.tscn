@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
-[ext_resource type="Script" uid="uid://dd5kn47ifj0lw" path="res://Test/area_2d.gd" id="1_gtax4"]
+[ext_resource type="Script" uid="uid://clf3ea8dhw415" path="res://Test/Test_1.cs" id="1_eja7b"]
 
 [sub_resource type="GDScript" id="GDScript_38ak1"]
 script/source = "extends Node
@@ -21,6 +21,7 @@ script = SubResource("GDScript_38ak1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=973453815]
 visible = false
+script = ExtResource("1_eja7b")
 
 [node name="Server" type="Button" parent="CanvasLayer" unique_id=220998850]
 offset_left = 16.0
@@ -78,7 +79,6 @@ text = "连接状态"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=267875478]
 position = Vector2(189, 31)
-script = ExtResource("1_gtax4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=701732766]
 shape = SubResource("RectangleShape2D_wvhbo")

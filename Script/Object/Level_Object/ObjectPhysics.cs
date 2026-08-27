@@ -15,7 +15,7 @@ public partial class ObjectPhysics : Node2D
     /// 启用物理
     /// </summary>
     [ExportGroup("Physics")]
-    [Export] public bool Physics_Enable = false;
+    [Export] public bool Physics_Enable = true;
     /// <summary>
     /// 重量
     /// </summary>发`
@@ -52,14 +52,17 @@ public partial class ObjectPhysics : Node2D
     /// 加速度
     /// </summary>
     [Export] public float Acceleration = 0;
+    [Export] internal bool Physics_Initialization = false;
     public void Reset_Position()
     {
-        practical_Position = Position;
+        practical_Position = GlobalPosition;
+        Physics_Initialization = true;
     }
     public void SetPhysics_Position(double delta) {
         float FloatDelta = (float)delta;
         if (!Physics_Enable){return;}
-        Position = practical_Position - new Vector2(0,Height + Extra_Height);
+        if (!Physics_Initialization){return;}
+        GlobalPosition = practical_Position - new Vector2(0,Height + Extra_Height);
         if (Height > 0)
         {
             Falling_Acceleration += Weight * 10 * FloatDelta;

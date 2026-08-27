@@ -52,21 +52,21 @@ static class Get_GlobalNode
 			switch (Get_Mode){
 				case Mode_Type.Name:
 					index = NodeData[1].IndexOf(Index);
-					DEBUG.Info.Print(index);
+					// DEBUG.Info.Print(index);
 					break;
 				case Mode_Type.Index:
 					index = int.Parse(Index);
 					break;
 			}
-			DEBUG.Info.Print(NodeData[0].Count);
+			// DEBUG.Info.Print(NodeData[0].Count);
 			if (index < 0){return null;}
 			if (index < NodeData[0].Count)
 			{
-				DEBUG.Info.Print($"索引:{index}");
+				// DEBUG.Info.Print($"索引:{index}");
 				Get = (Node)NodeData[0][index];
 			}else
 			{
-				DEBUG.Info.Print("?");
+				// DEBUG.Info.Print("?");
 				Get = null;
 			}
 			return Get as T;

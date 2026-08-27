@@ -8,6 +8,11 @@ namespace Level.Object;
 /// </summary>
 public partial class BulletData : ObjectPhysics
 {
+    [Signal] public delegate void Object_JoinEventHandler(Node2D node);
+    [Signal] public delegate void Object_ExitEventHandler(Node2D node);
+    [ExportGroup("Cheak_Group")]
+    [Export] public Godot.Collections.Array<StringName> detection_Group = new Godot.Collections.Array<StringName>();
+    [Export] public Godot.Collections.Array<StringName> Exclude_Group = new Godot.Collections.Array<StringName>(){"Bullet","Flight"}; 
     [ExportGroup("Array")]
     /// <summary>
     /// 已检测到的物体
@@ -49,5 +54,22 @@ public partial class BulletData : ObjectPhysics
     public void Remove_Check_Object(Level.Object.LevelObject data_object)
     {
         Check_Object.Remove(data_object);
+    }
+    internal void Join(Node2D node)
+    {
+        if (node is Level.Object.LevelObject){
+            bool Cheak = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
+            if (!Cheak){return;}
+            Add_Check_Object((Level.Object.LevelObject)node);
+            EmitSignal("Object_Join",node);
+        }
+    }
+    internal void Exit(Node2D node)
+    {
+        if (node is Level.Object.LevelObject)
+        {
+            Remove_Check_Object((Level.Object.LevelObject)node);
+            EmitSignal("Object_Exit",node);
+        }
     }
 }

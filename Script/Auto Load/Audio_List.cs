@@ -62,6 +62,9 @@ public partial class Audio_List : Node
 		Add_Muisc(Load.Load_External_Audio_File( Load.File_Type.ogg,"E:/UT入/ink/ink_bgm1.ogg"),"Ink_Phase1","File:ink");
 		Add_Muisc("uid://dmsb1maakx8lg","mus_a1_battle","MVZ2_City:KillStone_Final");
 		Add_Souds("uid://doqxxw08vbj5i","好,准备,安放器械","MVZ2:Ready");
+		Add_Souds("uid://d4ljnli5u46x6","受击","MVZ2:Splat_1");
+		Add_Souds("uid://cj01m2icn8jfh","受击2","MVZ2:Splat_2");
+		Add_Souds("uid://bqfk5s3oirsy1","受击3","MVZ2:Splat_3");
 		#endregion
 	}
 	/// <summary>

@@ -83,7 +83,7 @@ public partial class Muisc_Engine : Node
 		switch (Status)
 		{
 			case Play_Status.NoPlay:
-				Audio_1.Muisc_ID = MuiscID;
+				Audio_1.Audio_ID = MuiscID;
 				Audio_1.Fade_Join();
 				Audio_1.Autoplay = true;
 				Audio_1.Playing = true;
@@ -92,14 +92,14 @@ public partial class Muisc_Engine : Node
 			case Play_Status.Play_Audio_1:
 				Audio_1.Fade_Exit();
 				Audio_2.Fade_Join();
-				Audio_2.Muisc_ID = MuiscID;
+				Audio_2.Audio_ID = MuiscID;
 				Audio_2.Autoplay = true;
 				Audio_2.Playing = true;
 				Status = Play_Status.Play_Audio_2;
 				break;
 			case Play_Status.Play_Audio_2:
 				Audio_2.Fade_Exit();
-				Audio_1.Muisc_ID = MuiscID;
+				Audio_1.Audio_ID = MuiscID;
 				Audio_1.Fade_Join();
 				Audio_1.Autoplay = true;
 				Audio_1.Playing = true;

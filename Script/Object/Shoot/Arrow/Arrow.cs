@@ -6,37 +6,34 @@ namespace Level.Object.Bullet;
 /// </summary>
 public partial class Arrow : Level.Object.BulletData
 {
+    [Export] Area2D area = null;
     public override void _Ready() {
         base._Ready();
+        Reset();
+        Node2D node2D = Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Shoot");
+        if (node2D != null)
+        {
+            ZIndex = node2D.ZIndex;
+        }
     }
     public override void _Process(double delta) {
         base._Process(delta);
-        Position += Get_Rotation_Vector(Rotation / 3.14f * 180) * 60 * Speed * (float)delta;
+        Position += Get_Rotation_Vector(Rotation / 3.14f * 180) * 80 * Speed * (float)delta;
     }
     public void Reset()
     {
-        Node2D s = this;
-        if (s is Area2D)
-        {
-            ((Area2D)s).BodyEntered += Object_Join;
-            ((Area2D)s).BodyExited += Object_Exit;
-        }
+        Object_Join += Damage_Node;
+        area.BodyEntered += Join;
+        area.BodyExited += Exit;
     }
-    public void Object_Join(Node2D node)
-    {
-        if (node is Level.Object.LevelObject){
-            Add_Check_Object((Level.Object.LevelObject)node);
-        }
-        if (Check_Object.Count > 0)
-        {
-            Check_Object[0].Reduce_Health(Damage);
-        }
-    }
-    public void Object_Exit(Node2D node)
+    public void Damage_Node(Node2D node)
     {
         if (node is Level.Object.LevelObject)
         {
-            Remove_Check_Object((Level.Object.LevelObject)node);
+            bool Cheak = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
+            if (!Cheak){return;}
+            ((Level.Object.LevelObject)node).Reduce_Health(Damage,this);
+            QueueFree();
         }
     }
 }

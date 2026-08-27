@@ -7,7 +7,7 @@ namespace My_Csharp_Node
 [GlobalClass]
 public partial class Audio_Plus : AudioStreamPlayer
 {
-	[Export] public String Muisc_ID = "MVZ2:Null";
+	[Export] public String Audio_ID = "MVZ2:Null";
 	[Export] AudioStream Current_Stream = null;
 	[Export(PropertyHint.Range,"-24,24,0.01")] public float Add_Volume = 0;
 	[Export(PropertyHint.Range,"0,1,0.01")] public float Multiplication = 1;
@@ -20,6 +20,7 @@ public partial class Audio_Plus : AudioStreamPlayer
 	[Export] public Audio Audio_Type = Audio.Muisc;
 	[Export] public Game.AutoLoad.Audio_List AudioList_Object = null;
 	[Export] public float fade_Time = 5;
+	[Export] public bool Auto_Get_File = true;
 	[Export] public bool Auto_QueneFree = false;
 	public override void _Ready() {
 		base._Ready();
@@ -48,13 +49,14 @@ public partial class Audio_Plus : AudioStreamPlayer
 		float Type_volume = 0;
 		if (Audio_Type == Audio.Muisc){
 			Type_volume = AudioList_Object.Muisc_Volume;
-
-			AudioStream stream = Get_Muisc();
-			if (Current_Stream != stream)
-			{
-				Current_Stream = stream;
-				Stream = stream;
-			}
+			if (Auto_Get_File){
+				AudioStream stream = Get_Muisc();
+				if (Current_Stream != stream)
+				{
+					Current_Stream = stream;
+					Stream = stream;
+				}
+			
 			if (Autoplay == true)
 				{
 					if (!Playing && stream != null)
@@ -62,9 +64,15 @@ public partial class Audio_Plus : AudioStreamPlayer
 						Play();
 					}
 				}
+			}
 		}
 		else
 		{
+			if (Auto_Get_File == true){
+				Auto_Get_File = false;
+				if (Audio_ID == "MVZ2:Null"){return;}
+				Stream = Game.Get_GlobalNode.Get_Audio_List(GetTree()).Get_Souds(Audio_ID);
+			}
 			Type_volume = AudioList_Object.Souds_Volume;
 		}
 		if (Type_volume / 100 * Multiplication * Current_Multiplication != 0){
@@ -91,24 +99,24 @@ public partial class Audio_Plus : AudioStreamPlayer
 	public AudioStream Get_Muisc()
 	{
 		int Array_index = -1;
-		if (Muisc_ID != null){
-		if (Muisc_ID.Find(":") != -1)
+		if (Audio_ID != null){
+		if (Audio_ID.Find(":") != -1)
 		{
-			if (Muisc_ID.Find("CH:") != -1)
+			if (Audio_ID.Find("CH:") != -1)
 			{
-				Array_index = AudioList_Object.Muisc_List[0].IndexOf(Muisc_ID[3..]);
+				Array_index = AudioList_Object.Muisc_List[0].IndexOf(Audio_ID[3..]);
 			}
 			else
 			{
-				Array_index = AudioList_Object.Muisc_List[1].IndexOf(Muisc_ID);
+				Array_index = AudioList_Object.Muisc_List[1].IndexOf(Audio_ID);
 			}
 		}
 		else
 		{
-			if (Muisc_ID.Find("0") != -1 || Muisc_ID.Find("1") != -1 || Muisc_ID.Find("2") != -1 || Muisc_ID.Find("3") != -1 ||
-			Muisc_ID.Find("4") != -1 || Muisc_ID.Find("5") != -1 || Muisc_ID.Find("6") != -1 || Muisc_ID.Find("7") != -1 || Muisc_ID.Find("8") != -1
-			|| Muisc_ID.Find("9") != -1){
-			Array_index = int.Parse(Muisc_ID);}
+			if (Audio_ID.Find("0") != -1 || Audio_ID.Find("1") != -1 || Audio_ID.Find("2") != -1 || Audio_ID.Find("3") != -1 ||
+			Audio_ID.Find("4") != -1 || Audio_ID.Find("5") != -1 || Audio_ID.Find("6") != -1 || Audio_ID.Find("7") != -1 || Audio_ID.Find("8") != -1
+			|| Audio_ID.Find("9") != -1){
+			Array_index = int.Parse(Audio_ID);}
 		}
 		}
 		if (Array_index != -1){

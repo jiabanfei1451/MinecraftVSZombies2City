@@ -57,13 +57,14 @@ public static class ResourceTool
                     Load_Scene.Add(scene);
                     Scene_Path.Add(Path);
                     Scene_UID.Add("");
+                    Info.Print(Scene_Path);
+                    Info.Print("路径加载完成:",Path);
                 }
                 else
                 {
                     Scene_Path[Load_Scene.IndexOf(scene)] = Path;
                 }
-                Info.Print(Scene_Path);
-                Info.Print("路径加载完成:",Path);
+                
             }
             return Load_Scene[Scene_Path.IndexOf(Path)];
         }
@@ -76,13 +77,13 @@ public static class ResourceTool
                     Load_Scene.Add(scene);
                     Scene_UID.Add(Path);
                     Scene_Path.Add("");
+                    Info.Print(Scene_UID);
+                    Info.Print("UID索引加载完成:",Path);
                 }
                 else
                 {
                     Scene_UID[Load_Scene.IndexOf(scene)] = Path;
                 }
-                Info.Print(Scene_UID);
-                Info.Print("UID索引加载完成:",Path);
             }
             return Load_Scene[Scene_UID.IndexOf(Path)];
         }

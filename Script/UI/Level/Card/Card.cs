@@ -177,6 +177,7 @@ public partial class Card : Control
 		{
 			((Level.Object.LevelObject)texture).Enable = false;
 			((Level.Object.LevelObject)texture).Enable_Health = false;
+			((Level.Object.LevelObject)texture).Physics_Enable = false;
 		}
 		GetNode<Control>("Image").AddChild(texture);
 		texture.Position = Data.Offset;

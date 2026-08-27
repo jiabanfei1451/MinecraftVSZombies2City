@@ -2,31 +2,23 @@
 
 [ext_resource type="Script" uid="uid://c4goda1jl4q7p" path="res://Script/Object/Shoot/Arrow/Arrow.cs" id="1_8t2dg"]
 [ext_resource type="Texture2D" uid="uid://bu88hxcq3eddc" path="res://Object/素材图/dispenser.png" id="2_idlxt"]
-[ext_resource type="Shader" uid="uid://ww76aly7osdr" path="res://Shader/着色器2.0.gdshader" id="2_u38hb"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mly43"]
-shader = ExtResource("2_u38hb")
-shader_parameter/fff = Vector2(1, 1)
-shader_parameter/miao_bian = false
-shader_parameter/coloro = Color(18.892157, 0, 1.1297288, 1)
-shader_parameter/lc = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aoox"]
 size = Vector2(33, 10)
 
-[node name="Arrow" type="Area2D" unique_id=970804522 groups=["射弹"]]
-z_as_relative = false
+[node name="Arrow" type="Sprite2D" unique_id=370891039 node_paths=PackedStringArray("area") groups=["Bullet"]]
 position = Vector2(518, 329)
+texture = ExtResource("2_idlxt")
 script = ExtResource("1_8t2dg")
+area = NodePath("Area2D")
+detection_Group = Array[StringName]([&"Monster"])
+Exclude_Group = Array[StringName]([&"Bullet"])
 Damage = 1
 Damage_End_AutoRemove_Object = true
+Speed = Vector2(5, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=571456383]
-material = SubResource("ShaderMaterial_mly43")
-texture = ExtResource("2_idlxt")
+[node name="Area2D" type="Area2D" parent="." unique_id=1974500903]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248437638]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=248437638]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5aoox")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
