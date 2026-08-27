@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/killStone_Boss.ogg-0a5835a02da8f415bbce4d6460
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=22.4
+bpm=0.0
 beat_count=0
 bar_beats=4

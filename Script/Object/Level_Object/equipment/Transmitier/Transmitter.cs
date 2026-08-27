@@ -49,7 +49,7 @@ public partial class Transmitter : Level.Object.LevelObject
     }
     public void Check_Change_line(Level.Object.LevelObject LevelObject)
     {
-        if (!Check_Object_Group(LevelObject)){return;}
+        if (!Game.Cheak.CheakGroup.Cheak_Object_Group(LevelObject,detection_Group,Exclude_Group)){return;}
         ReEnable_Area();
     }
     public void ReEnable_Area()
@@ -61,7 +61,7 @@ public partial class Transmitter : Level.Object.LevelObject
     public void Object_join (Node2D Node)
     {
         if (Node is Level.Object.LevelObject){
-            bool Check = Check_Object_Group(Node);
+            bool Check = Game.Cheak.CheakGroup.Cheak_Object_Group(Node,detection_Group,Exclude_Group);
             if (Check == true && ((Level.Object.LevelObject)Node).Lawn_Index == this.Lawn_Index)
             {
                 Add_Object(Node);

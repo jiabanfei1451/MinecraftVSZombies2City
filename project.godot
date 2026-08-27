@@ -53,6 +53,8 @@ enabled=PackedStringArray("res://addons/butter_and_debug/plugin.cfg", "res://add
 [file_customization]
 
 folder_colors={
+"res://Object/": "yellow",
+"res://Scene/": "gray",
 "res://Script/": "green",
 "res://Sound/": "teal",
 "res://UI/": "orange",

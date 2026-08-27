@@ -101,7 +101,7 @@ public partial class Zombies : Level.Object.LevelObject
     }
     public void Object_join(Node2D Node)
     {
-        bool Check = Check_Object_Group(Node);
+        bool Check = Game.Cheak.CheakGroup.Cheak_Object_Group(Node,detection_Group,Exclude_Group);
         if (Check == true)
         {
             Add_Object(Node);

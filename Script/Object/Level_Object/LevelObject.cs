@@ -12,7 +12,7 @@ namespace Level.Object;
 /// <para>区域检测物体 生命组件 启用生命组件</para>
 /// <para>启用 伤害 >是否检测/排除xx阵营</para>
 /// </summary>
-public partial class LevelObject : Node2D
+public partial class LevelObject : Level.Module.ObjectPhysics
 {
     #region 信号
     [Signal] public delegate void Health_ReduceEventHandler(Node Damage_Object);
@@ -66,78 +66,8 @@ public partial class LevelObject : Node2D
     /// </summary>
     [Export] public Godot.Collections.Array<StringName> Exclude_Group = new Godot.Collections.Array<StringName>(){"Projectile","Area"};
     /// <summary>
-    /// 速度
+    /// 临时坐标
     /// </summary>
-    [ExportGroup("Vector")]
-    #region 移动
-    [ExportSubgroup("Move")]
-    [Export] public Godot.Vector2 Speed = Vector2.Zero;
-    /// <summary>
-    /// 移动速度的倍率
-    /// </summary>
-    [Export] public float Speed_Multiplication = 1;
-    /// <summary>
-    /// 移动状态
-    /// </summary>
-    [Export] public bool Move_Ing = false;
-    /// <summary>
-    /// 移动类型
-    /// </summary>
-    [Export] public Move_Type MoveType = Move_Type.Linear_Motion;
-    /// <summary>
-    /// 移动类型
-    /// </summary>
-    public enum Move_Type
-    {
-        /// <summary>
-        /// 平移
-        /// </summary>
-        Linear_Motion = 0,
-        /// <summary>
-        /// 使用脚本驱动
-        /// </summary>
-        Script_Driver = 1,
-    }
-    /// <summary>
-    /// 基于Practical_Position的偏移量
-    /// </summary>
-    #endregion
-    [ExportGroup("Vector")]
-    [Export] public Godot.Vector2 position_Offset = Godot.Vector2.Zero;
-    /// <summary>
-    /// 启用物理
-    /// </summary>
-    [ExportGroup("Physics")]
-    [Export] public bool Physics_Enable = false;
-    /// <summary>
-    /// 重量
-    /// </summary>发`
-    [Export] public float Weight = 5;
-    /// <summary>
-    /// 下落加速度
-    /// </summary>
-    [Export] public float Falling_Acceleration = 1;
-    /// <summary>
-    /// 高度
-    /// </summary>
-    [Export] public float Height = 0;
-    /// <summary>
-    /// 实际坐标
-    /// </summary>
-    [Export] public Godot.Vector2 practical_Position = new Godot.Vector2();
-    /// <summary>
-    /// 阴影
-    /// </summary>
-    [Export] public Node Shadow = null;
-    /// <summary>
-    /// 阴影尺寸
-    /// </summary>
-    [Export] public Godot.Vector2 Shadow_Size = Vector2.Zero;
-    /// <summary>
-    /// 加速度
-    /// </summary>
-    [Export] public float Acceleration = 0;
-    internal Level_Master_Script level {get;set;} = null;
     float Temp_Position_Y = -1;
 
     public override void _ExitTree()
@@ -157,7 +87,7 @@ public partial class LevelObject : Node2D
             Health.Reset();
         }
         if (!Enable){return;}
-        practical_Position = Position;
+        Reset_Position();
         Area = GetNode<Godot.Area2D>("Area");
         if (level != null){
             if (level.Game_Reset_Done == true){
@@ -168,14 +98,7 @@ public partial class LevelObject : Node2D
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
         if (!Enable){return;}
-        Position = practical_Position + new Vector2(0,Height);
-        switch (MoveType){
-            case Move_Type.Linear_Motion:
-                if (Move_Ing == true){
-                    practical_Position += (Speed * new Vector2(Speed_Multiplication,Speed_Multiplication)) * new Vector2((float)delta,(float)delta);
-                }
-            break;
-        }
+        // 检测是否启用生命组件
         if (Health != null)
         {
             if (Health.kill == true)
@@ -192,6 +115,7 @@ public partial class LevelObject : Node2D
                 level = Get_Level;
             }
         }
+        // 高度重定向
         if (level != null && AutoSet_Lawn_Index == true)
         {
             if (Temp_Position_Y != practical_Position.Y + position_Offset.Y)
@@ -207,6 +131,7 @@ public partial class LevelObject : Node2D
                 }
             }
         }
+        SetPhysics_Position(delta);
     }
 
     public async Task Reset_Area()
@@ -221,35 +146,6 @@ public partial class LevelObject : Node2D
         await ToSignal(GetTree().CreateTimer(0.05),SceneTreeTimer.SignalName.Timeout);
         Area.Monitoring = true;
         Area.Monitorable = true;
-    }
-    /// <summary>
-    /// 检测
-    /// </summary>
-    /// <param name="node"></param>
-    /// <returns></returns>
-    public bool Check_Object_Group(Node2D node)
-    {
-        if (!Enable)
-        {
-            Info.ERROR(Info.ERROR_Info.Invalid_method);
-            return false;
-        }
-        Godot.Collections.Array<StringName> Group_String = node.GetGroups();
-        foreach (StringName @string in Group_String)
-        {
-            if (Exclude_Group.IndexOf(@string) != -1)
-            {
-                return false;
-            }
-        }
-        foreach (StringName @string in Group_String)
-        {
-            if (detection_Group.IndexOf(@string) != -1)
-            {
-                return true;
-            }
-        }
-        return false;
     }
     /// <summary>
     /// 移除空物体
@@ -315,22 +211,6 @@ public partial class LevelObject : Node2D
             return;
         }
         Current_detection_object.RemoveAt(Index);
-    }
-    /// <summary>
-    /// 启动物理
-    /// </summary>
-    public async Task Physics_ON()
-    {
-        if (!Enable)
-        {
-            Info.ERROR(Info.ERROR_Info.Invalid_method);
-            return;
-        }
-        Physics_Enable = true;
-        while (Physics_Enable && Enable)
-        {
-            await Task.Delay((int)Math.Round(1000 / Performance.GetMonitor(Performance.Monitor.TimeFps),0));
-        }
     }
     public void Reduce_Health(int Reduce_Number,Node Damage_Object = null)
     {
