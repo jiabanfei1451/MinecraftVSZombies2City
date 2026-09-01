@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv73lgfpk2h4q"]
+
+[ext_resource type="Texture2D" uid="uid://bjtocy6db57n" path="res://Image/Effect/particle/smoke.png" id="1_6e4af"]
+[ext_resource type="Script" uid="uid://dskk2e3y0ksha" path="res://Script/Node/Particie/Monster_Kill_Particie.cs" id="2_667et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o574p"]
+atlas = ExtResource("1_6e4af")
+region = Rect2(56, 24, 2, 2)
+
+[node name="Monster kill particie" type="Sprite2D" unique_id=1048719958]
+position = Vector2(594.89594, 394.13834)
+texture = SubResource("AtlasTexture_o574p")
+script = ExtResource("2_667et")
+Timeout = 0.25

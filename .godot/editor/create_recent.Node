@@ -1,3 +1,6 @@
+CanvasGroup
+BackBufferCopy
+CharacterBody2D
 Audio_Plus
 AudioStreamPlayer
 CollisionShape2D
@@ -9,7 +12,3 @@ Label
 ColorRect
 CanvasModulate
 Bone2D
-Skeleton2D
-Timer
-CharacterBody2D
-Polygon2D

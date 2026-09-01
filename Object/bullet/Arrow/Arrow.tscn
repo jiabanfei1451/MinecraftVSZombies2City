@@ -3,17 +3,19 @@
 [ext_resource type="Script" uid="uid://c4goda1jl4q7p" path="res://Script/Object/Shoot/Arrow/Arrow.cs" id="1_8t2dg"]
 [ext_resource type="Texture2D" uid="uid://bu88hxcq3eddc" path="res://Object/素材图/dispenser.png" id="2_idlxt"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdqta"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aoox"]
 size = Vector2(33, 10)
 
 [node name="Arrow" type="Sprite2D" unique_id=370891039 node_paths=PackedStringArray("area") groups=["Bullet"]]
+material = SubResource("ShaderMaterial_gdqta")
 position = Vector2(518, 329)
 texture = ExtResource("2_idlxt")
 script = ExtResource("1_8t2dg")
 area = NodePath("Area2D")
 detection_Group = Array[StringName]([&"Monster"])
 Exclude_Group = Array[StringName]([&"Bullet"])
-Damage = 1
 Damage_End_AutoRemove_Object = true
 Speed = Vector2(5, 1)
 

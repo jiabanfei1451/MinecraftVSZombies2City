@@ -8,7 +8,7 @@ namespace Game;
 /// <summary>
 /// 场景资源加载器
 /// </summary>
-public static class ResourceTool
+public static class ResourceScene
 {
     /// <summary>
     /// 已加载的资源

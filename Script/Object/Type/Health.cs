@@ -35,7 +35,7 @@ public partial class Health() : Godot.Resource
         if (HP == -1){
             HP = MaxHP;
         }
-        Info.Print(MaxHP);
+        Info.Print("初始化:",HP);
     }
 
 }

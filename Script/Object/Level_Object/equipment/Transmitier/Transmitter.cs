@@ -11,7 +11,7 @@ public partial class Transmitter : Level.Object.LevelObject
     /// 射弹场景
     /// </summary>
     [ExportGroup("Summand_Node")]
-    [Export] public PackedScene Shoot = Game.ResourceTool.LoadScene("uid://caymc0p7rsog");
+    [Export] public PackedScene Shoot = Game.ResourceScene.LoadScene("uid://caymc0p7rsog");
     /// <summary>
     /// 箭矢生成坐标
     /// </summary>
@@ -33,6 +33,7 @@ public partial class Transmitter : Level.Object.LevelObject
     /// 发射音效节点
     /// </summary>
     [Export] public Godot.AudioStreamPlayer Shoot_Sound = null;
+    [Export] public bool This_Initialization = false;
     public override void _Ready() {
         base._Ready();
         if (!Enable){return;}
@@ -48,6 +49,13 @@ public partial class Transmitter : Level.Object.LevelObject
         base._PhysicsProcess(delta);
         if (!Enable){return;}
         if (Timer == null || Shoot_Sound == null){return;}
+        if (level != null)
+        {
+            if (This_Initialization == false)
+            {
+                level.Object_Kill += ObjectExit;
+            }
+        }
         if (this.Timer.TimeLeft == 0 && Current_detection_object.Count > 0)
         {
             Summand_Shoot();
@@ -62,6 +70,9 @@ public partial class Transmitter : Level.Object.LevelObject
         if (!Game.Cheak.CheakGroup.Cheak_Object_Group(LevelObject,detection_Group,Exclude_Group)){return;}
         ReEnable_Area();
     }
+    /// <summary>
+    /// 重启检测器
+    /// </summary>
     public void ReEnable_Area()
     {
         Area.Monitoring = false;
@@ -73,14 +84,22 @@ public partial class Transmitter : Level.Object.LevelObject
     /// </summary>
     public void Summand_Shoot()
     {
-        PackedScene Shoot_Scene = Game.ResourceTool.LoadScene("uid://caymc0p7rsog");
+        PackedScene Shoot_Scene = Game.ResourceScene.LoadScene("uid://caymc0p7rsog");
         Node2D shoot = Shoot_Scene.Instantiate<Node2D>();
         Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Shoot").AddChild(shoot);
         shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition;
     }
+    /// <summary>
+    /// 剔除不存在或死亡的物体
+    /// </summary>
+    /// <param name="Node"></param>
     public void ObjectExit (Node2D Node)
     {
-        Remove_Object(Node);
-        Remove_Null_Object();
+        if (Node is Level.Object.LevelObject){
+            if (Current_detection_object.IndexOf((Level.Object.LevelObject)Node) != -1){
+                Remove_Object(Node);
+                Remove_Null_Object();
+            }
+        }
     }
 }

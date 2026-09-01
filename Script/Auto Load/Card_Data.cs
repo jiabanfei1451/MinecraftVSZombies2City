@@ -63,12 +63,12 @@ public partial class Card_Data : Node
 		base._Ready();
 		Initialization();
 		#region 增加器械数据
-		Add_Data(Game.ResourceTool.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceTool.LoadScene("uid://dhqc163eiuqrd"),78,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceTool.LoadScene("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceTool.LoadScene("uid://djytruxu3c3qt"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceTool.LoadScene("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceTool.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://dhqc163eiuqrd"),78,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://djytruxu3c3qt"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
 		#endregion
 	}
 	public void CD_Initialization()

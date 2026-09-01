@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 public partial class Command_Edit : TextEdit
 {
 	[Export] public bool SB = false;
-	static PackedScene Line = Game.ResourceTool.LoadScene("uid://bd74mkx2jelk1");
+	static PackedScene Line = Game.ResourceScene.LoadScene("uid://bd74mkx2jelk1");
 	public override void _Input(InputEvent @event) {
 		base._Input(@event);
 		if (@event is InputEventKey)

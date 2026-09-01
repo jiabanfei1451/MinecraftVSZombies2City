@@ -39,7 +39,7 @@ window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://b0cg0w4pc066j"
 display_server/stretch/scale_mode="integer"
-window/version="beta0.1.3"
+window/version="beta0.2.0"
 
 [dotnet]
 
@@ -56,6 +56,7 @@ folder_colors={
 "res://Object/": "yellow",
 "res://Scene/": "gray",
 "res://Script/": "green",
+"res://Shader/": "pink",
 "res://Sound/": "teal",
 "res://UI/": "orange",
 "res://图片/": "gray",

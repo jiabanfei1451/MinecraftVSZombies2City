@@ -10,6 +10,11 @@ namespace Level;
 /// </summary>
 public partial class Level_Master_Script : Node2D{
 	/// <summary>
+	/// 物体死亡
+	/// </summary>
+	/// <param name="level"></param>
+	[Signal] public delegate void Object_KillEventHandler(Level.Object.LevelObject level);
+	/// <summary>
 	/// 关卡Data实例更改行时
 	/// </summary>
 	/// <param name="Data_Object"></param>
@@ -141,7 +146,7 @@ public partial class Level_Master_Script : Node2D{
 	public async void choose_Card()
     {
 		Tween Twee = CreateTween();
-        PackedScene Scene = Game.ResourceTool.LoadScene("uid://bllinxtvttldn");
+        PackedScene Scene = Game.ResourceScene.LoadScene("uid://bllinxtvttldn");
 		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("CH:选卡");
 		Camera2D_Zoom = new Godot.Vector2(1.1f,1.1f);
         Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(140,0),1);
@@ -340,7 +345,7 @@ public partial class Level_Master_Script : Node2D{
 	public override async void _Ready() {
 		base._Ready();
 		Reset_Lawn_Index();
-		LawnScene = Game.ResourceTool.LoadScene("uid://dim8rk13omwvv");
+		LawnScene = Game.ResourceScene.LoadScene("uid://dim8rk13omwvv");
 		Touch.Touch_Index.Set_Index_Enable(0,false);
 		Game.Get_GlobalNode.Node_Data.Clear_Node();
 		Game.Get_GlobalNode.Node_Data.Add_Node(this,"Level");

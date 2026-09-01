@@ -2,14 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bbvxsgj2xswfv" path="res://Object/素材图/dispenser_6.png" id="1_g8d7r"]
 [ext_resource type="Script" uid="uid://cot1u4gy4n2be" path="res://Script/Object/Level_Object/equipment/Transmitier/Transmitter.cs" id="1_ius62"]
-[ext_resource type="Script" uid="uid://cxir0ru4fseee" path="res://Script/Object/Type/Health.cs" id="2_0ndwc"]
 [ext_resource type="Texture2D" uid="uid://b7ch57uppqgrk" path="res://Object/素材图/dispenser_5.png" id="2_buk1g"]
 [ext_resource type="AudioStream" uid="uid://ca1m1lsptgv1" path="res://Sound/Souds/Bullet/Shoot.ogg" id="3_ius62"]
 [ext_resource type="Texture2D" uid="uid://db3ddlwk0qt6h" path="res://Image/Effect/Launch/flash.png" id="4_buk1g"]
 [ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="5_0he7v"]
-
-[sub_resource type="Resource" id="Resource_xb2ch"]
-script = ExtResource("2_0ndwc")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_333bt"]
 
@@ -173,7 +169,8 @@ slide_on_ceiling = false
 script = ExtResource("1_ius62")
 Summand_shoot_Position = NodePath("Marker2D")
 Area = NodePath("Area")
-Health = SubResource("Resource_xb2ch")
+HP = 300
+Max_HP = 300
 MoveType = 1
 detection_Group = Array[StringName]([&"Monster"])
 

@@ -47,11 +47,24 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     [ExportGroup("Object")]
     [Export] public Godot.Area2D Area = null;
     /// <summary>
-    /// 生命类
+    /// 当前血量
     /// </summary>
     [ExportGroup("status")]
     #region 生命组件
-    [ExportSubgroup("Health")] [Export] public Health Health = new Health();
+    [ExportSubgroup("Health_Module")]
+    [Export] public int HP = 200;
+    /// <summary>
+    /// 最大血量
+    /// </summary>
+    [Export] public int Max_HP = 200;
+    /// <summary>
+    /// 最小血量
+    /// </summary>
+    [Export] public int Min_HP = 0;
+    /// <summary>
+    /// 已死亡
+    /// </summary>
+    [Export] public bool kill = false;
     /// <summary>
     /// 启用生命组件
     /// </summary>
@@ -61,6 +74,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// 启用状态
     /// </summary>
     #region 移动
+    [ExportGroup("status")]
     [ExportSubgroup("Move")]
     [Export] public Godot.Vector2 Speed = Vector2.Zero;
     /// <summary>
@@ -71,6 +85,10 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// 移动状态
     /// </summary>
     [Export] public bool Move_Ing = false;
+    /// <summary>
+    /// 自动设置移动状态
+    /// </summary>
+    [Export] public bool auto_Move = true;
     /// <summary>
     /// 移动类型
     /// </summary>
@@ -125,13 +143,9 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     }
     public override async void _Ready() {
         base._Ready();
-        if (!Enable_Health)
+        if (Enable_Health == true)
         {
-            Health = null;
-        }
-        else
-        {
-            Health.Reset();
+            HP = Max_HP;
         }
         if (!Enable){return;}
         Reset_Position();
@@ -150,15 +164,6 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
         if (!Enable){return;}
-        // 检测是否启用生命组件
-        if (Health != null)
-        {
-            if (Health.kill == true)
-            {
-                Health.Free();
-                QueueFree();
-            }
-        }
         Object_Move(delta);
         if (level == null)
         {
@@ -216,6 +221,24 @@ public partial class LevelObject : Level.Module.ObjectPhysics
             {
                 Current_detection_object.Remove(Body);
             }
+            else
+            {
+                if (Body.Enable_Health == true)
+                {
+                    if (Body.kill == true)
+                    {
+                        Current_detection_object.Remove(Body);
+                    }
+                }
+                else
+                {
+                    Current_detection_object.Remove(Body);
+                }
+                if (Body.Enable == false)
+                {
+                    Body.QueueFree();
+                }
+            }
         }
     }
     /// <summary>
@@ -223,7 +246,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// </summary>
     public void Add_Object(Node2D node)
     {
-        if (!Enable)
+        if (!Enable || kill)
         {
             Info.ERROR(Info.ERROR_Info.Invalid_method);
             return;
@@ -271,7 +294,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     }
     public void Reduce_Health(int Reduce_Number,Node Damage_Object = null)
     {
-        Health.HP -= Reduce_Number;
+        HP -= Reduce_Number;
         EmitSignal("Health_Reduce",Damage_Object);
     }
 }

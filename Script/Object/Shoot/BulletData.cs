@@ -21,7 +21,7 @@ public partial class BulletData : ObjectPhysics
     /// <summary>
     /// 伤害
     /// </summary>
-    [ExportGroup("Variant")] [Export] public int Damage = 0;
+    [ExportGroup("Variant")] [Export] public int Damage = 20;
     /// <summary>
     /// 攻击完成自动移除物体
     /// </summary>
