@@ -59,3 +59,17 @@ The author has repeatedly emphasized that "City" is just a suffix, and there is 
 
 # Recommended Build Engine
 We recommend using Godot Engine 4.7.1 .NET as the preferred build engine for creating fan works based on this project.
+
+# 待制作
+
+## 完善全部底层
+
+### 卡槽已完成
+
+### 基本判定已完成
+
+## 制作第一章
+
+### 名称状态已完成（绝命矿坑）
+
+## 后期性能欧化

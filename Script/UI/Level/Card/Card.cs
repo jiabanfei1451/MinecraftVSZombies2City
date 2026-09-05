@@ -376,14 +376,14 @@ public partial class Card : Control
 	/// <summary>
 	/// 放置
 	/// </summary>
-	public void Placed(bool Sousume = true)
+	public Level.Object.LevelObject Placed(bool Sousume = true)
 	{
 		Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
 		Card_Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		if (CDing == true){return;}
-		if (Game.Level_Script.Equipment_Capable < data.Sonsume || Sousume == false){return;}
-		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){return;}
-		if (level.Selected_Lawn == null){return;}
+		if (CDing == true){return null;}
+		if (Game.Level_Script.Equipment_Capable < data.Sonsume || Sousume == false){return null;}
+		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){return null;}
+		if (level.Selected_Lawn == null){return null;}
 		var Temp = Start_CD();
 		Game.Level_Script.Equipment_Capable -= data.Sonsume;
 		Level.Lawn Lawn = level.Selected_Lawn;
@@ -393,6 +393,7 @@ public partial class Card : Control
 		Lawn.Current_Object.Equipment_Object = node;
 		Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").AddChild(Lawn.Current_Object.Equipment_Object);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null;
+		return node;
 	}
 	/// <summary>
 	/// 开始冷却

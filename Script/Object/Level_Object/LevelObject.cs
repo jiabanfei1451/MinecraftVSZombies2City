@@ -62,6 +62,10 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// </summary>
     [Export] public int Min_HP = 0;
     /// <summary>
+    /// 生成此器械的草坪
+    /// </summary>
+    [Export] public Level.Lawn Summand_Lawn = null;
+    /// <summary>
     /// 已死亡
     /// </summary>
     [Export] public bool kill = false;

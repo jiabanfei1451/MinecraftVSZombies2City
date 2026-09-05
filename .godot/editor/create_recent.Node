@@ -1,3 +1,7 @@
+Control
+Label
+ColorRect
+Panel
 CanvasGroup
 BackBufferCopy
 CharacterBody2D
@@ -8,7 +12,3 @@ Sprite2D
 Area2D
 Node2D
 Marker2D
-Label
-ColorRect
-CanvasModulate
-Bone2D

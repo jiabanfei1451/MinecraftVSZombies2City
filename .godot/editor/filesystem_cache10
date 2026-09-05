@@ -1,5 +1,5 @@
 9cad1ddce9e5a63143ba340c9520626b
-::res://::1788260702
+::res://::1788609823
 export_presets.cfg::TextFile::-1::1787328895::0::1::::<><><>0<>0<><>::
 LICENSE.txt::TextFile::-1::1787234512::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1787234512::0::1::::<><><>0<>0<><>::
@@ -80,11 +80,11 @@ UI碰撞.gd::GDScript::1103384883181333613::1781503399::0::1::::AreaUI<>Referenc
 ::res://addons/touch/Script/C Sharp/::1787234513
 TouchPad.cs::CSharpScript::8779093016445400381::1787403299::0::1::::TouchPad<>Control<>uid://sqy1gdavdj6y<>0<>0<><>::
 Touch_Index.cs::CSharpScript::7268242969643000635::1786875347::0::1::::<><><>0<>0<><>::
-::res://addons/touch/Theme/::1787984054
+::res://addons/touch/Theme/::1788604748
 Focus.tres::StyleBoxTexture::5310995359976570259::1781503399::0::1::::<><><>0<>0<><>::uid://bc45c8wivcpch::::res://addons/touch/img/button_pressed.png
-new_theme.tres::Theme::8653920670694525131::1787984054::0::1::::<><><>0<>0<><>::uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres<>uid://c4ffe4u1spmqk::::res://addons/touch/Theme/per.tres
+new_theme.tres::Theme::8653920670694525131::1788261245::0::1::::<><><>0<>0<><>::uid://ciadyrsksiodo::::res://addons/touch/Theme/nolan.tres<>uid://c4ffe4u1spmqk::::res://addons/touch/Theme/per.tres
 nolan.tres::StyleBoxTexture::5334578047704649036::1781503399::0::1::::<><><>0<>0<><>::uid://bololgfrudwwn::::res://addons/touch/img/button_2.png
-PadButton.tres::Theme::5986597351519488132::1787959346::0::1::::<><><>0<>0<><>::
+PadButton.tres::Theme::5986597351519488132::1788604748::0::1::::<><><>0<>0<><>::
 per.tres::StyleBoxTexture::6818952005078113586::1781503399::0::1::::<><><>0<>0<><>::uid://bc45c8wivcpch::::res://addons/touch/img/button_pressed.png
 ::res://addons/touch/tsch/::1787234513
 功能测试.gd::GDScript::8548157425982737674::1781503399::0::1::::touchBar<>Panel<>uid://bvgyfyblhy6wr<>0<>1<><>::
@@ -236,9 +236,9 @@ energy_slot.png::CompressedTexture2D::432257319361386173::1786875346::1786875379
 ::res://Object/bullet/Arrow/::1787909519
 Arrow.tscn::PackedScene::141856469021112914::1787909519::0::1::::<><><>0<>0<><>::uid://c4goda1jl4q7p::::res://Script/Object/Shoot/Arrow/Arrow.cs<>uid://bu88hxcq3eddc::::res://Object/素材图/dispenser.png
 ::res://Object/Effect/::1787557362
-::res://Object/Effect/Particle/::1788066014
+::res://Object/Effect/Particle/::1788262361
 Default.tscn::PackedScene::5234779234831115541::1787647139::0::1::::<><><>0<>0<><>::uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png<>uid://dh4vxx7hyoiia::::res://Script/Node/Particie/Particie.cs
-monster kill.tscn::PackedScene::3928166531312196766::1788066014::0::1::::<><><>0<>0<><>::uid://bjtocy6db57n::::res://Image/Effect/particle/smoke.png<>uid://dskk2e3y0ksha::::res://Script/Node/Particie/Monster_Kill_Particie.cs
+monster kill.tscn::PackedScene::3928166531312196766::1788262361::0::1::::<><><>0<>0<><>::uid://bjtocy6db57n::::res://Image/Effect/particle/smoke.png<>uid://dskk2e3y0ksha::::res://Script/Node/Particie/Monster_Kill_Particie.cs
 ::res://Object/Equipment/::1787909385
 Transmitter.tscn::PackedScene::1567089112512101254::1787909385::0::1::::<><><>0<>0<><>::uid://bbvxsgj2xswfv::::res://Object/素材图/dispenser_6.png<>uid://cot1u4gy4n2be::::res://Script/Object/Level_Object/equipment/Transmitier/Transmitter.cs<>uid://b7ch57uppqgrk::::res://Object/素材图/dispenser_5.png<>uid://ca1m1lsptgv1::::res://Sound/Souds/Bullet/Shoot.ogg<>uid://db3ddlwk0qt6h::::res://Image/Effect/Launch/flash.png<>uid://dheg8f4rhxhut::::res://Script/Node/Audio_Plus.cs
 地雷.tscn::PackedScene::821728412861256646::1787234512::0::1::::<><><>0<>0<><>::uid://cslv0ivy223fh::::res://Sound/Souds/石头挖掘音效/stone1.ogg<>uid://camc515a8x4qu::::res://Sound/Souds/石头挖掘音效/stone2.ogg<>uid://bm21xa0dnhxkf::::res://Sound/Souds/石头挖掘音效/stone3.ogg<>uid://ckmow8q4rn58m::::res://Sound/Souds/石头挖掘音效/stone4.ogg<>uid://xolfnppvoj7i::::res://Sound/Souds/地雷出土.ogg<>uid://dqvvgvk6c8m13::::res://Sound/Souds/开大.ogg<>uid://000jvcrnen6e::::res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png<>uid://cp3yhos5yfovv::::res://Object/素材图/mine_dirt.png<>uid://dyrr7usc6b2ei::::res://Object/素材图/normal.png
@@ -346,7 +346,7 @@ Initialization.cs::CSharpScript::9216845976639936517::1787392370::0::1::::<>Node
 Muisc_Engine.cs::CSharpScript::7037678023846200074::1787825438::0::1::::<>Node<><>0<>0<><>::
 PlayerData.cs::CSharpScript::2885110433259997785::1787390922::0::1::::<><><>0<>0<><>::
 ::res://Script/Level Script/::1787234512
-Lawn.cs::CSharpScript::8183457498510275267::1787668491::0::1::::<>ColorRect<><>0<>0<><>::
+Lawn.cs::CSharpScript::8183457498510275267::1788352693::0::1::::<>ColorRect<><>0<>0<><>::
 ::res://Script/Level Script/Level/::1787234512
 Preface.cs::CSharpScript::6455479465782605822::1787392337::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Script/Level Script/Master/::1787234512
@@ -354,7 +354,7 @@ Level_Master_Script.cs::CSharpScript::8703991476539810848::1787908770::0::1::::<
 ::res://Script/Node/::1787557529
 Audio_Plus.cs::CSharpScript::7659265008915977439::1787825864::0::1::::Audio_Plus<>AudioStreamPlayer<><>0<>0<><>::
 ::res://Script/Node/Particie/::1787984440
-Monster_Kill_Particie.cs::CSharpScript::8443960654939777558::1788065996::0::1::::<>Sprite2D<><>0<>0<><>::
+Monster_Kill_Particie.cs::CSharpScript::8443960654939777558::1788262398::0::1::::<>Sprite2D<><>0<>0<><>::
 Particie.cs::CSharpScript::7711768299342646144::1787984337::0::1::::<>Sprite2D<><>0<>0<><>::
 ::res://Script/Object/::1787824818
 ::res://Script/Object/Audio/::1787824833
@@ -365,7 +365,7 @@ PlaceholderBlock.cs::CSharpScript::1584258581362719439::1787234512::0::1::::<>No
 ::res://Script/Object/Follow_Mouse/::1787234512
 Follow_Mouse.cs::CSharpScript::3999182523601935480::1787234512::0::1::::<>Control<><>0<>0<><>::
 ::res://Script/Object/Level_Object/::1787815058
-LevelObject.cs::CSharpScript::2502114634598235055::1787910401::0::1::::<>Node2D<><>0<>0<><>::
+LevelObject.cs::CSharpScript::2502114634598235055::1788347558::0::1::::<>Node2D<><>0<>0<><>::
 ObjectPhysics.cs::CSharpScript::8307915754954536961::1787823388::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Script/Object/Level_Object/equipment/::1787234512
 ::res://Script/Object/Level_Object/equipment/Transmitier/::1787234512
@@ -403,7 +403,7 @@ WhileMode.cs::CSharpScript::4541231633816173330::1787817718::0::1::::<><><>0<>0<
 ::res://Script/UI/::1787234512
 ::res://Script/UI/Level/::1787234512
 ::res://Script/UI/Level/Card/::1787234512
-Card.cs::CSharpScript::1525588659692098356::1787908770::0::1::::<>Control<><>0<>0<><>::
+Card.cs::CSharpScript::1525588659692098356::1788352652::0::1::::<>Control<><>0<>0<><>::
 Card_Visible.cs::CSharpScript::6593055088860088772::1787234512::0::1::::<>Control<><>0<>0<><>::
 NodeScript.cs::CSharpScript::6731438843930995871::1787908770::0::1::::<>Control<><>0<>0<><>::
 Selected_slot.cs::CSharpScript::1421191684348433309::1787391657::0::1::::<>GridContainer<><>0<>0<><>::
@@ -411,7 +411,7 @@ Start_Card.cs::CSharpScript::6291707035779710333::1787400215::0::1::::<>TouchPad
 TipUI.cs::CSharpScript::139519883759191553::1787234512::0::1::::<>Control<><>0<>0<><>::
 ::res://Script/UI/Level/Card/Tween/::1787234512
 LevelUi.cs::CSharpScript::5586658897556311230::1787403302::0::1::::<>CanvasLayer<><>0<>0<><>::
-::res://Shader/::1788064720
+::res://Shader/::1788604748
 3D2.gdshader::Shader::2975673264123008838::1781503399::0::1::::<><><>0<>0<><>::
 30.tres::VisualShader::2569139147757103630::1781503399::0::1::::<><><>0<>0<><>::
 new_shader.gdshader::Shader::4156777110415812385::1781503399::0::1::::<><><>0<>0<><>::
@@ -422,7 +422,7 @@ new_shader.gdshader::Shader::4156777110415812385::1781503399::0::1::::<><><>0<>0
 暗黑.gdshader::Shader::5292050274665110306::1781503399::0::1::::<><><>0<>0<><>::
 模糊.gdshader::Shader::6235272139657791828::1781503399::0::1::::<><><>0<>0<><>::
 渐变.gdshader::Shader::5173152440506826171::1781503399::0::1::::<><><>0<>0<><>::
-着色器2.0.gdshader::Shader::1591569192132238831::1788064720::0::1::::<><><>0<>0<><>::
+着色器2.0.gdshader::Shader::1591569192132238831::1788604748::0::1::::<><><>0<>0<><>::
 神秘着色器.tscn::PackedScene::5520748210227848234::1781503399::0::1::::<><><>0<>0<><>::uid://bcxm5lfsl83xt::::res://Shader/序章.gdshader<>uid://b0aucscsmmfg4::::res://icon.svg
 闪烁.gdshader::Shader::6777434100976898790::1781503399::0::1::::<><><>0<>0<><>::
 ::res://Shader/Add Color/::1787913633
@@ -540,10 +540,10 @@ UpspeedButton.png::CompressedTexture2D::2535477702565510065::1781503399::1781503
 Meui-hollow.tres::StyleBoxTexture::7536450222973568078::1781503399::0::1::::<><><>0<>0<><>::uid://cinldlcw44is2::::res://UI/Button/Meui/MeUi-hollow.png
 Meui.tres::StyleBoxTexture::8554886214511898730::1781503399::0::1::::<><><>0<>0<><>::uid://tp7bhmegjr7k::::res://UI/Button/Meui/MeUIbutton.png
 MeUitheme.tres::Theme::8942748800449219411::1781503399::0::1::::<><><>0<>0<><>::
-::res://UI/card/::1787409032
+::res://UI/card/::1788606268
 Card_PC.tscn::PackedScene::6719416470081362472::1787409032::0::1::::<><><>0<>0<><>::uid://v0ahtauyd8ii::::res://Script/UI/Level/Card/Card.cs<>uid://dpri4otf6rdve::::res://Image/UI/Card/card.png<>uid://28o38kfo56m8::::res://Image/UI/Card/card 边框.png<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://dnlb1y62pkmcy::::res://Sound/Souds/UI/card/Selected.ogg<>uid://b43ch04a7o2vq::::res://Image/UI/Card/card_recharge_flash.png<>uid://dheg8f4rhxhut::::res://Script/Node/Audio_Plus.cs<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://dxdj7dtlw6x5j::::res://Sound/Souds/UI/card/buzzer.wav<>uid://bnt35736wh3uq::::res://Animation/Card/Twinkle.res
 Card_Placeholder.tscn::PackedScene::4023095232952466309::1786875346::0::1::::<><><>0<>0<><>::
-LevelUI.tscn::PackedScene::3181716308637641287::1787393939::0::1::::<><><>0<>0<><>::uid://cluhpq6u57uck::::res://Script/UI/Level/Card/Tween/LevelUi.cs<>uid://dd8fvsjugqam6::::res://Image/UI/pickaxe.png<>uid://ugolr2rk0njp::::res://Image/UI/default.png<>uid://gpvqcekdmvgn::::res://Image/UI/gear.png<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://c5xrknm7o3j2v::::res://UI/UI主题/主题/按钮.tres<>uid://bqcf8vara2mq3::::res://Image/UI/Button/MOPUI/MOP_UI3.svg<>uid://c2502xkvbyj1x::::res://Script/UI/Level/Card/NodeScript.cs<>uid://bw8h7mmr7us05::::res://Script/Object/Follow_Mouse/Follow_Mouse.cs<>uid://bxk215b41db4p::::res://UI/card/Card_Placeholder.tscn<>uid://c06ywida0hudg::::res://Script/UI/Level/Card/Card_Visible.cs<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://cvv0q38aegby0::::res://Script/UI/Level/Card/Start_Card.cs<>uid://cmegohxjbl1ju::::res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres<>uid://5805tg30ooiu::::res://UI/card/Slot.tscn<>uid://b8t4wfcrby1v::::res://Script/UI/Level/Card/TipUI.cs<>uid://doqxxw08vbj5i::::res://Sound/Souds/Game/Level/Ready.ogg<>uid://b2h2yj5mfnkym::::res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Black.ttf
+LevelUI.tscn::PackedScene::3181716308637641287::1788606268::0::1::::<><><>0<>0<><>::uid://cluhpq6u57uck::::res://Script/UI/Level/Card/Tween/LevelUi.cs<>uid://dd8fvsjugqam6::::res://Image/UI/pickaxe.png<>uid://ugolr2rk0njp::::res://Image/UI/default.png<>uid://gpvqcekdmvgn::::res://Image/UI/gear.png<>uid://dqqmyotd4p22f::::res://Sound/Souds/UI/card/Cancel.ogg<>uid://c5xrknm7o3j2v::::res://UI/UI主题/主题/按钮.tres<>uid://bqcf8vara2mq3::::res://Image/UI/Button/MOPUI/MOP_UI3.svg<>uid://c2502xkvbyj1x::::res://Script/UI/Level/Card/NodeScript.cs<>uid://bw8h7mmr7us05::::res://Script/Object/Follow_Mouse/Follow_Mouse.cs<>uid://bxk215b41db4p::::res://UI/card/Card_Placeholder.tscn<>uid://c06ywida0hudg::::res://Script/UI/Level/Card/Card_Visible.cs<>uid://ne4tp2rw342v::::res://Image/UI/Button/MEUIV2/MEUI.png<>uid://dxcwm5rs1tc5b::::res://addons/touch/Script/C Sharp/TouchPad.cs<>uid://o6qp2l3cgdb1::::res://Image/UI/Button/MEUIV2/MEUI-hollow2.png<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://bdycyleolk3vw::::res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Regular.ttf<>uid://cvv0q38aegby0::::res://Script/UI/Level/Card/Start_Card.cs<>uid://cmegohxjbl1ju::::res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres<>uid://5805tg30ooiu::::res://UI/card/Slot.tscn<>uid://b8t4wfcrby1v::::res://Script/UI/Level/Card/TipUI.cs<>uid://doqxxw08vbj5i::::res://Sound/Souds/Game/Level/Ready.ogg<>uid://b2h2yj5mfnkym::::res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Black.ttf
 Placeholder_Slot.tscn::PackedScene::5665452341062480981::1786875346::0::1::::<><><>0<>0<><>::uid://ddqjnx1bcbukx::::res://Image/UI/Card/card(null).png<>uid://28o38kfo56m8::::res://Image/UI/Card/card 边框.png
 Slot.tscn::PackedScene::2175362282179898844::1787234513::0::1::::<><><>0<>0<><>::uid://gfnhkojwnb7r::::res://Image/UI/Slot/energy_slot.png<>uid://uio24h2cxw7n::::res://Script/UI/Level/Card/Selected_slot.cs<>uid://drufi2oet6818::::res://Font/minecraft_font.ttf<>uid://cmynf4hbibom4::::res://UI/card/Placeholder_Slot.tscn<>uid://bi8ybqmyyi4wv::::res://Script/Object/UIObject/ShowEquipment.cs
 ::res://UI/LevelUI/::1787234513

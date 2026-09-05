@@ -31,7 +31,11 @@ public partial class Lawn : ColorRect{
 		if (Level_.Selected_Lawn != this){return;}
 		Card_Data card_Data = Get_GlobalNode.Get_Card_Data(GetTree());
 		if (card_Data.Selected_raw_Object == null){return;}
-		card_Data.Selected_raw_Object.Placed();
+		var s = card_Data.Selected_raw_Object.Placed();
+		if (s != null)
+		{
+			s.Summand_Lawn = this;
+		}
 	}
 	public void focus_Join()
 	{

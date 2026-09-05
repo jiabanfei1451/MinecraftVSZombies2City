@@ -11,8 +11,12 @@
 [ext_resource type="Script" uid="uid://bw8h7mmr7us05" path="res://Script/Object/Follow_Mouse/Follow_Mouse.cs" id="8_oso7i"]
 [ext_resource type="PackedScene" uid="uid://bxk215b41db4p" path="res://UI/card/Card_Placeholder.tscn" id="9_byjyl"]
 [ext_resource type="Script" uid="uid://c06ywida0hudg" path="res://Script/UI/Level/Card/Card_Visible.cs" id="10_ssg4b"]
+[ext_resource type="Texture2D" uid="uid://ne4tp2rw342v" path="res://Image/UI/Button/MEUIV2/MEUI.png" id="10_ue7r6"]
+[ext_resource type="Script" uid="uid://dar8v63fl0jqn" path="res://Script/UI/Object/Bar/ValueBar.cs" id="10_w7i6b"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="11_h5g1x"]
+[ext_resource type="Texture2D" uid="uid://o6qp2l3cgdb1" path="res://Image/UI/Button/MEUIV2/MEUI-hollow2.png" id="11_ri15h"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="11_vnl24"]
+[ext_resource type="FontFile" uid="uid://bdycyleolk3vw" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Regular.ttf" id="11_w7i6b"]
 [ext_resource type="Script" uid="uid://cvv0q38aegby0" path="res://Script/UI/Level/Card/Start_Card.cs" id="14_b70vt"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="15_b70vt"]
 [ext_resource type="PackedScene" uid="uid://5805tg30ooiu" path="res://UI/card/Slot.tscn" id="17_bf20k"]
@@ -26,6 +30,36 @@ texture_margin_left = 44.608307
 texture_margin_top = 40.147476
 texture_margin_right = 45.245567
 texture_margin_bottom = 46.20146
+
+[sub_resource type="LabelSettings" id="LabelSettings_abi3o"]
+font = ExtResource("11_vnl24")
+font_size = 24
+font_color = Color(1, 0.44705883, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7i6b"]
+texture = ExtResource("10_ue7r6")
+texture_margin_left = 23.329842
+texture_margin_top = 22.790121
+texture_margin_right = 22.285221
+texture_margin_bottom = 21.832554
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jrdhs"]
+font = ExtResource("11_w7i6b")
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 0.42352942)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifow5"]
+texture = ExtResource("11_ri15h")
+texture_margin_left = 23.329842
+texture_margin_top = 22.790121
+texture_margin_right = 22.285221
+texture_margin_bottom = 21.832554
+region_rect = Rect2(1, 1, 62, 62)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oso7i"]
 texture = ExtResource("8_bf20k")
@@ -183,6 +217,120 @@ script = ExtResource("8_oso7i")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Menu" type="Control" parent="Level" unique_id=402902631]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="information" type="Control" parent="Level/Menu" unique_id=591877201]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -40.0
+offset_right = -186.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Level/Menu/information" unique_id=136463413]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "这是一行文字 第一天"
+label_settings = SubResource("LabelSettings_abi3o")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bar" type="Control" parent="Level/Menu" unique_id=1989863053 node_paths=PackedStringArray("Value_Object", "Value_Object_Hollow")]
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 0.99600005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -49.120056
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("10_w7i6b")
+Value_Object = NodePath("Bar_Panel/ColorRect")
+Value_Object_Hollow = NodePath("Bar_Hollow")
+
+[node name="Bar_Panel2" type="Panel" parent="Level/Menu/Bar" unique_id=1565707407]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -52.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w7i6b")
+
+[node name="Label" type="Label" parent="Level/Menu/Bar/Bar_Panel2" unique_id=1255827592]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 28.0
+scale = Vector2(1.0311404, 0.54123086)
+text = "关卡进度"
+label_settings = SubResource("LabelSettings_jrdhs")
+
+[node name="Bar_Panel" type="Panel" parent="Level/Menu/Bar" unique_id=818117868]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -31.0
+offset_right = -7.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w7i6b")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Menu/Bar/Bar_Panel" unique_id=239240469]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.6156863)
+
+[node name="Bar_Hollow" type="Panel" parent="Level/Menu/Bar" unique_id=1967731023]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifow5")
 
 [node name="Select_CardUI" type="Control" parent="." unique_id=1223407967]
 layout_mode = 3
