@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
-[ext_resource type="PackedScene" uid="uid://bx78lmkp8si7e" path="res://Object/Monster/Zombies.tscn" id="5_vhc43"]
 [ext_resource type="PackedScene" uid="uid://wldy1n7d52ji" path="res://Object/Equipment/Transmitter.tscn" id="5_xb2ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
@@ -82,12 +81,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="Monster" type="Node2D" parent="." unique_id=554991016]
 y_sort_enabled = true
-
-[node name="Zombies" parent="Monster" unique_id=486515688 instance=ExtResource("5_vhc43")]
-position = Vector2(95, 54)
-
-[node name="Zombies2" parent="Monster" unique_id=692576214 instance=ExtResource("5_vhc43")]
-position = Vector2(95, -31)
 
 [node name="Equipment" type="Node2D" parent="." unique_id=519040572]
 y_sort_enabled = true

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace MY_Type;
+namespace MVZ2_City.Type;
 public enum WhileMode
 {
     _PhysicsProcess = 0,

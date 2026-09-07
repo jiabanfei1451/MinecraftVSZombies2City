@@ -159,6 +159,11 @@ static class Get_GlobalNode
 		Muisc_Engine muisc_Engine = tree.Root.GetNode<Muisc_Engine>("MuiscEngine");
 		return muisc_Engine;
 	}
+	public static MVZ2_City.Object_List Get_Object_List(SceneTree tree)
+	{
+		MVZ2_City.Object_List List = tree.Root.GetNode<MVZ2_City.Object_List>("ObjectList");
+		return List;
+	}
 	/// <summary>
 	/// 获取音频列表
 	/// </summary>

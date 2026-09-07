@@ -76,7 +76,8 @@ grow_vertical = 2
 mouse_behavior_recursive = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("4_dor43")
-Long_Click_Variant = 0.1
+Drag_Velocity_Scope = Vector2(200, 200)
+Long_Click_Variant = 0.3
 Auto_Enable_Index = 1
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 

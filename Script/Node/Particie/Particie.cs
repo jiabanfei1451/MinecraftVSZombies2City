@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using MY_Type;
+using MVZ2_City.Type;
 public partial class Particie : Sprite2D
 {
     [ExportGroup("Strength")]

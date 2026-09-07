@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://6q2ndb44igt7"
-path="res://.godot/imported/加速.wav-54059f7d76f7fa26facf78d8814885d4.sample"
+path="res://.godot/imported/Add_Speed.wav-6a14a4e52b3b1e22a29d26d7998e7e9d.sample"
 
 [deps]
 
-source_file="res://Sound/Souds/UI/UpspeedUI/加速.wav"
-dest_files=["res://.godot/imported/加速.wav-54059f7d76f7fa26facf78d8814885d4.sample"]
+source_file="res://Sound/Souds/UI/UpspeedUI/Add_Speed.wav"
+dest_files=["res://.godot/imported/Add_Speed.wav-6a14a4e52b3b1e22a29d26d7998e7e9d.sample"]
 
 [params]
 

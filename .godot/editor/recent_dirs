@@ -1,3 +1,6 @@
+res://Script/Auto Load/
+res://Script/UI/Level/Menu/
+res://UI/card/
 res://Script/Node/Particie/
 res://Shader/Add Color/
 res://Script/Object/Audio/Normal Hit Souds/
@@ -22,7 +25,6 @@ C:/Users/Administrator/Appdata/Roaming/Godot/app_userdata/Summand_key/
 C:/Program Files/Zulu/zulu-25/
 res://Image/UI/Button/MOPUI/MOP_UI_Theme/
 res://Image/UI/Button/MOPUI/
-res://UI/card/
 res://2/Icon/
 res://UI/TextLine/Command_Edit/
 res://addons/touch/Script/C Sharp/

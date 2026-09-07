@@ -1,0 +1,261 @@
+[gd_scene format=3 uid="uid://ijaalm8ubba5"]
+
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="1_copng"]
+[ext_resource type="Script" uid="uid://b74mxwa46r0ur" path="res://Script/UI/Level/Menu/LevelUiMenu.cs" id="1_yibqt"]
+[ext_resource type="Script" uid="uid://dar8v63fl0jqn" path="res://Script/UI/Object/Bar/ValueBar.cs" id="2_atemv"]
+[ext_resource type="Texture2D" uid="uid://ne4tp2rw342v" path="res://Image/UI/Button/MEUIV2/MEUI.png" id="3_yibqt"]
+[ext_resource type="FontFile" uid="uid://bdycyleolk3vw" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Regular.ttf" id="4_vd5k6"]
+[ext_resource type="Texture2D" uid="uid://o6qp2l3cgdb1" path="res://Image/UI/Button/MEUIV2/MEUI-hollow2.png" id="5_08qgy"]
+[ext_resource type="Texture2D" uid="uid://gm0d0x8f0bfe" path="res://Image/UI/Button/MEUIV2/UPspeed.png" id="6_atemv"]
+[ext_resource type="AudioStream" uid="uid://6q2ndb44igt7" path="res://Sound/Souds/UI/UpspeedUI/Add_Speed.wav" id="8_g22p4"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="8_glavx"]
+[ext_resource type="Script" uid="uid://c7ih00hn4o6bl" path="res://Script/UI/Level/Menu/Add_Speed_Button.cs" id="8_vd5k6"]
+[ext_resource type="Texture2D" uid="uid://uqq66r4x218a" path="res://Image/UI/Button/MEUIV2/MEUI-hollow.png" id="9_08qgy"]
+[ext_resource type="AudioStream" uid="uid://q22uvnfslmrq" path="res://Sound/Souds/UI/UpspeedUI/Recede_Speed.wav" id="10_o7o7q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_abi3o"]
+font = ExtResource("1_copng")
+font_size = 24
+font_color = Color(1, 0.44705883, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvhbo"]
+texture = ExtResource("3_yibqt")
+texture_margin_left = 20.827103
+texture_margin_top = 24.65738
+texture_margin_right = 22.024063
+texture_margin_bottom = 22.263456
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abi3o"]
+texture = ExtResource("3_yibqt")
+texture_margin_left = 9.067258
+texture_margin_top = 8.648354
+texture_margin_right = 11.6728325
+texture_margin_bottom = 16.421104
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08qgy"]
+texture = ExtResource("9_08qgy")
+texture_margin_left = 16.816793
+texture_margin_top = 17.014637
+texture_margin_right = 15.2340355
+texture_margin_bottom = 17.014637
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_glavx"]
+texture = ExtResource("5_08qgy")
+texture_margin_left = 17.410326
+texture_margin_top = 18.00386
+texture_margin_right = 17.608171
+texture_margin_bottom = 17.410326
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w7i6b"]
+texture = ExtResource("3_yibqt")
+texture_margin_left = 23.329842
+texture_margin_top = 22.790121
+texture_margin_right = 22.285221
+texture_margin_bottom = 21.832554
+region_rect = Rect2(1, 1, 62, 62)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jrdhs"]
+font = ExtResource("4_vd5k6")
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 0.42352942)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ifow5"]
+texture = ExtResource("5_08qgy")
+texture_margin_left = 23.329842
+texture_margin_top = 22.790121
+texture_margin_right = 22.285221
+texture_margin_bottom = 21.832554
+region_rect = Rect2(1, 1, 62, 62)
+
+[node name="Menu" type="Control" unique_id=755104157 node_paths=PackedStringArray("Speed_Texture")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yibqt")
+Speed_Texture = NodePath("Button/Panel2/TextureRect")
+
+[node name="information" type="Control" parent="." unique_id=903472010]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="information" unique_id=216769498]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -466.0
+offset_top = -31.0
+offset_right = -238.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "这是一行文字 第一天"
+label_settings = SubResource("LabelSettings_abi3o")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Control" parent="." unique_id=851024743]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Button" unique_id=971806418]
+layout_mode = 0
+offset_left = -230.0
+offset_top = -44.0
+offset_right = -178.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wvhbo")
+
+[node name="Panel2" type="Panel" parent="Button" unique_id=433553700]
+clip_children = 2
+layout_mode = 0
+offset_left = -224.0
+offset_top = -38.0
+offset_right = -184.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_abi3o")
+
+[node name="TextureRect" type="TextureRect" parent="Button/Panel2" unique_id=695118531]
+layout_mode = 0
+offset_left = -40.0
+offset_right = 24.0
+offset_bottom = 32.0
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_atemv")
+stretch_mode = 1
+
+[node name="TouchPad" type="Control" parent="Button" unique_id=12655845 node_paths=PackedStringArray("Change_Theme_Object", "Souds", "Souds2", "Speed_Texture")]
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -44.0
+offset_right = -178.0
+offset_bottom = 8.0
+script = ExtResource("8_vd5k6")
+Change_Theme_Object = NodePath("../Panel")
+Down_Texture = SubResource("StyleBoxTexture_08qgy")
+UP_Texture = SubResource("StyleBoxTexture_glavx")
+Souds = NodePath("../Add_Speed")
+Souds2 = NodePath("../Recede_Speed")
+Speed_Texture = NodePath("../Panel2/TextureRect")
+Drag_Velocity_Scope = Vector2(100, 100)
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="Add_Speed" type="AudioStreamPlayer" parent="Button" unique_id=1788343815]
+stream = ExtResource("8_g22p4")
+script = ExtResource("8_glavx")
+Audio_Type = 1
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
+
+[node name="Recede_Speed" type="AudioStreamPlayer" parent="Button" unique_id=235882617]
+stream = ExtResource("10_o7o7q")
+script = ExtResource("8_glavx")
+Audio_Type = 1
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
+
+[node name="Bar" type="Control" parent="." unique_id=1523345106 node_paths=PackedStringArray("Value_Object", "Value_Object_Hollow")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -49.120056
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_atemv")
+Value_Object = NodePath("Bar_Panel/ColorRect")
+Value_Object_Hollow = NodePath("Bar_Hollow")
+
+[node name="Bar_Panel2" type="Panel" parent="Bar" unique_id=653252361]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -52.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w7i6b")
+
+[node name="Label" type="Label" parent="Bar/Bar_Panel2" unique_id=1838044498]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 28.0
+scale = Vector2(1.0311404, 0.54123086)
+text = "关卡进度"
+label_settings = SubResource("LabelSettings_jrdhs")
+
+[node name="Bar_Panel" type="Panel" parent="Bar" unique_id=363936691]
+self_modulate = Color(0.3180198, 0.31801978, 0.31801975, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -31.0
+offset_right = -7.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w7i6b")
+
+[node name="ColorRect" type="ColorRect" parent="Bar/Bar_Panel" unique_id=64095015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.6156863)
+
+[node name="Bar_Hollow" type="Panel" parent="Bar" unique_id=1700648602]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ifow5")
