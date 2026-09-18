@@ -172,7 +172,7 @@ public partial class Card : Control
 		}
 		//初始化材质
 		Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		Node2D texture = Data.Scene.Instantiate<Node2D>();
+		Node2D texture = Data.Scene.InstantiateOrNull<Node2D>();
 		if (texture is Level.Object.LevelObject)
 		{
 			((Level.Object.LevelObject)texture).Enable = false;

@@ -1,10 +1,11 @@
+Node2D
+TouchPad
+ColorRect
 AnimationPlayer
 AudioStreamPlayer
-TouchPad
 Control
 CanvasLayer
 Button
-ColorRect
 Timer
 CharacterBody2D
 Audio_Plus

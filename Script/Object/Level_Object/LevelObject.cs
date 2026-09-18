@@ -138,6 +138,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// </summary>
     float Temp_Position_Y = -1;
     internal Level_Master_Script level {get;set;} = null;
+    public Level.Level_Master_Script Level_Object = null;
 
     public override void _ExitTree()
     {
@@ -153,7 +154,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         }
         if (!Enable){return;}
         Reset_Position();
-        Area = GetNode<Godot.Area2D>("Area");
+        Area = GetNodeOrNull<Godot.Area2D>("Area");
     }
     /// <summary>
     /// 物体移动

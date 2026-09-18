@@ -6,7 +6,7 @@ public partial class Command_Edit : TextEdit
 	/// <summary>
 	/// 玩家发送信息事件
 	/// </summary>
-	[Signal] public delegate void Player_seedEventHandler(String Seed_Why);
+	[Signal] public delegate void Player_sendEventHandler(String Seed_Why);
 	[Export] public bool SB = false;
 	static PackedScene Line = Game.ResourceScene.LoadScene("uid://bd74mkx2jelk1");
 	public override void _Ready() {
@@ -36,7 +36,7 @@ public partial class Command_Edit : TextEdit
 					SB = false;
 					Label Lineinstantiate = Line.Instantiate<Label>();
 					Lineinstantiate.Text = "  " + "<" + "User" + ">:" + Text[0..(Text.Length - 1)] + " ";
-					EmitSignal("Player_seed",Lineinstantiate.Text);
+					EmitSignal("Player_send",Lineinstantiate.Text);
 					this.GetNode<BoxContainer>("../../TextLine").AddChild(Lineinstantiate);
 					Position = new Vector2(0,0);
 					Editable = false;

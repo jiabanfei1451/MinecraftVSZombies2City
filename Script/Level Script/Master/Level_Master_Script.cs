@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MVZ2_City.Type;
 using DEBUG;
+using Game.AutoLoad;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Level;
 /// <summary>
@@ -162,13 +166,13 @@ public partial class Level_Master_Script : Node2D{
 			if (Game.Get_GlobalNode.CommandEdit != null)
 			{
 				Seed_OK = true;
-				Game.Get_GlobalNode.CommandEdit.Player_seed += Get_Player_Seed;
+				Game.Get_GlobalNode.CommandEdit.Player_send += Get_Player_Send;
 			}
 		}
-		if (Summand.Level_Object != this) // 初始化生成物体
+		if (Static.Summand.Level_Object != this) // 初始化生成物体
 		{
-			Summand.Level_Object = this;
-			Summand.Tree = GetTree();
+			Static.Summand.Level_Object = this;
+			Static.Summand.Tree = GetTree();
 		}
 		if (Camera2D == null){return;}
 		if (Camera2D_Easing != null){Camera2D_Easing.Kill();}
@@ -239,7 +243,11 @@ public partial class Level_Master_Script : Node2D{
 		Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(-105,0),1);
 		await ToSignal(Twee,Tween.SignalName.Finished);
 	}
-	public void Get_Player_Seed(String Seed_Why)
+	/// <summary>
+	/// 指令
+	/// </summary>
+	/// <param name="Seed_Why"></param>
+	public void Get_Player_Send(String Seed_Why)
 	{
 		if (Seed_Why.IndexOf("/ReStart") != -1)
 		{
@@ -247,9 +255,50 @@ public partial class Level_Master_Script : Node2D{
 		}else if (Seed_Why.IndexOf("/Exit") != -1)
 		{
 			GetTree().Quit();
+		}else if (Seed_Why.IndexOf("/Set ") != -1)
+		{
+			string ps = Regex.Replace(Seed_Why,@"[^0-9]+","");
+			short p = (short)ps.ToInt();
+			Game.Level_Script.Equipment_Capable = p;
 		}
 	}
 	#region 草坪方法
+	/// <summary>
+	/// 使选中的草坪根据条件变更颜色
+	/// </summary>
+	/// <param name="This"></param>
+	public void Lawn_Change_Color(Level.Lawn This)
+	{
+		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object == null){return;}
+		foreach (var Arra in Lawn_Data)
+		{
+			foreach (Lawn ARR in Arra)
+			{
+				ARR.Free_Object();
+				ARR.Color =  new Color(0,0,0,0);
+			}
+		}
+		foreach (Lawn lawn in Lawn_Data[This.ArrayPosition.Y])
+		{
+			lawn.Color = new Color(1,1,1,0.5f);
+		}
+		foreach(Godot.Collections.Array<Lawn> lawns in Lawn_Data)
+		{
+			lawns[This.ArrayPosition.X].Color = new Color(1,1,1,0.5f);
+		}
+		if (Level_Script.Lawn == This && This.Current_Object.Equipment_Object == null){
+			This.Summand_Phantom();
+			This.Color = new Color(0,1,0,1);
+			Selected_Lawn = This;
+			Level_Script.Lawn = This;
+		}
+		else
+		{
+			This.Color = new Color(1,0,0,1);
+			Selected_Lawn = This;
+			Level_Script.Lawn = This;
+		}
+	}
 	/// <summary>
 	/// 初始化草坪行数索引
 	/// </summary>
@@ -270,7 +319,7 @@ public partial class Level_Master_Script : Node2D{
 		Add_Lawn_Index(Data_Object,Index);
 		Remove_Lawn_Index(Data_Object,Temp_Index);
 		EmitSignal("Object_Change_Line",Data_Object);
-		GD.Print($"Object Change Line,Current Line:{Data_Object.Lawn_Index}");
+		Info.Print($"Object Change Line,Current Line:{Data_Object.Lawn_Index}");
 	}
 	/// <summary>
 	/// 添加索引物体
@@ -342,7 +391,7 @@ public partial class Level_Master_Script : Node2D{
         {
             if (Index >= Position_Y)
             {
-				GD.Print(Index);
+				Info.Print(Index);
                 Index -= IndexNumber;
                 Current_Lawn_Index += 1;
             }
@@ -373,9 +422,6 @@ public partial class Level_Master_Script : Node2D{
 		}
 		foreach(Vector2 vector in Check_Position_Offset)
 		{
-			Info.Print(vector.X);
-			Info.Print(position.X);
-			Info.Print(position.X > vector.X);
 			Back_Vector2 = vector;
 			if (position.X > vector.X)
 			{
@@ -407,9 +453,21 @@ public partial class Level_Master_Script : Node2D{
 		}
 		return -1;
 	}
-	#endregion
+    #endregion
+	/// <summary>
+	/// 退出树时
+	/// </summary>
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+		Object_Kill -= Static.Summand.Monster_Kill;
+	}
+	/// <summary>
+	/// 初始化
+	/// </summary>
 	public override async void _Ready() {
 		base._Ready();
+		Object_Kill += Static.Summand.Monster_Kill;
 		Reset_Lawn_Index();
 		LawnScene = Game.ResourceScene.LoadScene("uid://dim8rk13omwvv");
 		Touch.Touch_Index.Set_Index_Enable(0,false);
@@ -446,7 +504,7 @@ public partial class Level_Master_Script : Node2D{
 				Lawn.ArrayPosition = new Vector2I(X,Y);
 				Lawn.Position = Lawn_Spawn_Position + new Godot.Vector2(Lawn_Spawn_Offect.X * X,Lawn_Spawn_Offect.Y * Y) + Spawn_Offset;
 				Lawn.Name = "Lawn(" + string.Concat(X) + "," + string.Concat(Y) + ")";
-				Lawn.ME_Join += Lawn_Green;
+				Lawn.ME_Join += Lawn_Change_Color;
 				Lawn_Data[Y].Add(Lawn);
 				Lawn_Node.AddChild(Lawn);
 				}else if(Lawn_Array[Y][X] == -1)
@@ -460,42 +518,6 @@ public partial class Level_Master_Script : Node2D{
 		}
 		}
 		Game_Reset_Done = true;
-	}
-	/// <summary>
-	/// 使选中的草坪变为绿色
-	/// </summary>
-	/// <param name="This"></param>
-	public void Lawn_Green(Level.Lawn This)
-	{
-		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object == null){return;}
-		foreach (var Arra in Lawn_Data)
-		{
-			foreach (Lawn ARR in Arra)
-			{
-				ARR.Free_Object();
-				ARR.Color =  new Color(0,0,0,0);
-			}
-		}
-		foreach (Lawn lawn in Lawn_Data[This.ArrayPosition.Y])
-		{
-			lawn.Color = new Color(1,1,1,0.5f);
-		}
-		foreach(Godot.Collections.Array<Lawn> lawns in Lawn_Data)
-		{
-			lawns[This.ArrayPosition.X].Color = new Color(1,1,1,0.5f);
-		}
-		if (Level_Script.Lawn == This && This.Current_Object.Equipment_Object == null){
-			This.Summand_Phantom();
-			This.Color = new Color(0,1,0,1);
-			Selected_Lawn = This;
-			Level_Script.Lawn = This;
-		}
-		else
-		{
-			This.Color = new Color(1,0,0,1);
-			Selected_Lawn = This;
-			Level_Script.Lawn = This;
-		}
 	}
 	/// <summary>
 	/// 生成节点(差不多就是初始化)
@@ -559,239 +581,4 @@ public partial class Level_Master_Script : Node2D{
 		}
 		DEBUG.Info.Print(Game.Get_GlobalNode.NodeData);
 	}
-	#region 生成组件
-	/// <summary>
-	/// 生成组件
-	/// </summary>
-	public static class Summand
-	{
-		public static ulong Seed = 1;
-		/// <summary>
-		/// 树节点
-		/// </summary>
-		public static SceneTree Tree;
-		/// <summary>
-		/// 关卡节点脚本
-		/// </summary>
-		public static Level_Master_Script Level_Object = null;
-		/// <summary>
-		/// 波次生成怪物ID
-		/// </summary>
-		#region 波次数据
-		public static List<List<MVZ2_City.Type.ID>> Object_ID = new(){};
-		/// <summary>
-		/// 生成数量
-		/// </summary>
-		public static Godot.Collections.Array<int> Summand_Number = new Godot.Collections.Array<int>(){};
-		/// <summary>
-		/// 等待怪物全体死亡快速进行下一波
-		/// </summary>
-		public static Godot.Collections.Array<bool> Await_Mouster = new(){};
-		/// <summary>
-		/// 等待下一波时间
-		/// </summary>.
-		public static Godot.Collections.Array<float> Await_Next_Time = new(){}; 
-		#endregion
-		#region 检测
-		/// <summary>
-		/// 指定物体
-		/// </summary>
-		public static List<MVZ2_City.Type.ID> Specify_Monster_Summand = new(){};
-		/// <summary>
-		/// 指定生成坐标
-		/// </summary>
-		public static Godot.Collections.Array<Godot.Collections.Array<Godot.Vector2>> Specify_Position = new(){};
-		/// <summary>
-		/// 下一波时间
-		/// </summary>
-		#endregion
-		public static float Next_Time = 0;
-		/// <summary>
-		/// 已生成的怪物
-		/// </summary>
-		public static Godot.Collections.Array<Level.Object.LevelObject> Generated_Object = new();
-		/// <summary>
-		/// 完成检测ID
-		/// </summary>
-		public static List<MVZ2_City.Type.ID> ENDCheck_ID = new();
-		/// <summary>
-		/// 完成检测后存在状态
-		/// </summary>
-		public static Godot.Collections.Array<bool> ENDCheck_bool = new();
-		/// <summary>
-		/// 生成中
-		/// </summary>
-		public static bool Summand_Ing = false;
-		/// <summary>
-		/// 随机生成器
-		/// </summary>
-		public static Godot.RandomNumberGenerator random = new();
-		/// <summary>
-		/// 运算逻辑
-		/// </summary>
-		/// <param name="delta"></param>
-		public static WhileMode While_Mode = WhileMode.Process;
-		public static void _Ready()
-		{
-			Seed = (ulong)new Random().Next(0,210000000);
-			random.Seed = Seed;
-		}
-		public enum WhileMode
-		{
-			While = 0,
-			Process = 1
-		}
-		public static void calculate(double delta)
-		{
-			
-		}
-		/// <summary>
-		/// 一种循环模式
-		/// </summary>
-		/// <param name="delta"></param>
-		public static void _Process(double delta)
-		{
-			if (!Summand_Ing){return;}
-			if (While_Mode != WhileMode.Process){return;}
-			calculate(delta);
-		}
-		/// <summary>
-		/// 运行循环运算逻辑
-		/// </summary>
-		public static async void While_Start()
-		{
-			if (While_Mode != WhileMode.While){return;}
-			Summand_Ing = true;
-			while (Summand_Ing)
-			{
-				await Task.Delay(1000 / 60);
-				calculate(1 / 60);
-			}
-		}
-		/// <summary>
-		/// 清空数组
-		/// </summary>
-		public static void claer_Array()
-		{
-			Await_Next_Time.Clear();
-			Object_ID.Clear();
-			Summand_Number.Clear();
-			ENDCheck_ID.Clear();
-			ENDCheck_bool.Clear();
-			Next_Time = -1;
-		}
-		/// <summary>
-		/// 添加波次
-		/// </summary>
-		/// <param name="SummandID">生成物体ID</param>
-		/// <param name="SummandNumber">当前波次生成数量</param>
-		/// <param name="AwaitNextTime">生成后等待一段时间进行下一波</param>
-		/// <param name="AwaitMouster">怪物全部死亡时是否快速进行下一波</param>
-		/// <returns></returns>
-		public static void Add_wave(
-			List<MVZ2_City.Type.ID> SummandID,int SummandNumber,
-			float AwaitNextTime,bool AwaitMouster)
-		{
-			Object_ID.Add(SummandID);
-			Summand_Number.Add(SummandNumber);
-			Await_Next_Time.Add(AwaitNextTime);
-			Await_Mouster.Add(AwaitMouster);
-		}
-		/// <summary>
-		/// 添加指定物体
-		/// </summary>
-		/// <param name="ID_Object">ID物体</param>
-		/// <param name="SummandPosition">生成坐标数组</param>
-		public static void Add_Specify_Monster(MVZ2_City.Type.ID ID_Object,Godot.Collections.Array<Vector2> SummandPosition)
-		{
-			Specify_Monster_Summand.Add(ID_Object);
-			Specify_Position.Add(SummandPosition);
-		}
-		/// <summary>
-		/// 清空检测
-		/// </summary>
-		public static void Clear_Check()
-		{
-			ENDCheck_ID.Clear();
-			ENDCheck_bool.Clear();
-		}
-		public static Card_Data.GlobalData Get_data(MVZ2_City.Type.ID Object_ID)
-		{
-			Game.Card_Data card_Data = Game.Get_GlobalNode.Get_Card_Data(Tree);
-			
-			MVZ2_City.Object_List object_List = Game.Get_GlobalNode.object_List;
-			Game.Card_Data.GlobalData data = card_Data.Get_CardData(object_List.Get_Packed(Object_ID));
-			return data;
-		}
-		/// <summary>
-		/// 生成物体
-		/// </summary>
-		/// <param name="Object_ID"></param>
-		public static void Summand_Object(MVZ2_City.Type.ID Object_ID)
-		{
-			Game.Card_Data.GlobalData data = Get_data(Object_ID);
-			if (Tree == null){return;}
-			//检测
-			bool check = Check_ID(Object_ID);
-			
-			int Lawn_Index = random.RandiRange(0,Level_Object.Lawn_Array.Count - 1);
-			Node2D MonsterNode = Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Monster");
-			Level.Object.LevelObject levelObject = data.Scene.Instantiate<Level.Object.LevelObject>();
-			levelObject.Position = Level_Object.Lawn_Spawn_Position + data.Map_Offset + new Vector2(Level_Object.Lawn_Spawn_Offect.X * 9,Level_Object.Lawn_Spawn_Offect.X * Lawn_Index);
-			levelObject.Scale = data.Map_Scale;
-			if (!check)
-			{
-				
-			}
-			MonsterNode.AddChild(levelObject);
-
-		}
-		/// <summary>
-		/// 检测ID
-		/// </summary>
-		/// <param name="Object_ID"></param>
-		/// <returns></returns>
-		public static bool Check_ID(MVZ2_City.Type.ID Object_ID)
-		{
-			int index = ENDCheck_ID.IndexOf(Object_ID);
-			if (index != -1)
-			{
-				return ENDCheck_bool[index];
-			}
-			foreach(var s in Specify_Monster_Summand)
-			{
-				if (Object_ID.Index_Mode == ID.IndexMode.Name)
-				{
-					if (Object_ID.Object_Name_ID == s.Object_Name_ID)
-					{
-						ENDCheck_ID.Add(Object_ID);
-						ENDCheck_bool.Add(true);
-						return true;
-					}
-				}
-				else if(Object_ID.Index_Mode == ID.IndexMode.CH_Name)
-				{
-					if (Object_ID.CH_Name == s.CH_Name)
-					{
-						ENDCheck_ID.Add(Object_ID);
-						ENDCheck_bool.Add(true);
-						return true;
-					}
-				}
-				else
-				{
-					if (Object_ID.Object_ID == s.Object_ID)
-					{
-						ENDCheck_ID.Add(Object_ID);
-						ENDCheck_bool.Add(true);
-						return true;
-					}
-				}
-			}
-			ENDCheck_ID.Add(Object_ID);
-			ENDCheck_bool.Add(false);
-			return false;
-		}
-	}
-	#endregion
 }

@@ -2,8 +2,8 @@ using Godot;
 using System;
 using My_Csharp_Node;
 
-namespace Temp_Object;
-public partial class Damage : Audio_Plus
+namespace Monster_Audio;
+public partial class ZombiesDamage : Audio_Plus
 {
     public override void _Ready() {
         base._Ready();

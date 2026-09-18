@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bh7q48qfv8wob" path="res://Object/素材图/zombin2.png" id="2_t861y"]
 [ext_resource type="Texture2D" uid="uid://dysmprheeepu8" path="res://Object/素材图/zombin3.png" id="3_0hs0x"]
 [ext_resource type="Texture2D" uid="uid://b8jjy3thxqdcq" path="res://Object/素材图/zombin.png" id="4_xn1ud"]
-[ext_resource type="Script" uid="uid://ckxbqpx6mmji6" path="res://Script/Object/Audio/Normal Hit Souds/Damage.cs" id="9_y6qwl"]
+[ext_resource type="Script" uid="uid://ckxbqpx6mmji6" path="res://Script/Object/Audio/Normal Hit Souds/ZombiesDamage.cs" id="8_0cfh2"]
 [ext_resource type="AudioStream" uid="uid://b4lik07h6ep5d" path="res://Sound/Souds/Kill/Mouster/Zombies Kill/zombie_death.ogg" id="10_67mx1"]
 [ext_resource type="PackedScene" uid="uid://c2qbnurx2pxnj" path="res://UI/血条.tscn" id="11_e0qyl"]
 [ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="11_ux1b5"]
@@ -884,8 +884,9 @@ offset_bottom = -90.0
 
 [node name="DamageSouds" type="AudioStreamPlayer" parent="." unique_id=1949179761]
 autoplay = true
-script = ExtResource("9_y6qwl")
+script = ExtResource("8_0cfh2")
 Audio_Type = 1
+fade_Time = 0.0
 metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [node name="Kill" type="AudioStreamPlayer" parent="." unique_id=1542730421]
@@ -893,6 +894,7 @@ stream = ExtResource("10_67mx1")
 script = ExtResource("11_ux1b5")
 Audio_ID = "MVZ2:Zombies_Kill"
 Audio_Type = 1
+fade_Time = 0.0
 metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [editable path="Area"]

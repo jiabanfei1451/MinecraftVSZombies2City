@@ -19,3 +19,5 @@ MAX_PositionX_Offset = 80.0
 Max_bounce_Number = 5
 Reduced_bounce_force = 1.5
 QueneFree_Time = 10.0
+Random_Color = true
+Enable = true

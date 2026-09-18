@@ -4,6 +4,11 @@ using MVZ2_City.Type;
 namespace MVZ2.Object;
 public partial class Particie : Node2D
 {
+    /// <summary>
+    /// 初始化函数
+    /// </summary>
+    /// <param name=""></param>
+    [Signal] public delegate void InitializationEventHandler(); 
     [ExportGroup("Strength")]
     /// <summary>
     /// 最大上升力度
@@ -77,23 +82,18 @@ public partial class Particie : Node2D
     /// 最少Y向量
     /// </summary>
     [Export] public Godot.Vector2 Reset_Position = Vector2.Zero;
+    /// <summary>
+    /// 随机颜色
+    /// </summary>
     [Export] public bool Random_Color = false;
     [Export] public WhileMode while_Mode = WhileMode._Process; 
+    [Export] public bool Enable = false;
     public override async void _Ready() {
         base._Ready();
-        if (Random_Color == true){
-            Modulate = new Color(Game.Get.Random.NextFloat_32(1,0),Game.Get.Random.NextFloat_32(1,0),Game.Get.Random.NextFloat_32(1,0),1);
-        }
-        Current_MaxHeight = Game.Get.Random.NextFloat_32(MaxHeight.Y,MaxHeight.X);
-        Multiplication *= 1 + Game.Get.Random.NextFloat_32(0,1.5f);
-        Current_Max_Position_X_offset = MAX_PositionX_Offset * (float)(new Random().NextDouble() - 0.5) * 2;
-        GD.Print(Current_Max_Position_X_offset);
-        Current_PositionX_Offset = Current_Max_Position_X_offset / Max_bounce_Number;
-        Reset_Position.Y = Position.Y;
-        Reset_Position.X = Position.X;
-        if (Auto_QueneFree){
-            await ToSignal(GetTree().CreateTimer(Game.Get.Random.NextFloat_32(QueneFree_Time - 1,QueneFree_Time)),SceneTreeTimer.SignalName.Timeout);
-            QueueFree();
+        Initialization += start;
+        if (Enable == true)
+        {
+            start();
         }
     }
     public override void _Process(double delta) {
@@ -107,9 +107,26 @@ public partial class Particie : Node2D
         if (while_Mode != WhileMode._PhysicsProcess){return;}
         huh(delta);
     }
-
+    public async void start()
+    {
+        if (Random_Color == true){
+            Modulate = new Color(Game.Get.Random.NextFloat_32(1,0),Game.Get.Random.NextFloat_32(1,0),Game.Get.Random.NextFloat_32(1,0),1);
+        }
+        Enable = true;
+        Current_MaxHeight = Game.Get.Random.NextFloat_32(MaxHeight.Y,MaxHeight.X);
+        Multiplication *= 1 + Game.Get.Random.NextFloat_32(0,1.5f);
+        Current_Max_Position_X_offset = MAX_PositionX_Offset * (float)(new Random().NextDouble() - 0.5) * 2;
+        Current_PositionX_Offset = Current_Max_Position_X_offset / Max_bounce_Number;
+        Reset_Position.Y = Position.Y;
+        Reset_Position.X = Position.X;
+        if (Auto_QueneFree){
+            await ToSignal(GetTree().CreateTimer(Game.Get.Random.NextFloat_32(QueneFree_Time - 1,QueneFree_Time)),SceneTreeTimer.SignalName.Timeout);
+            QueueFree();
+        }
+    }
     public void huh(double delta)
     {
+        if (!Enable){return;}
         if (delta > 0.3){return;}
         if(Current_Bounce_Number >= Max_bounce_Number)
         {

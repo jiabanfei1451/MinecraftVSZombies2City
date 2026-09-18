@@ -18,7 +18,7 @@ public partial class Zombies : Level.Object.LevelObject
     /// <summary>
     /// 攻击音效
     /// </summary>
-    [Export] Temp_Object.Damage Damage_Souds = null;
+    [Export] Monster_Audio.ZombiesDamage Damage_Souds = null;
     /// <summary>
     /// 攻击渐变
     /// </summary>

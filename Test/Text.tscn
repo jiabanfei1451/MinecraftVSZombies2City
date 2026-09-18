@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
 [ext_resource type="Script" uid="uid://djfmlfakakora" path="res://Test/Text.cs" id="1_75sm5"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="2_gtax4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 
@@ -75,6 +76,23 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1788554330]
+offset_left = 298.0
+offset_top = 138.0
+offset_right = 338.0
+offset_bottom = 178.0
+
+[node name="TouchPad" type="Control" parent="ColorRect" unique_id=428812744]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_gtax4")
+TouchPad_Mode = 1
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

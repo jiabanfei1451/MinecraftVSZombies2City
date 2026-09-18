@@ -20,16 +20,21 @@ public partial class Furnace : Level.Object.LevelObject
             @Timer.Timeout += Timeout;
         }
     }
-    public async void Timeout()
+    public void Summand_RedStone()
     {
-        if (!Enable){return;}
-        animationPlayer.Play(Animations[2]);
-        await ToSignal(animationPlayer,AnimationPlayer.SignalName.AnimationFinished);
         PackedScene scene = Game.ResourceScene.LoadScene("res://Object/Interactive Objects/Red_Stone.tscn");
         MVZ2.Object.Interactive_Objects.RedStone redStone = scene.Instantiate<RedStone>();
         Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("item").AddChild(redStone);
         redStone.GlobalPosition = GlobalPosition;
         redStone.Reset_Position = Position;
+        redStone.EmitSignal("Initialization");
+    }
+    public async void Timeout()
+    {
+        if (!Enable){return;}
+        animationPlayer.Play(Animations[2]);
+        await ToSignal(animationPlayer,AnimationPlayer.SignalName.AnimationFinished);
+        Summand_RedStone();
         animationPlayer.Play(Animations[1]);
         @Timer.WaitTime = Game.Get.Random.NextFloat_32(15,12);
         @Timer.Start();

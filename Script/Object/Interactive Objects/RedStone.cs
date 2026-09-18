@@ -12,15 +12,20 @@ public partial class RedStone : MVZ2.Object.Particie
     [Export] AnimationPlayer anima = null;
     public override void _Ready() {
         base._Ready();
+        Initialization += st2;
+    }
+    public void st2()
+    {
         Max_Rise_Strength = Game.Get.Random.NextFloat_32(5,15);
         Rise_Strength_Enhance_Speed = Game.Get.Random.NextFloat_32(3f,4);
         Multiplication = new Vector2(Game.Get.Random.NextFloat_32(5,6f),Game.Get.Random.NextFloat_32(2,2.5f));
-        Max_bounce_Number = new Random().Next(0,3);
+        Max_bounce_Number = new Random().Next(1,3);
         Set_Position_Multiplication = Game.Get.Random.NextFloat_32(1.5f,2);
         MAX_PositionX_Offset = Game.Get.Random.NextFloat_32(15,45);
         MaxHeight = new Vector2(Game.Get.Random.NextFloat_32(10,30),Game.Get.Random.NextFloat_32(10,30));
         if (pad == null){return;}
         pad.Button_Pressedvoid += pressed;
+        pad.Drag_Ingvoid += pressed;
         if (anima != null)
         {
             anima.AnimationFinished += finale;
@@ -35,7 +40,12 @@ public partial class RedStone : MVZ2.Object.Particie
         pad.Enable = false;
         if (Souds != null)
         {
-            Souds.PitchScale = 1 + ((float)Level_Script.audio_Scale / 4);
+            float s = (float)Level_Script.audio_Scale;
+            if (s > 8)
+            {
+                s = 8;
+            }
+            Souds.PitchScale = 1 + (s / 4);
             Souds.Play();
         }
         Level_Script.audio_Scale += 1;

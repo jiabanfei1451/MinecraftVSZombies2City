@@ -39,6 +39,9 @@ public static class Server
     /// 创建服务端
     /// </summary>
     public static List<string> Currend_Data = new List<string>();
+    /// <summary>
+    /// 创建服务器
+    /// </summary>
     public static async void Create_Server()
     {
         IPAddress iPAddress = IPAddress.Parse(IPs);
@@ -69,7 +72,17 @@ public static class Server
             DEBUG.Info.Print("服务器已关闭");
         }
     }
-     /// <summary>
+    /// <summary>
+    /// 关闭服务器
+    /// </summary>
+    public static void Off_Server()
+    {
+        if (TCPServer != null){
+            TCPServer.Stop();
+            TCPServer = null;
+        }
+    }
+    /// <summary>
     /// 加入服务器
     /// </summary>
     public static async void Join_Server()
@@ -125,6 +138,20 @@ public static class Server
             Server_Stream = null;
             DEBUG.Info.Print("结束");
         }
+        }
+    }
+    /// <summary>
+    /// 向客户端发送信息
+    /// </summary>
+    /// <param name="Text"></param>
+    public static void Exit_Server()
+    {
+        if (Client != null)
+        {
+            Server_Stream.Close();
+            Server_Stream = null;
+            Client.Close();
+            Client = null;
         }
     }
     /// <summary>

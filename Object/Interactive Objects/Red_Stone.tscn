@@ -93,6 +93,7 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 script = ExtResource("3_pdmyc")
+TouchPad_Mode = 1
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2121515650]

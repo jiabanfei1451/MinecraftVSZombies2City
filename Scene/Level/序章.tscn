@@ -79,9 +79,6 @@ offset_right = -672.0
 offset_bottom = 1517.0
 color = Color(0, 0, 0, 1)
 
-[node name="Equipment" type="Node2D" parent="." unique_id=519040572]
-y_sort_enabled = true
-
 [node name="Monster" type="Node2D" parent="." unique_id=554991016]
 y_sort_enabled = true
 

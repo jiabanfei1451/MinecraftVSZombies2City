@@ -161,7 +161,11 @@ public partial class TouchPad : Godot.Control
 		/// <summary>
 		/// 普通模式
 		/// </summary>
-		Normal = 0
+		Normal = 0,
+		/// <summary>
+		/// 交叉模式
+		/// </summary>
+		cross = 1
 	}
 	/// <summary>
 	/// 触摸模式
@@ -172,6 +176,10 @@ public partial class TouchPad : Godot.Control
 	/// </summary>
 	[ExportSubgroup("Variant")]
 	[Export] public Godot.Collections.Array<int> Touch_Index;
+	/// <summary>
+	/// 键位按下
+	/// </summary>
+	[Export] public bool Key_Pressed = false;
 	/// <summary>
 	/// 按下
 	/// </summary>
@@ -478,6 +486,91 @@ public partial class TouchPad : Godot.Control
 				}
 			}
 		}
+		else if (TouchPad_Mode == _TouchPad_Mode.cross)
+		{
+			if (OK)
+			{
+				if (Focus == false)
+				{
+					Focus = true;
+					EmitSignalFocus_Exitvoid();
+					EmitSignalFocus_Exit(this,Temp_Vec2.Position);
+				}
+			}
+			else
+			{
+				if (Focus == true)
+				{
+					Focus = false;
+					EmitSignalFocus_Exitvoid();
+					EmitSignalFocus_Exit(this,Temp_Vec2.Position);
+				}	
+			}
+			if (Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Button)
+			{
+				if (Temp_Vec2.Pressed == true)
+				{
+					Key_Pressed = true;
+					if (OK)
+					{
+						Pressed = true;
+						EmitSignalButton_Downvoid();
+						EmitSignalButton_Down(this,Temp_Vec2.Position);
+					}
+				}
+				else
+				{
+					Pressed = false;
+					Key_Pressed = false;
+					Focus = false;
+					if (OK)
+					{
+						EmitSignalButton_Pressedvoid();
+						EmitSignalButton_Pressed(this,Temp_Vec2.Position);
+						EmitSignalButton_UPvoid();
+						EmitSignalButton_UP(this,Temp_Vec2.Position);
+					}
+					if (Drag == true)
+					{
+						Drag = false;
+						EmitSignalEnd_Dragvoid();
+						EmitSignalEnd_Drag(this,Temp_Vec2.Position);
+					}
+				}
+			}
+			else
+			{
+				if (!Key_Pressed){return;}
+				if (OK)
+				{
+					Pressed = true;
+					EmitSignalButton_Downvoid();
+					EmitSignalButton_Down(this,Temp_Vec2.Position);
+				}
+				else
+				{
+					Pressed = false;
+					EmitSignalButton_UPvoid();
+					EmitSignalButton_UP(this,Temp_Vec2.Position);
+				}
+				if (Pressed == true)
+				{
+					if (Temp_Vec2.Enable_Drag == true)
+					{
+						if (Drag == false){
+							Drag = true;
+							EmitSignalStart_Dragvoid();
+							EmitSignalStart_Drag(this,Temp_Vec2.Position,Temp_Vec2.Velocity);
+						}
+						else
+						{
+							EmitSignalDrag_Ingvoid();
+							EmitSignalDrag_Ing(this,Temp_Vec2.Position,Temp_Vec2.Velocity);
+						}
+					}
+				}
+			}
+		}
 	}
 	#endregion
 	/// <summary>
@@ -546,6 +639,14 @@ public partial class TouchPad : Godot.Control
 		if (x || y){return true;}
 		return false;
 	}
+	public bool Drag_Enable(Vec2 vec)
+	{
+		if (vec.Velocity.X > Drag_Velocity_Scope.X||vec.Velocity.X < -Drag_Velocity_Scope.X || vec.Velocity.Y > Drag_Velocity_Scope.Y || vec.Velocity.Y < -Drag_Velocity_Scope.Y)
+		{
+			return true;
+		}
+		return false;
+	}
 	/// <summary>
 	/// 获取数值
 	/// </summary>
@@ -562,6 +663,7 @@ public partial class TouchPad : Godot.Control
 			vec.Not_Position = false;
 			vec.Not_Velocity = false;
 			vec.Index = drag.Index;
+			vec.Enable_Drag = Drag_Enable(vec);
 			vec.Input_Type = Vec2.Button_Type.Touch;
 			vec.Event_Type = Vec2.Button_Event_Type.Drag;
 			return vec;
@@ -574,10 +676,7 @@ public partial class TouchPad : Godot.Control
 			vec.Not_Velocity = false;
 			vec.Input_Type = Vec2.Button_Type.Mouse;
 			vec.Event_Type = Vec2.Button_Event_Type.Drag;
-			if (vec.Velocity.X > Drag_Velocity_Scope.X||vec.Velocity.X < -Drag_Velocity_Scope.X || vec.Velocity.Y > Drag_Velocity_Scope.Y || vec.Velocity.Y < -Drag_Velocity_Scope.Y)
-			{
-				vec.Enable_Drag = true;
-			}
+			vec.Enable_Drag = Drag_Enable(vec);
 			return vec;
 		}
 		if(@event is InputEventScreenTouch){

@@ -69,11 +69,6 @@ script/source = "extends AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$\".\".current_animation = 默认播放
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqnmb"]
