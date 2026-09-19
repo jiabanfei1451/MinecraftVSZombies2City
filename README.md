@@ -49,7 +49,7 @@ If you wish to play, you can download the pre-release source code from [GitHub](
 |Game Engine|Status|
 |-|-|
 Remastered Engine: Godot Engine 4.7.1 .NET|Under reconstruction...
-Non-Remastered Engine: Chuangyou Engine 4.x|No longer maintained
+Non-Remastered Engine: Builda Engine 4.x|No longer maintained
 
 Hey! There's a [Wiki](https://github.com/jiabanfei1451/minecraftVSzombies2-CityGodot/wiki) here! Want to check it out?
 
