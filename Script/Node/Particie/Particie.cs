@@ -88,7 +88,7 @@ public partial class Particie : Node2D
     [Export] public bool Random_Color = false;
     [Export] public WhileMode while_Mode = WhileMode._Process; 
     [Export] public bool Enable = false;
-    public override async void _Ready() {
+    public override void _Ready() {
         base._Ready();
         Initialization += start;
         if (Enable == true)

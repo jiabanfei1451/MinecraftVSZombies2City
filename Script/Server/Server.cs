@@ -115,10 +115,10 @@ public static class Server
             Server_Stream = Client.GetStream();
 
             while (true){
-            byte[] Buffer = new byte[1024];
-            var s = await Server_Stream.ReadAsync(Buffer,0,Buffer.Length);
-            string str = Encoding.UTF8.GetString(Buffer,0,s);
-            DEBUG.Info.Print(str);
+                byte[] Buffer = new byte[1024];
+                var s = await Server_Stream.ReadAsync(Buffer,0,Buffer.Length);
+                string str = Encoding.UTF8.GetString(Buffer,0,s);
+                DEBUG.Info.Print(str);
             }
         }
         catch(Exception EX)

@@ -1,6 +1,7 @@
 using Godot;
 using DEBUG;
 using System.Threading.Tasks;
+using Level;
 namespace MVZ2.Object.Equipment;
 /// <summary>
 /// 发射器
@@ -36,6 +37,7 @@ public partial class Transmitter : Level.Object.LevelObject
     [Export] public bool This_Initialization = false;
     public override void _Ready() {
         base._Ready();
+        Health_Reduce += is_Damage;
         if (!Enable){return;}
         this.Timer = GetNode<Timer>("Timer");
         Shoot_Sound = GetNode<AudioStreamPlayer>("Souds");
@@ -69,6 +71,16 @@ public partial class Transmitter : Level.Object.LevelObject
     {
         if (!Game.Cheak.CheakGroup.Cheak_Object_Group(LevelObject,detection_Group,Exclude_Group)){return;}
         ReEnable_Area();
+    }
+    public void is_Damage(Node Damage_Object)
+    {
+        if (HP < Min_HP)
+        {
+            kill = true;
+            Enable_Health = false;
+            level.EmitSignal(Level_Master_Script.SignalName.Object_Kill,this);
+            QueueFree();
+        }
     }
     /// <summary>
     /// 重启检测器

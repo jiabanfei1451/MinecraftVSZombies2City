@@ -171,7 +171,7 @@ public partial class Card : Control
 			Nodes.QueueFree();
 		}
 		//初始化材质
-		Card_Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		Node2D texture = Data.Scene.InstantiateOrNull<Node2D>();
 		if (texture is Level.Object.LevelObject)
 		{
@@ -379,7 +379,7 @@ public partial class Card : Control
 	public Level.Object.LevelObject Placed(bool Sousume = true)
 	{
 		Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
-		Card_Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		if (CDing == true){return null;}
 		if (Game.Level_Script.Equipment_Capable < data.Sonsume || Sousume == false){return null;}
 		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){return null;}
@@ -406,7 +406,7 @@ public partial class Card : Control
 			Info.PrintErr("当前卡槽正在冷却请勿重复执行!");
 			return false;
 		}
-		Card_Data.GlobalData data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		MAXCD_Time = data.CD;
 		CD_Time = data.CD;
 		if (first_Time_ReduceCD == false)
@@ -421,7 +421,7 @@ public partial class Card : Control
 	/// </summary>
 	public void _Selected()
 	{
-		Card_Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
 		{
 			GetNode<Audio_Plus>("buzzer").Play();
@@ -506,7 +506,7 @@ public partial class Card : Control
 		/// </summary>
 		public class Gameing()
 		{
-			public Card_Data.GlobalData Card_Data;
+			public Data.GlobalData Card_Data;
 		}
 		#endregion
 	}

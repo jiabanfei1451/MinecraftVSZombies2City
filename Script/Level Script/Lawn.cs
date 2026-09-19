@@ -41,6 +41,13 @@ public partial class Lawn : ColorRect{
 				Current_Object.Equipment_Object = null;
 			}
 	}
+	public void Object_Kill(Level.Object.LevelObject levelObject)
+	{
+		if (Current_Object.Equipment_Object == levelObject)
+		{
+			Current_Object.Equipment_Object = null;
+		}
+	}
 	public void focus_Join()
 	{
 		Game.Level_Script.Lawn = this;
@@ -59,9 +66,12 @@ public partial class Lawn : ColorRect{
 			SelfModulate = new Color(1,1,1,1);
 		}
 	}
+	/// <summary>
+	/// 生成虚影
+	/// </summary>
 	public void Summand_Phantom()
 	{
-		Card_Data.GlobalData Temp_Data = Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		Data.GlobalData Temp_Data = Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
 		PackedScene Scene = Temp_Data.Scene;
 		Node2D new_Node2d = Scene.Instantiate<Node2D>();
 		new_Node2d.Name = "-1+1-1+1_CS";
@@ -72,7 +82,6 @@ public partial class Lawn : ColorRect{
 			Temp_Node.Enable_Health = false;
 		}
 		new_Node2d.Position = Temp_Data.Map_Offset;
-		GD.Print(Temp_Data.Map_Offset);
 		this.AddChild(new_Node2d);
 		new_Node2d.Modulate = new Color(1,1,1,0.3f);
 	}

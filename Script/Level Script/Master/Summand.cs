@@ -86,6 +86,10 @@ public static class Summand
     /// 循环状态 当while_Mode = While时才会改变
     /// </summary>
     static bool While_ing = false;
+    /// <summary>
+    /// 生成倒计时
+    /// </summary>
+    public static float Start_Timer = 0;
     public static void _Ready()
     {
         Seed = (ulong)new Random().Next(0,210000000);
@@ -132,7 +136,7 @@ public static class Summand
         While_ing = true;
         while (Current_Wave <= Object_ID.Count && Summand_Ing && While_ing){
             await Task.Delay(1000 / 60);
-            Cheak_Next_Wave(1d / 60d);
+            Cheak_Next_Wave(1d / 60d * Engine.TimeScale);
         }
     }
     /// <summary>
@@ -140,6 +144,11 @@ public static class Summand
     /// </summary>
     public static void Cheak_Next_Wave(double delta)
     {
+        if (Start_Timer > 0)
+        {
+            Start_Timer -= (float)delta;
+            return;
+        }
         if (calculate(delta) == true || ((Summand_Data.Await_AllMonster_Kill == false || Summand_Data.Await_Next_Time < 0) && Summand_Data.Finale_Wave == false)){
             // 判定数组是否存在
             if (Current_Wave + 1 < Object_ID.Count){
@@ -181,6 +190,7 @@ public static class Summand
         ENDCheck_ID.Clear();
         ENDCheck_bool.Clear();
         Current_Wave = -1;
+        Start_Timer = 0;
     }
     /// <summary>
     /// 添加波次
@@ -217,12 +227,12 @@ public static class Summand
         ENDCheck_ID.Clear();
         ENDCheck_bool.Clear();
     }
-    public static Card_Data.GlobalData Get_data(MVZ2_City.Type.ID Object_ID)
+    public static Data.GlobalData Get_data(MVZ2_City.Type.ID Object_ID)
     {
         Game.Card_Data card_Data = Game.Get_GlobalNode.Get_Card_Data(Tree);
         
         MVZ2_City.Object_List object_List = Game.Get_GlobalNode.object_List;
-        Game.Card_Data.GlobalData data = card_Data.Get_CardData(object_List.Get_Packed(Object_ID));
+        Data.GlobalData data = card_Data.Get_CardData(object_List.Get_Packed(Object_ID));
         return data;
     }
     /// <summary>
@@ -231,7 +241,7 @@ public static class Summand
     /// <param name="Object_ID"></param>
     public static void Summand_Object(MVZ2_City.Type.ID Object_ID)
     {
-        Game.Card_Data.GlobalData data = Get_data(Object_ID);
+        Data.GlobalData data = Get_data(Object_ID);
         if (Tree == null){return;}
         //检测
         bool check = Check_ID(Object_ID);

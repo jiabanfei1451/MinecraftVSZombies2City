@@ -10,6 +10,7 @@ using Game.AutoLoad;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using GameUI;
 
 namespace Level;
 /// <summary>
@@ -228,6 +229,7 @@ public partial class Level_Master_Script : Node2D{
 		Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI").Card_Initialization();
 		Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name).QueueFree();
 		Touch.Touch_Index.Set_Index_Enable(1,true);
+		Static.Summand.While_Start();
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2") != null){
 			Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2").QueueFree();
 		}
@@ -280,11 +282,11 @@ public partial class Level_Master_Script : Node2D{
 		}
 		foreach (Lawn lawn in Lawn_Data[This.ArrayPosition.Y])
 		{
-			lawn.Color = new Color(1,1,1,0.5f);
+			Lawn_Current_Color(lawn);
 		}
 		foreach(Godot.Collections.Array<Lawn> lawns in Lawn_Data)
 		{
-			lawns[This.ArrayPosition.X].Color = new Color(1,1,1,0.5f);
+			Lawn_Current_Color(lawns[This.ArrayPosition.X]);
 		}
 		if (Level_Script.Lawn == This && This.Current_Object.Equipment_Object == null){
 			This.Summand_Phantom();
@@ -297,6 +299,55 @@ public partial class Level_Master_Script : Node2D{
 			This.Color = new Color(1,0,0,1);
 			Selected_Lawn = This;
 			Level_Script.Lawn = This;
+		}
+	}
+	/// <summary>
+	/// 根据器械状态判定此草坪能否被选用
+	/// </summary>
+	/// <param name="lawn"></param>
+	public void Lawn_Current_Color(Level.Lawn lawn)
+	{
+		Card_Data data = Game.Get_GlobalNode.Get_Card_Data(GetTree());
+		MVZ2.Type.ObjectType Types = data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data.Object_Type;
+		if (Types == MVZ2.Type.ObjectType.Normal)
+		{
+			if (lawn.Current_Object.Equipment_Object == null)
+			{
+				lawn.Color = new Color(1,1,1,0.5f);
+			}
+		}
+	}
+	public void Summand_Lawn()
+	{
+		for (int Y = 0; Y < Lawn_Array.Count; Y++)
+		{
+			for (int X = 0; X < Lawn_Array[Y].Count; X++)
+			{
+				Godot.Vector2 Spawn_Offset = new Godot.Vector2(0,0);
+				if (Y < Lawn_Offset_Array.Count)
+				{
+					if (X < Lawn_Offset_Array[Y].Count)
+					{
+						Spawn_Offset = Lawn_Offset_Array[Y][X];
+					}
+				}
+				if (Lawn_Array[Y][X] == 0){
+				Level.Lawn Lawn = LawnScene.Instantiate<Level.Lawn>();
+				Lawn.ArrayPosition = new Vector2I(X,Y);
+				Lawn.Position = Lawn_Spawn_Position + new Godot.Vector2(Lawn_Spawn_Offect.X * X,Lawn_Spawn_Offect.Y * Y) + Spawn_Offset;
+				Lawn.Name = "Lawn(" + string.Concat(X) + "," + string.Concat(Y) + ")";
+				Lawn.ME_Join += Lawn_Change_Color;
+				Object_Kill += Lawn.Object_Kill;
+				Lawn_Data[Y].Add(Lawn);
+				Lawn_Node.AddChild(Lawn);
+				}else if(Lawn_Array[Y][X] == -1)
+				{
+					Lawn s = new Lawn();
+					Lawn_Data[Y].Add(s);
+					s.QueueFree();
+
+				}
+			}
 		}
 	}
 	/// <summary>
@@ -391,7 +442,6 @@ public partial class Level_Master_Script : Node2D{
         {
             if (Index >= Position_Y)
             {
-				Info.Print(Index);
                 Index -= IndexNumber;
                 Current_Lawn_Index += 1;
             }
@@ -414,7 +464,6 @@ public partial class Level_Master_Script : Node2D{
 	/// <returns></returns>
 	public Vector2 Get_This_Offset (Godot.Vector2 position)
 	{
-		Info.Print("坐标索引:",Check_Position_Offset.Count);
 		Vector2 Back_Vector2 = Vector2.Zero;
 		if (Check_Position_Offset.Count == 0)
 		{
@@ -428,7 +477,6 @@ public partial class Level_Master_Script : Node2D{
 				break;
 			}
 		}
-		Info.Print("坐标返回:",Back_Vector2);
 		return Back_Vector2;
 	}
 	/// <summary>
@@ -486,36 +534,9 @@ public partial class Level_Master_Script : Node2D{
 		}
 		Lawn_Node = GetNode<Node2D>("Lawn");
 		Lawn_Data.Resize(Lawn_Array.Count);
-		if (Auto_Spawn_Lawn){
-		for (int Y = 0; Y < Lawn_Array.Count; Y++)
+		if (Auto_Spawn_Lawn)
 		{
-			for (int X = 0; X < Lawn_Array[Y].Count; X++)
-			{
-				Godot.Vector2 Spawn_Offset = new Godot.Vector2(0,0);
-				if (Y < Lawn_Offset_Array.Count)
-					{
-						if (X < Lawn_Offset_Array[Y].Count)
-						{
-							Spawn_Offset = Lawn_Offset_Array[Y][X];
-						}
-					}
-				if (Lawn_Array[Y][X] == 0){
-				Level.Lawn Lawn = LawnScene.Instantiate<Level.Lawn>();
-				Lawn.ArrayPosition = new Vector2I(X,Y);
-				Lawn.Position = Lawn_Spawn_Position + new Godot.Vector2(Lawn_Spawn_Offect.X * X,Lawn_Spawn_Offect.Y * Y) + Spawn_Offset;
-				Lawn.Name = "Lawn(" + string.Concat(X) + "," + string.Concat(Y) + ")";
-				Lawn.ME_Join += Lawn_Change_Color;
-				Lawn_Data[Y].Add(Lawn);
-				Lawn_Node.AddChild(Lawn);
-				}else if(Lawn_Array[Y][X] == -1)
-					{
-						Lawn s = new Lawn();
-						Lawn_Data[Y].Add(s);
-						s.QueueFree();
-
-					}
-			}
-		}
+			Summand_Lawn();
 		}
 		Game_Reset_Done = true;
 	}

@@ -1,3 +1,4 @@
+using Game.Cheak;
 using Godot;
 using Level;
 using My_Csharp_Node;
@@ -61,7 +62,7 @@ public partial class Zombies : Level.Object.LevelObject
     [Export] public bool attack = false;
     [Export]public Color Temp_Color = new Color(1,0,0,0);
     bool This_Initialization = false;
-    public override void _Ready() {
+    public override async void _Ready() {
         base._Ready();
         ShaderMaterial shader = new ShaderMaterial();
         shader.Shader = Game.ResourceShader.LoadShader("uid://cph5hxe55k3bo");
@@ -85,6 +86,8 @@ public partial class Zombies : Level.Object.LevelObject
         {
             Hand_AnimationList.Add(s);
         }
+        await Task.Delay(10);
+        level.Object_Kill += Object_Kill;
     }
     async void Object_damage(Node Damage_Object)
     {
@@ -140,9 +143,24 @@ public partial class Zombies : Level.Object.LevelObject
         
 
     }
+    public void Object_Kill(Level.Object.LevelObject levelObject)
+    {
+        if (CheakGroup.Cheak_Object_Group(levelObject,detection_Group,Exclude_Group) == true)
+        {
+            Remove_Null_Object();
+        }
+    }
     public override async void _Process(double delta) {
         base._Process(delta);
         if (!Enable){return;}
+        if (attack == true)
+        {
+            attack = false;
+            if (Current_detection_object.Count <= 0){return;}
+            if (Current_detection_object[0] != null){
+                Current_detection_object[0].Reduce_Health(Damage,this);
+            }
+        }
         ((ShaderMaterial)ShaderNode.Material).SetShaderParameter("color_EX",Temp_Color);
         if (auto_Move){
             if (Current_detection_object.Count > 0)
@@ -228,14 +246,15 @@ public partial class Zombies : Level.Object.LevelObject
             }
         }
     }
+    /// <summary>
+    /// 延迟释放
+    /// </summary>
+    /// <param name="node"></param>
     public async void delay_Free(Node2D node)
     {
         if (node != this){return;}
-        Timer timer = new();
-        timer.WaitTime = 1;
-        AddChild(timer);
-        timer.Start();
-        await ToSignal(timer,Godot.Timer.SignalName.Timeout);
+        SceneTreeTimer timer = GetTree().CreateTimer(1);
+        await ToSignal(timer,Godot.SceneTreeTimer.SignalName.Timeout);
         QueueFree();
     }
     public void ObjectExit(Node2D Node)

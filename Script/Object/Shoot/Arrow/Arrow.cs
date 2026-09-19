@@ -7,6 +7,7 @@ namespace Level.Object.Bullet;
 public partial class Arrow : Level.Object.BulletData
 {
     [Export] Area2D area = null;
+    bool c = false;
     public override void _Ready() {
         base._Ready();
         Reset();
@@ -32,8 +33,11 @@ public partial class Arrow : Level.Object.BulletData
         {
             bool check = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
             if (!check){return;}
-            Check_Object[0].Reduce_Health(Damage,this);
-            QueueFree();
+                if (c == false){
+                c = true;
+                Check_Object[0].Reduce_Health(Damage,this);
+                QueueFree();
+            }
         }
     }
 }

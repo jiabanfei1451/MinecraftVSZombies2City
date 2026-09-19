@@ -98,6 +98,10 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// </summary>
     [Export] public Move_Type MoveType = Move_Type.Linear_Motion;
     /// <summary>
+    /// 物体类型
+    /// </summary>
+    [Export] public MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal;
+    /// <summary>
     /// 移动类型
     /// </summary>
     public enum Move_Type
@@ -146,7 +150,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         if (!Enable){return;}
         Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level").Remove_Lawn_Index(this,Lawn_Index);
     }
-    public override async void _Ready() {
+    public override void _Ready() {
         base._Ready();
         if (Enable_Health == true)
         {

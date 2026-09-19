@@ -750,6 +750,7 @@ Area = NodePath("Area")
 HP = 0
 Speed = Vector2(-15, 0)
 Move_Ing = true
+Damage = 20
 detection_Group = Array[StringName]([&"Equipment"])
 
 [node name="Subject" type="Skeleton2D" parent="." unique_id=875477114]

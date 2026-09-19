@@ -1,7 +1,11 @@
 using System;
+using Data;
 using GameUI;
 using Godot;
 namespace Game;
+/// <summary>
+/// 卡槽数据
+/// </summary>
 public partial class Card_Data : Node
 {
 	[Signal] public delegate void Selected_ChangeEventHandler(Card card);
@@ -26,6 +30,8 @@ public partial class Card_Data : Node
 	// 地图坐标偏移7
 	new Godot.Collections.Array(){},
 	// 地图大小8
+	new Godot.Collections.Array(){},
+	// 物体类型
 	new Godot.Collections.Array(){}
 	};
 	/// <summary>
@@ -188,7 +194,8 @@ public partial class Card_Data : Node
 		Vec Offset = null,
 		Vec Mouse_Offset = null,
 		Vec Map_Offset = null,
-		Vec Map_Scale = null
+		Vec Map_Scale = null,
+		MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal
 	){
 		Godot.Vector2 New_Scale = new Godot.Vector2(2,2);
 		Godot.Vector2 New_Offset = new Godot.Vector2(64,87);
@@ -220,6 +227,7 @@ public partial class Card_Data : Node
 		Data[6].Add(New_Mouse_Offset);
 		Data[7].Add(New_Map_Offset);
 		Data[8].Add(New_Map_Scale);
+		Data[9].Add((int)Object_Type);
 	}
 	#endregion
 	/// <summary>
@@ -227,7 +235,7 @@ public partial class Card_Data : Node
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public GlobalData Get_CardData(int Index)
+	public Data.GlobalData Get_CardData(int Index)
 	{
 		if (Index > -1)
 		{
@@ -240,17 +248,19 @@ public partial class Card_Data : Node
 			Godot.Vector2 Mouse_Offset = (Godot.Vector2)Data[6][Index];
 			Godot.Vector2 Map_Offset = (Godot.Vector2)Data[7][Index];
 			Godot.Vector2 Map_Scale = (Godot.Vector2)Data[8][Index];
-			GlobalData Back = new GlobalData(scene,sonsume,CD,RemoveCD,Scale,Offset,Mouse_Offset,Map_Offset,Map_Scale);
+			MVZ2.Type.ObjectType Object_Type = GlobalData.GetObjectType((int)Data[9][Index]);
+			
+			Data.GlobalData Back = new Data.GlobalData(scene,sonsume,CD,RemoveCD,Scale,Offset,Mouse_Offset,Map_Offset,Map_Scale);
 			return Back;
 		}
-		else{return null;}
+		else{return GlobalData.Zero();}
 	}
 	/// <summary>
 	/// 场景搜索方法
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public GlobalData Get_CardData(PackedScene Index)
+	public Data.GlobalData Get_CardData(PackedScene Index)
 	{
 		return Get_CardData(Data[0].IndexOf(Index));
 	}
@@ -301,58 +311,6 @@ public partial class Card_Data : Node
 		public float X {get;set;} = X;
 		public float Y {get;set;} = Y;
 	}
-	/// <summary>
-	/// 返回数据
-	/// </summary>
-	/// <param name="Scene">场景</param>
-	/// <param name="sonsume">消耗</param>
-	/// <param name="CD">冷却</param>
-	/// <param name="First_Time_RemoveCD">游戏开始时减少冷却</param>
-	/// <param name="Scale">大小</param>
-	/// <param name="Offset">偏移</param>
-	/// <param name="Mouse_Offset">光标坐标偏移</param>
-	/// <param name="Map_Offset">地图坐标偏移</param>
-	/// <param name="Map_Scale">地图大小</param>
-	public class GlobalData(
-		PackedScene @Scene,
-		short @sonsume,
-		float @CD,
-		float @First_Time_RemoveCD,
-		Godot.Vector2 @Scale,
-		Godot.Vector2 @Offset,
-		Godot.Vector2 @Mouse_Offset,
-		Godot.Vector2 @Map_Offset,
-		Godot.Vector2 @Map_Scale
-		)
-	{
 
-		/// <summary>
-		/// 物体场景
-		/// </summary>
-		public PackedScene Scene = @Scene;
-		/// <summary>
-		/// 消耗
-		/// </summary>
-		public short Sonsume = @sonsume;
-		/// <summary>
-		/// 冷却时间
-		/// </summary>
-		public float CD = @CD;
-		/// <summary>
-		/// 首次冷却时减少冷却
-		/// </summary>
-		public float First_Time_RemoveCD = @First_Time_RemoveCD;
-		/// <summary>
-		/// 材质大小
-		/// </summary>
-		public Godot.Vector2 Scale = @Scale;
-		/// <summary>
-		/// 材质偏移
-		/// </summary>
-		public Godot.Vector2 Offset = @Offset;
-		public Godot.Vector2 Mouse_Offset = @Mouse_Offset;
-		public Godot.Vector2 Map_Offset = @Map_Offset;
-		public Godot.Vector2 Map_Scale = @Map_Scale;
-	}
 	#endregion
 }
