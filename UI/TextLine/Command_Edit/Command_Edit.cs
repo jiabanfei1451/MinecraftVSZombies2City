@@ -19,7 +19,7 @@ public partial class Command_Edit : TextEdit
 		if (@event is InputEventKey)
 		{
 			InputEventKey Keys = (InputEventKey)@event;
-			if (!Keys.Pressed && Keys.Keycode == Key.KpEnter)
+			if (!Keys.Pressed && Keys.Keycode == Key.Enter)
 			{
 				if (SB == false)
 				{

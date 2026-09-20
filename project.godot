@@ -30,11 +30,14 @@ MuiscEngine="*uid://c7jdr8lln46bu"
 CommandEdit="*uid://hpvvup1148jw"
 CardData="*uid://cpmqdooq874b3"
 ObjectList="*uid://djl4fw83yphpv"
+KeyScript="*uid://bqjn1o3krency"
 
 [display]
 
 window/size/viewport_width=1225
 window/size/viewport_height=720
+window/size/window_width_override=919
+window/size/window_height_override=540
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0

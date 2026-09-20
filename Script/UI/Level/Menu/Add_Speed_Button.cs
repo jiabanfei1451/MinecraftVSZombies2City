@@ -11,13 +11,18 @@ public partial class Add_Speed_Button : Touch.TouchPad
     [Export] public Audio_Plus Souds = null;
     [Export] public Audio_Plus Souds2 = null;
     [Export] public TextureRect Speed_Texture = null;
+    public override void _ExitTree() {
+        base._ExitTree();
+        Game.Get_GlobalNode.GetKey.Key_DownKeyCode -= Key_UP;
+    }
     public override void _Ready() {
         base._Ready();   
         Button_Downvoid += ButtonDowm;
         Button_UPvoid += ButtonUP;
         Button_Pressedvoid += ButtonPressed;
+        Game.Get_GlobalNode.GetKey.Key_DownKeyCode += Key_UP;
     }
-    public void ButtonPressed()
+    public void add_Speed()
     {
         if (Engine.TimeScale == 1)
         {
@@ -43,6 +48,17 @@ public partial class Add_Speed_Button : Touch.TouchPad
         }
             Engine.TimeScale = 1;
         }
+    }
+    public void Key_UP(Key @key)
+    {
+        if (@key == Key.F)
+        {
+            add_Speed();
+        }
+    }
+    public void ButtonPressed()
+    {
+        add_Speed();
     }
     public void ButtonDowm()
     {

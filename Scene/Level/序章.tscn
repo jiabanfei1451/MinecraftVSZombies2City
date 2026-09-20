@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
-[ext_resource type="PackedScene" uid="uid://dmfe85smdma7l" path="res://Object/Interactive Objects/Red_Stone.tscn" id="4_vhc43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
@@ -84,6 +83,3 @@ y_sort_enabled = true
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1336448921]
 position = Vector2(-69, 0)
-
-[node name="Red_Stone" parent="." unique_id=2080088656 instance=ExtResource("4_vhc43")]
-position = Vector2(269, 27)

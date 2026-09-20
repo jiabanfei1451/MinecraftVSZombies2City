@@ -74,6 +74,7 @@ _data = {
 position = Vector2(295, 186)
 script = ExtResource("1_pdmyc")
 pad = NodePath("TouchPad")
+add_Equipment_Capable = 50
 Souds = NodePath("AudioStreamPlayer")
 anima = NodePath("AnimationPlayer")
 Set_Position_Multiplication = 2.0

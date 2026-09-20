@@ -3,14 +3,9 @@ using Godot;
 using System;
 using My_Csharp_Node;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using MVZ2_City.Type;
 using DEBUG;
-using Game.AutoLoad;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using GameUI;
+using Level.Static;
 
 namespace Level;
 /// <summary>
@@ -226,8 +221,12 @@ public partial class Level_Master_Script : Node2D{
 		Game.Tip.Set_Ready_Text("");
 		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc(((Level.Level_Master_Script)GetTree().CurrentScene).Level_BGMID);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
-		Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI").Card_Initialization();
-		Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name).QueueFree();
+		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI") != null){
+			Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI")?.Card_Initialization();
+		}
+		if (Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name) != null){
+			Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name).QueueFree();
+		}
 		Touch.Touch_Index.Set_Index_Enable(1,true);
 		Static.Summand.While_Start();
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2") != null){
@@ -254,6 +253,7 @@ public partial class Level_Master_Script : Node2D{
 		if (Seed_Why.IndexOf("/ReStart") != -1)
 		{
 			choose_Card();
+			Summand.While_End();
 		}else if (Seed_Why.IndexOf("/Exit") != -1)
 		{
 			GetTree().Quit();

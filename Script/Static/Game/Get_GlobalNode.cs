@@ -14,6 +14,7 @@ static class Get_GlobalNode
 	/// 输入框
 	/// </summary>
 	public static Command_Edit CommandEdit = null;
+	public static Game.Get.Key_Script GetKey = null;
 	/// <summary>
 	/// 当前关卡可读取的节点数据
 	/// </summary>
@@ -85,8 +86,14 @@ static class Get_GlobalNode
 		/// <param name="Name">名称</param>
 		public static void Add_Node(Godot.Node Node,String Name)
 		{
-			NodeData[0].Add(Node);
-			NodeData[1].Add(Name);
+			if (NodeData[1].IndexOf(Name) == -1){
+				NodeData[0].Add(Node);
+				NodeData[1].Add(Name);
+			}
+			else
+			{
+				NodeData[0][NodeData[1].IndexOf(Name)] = Node;
+			}
 			DEBUG.Info.Print(NodeData);
 		}
 		/// <summary>

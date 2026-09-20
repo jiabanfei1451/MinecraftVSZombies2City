@@ -16,6 +16,7 @@ public partial class RedStone : MVZ2.Object.Particie
     }
     public void st2()
     {
+        Game.Get_GlobalNode.GetKey.Key_DownKeyCode += Key_Down;
         Max_Rise_Strength = Game.Get.Random.NextFloat_32(5,15);
         Rise_Strength_Enhance_Speed = Game.Get.Random.NextFloat_32(3f,4);
         Multiplication = new Vector2(Game.Get.Random.NextFloat_32(5,6f),Game.Get.Random.NextFloat_32(2,2.5f));
@@ -35,8 +36,24 @@ public partial class RedStone : MVZ2.Object.Particie
     {
         QueueFree();
     }
+    public void Key_Down(Key @Key)
+    {
+        if (@Key == Key.Space)
+        {
+            sp();
+            
+        }
+    }
     public void pressed()
     {
+        sp();
+    }
+    /// <summary>
+    /// 拾取
+    /// </summary>
+    public void sp()
+    {
+        Game.Get_GlobalNode.GetKey.Key_DownKeyCode -= Key_Down;
         pad.Enable = false;
         if (Souds != null)
         {

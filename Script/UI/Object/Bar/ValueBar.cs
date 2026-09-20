@@ -14,9 +14,14 @@ public partial class ValueBar : Control
     [Export] public Godot.Control Value_Object = null;
     [Export] public Godot.Control Value_Object_Hollow = null;
     public Godot.Vector2 Temp_Scale = Vector2.Zero; 
+    bool While_Ing = true;
+    public override void _ExitTree() {
+        base._ExitTree();
+        While_Ing = false;
+    }
     public override async void _Ready() {
         base._Ready();
-        while(true){
+        while(While_Ing){
             if(Value_Object == null){return;}
             if(Value_Object_Hollow == null){return;}
             if(Temp_Scale == Vector2.Zero)
