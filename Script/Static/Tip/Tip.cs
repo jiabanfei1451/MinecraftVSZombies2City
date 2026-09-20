@@ -12,6 +12,17 @@ public static class Tip
     /// 提示字幕
     /// </summary>
     public static Godot.Label Tip_Text = null;
+    public static void Initialization()
+    {
+        if (Tip_Text != null)
+        {
+            Tip_Text.Visible = false;
+        }
+        if (Ready_Text != null)
+        {
+            Ready_Text.Visible = false;
+        }
+    }
     /// <summary>
     /// 设置准备文本
     /// </summary>
@@ -19,6 +30,8 @@ public static class Tip
     /// <returns></returns>
     public static void Set_Ready_Text(params object[] What)
     {
+        if (Ready_Text == null){return;}
+        Ready_Text.Visible = true;
         string Str = "";
         foreach (var W in What)
         {
@@ -36,6 +49,8 @@ public static class Tip
     /// <param name="What"></param>
     public static async Task<int> Set_Ready_Text(bool Await,double Delay,bool Administration,float StartScale,float EndScale,params object[] What)
     {
+        if (Ready_Text == null){return -1;}
+        Ready_Text.Visible = true;
         if (Administration == true)
         {
             Ready_Text.Modulate = new Color(0,0,0,0);
@@ -64,6 +79,8 @@ public static class Tip
     /// <returns></returns>
     public static void Set_Tip_Text(params object[] What)
     {
+        if (Tip_Text == null){return;}
+        Tip_Text.Visible = true;
         string Str = "";
         foreach (var W in What)
         {

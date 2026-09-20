@@ -219,6 +219,7 @@ public partial class Level_Master_Script : Node2D{
 		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"安放器械!!!");
 		await Task.Delay(1000);
 		Game.Tip.Set_Ready_Text("");
+		Game.Tip.Set_Tip_Text("你旁边的人是Gay!!!");
 		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc(((Level.Level_Master_Script)GetTree().CurrentScene).Level_BGMID);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI") != null){
@@ -245,7 +246,7 @@ public partial class Level_Master_Script : Node2D{
 		await ToSignal(Twee,Tween.SignalName.Finished);
 	}
 	/// <summary>
-	/// 指令
+	/// 读取玩家发送的指令
 	/// </summary>
 	/// <param name="Seed_Why"></param>
 	public void Get_Player_Send(String Seed_Why)

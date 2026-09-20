@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+namespace UIObject;
 public partial class LevelUiMenu : Control
 {
     [Export] public TextureRect Speed_Texture = null;

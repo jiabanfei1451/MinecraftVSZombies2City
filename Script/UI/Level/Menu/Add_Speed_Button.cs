@@ -22,6 +22,9 @@ public partial class Add_Speed_Button : Touch.TouchPad
         Button_Pressedvoid += ButtonPressed;
         Game.Get_GlobalNode.GetKey.Key_DownKeyCode += Key_UP;
     }
+    /// <summary>
+    /// 增加游戏速度
+    /// </summary>
     public void add_Speed()
     {
         if (Engine.TimeScale == 1)

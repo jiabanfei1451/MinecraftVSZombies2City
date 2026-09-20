@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-namespace Game.Get;
+namespace AutoLoad;
 public partial class Key_Script : Node
 {
     /// <summary>
@@ -10,7 +10,7 @@ public partial class Key_Script : Node
     /// <param name="key"></param>
     [Signal] public delegate void Key_DownEventHandler(InputEventKey key);
     /// <summary>
-    /// 获取按下的键值
+    /// 获取按下时的键值
     /// </summary>
     /// <param name="key"></param>
     [Signal] public delegate void Key_DownKeyCodeEventHandler(Key key);
@@ -39,8 +39,12 @@ public partial class Key_Script : Node
     public bool Shift_Pressed = false;
     public override void _Ready() {
         base._Ready();
-        Get_GlobalNode.GetKey = this;
+        Game.Get_GlobalNode.GetKey = this;
     }
+    /// <summary>
+    /// 获取按键事件
+    /// </summary>
+    /// <param name="event"></param>
     public override void _Input(InputEvent @event) {
         base._Input(@event);
         if (@event is InputEventKey)

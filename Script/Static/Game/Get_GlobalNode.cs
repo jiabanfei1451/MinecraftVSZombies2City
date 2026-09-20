@@ -14,7 +14,7 @@ static class Get_GlobalNode
 	/// 输入框
 	/// </summary>
 	public static Command_Edit CommandEdit = null;
-	public static Game.Get.Key_Script GetKey = null;
+	public static Key_Script GetKey = null;
 	/// <summary>
 	/// 当前关卡可读取的节点数据
 	/// </summary>
@@ -25,6 +25,9 @@ static class Get_GlobalNode
 		// Name
 		new Godot.Collections.Array(){},
 	};
+	/// <summary>
+	/// 实体列表
+	/// </summary>
 	public static Object_List object_List = null;
 	/// <summary>
 	/// 用于添加删除节点索引的类
@@ -80,9 +83,9 @@ static class Get_GlobalNode
 			return Get as T;
 		}
 		/// <summary>
-		/// 添加节点索引
+		/// 添加节点索引，如果节点索引已存在，则会覆盖原有节点索引
 		/// </summary>
-		/// <param name="Node">索引</param>
+		/// <param name="Node">用于索引的节点</param>
 		/// <param name="Name">名称</param>
 		public static void Add_Node(Godot.Node Node,String Name)
 		{

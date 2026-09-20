@@ -1,19 +1,25 @@
 using Game;
 using Godot;
 using System;
-
+namespace GameUI.Object;
 public partial class TipUI : Control
 {
     Control TipPanel = null;
     Label Label = null;
     String Temp_Text = "";
     double Await_Time = 0;
+    public override void _ExitTree() {
+        base._ExitTree();
+        Game.Tip.Tip_Text = null;
+        Game.Tip.Ready_Text = null;
+    }
     public override void _Ready() {
         base._Ready();
         Game.Tip.Ready_Text = GetNode<Label>("Ready");
         Game.Tip.Tip_Text = GetNode<Label>("Tip/Text");
         TipPanel = GetNode<Control>("Tip");
         Label = GetNode<Label>("Tip/Text");
+        TipPanel.Visible = false;
     }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);

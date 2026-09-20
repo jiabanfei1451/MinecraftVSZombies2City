@@ -14,6 +14,10 @@ public partial class Command_Edit : TextEdit
 		Game.Get_GlobalNode.CommandEdit = this;
 		return;
 	}
+	/// <summary>
+	/// 玩家发送信息
+	/// </summary>
+	/// <param name="event"></param>
 	public override void _Input(InputEvent @event) {
 		base._Input(@event);
 		if (@event is InputEventKey)
