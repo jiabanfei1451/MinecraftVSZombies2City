@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DEBUG;
 using System.Text.RegularExpressions;
 using Level.Static;
+using Test;
+using NETDNS;
 
 namespace Level;
 /// <summary>
@@ -251,6 +253,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <param name="Seed_Why"></param>
 	public void Get_Player_Send(String Seed_Why)
 	{
+		
 		if (Seed_Why.IndexOf("/ReStart") != -1)
 		{
 			choose_Card();
@@ -263,6 +266,32 @@ public partial class Level_Master_Script : Node2D{
 			string ps = Regex.Replace(Seed_Why,@"[^0-9]+","");
 			short p = (short)ps.ToInt();
 			Game.Level_Script.Equipment_Capable = p;
+		}else if(Seed_Why.IndexOf("/GetData") != -1)
+		{
+			DEBUG.Info.Print(Game.Static.PlayerData.Player_Data);
+		}else if(Seed_Why.IndexOf("/SaveInfo") != -1)
+		{
+			DEBUG.Info.Save_Info("C:\\Info.txt");
+		}else if(Seed_Why.IndexOf("/CreateServer") != -1)
+		{
+			Server.Create_Server();
+		}else if(Seed_Why.IndexOf("/Join") != -1)
+		{
+			Server.Join_Server();
+		}else if(Seed_Why.IndexOf("/OffServer") != -1)
+		{
+			Server.Off_Server();
+		}
+		if (Server.Server_Stream != null)
+		{
+			if (Server.TCPServer != null)
+			{
+				Server.Server_Send_Data(Seed_Why);
+			}
+			else
+			{
+				Server.Player_Send_Data(Seed_Why);
+			}
 		}
 	}
 	#region 草坪方法

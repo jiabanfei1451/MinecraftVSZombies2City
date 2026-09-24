@@ -8,11 +8,12 @@ namespace DEBUG{
 	static class Data
 	{
 		public static bool Enable = true;
-        public static bool Auto_Add_Info = false;
+        public static bool Auto_Add_Info = true;
 	}
     /// <summary>
     /// 调试信息
     /// </summary>
+    
 	static class Info
 	{
         public enum ERROR_Info

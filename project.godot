@@ -31,13 +31,12 @@ CommandEdit="*uid://hpvvup1148jw"
 CardData="*uid://cpmqdooq874b3"
 ObjectList="*uid://djl4fw83yphpv"
 KeyScript="*uid://bqjn1o3krency"
+Initialization="*uid://d4kydvjje30ir"
 
 [display]
 
 window/size/viewport_width=1225
 window/size/viewport_height=720
-window/size/window_width_override=919
-window/size/window_height_override=540
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
@@ -229,7 +228,6 @@ F={
 [input_devices]
 
 pointing/android/enable_pan_and_scale_gestures=true
-pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 

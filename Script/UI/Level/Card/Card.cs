@@ -327,7 +327,7 @@ public partial class Card : Control
 				if (GlobalPosition.Y < 80){return;}
 				// 选定状态
 				if (Mode_Data.Selected_Card_Mode.is_Selected_Card_Object == null){
-					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > PlayerData.Card_Quantity - 1){return;}
+					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > Game.Static.PlayerData.Card_Quantity - 1){return;}
 					PackedScene Temp_Scene = Game.ResourceScene.LoadScene("uid://c2y62prxcbege");
 					Card Temp_Card = Temp_Scene.Instantiate<Card>();
 					Temp_Card.Card_Mode = Mode.is_Seleceed_Card;

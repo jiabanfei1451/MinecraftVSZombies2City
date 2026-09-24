@@ -94,7 +94,7 @@ public partial class Card_Data : Node
 	{
 		Selected_raw_Object = null;
 		Selected.Clear();
-		for (int Count = 0;Count < Game.AutoLoad.PlayerData.Card_Quantity; Count++)
+		for (int Count = 0;Count < Game.Static.PlayerData.Card_Quantity; Count++)
 		{
 			Control New_Null = new Control();
 			New_Null.Name = "Null";
@@ -161,7 +161,7 @@ public partial class Card_Data : Node
 				variants.Add(node);
 			}
 		}
-		for (int Length = variants.Count;Length < Game.AutoLoad.PlayerData.Card_Quantity; Length++)
+		for (int Length = variants.Count;Length < Game.Static.PlayerData.Card_Quantity; Length++)
 		{
 			Control New_Null = new Control();
 			New_Null.QueueFree();

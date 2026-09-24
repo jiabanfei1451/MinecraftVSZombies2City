@@ -81,7 +81,7 @@ public partial class TouchPad : Godot.Control
 	/// </summary>
 	/// <param name="pad"></param>
 	/// <param name="Event_Position"></param>
-	[Signal]public delegate void Button_Long_PressedvoidEventHandler(TouchPad pad,Godot.Vector2 Event_Position);
+	[Signal]public delegate void Button_Long_PressedvoidEventHandler();
 
 	/// <summary>
 	/// 拖拽开始时的空值方法
@@ -413,7 +413,7 @@ public partial class TouchPad : Godot.Control
 				}
 			}
 #endregion
-#region 鼠标设备
+	#region 鼠标设备
 			//鼠标设备
 			else if(Temp_Vec2.Input_Type == Vec2.Button_Type.Mouse)
 			{
@@ -425,18 +425,32 @@ public partial class TouchPad : Godot.Control
 					{
 						if (!OK){return;}
 						Pressed = true;
+						EmitSignalButton_Down(this,Temp_Vec2.Position);
+						EmitSignalButton_Downvoid();
 						Click_Type = on_Click_Type.Click;
 					}
 					//结束拖拽
 					else
 					{
+						
 						if (Drag)
-							{
-								EmitSignal("End_Drag",this,Temp_Vec2.Position);
-								EmitSignal("End_Dragvoid");
-							}
-						Pressed = false;
+						{
+							EmitSignal("End_Drag",this,Temp_Vec2.Position);
+							EmitSignal("End_Dragvoid");
+						}
+						if (Click_Type == on_Click_Type.Click){
+							EmitSignalButton_Pressedvoid();
+							EmitSignalButton_Pressed(this,Temp_Vec2.Position);
+						}
+						if (Click_Type == on_Click_Type.Long_Click)
+						{
+							EmitSignalButton_Long_Pressedvoid();
+							EmitSignalButton_Long_Pressed(this,Temp_Vec2.Position);
+						}
+						EmitSignalButton_UP(this,Temp_Vec2.Position);
+						EmitSignalButton_UPvoid();
 						Drag = false;
+						Pressed = false;
 						Click_Type = on_Click_Type.not;
 					}
 				}
