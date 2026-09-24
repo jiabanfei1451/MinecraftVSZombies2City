@@ -131,6 +131,10 @@ public partial class Card : Control
 	/// </summary>
 	private Tween Temp_Tween = null;
 	#endregion
+	public override void _ExitTree() {
+		base._ExitTree();
+		Stop_While = true;
+	}
 	public override void _Input(InputEvent @event) {
 		base._Input(@event);
 		if (Card_Mode != Mode.Gameing){return;}
@@ -212,14 +216,14 @@ public partial class Card : Control
 			Mode_Data.gameing_Mode.Card_Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 			DEBUG.Info.Print(Mode_Data.gameing_Mode.Card_Data);
 			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);			
-			while (!Stop_While){
+			while (!Stop_While && this != null){
 				if (this == null){return;}
 				if (Temp_Tween != null){
 					Temp_Tween.Kill();
 					Temp_Tween = null;
 				}
 				if (Temp_Tween == null){
-					Temp_Tween = this.CreateTween();
+					Temp_Tween = CreateTween();
 					Temp_Tween.TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
 				}
 				await Task.Delay(1000 / 60);
