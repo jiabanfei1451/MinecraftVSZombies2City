@@ -49,6 +49,12 @@ public partial class Object_List : Node
         }
         return Object_PackedScene[Index];
     }
+    /// <summary>
+    /// 获取ID
+    /// </summary>
+    /// <param name="Index"></param>
+    /// <param name="indexMode"></param>
+    /// <returns></returns>
     public MVZ2_City.Type.ID Get_ID(String Index = "0",MVZ2_City.Type.ID.IndexMode indexMode = ID.IndexMode.Name)
     {
         MVZ2_City.Type.ID iD = new(-1,"-1");

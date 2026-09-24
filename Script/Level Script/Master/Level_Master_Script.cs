@@ -133,13 +133,22 @@ public partial class Level_Master_Script : Node2D{
 	/// </summary>
 	[Export] public bool Game_Reset_Done = false;
 	/// <summary>
+	/// 已完成种子获取
+	/// </summary>
+	internal bool Seed_OK = false;
+	/// <summary>
+	/// 临时音频缩放
+	/// </summary>
+	internal byte Temp_audio_Scale = 0;
+	/// <summary>
+	/// 临时倒计时
+	/// </summary>
+	internal float Temp_audio_await_timer = 0; 
+	#endregion
+	/// <summary>
 	/// 用于摄像机缓动的process
 	/// </summary>
 	/// <param name="delta"></param>
-	internal bool Seed_OK = false;
-	internal byte Temp_audio_Scale = 0;
-	internal float Temp_audio_await_timer = 0; 
-	#endregion
 	public override void _PhysicsProcess(double delta) {
 		base._PhysicsProcess(delta);
 		if (Temp_audio_Scale != Level_Script.audio_Scale)

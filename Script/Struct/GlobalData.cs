@@ -3,18 +3,18 @@ using Godot;
 
 namespace Data;
 
-	/// <summary>
-	/// 返回数据
-	/// </summary>
-	/// <param name="Scene">场景</param>
-	/// <param name="sonsume">消耗</param>
-	/// <param name="CD">冷却</param>
-	/// <param name="First_Time_RemoveCD">游戏开始时减少冷却</param>
-	/// <param name="Scale">大小</param>
-	/// <param name="Offset">偏移</param>
-	/// <param name="Mouse_Offset">光标坐标偏移</param>
-	/// <param name="Map_Offset">地图坐标偏移</param>
-	/// <param name="Map_Scale">地图大小</param>
+/// <summary>
+/// 返回数据
+/// </summary>
+/// <param name="Scene">场景</param>
+/// <param name="sonsume">消耗</param>
+/// <param name="CD">冷却</param>
+/// <param name="First_Time_RemoveCD">游戏开始时减少冷却</param>
+/// <param name="Scale">大小</param>
+/// <param name="Offset">偏移</param>
+/// <param name="Mouse_Offset">光标坐标偏移</param>
+/// <param name="Map_Offset">地图坐标偏移</param>
+/// <param name="Map_Scale">地图大小</param>
 public struct GlobalData(
     PackedScene @Scene,
     short @sonsume,
