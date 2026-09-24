@@ -115,7 +115,7 @@ public partial class TouchPad : Godot.Control
 	/// <summary>
 	/// 拖拽判定范围
 	/// </summary>
-	[Export] public Godot.Vector2 Drag_Velocity_Scope = new Godot.Vector2(5,5);
+	[Export] public Godot.Vector2 Drag_Velocity_Scope;
 	/// <summary>
 	/// 触摸判定偏移
 	/// </summary>
@@ -371,12 +371,11 @@ public partial class TouchPad : Godot.Control
 				}else if(Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Drag){
 					//如果按下为真 然后获取索引 检测是否启用拖拽
 					if (Pressed == true && Get_Touch_Index(Temp_Vec2.Index) != -1 && Enable_Drag){
-						//设定状态
-						Click_Type = on_Click_Type.Drag;
 						//条件是否满足
 						if (Drag == false && Temp_Vec2.Enable_Drag){
 							//触发拖拽开始时
 							if (!Velocity(Temp_Vec2.Velocity)){return;}
+							Click_Type = on_Click_Type.Drag;
 							EmitSignal("Start_Dragvoid",this,Temp_Vec2.Position,Temp_Vec2.Velocity);
 							EmitSignal("Start_Drag");
 							Drag = true;
