@@ -85,9 +85,18 @@ public partial class Zombies : Level.Object.LevelObject
         foreach (String s in Hand_Play.GetAnimationList())
         {
             Hand_AnimationList.Add(s);
+        }  
+        while (level == null)
+        {
+            await Task.Delay(100);
         }
-        await Task.Delay(10);
+        Connect_Kill_Signal = true;
         level.Object_Kill += Object_Kill;
+    }
+    public override void _ExitTree() {
+        base._ExitTree();
+        if (!Connect_Kill_Signal){return;}
+        level.Object_Kill -= Object_Kill;
     }
     async void Object_damage(Node Damage_Object)
     {

@@ -416,6 +416,7 @@ public partial class TouchPad : Godot.Control
 			//鼠标设备
 			else if(Temp_Vec2.Input_Type == Vec2.Button_Type.Mouse)
 			{
+				if ((bool)ProjectSettings.GetSetting("input_devices/pointing/emulate_touch_from_mouse")){return;}
 				//按下
 				if (Temp_Vec2.Event_Type == Vec2.Button_Event_Type.Button)
 				{

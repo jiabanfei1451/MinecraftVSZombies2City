@@ -394,8 +394,14 @@ public partial class Card : Control
 		Level.Object.LevelObject node = data.Scene.Instantiate<Level.Object.LevelObject>();
 		node.Position = Lawn.Position + data.Map_Offset;
 		node.Scale = data.Map_Scale;
-		Lawn.Current_Object.Equipment_Object = node;
-		Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").AddChild(Lawn.Current_Object.Equipment_Object);
+		if (!node.IsInGroup("Monster")){
+			Lawn.Current_Object.Equipment_Object = node;
+			Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").AddChild(Lawn.Current_Object.Equipment_Object);
+		}
+		else
+		{
+			Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Monster").AddChild(node);
+		}
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null;
 		return node;
 	}

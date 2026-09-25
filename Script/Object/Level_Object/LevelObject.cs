@@ -30,20 +30,13 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// </summary>
     /// <param name="Damage_Object"></param>
     [Signal] public delegate void Health_ReduceEventHandler(Node Damage_Object);
+    /// <summary>
+    /// 死亡时
+    /// </summary>
+    /// <param name="Damage_Object"></param>
+    [Signal] public delegate void KillEventHandler();
     #endregion
-    /// <summary>
-    /// 当前草坪行数索引
-    /// </summary>
     [ExportCategory("看什么看?变量在Data中")]
-    [ExportGroup("Index")]
-    [Export] public int Lawn_Index = -1;
-    /// <summary>
-    /// 自动设置草坪行数索引
-    /// </summary>
-    [Export] public bool AutoSet_Lawn_Index = true;
-    /// <summary>
-    /// 检测
-    /// </summary>
     [ExportGroup("Object")]
     [Export] public Godot.Area2D Area = null;
     /// <summary>
@@ -137,13 +130,8 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// 排除阵营
     /// </summary>
     [Export] public Godot.Collections.Array<StringName> Exclude_Group = new Godot.Collections.Array<StringName>(){"Projectile","Area"};
-    /// <summary>
-    /// 临时坐标
-    /// </summary>
-    float Temp_Position_Y = -1;
-    internal Level_Master_Script level {get;set;} = null;
     public Level.Level_Master_Script Level_Object = null;
-
+    internal bool Connect_Kill_Signal = false;
     public override void _ExitTree()
     {
         base._ExitTree();
@@ -178,42 +166,9 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         base._PhysicsProcess(delta);
         if (!Enable){return;}
         Object_Move(delta);
-        if (level == null)
-        {
-            Level_Master_Script Get_Level = Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level");
-            if (Get_Level != null)
-            {
-                level = Get_Level;
-            }
-        }
-                // 高度重定向
-        if (level != null && AutoSet_Lawn_Index == true)
-        {
-            if (Temp_Position_Y != practical_Position.Y + position_Offset.Y)
-            {
-                Temp_Position_Y = practical_Position.Y + position_Offset.Y;
-                reset_Lawn_Index();
-            }
-        }
-        else
-        {
-            GD.Print("??");
-        }
+        Get_Level();
+        ReSet_Index();
         SetPhysics_Position(delta);
-    }
-    /// <summary>
-    /// 重新设置索引
-    /// </summary>
-    public void reset_Lawn_Index()
-    {
-        if (Lawn_Index != -1){
-            level.Move_Lawn_Index(this,level.Get_LawnIndex(Position,position_Offset));
-        }
-        else
-        {
-            Lawn_Index = level.Get_LawnIndex(Position,position_Offset);
-            level.Add_Lawn_Index(this,Lawn_Index);
-        }
     }
     /// <summary>
     /// 重启检测器
@@ -283,6 +238,9 @@ public partial class LevelObject : Level.Module.ObjectPhysics
             if (!((Level.Object.LevelObject)node).Enable || !((Level.Object.LevelObject)node).Enable_Health){return;}
             bool Cheak = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
             if (!Cheak){return;}
+            if (!Cheak_HeightLevel((Level.Module.ObjectPhysics)node)){return;}
+            if (!Cheak_Lawn_Index((Level.Object.LevelObject)node)){return;}
+            if (!Cheak_Height((Module.ObjectPhysics)node)){return;}
             Current_detection_object.Add((Level.Object.LevelObject)node);
             EmitSignal("Object_Join",node);
         }
@@ -323,6 +281,16 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     public void Reduce_Health(int Reduce_Number,Node Damage_Object = null)
     {
         HP -= Reduce_Number;
-        EmitSignal("Health_Reduce",Damage_Object);
+        if (HP > Max_HP)
+        {
+            HP = Max_HP;
+        }
+        if (HP >= Min_HP){
+            EmitSignal("Health_Reduce",Damage_Object);
+        }
+        else
+        {
+            EmitSignalKill();
+        }
     }
 }

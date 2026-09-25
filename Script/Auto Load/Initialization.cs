@@ -1,7 +1,10 @@
 using Game.Static;
 using Godot;
 using System;
+using System.Dynamic;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Text;
 namespace Game.AutoLoad;
 /// <summary>
 /// 初始化静态类

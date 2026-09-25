@@ -47,6 +47,15 @@ public partial class Transmitter : Level.Object.LevelObject
         Area.BodyExited += ObjectExit;
         var @r = Reset_Area();
     }
+    public override void _ExitTree() {
+        base._ExitTree();
+        if (Connect_Kill_Signal)
+        {
+            level.Object_Kill -= ObjectExit;
+            level.Object_Change_Line -= Check_Change;
+            level.Object_Change_Height -= Cheak_Height_Change;
+        }
+    }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
         if (!Enable){return;}
@@ -56,6 +65,10 @@ public partial class Transmitter : Level.Object.LevelObject
             if (This_Initialization == false)
             {
                 level.Object_Kill += ObjectExit;
+                level.Object_Change_Line += Check_Change;
+                level.Object_Change_Height += Cheak_Height_Change;
+                Connect_Kill_Signal = true;
+                This_Initialization = true;
             }
         }
         if (this.Timer.TimeLeft == 0 && Current_detection_object.Count > 0)
@@ -67,9 +80,17 @@ public partial class Transmitter : Level.Object.LevelObject
             this.Timer.Start(Time);
         }
     }
-    public void Check_Change_line(Level.Object.LevelObject LevelObject)
+    public void Cheak_Height_Change(Level.Module.ObjectPhysics objectPhysics)
+    {
+        if (objectPhysics is Level.Object.LevelObject)
+        {
+            Check_Change((Level.Object.LevelObject)objectPhysics);
+        }
+    }
+    public void Check_Change(Level.Object.LevelObject LevelObject)
     {
         if (!Game.Cheak.CheakGroup.Cheak_Object_Group(LevelObject,detection_Group,Exclude_Group)){return;}
+        Current_detection_object.Clear();
         ReEnable_Area();
     }
     public void is_Damage(Node Damage_Object)
@@ -109,10 +130,7 @@ public partial class Transmitter : Level.Object.LevelObject
     {
         if (Node is Level.Object.LevelObject)
         {
-            if (((Level.Object.LevelObject)Node).Lawn_Index == Lawn_Index)
-            {
-                Add_Object(Node);
-            }
+            Add_Object(Node);
         }
     }
     /// <summary>

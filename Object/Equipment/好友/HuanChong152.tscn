@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://btp1a5xnilv42"]
 
 [ext_resource type="Texture2D" uid="uid://b1u0pu8dfcs51" path="res://Object/Equipment/好友/b_55b11ee7de24b7e7339369b254b853a9.jpg" id="1_d61kl"]
+[ext_resource type="Script" uid="uid://wysvclyp6nfw" path="res://Script/Object/Level_Object/equipment/Obsidian/Obsidian.cs" id="1_ys4ta"]
 
-[node name="HuanChong152" type="CharacterBody2D" unique_id=1210219377]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
+size = Vector2(128, 128)
+
+[node name="HuanChong152" type="CharacterBody2D" unique_id=1210219377 groups=["Equipment"]]
+script = ExtResource("1_ys4ta")
+Colors = Array[Color]([Color(1, 1, 1, 1)])
+Cheak_Index_Scoop = Vector2i(-1, 1)
+HP = 99999
+Max_HP = 99999
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712538110]
+z_index = -1
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_d61kl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1058686827]
+shape = SubResource("RectangleShape2D_wvhbo")

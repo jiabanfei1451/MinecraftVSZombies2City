@@ -20,6 +20,9 @@ public partial class Arrow : Level.Object.BulletData
     public override void _Process(double delta) {
         base._Process(delta);
         Position += Get_Rotation_Vector(Rotation / 3.14f * 180) * 80 * Speed * (float)delta;
+        Get_Level();
+        ReSet_Index();
+        practical_Position = Position;
     }
     public void Reset()
     {

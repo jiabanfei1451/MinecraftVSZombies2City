@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Game.AutoLoad;
 /// <summary>
@@ -49,7 +48,7 @@ public partial class Audio_List : Node
 			
 		}
 	};
-	[Export] public float Muisc_Volume = 0;
+	[Export] public float Muisc_Volume = 100;
 	[Export] public float Souds_Volume = 100;
 	/// <summary>
 	/// 使用字符串获取音效

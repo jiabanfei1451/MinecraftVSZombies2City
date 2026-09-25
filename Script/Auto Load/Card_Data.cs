@@ -72,9 +72,9 @@ public partial class Card_Data : Node
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),50,7.5f,7.5f,new Vec(2,2),new Vec(72,87));
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Monster/Zombies.tscn"),0,0,0,new Vec(2,2),new Vec(80,186),null,new Vec(40,70f));
-		Add_Data(Game.ResourceScene.LoadScene("uid://dhqc163eiuqrd"),78,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),78,0,0,new Vec(2,2),new Vec(73,94));
 		Add_Data(Game.ResourceScene.LoadScene("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceScene.LoadScene("uid://djytruxu3c3qt"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/好友/HuanChong152.tscn"),0,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
 		#endregion

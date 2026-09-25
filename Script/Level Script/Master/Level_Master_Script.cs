@@ -25,6 +25,12 @@ public partial class Level_Master_Script : Node2D{
 	/// <param name="Data_Object"></param>
 	[Signal]
 	public delegate void Object_Change_LineEventHandler(Level.Object.LevelObject Data_Object);
+	/// <summary>
+	/// 物体高度变更时
+	/// </summary>
+	/// <param name="Data_Object"></param>
+	[Signal]
+	public delegate void Object_Change_HeightEventHandler(Level.Module.ObjectPhysics Data_Object);
 	#region 变量
 	[Export] public bool DeBug = true;
 	[ExportCategory("看什么?难道你不知道脚本里有中文注释吗?")]
@@ -71,7 +77,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 物体索引
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Object.LevelObject>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Object.LevelObject>>();
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Module.ObjectPhysics>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Level.Module.ObjectPhysics>>();
 	/// <summary>
 	/// 物体索引坐标偏移
 	/// </summary>
@@ -230,7 +236,6 @@ public partial class Level_Master_Script : Node2D{
 		await Game.Tip.Set_Ready_Text(true,0.5d,true,2,1,"安放器械!!!");
 		await Task.Delay(1000);
 		Game.Tip.Set_Ready_Text("");
-		Game.Tip.Set_Tip_Text("你旁边的人是Gay!!!");
 		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc(((Level.Level_Master_Script)GetTree().CurrentScene).Level_BGMID);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI") != null){
@@ -399,7 +404,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 移动索引物体
 	/// </summary>
-	public void Move_Lawn_Index(Level.Object.LevelObject Data_Object,int Index)
+	public void Move_Lawn_Index(Level.Module.ObjectPhysics Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		if (!Check_Lawn_Index(Data_Object.Lawn_Index)){return;}
@@ -409,12 +414,11 @@ public partial class Level_Master_Script : Node2D{
 		Add_Lawn_Index(Data_Object,Index);
 		Remove_Lawn_Index(Data_Object,Temp_Index);
 		EmitSignal("Object_Change_Line",Data_Object);
-		Info.Print($"Object Change Line,Current Line:{Data_Object.Lawn_Index}");
 	}
 	/// <summary>
 	/// 添加索引物体
 	/// </summary>
-	public void Add_Lawn_Index(Level.Object.LevelObject Data_Object,int Index)
+	public void Add_Lawn_Index(Level.Module.ObjectPhysics Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		Lawn_Object_Index[Index].Add(Data_Object);
@@ -422,7 +426,7 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 删除索引物体
 	/// </summary>
-	public void Remove_Lawn_Index(Level.Object.LevelObject Data_Object,int Index)
+	public void Remove_Lawn_Index(Level.Module.ObjectPhysics Data_Object,int Index)
 	{
 		if (!Check_Lawn_Index(Index)){return;}
 		Lawn_Object_Index[Index].Remove(Data_Object);
