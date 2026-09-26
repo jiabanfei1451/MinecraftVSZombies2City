@@ -6,6 +6,7 @@ using Game;
 using Game.AutoLoad;
 using DEBUG;
 using System;
+using Game.Cheak;
 namespace GameUI{
 /// <summary>
 /// 卡槽
@@ -200,7 +201,7 @@ public partial class Card : Control
 		CD_Mask = GetNode<ColorRect>("Cilp_Node/CD");
 		Show_CD_Label = GetNode<Label>("Cilp_Node/ShowCD");
 		if (OS.GetName() != "Windows") {
-		GetNode<TouchPad>("Texture/TouchPad").End_Dragvoid += TouchDragEnd;
+			GetNode<TouchPad>("Texture/TouchPad").End_Dragvoid += TouchDragEnd;
 		}
 		switch (Card_Mode){
 		//选卡模式
@@ -309,7 +310,7 @@ public partial class Card : Control
 	#region 触摸事件
 	public void TouchDragEnd()
 	{
-		Placed();
+		
 	}
 	public void TouchUP()
 	{
@@ -376,34 +377,6 @@ public partial class Card : Control
 	{
 		Card getCard = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object;
 		return getCard;	
-	}
-	/// <summary>
-	/// 放置
-	/// </summary>
-	public Level.Object.LevelObject Placed(bool Sousume = true)
-	{
-		Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
-		Data.GlobalData data = Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
-		if (CDing == true){return null;}
-		if (Game.Level_Script.Equipment_Capable < data.Sonsume || Sousume == false){return null;}
-		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){return null;}
-		if (level.Selected_Lawn == null){return null;}
-		var Temp = Start_CD();
-		Game.Level_Script.Equipment_Capable -= data.Sonsume;
-		Level.Lawn Lawn = level.Selected_Lawn;
-		Level.Object.LevelObject node = data.Scene.Instantiate<Level.Object.LevelObject>();
-		node.Position = Lawn.Position + data.Map_Offset;
-		node.Scale = data.Map_Scale;
-		if (!node.IsInGroup("Monster")){
-			Lawn.Current_Object.Equipment_Object = node;
-			Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").AddChild(Lawn.Current_Object.Equipment_Object);
-		}
-		else
-		{
-			Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Monster").AddChild(node);
-		}
-		Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null;
-		return node;
 	}
 	/// <summary>
 	/// 开始冷却

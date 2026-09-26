@@ -2,7 +2,7 @@ using Godot;
 using MVZ2.Object.Interactive_Objects;
 using System;
 namespace MVZ2.Object.Equipment;
-public partial class Furnace : Level.Object.LevelObject
+public partial class Furnace : MVZ2.Object.Equipment.Equipment
 {
     [Export] internal Timer @Timer = null;
     [Export] internal AnimationPlayer animationPlayer = null;

@@ -1,4 +1,5 @@
 using System;
+using SaveData;
 using Data;
 using GameUI;
 using Godot;
@@ -31,8 +32,14 @@ public partial class Card_Data : Node
 	new Godot.Collections.Array(){},
 	// 地图大小8
 	new Godot.Collections.Array(){},
-	// 物体类型
-	new Godot.Collections.Array(){}
+	// 物体类型9
+	new Godot.Collections.Array(){},
+	// 依赖ID10
+	new Godot.Collections.Array(){},
+	// 依赖标签11
+	new Godot.Collections.Array(){},
+	// 放置在依赖之上是否自动销毁12
+	new Godot.Collections.Array(){},
 	};
 	/// <summary>
 	/// 已选择卡槽的剩余冷却
@@ -72,9 +79,9 @@ public partial class Card_Data : Node
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),50,7.5f,7.5f,new Vec(2,2),new Vec(72,87));
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Monster/Zombies.tscn"),0,0,0,new Vec(2,2),new Vec(80,186),null,new Vec(40,70f));
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),78,0,0,new Vec(2,2),new Vec(73,94));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),50,30,15,new Vec(2,2),new Vec(73,94));
 		Add_Data(Game.ResourceScene.LoadScene("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/好友/HuanChong152.tscn"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/好友/HuanChong152.tscn"),0,0,0,new Vec(2,2),new Vec(64,87),null,null,null, MVZ2.Type.ObjectType.Normal,null,new Array_String(["给给"]),true);
 		Add_Data(Game.ResourceScene.LoadScene("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
 		#endregion
@@ -185,6 +192,12 @@ public partial class Card_Data : Node
 	/// <param name="Scale">大小</param>
 	/// <param name="Offset">材质偏移</param>
 	/// <param name="Map_Scale">地图大小</param>
+	/// <param name="Map_Offset">地图偏移</param>
+	/// <param name="Mouse_Offset">鼠标偏移</param>
+	/// <param name="Object_Type">物体类型</param>
+	/// <param name="Reliant_UUID">依赖ID</param>
+	/// <param name="Reliant_Tag">依赖标签</param>
+	/// <param name="Auto_Free">放置在依赖之上是否自动销毁</param>
 	public void Add_Data(
 		PackedScene Scene = null,
 		int sonsume = 0,
@@ -195,13 +208,18 @@ public partial class Card_Data : Node
 		Vec Mouse_Offset = null,
 		Vec Map_Offset = null,
 		Vec Map_Scale = null,
-		MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal
+		MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal,
+		SaveData.Array_String Reliant_UUID = null,
+		SaveData.Array_String Reliant_Tag = null,
+		bool Auto_Free = false
 	){
 		Godot.Vector2 New_Scale = new Godot.Vector2(2,2);
 		Godot.Vector2 New_Offset = new Godot.Vector2(64,87);
 		Godot.Vector2 New_Mouse_Offset = Godot.Vector2.Zero;
 		Godot.Vector2 New_Map_Offset = new Godot.Vector2(40,48);
 		Godot.Vector2 New_Map_Scale = new Godot.Vector2(1,1);
+		Godot.Collections.Array<String> New_Reliant_UUID = new(){};
+		Godot.Collections.Array<String> New_Reliant_Tag = new(){};
 		if (Scale != null){
 			New_Scale = new Godot.Vector2(Scale.X,Scale.Y);
 		}
@@ -218,6 +236,14 @@ public partial class Card_Data : Node
 		{
 			New_Map_Scale = new Godot.Vector2(Map_Scale.X,Map_Scale.Y);
 		}
+		if (Reliant_UUID != null)
+		{
+			New_Reliant_UUID = Reliant_UUID.Variants;
+		}
+		if (Reliant_Tag != null)
+		{
+			New_Reliant_Tag = Reliant_Tag.Variants;
+		}
 		Data[0].Add(Scene);
 		Data[1].Add(sonsume);
 		Data[2].Add(CD);
@@ -228,6 +254,9 @@ public partial class Card_Data : Node
 		Data[7].Add(New_Map_Offset);
 		Data[8].Add(New_Map_Scale);
 		Data[9].Add((int)Object_Type);
+		Data[10].Add(New_Reliant_UUID);
+		Data[11].Add(New_Reliant_Tag);
+		Data[12].Add(Auto_Free);
 	}
 	#endregion
 	/// <summary>
@@ -241,16 +270,34 @@ public partial class Card_Data : Node
 		{
 			PackedScene scene = (PackedScene)Data[0][Index];
 			short sonsume = (short)Data[1][Index];
-			float CD = (float)Data[2][Index];
-			float RemoveCD = (float)Data[3][Index];
-			Godot.Vector2 Offset = (Godot.Vector2)Data[4][Index];
-			Godot.Vector2 Scale = (Godot.Vector2)Data[5][Index]; 
-			Godot.Vector2 Mouse_Offset = (Godot.Vector2)Data[6][Index];
-			Godot.Vector2 Map_Offset = (Godot.Vector2)Data[7][Index];
-			Godot.Vector2 Map_Scale = (Godot.Vector2)Data[8][Index];
-			MVZ2.Type.ObjectType Object_Type = GlobalData.GetObjectType((int)Data[9][Index]);
+			float cd = (float)Data[2][Index];
+			float removeCD = (float)Data[3][Index];
+			Godot.Vector2 offset = (Godot.Vector2)Data[4][Index];
+			Godot.Vector2 scale = (Godot.Vector2)Data[5][Index]; 
+			Godot.Vector2 mouse_Offset = (Godot.Vector2)Data[6][Index];
+			Godot.Vector2 map_Offset = (Godot.Vector2)Data[7][Index];
+			Godot.Vector2 map_Scale = (Godot.Vector2)Data[8][Index];
+			MVZ2.Type.ObjectType object_Type = GlobalData.GetObjectType((int)Data[9][Index]);
+			Godot.Collections.Array<String> reliant_UUID = (Godot.Collections.Array<String>)Data[10][Index];
+			Godot.Collections.Array<String> reliant_Tag = (Godot.Collections.Array<String>)Data[11][Index];
+			bool auto_Free_Reliant = (bool)Data[12][Index];
 			
-			Data.GlobalData Back = new Data.GlobalData(scene,sonsume,CD,RemoveCD,Scale,Offset,Mouse_Offset,Map_Offset,Map_Scale);
+			Data.GlobalData Back = new Data.GlobalData()
+			{
+				Scene = scene,
+				CD = cd,
+				Sonsume = sonsume,
+				First_Time_RemoveCD = removeCD,
+				Offset = offset,
+				Scale = scale,
+				Mouse_Offset = mouse_Offset,
+				Map_Offset = map_Offset,
+				Map_Scale = map_Scale,
+				Object_Type = object_Type,
+				Reliant_UUID = reliant_UUID,
+				Reliant_Tag = reliant_Tag,
+				Auto_Free_Reliant = auto_Free_Reliant
+			};
 			return Back;
 		}
 		else{return GlobalData.Zero();}
@@ -300,16 +347,6 @@ public partial class Card_Data : Node
 		/// 手机端卡槽边框贴图
 		/// </summary>
 		Image Texture_Border_PE = @Texture_Border_PE;
-	}
-	/// <summary>
-	/// 坐标存储
-	/// </summary>
-	/// <param name="X"></param>
-	/// <param name="Y"></param>
-	public class Vec(float X,float Y)
-	{
-		public float X {get;set;} = X;
-		public float Y {get;set;} = Y;
 	}
 
 	#endregion

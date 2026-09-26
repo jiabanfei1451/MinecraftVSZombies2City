@@ -88,9 +88,31 @@ public partial class ObjectPhysics : Node2D
     /// </summary>
     float Temp_Position_Y = -1;
     internal Level_Master_Script level {get;set;} = null;
-   /// <summary>
-   /// 重置物理坐标
-   /// </summary>
+    /// <summary>
+    /// 标签
+    /// </summary>
+    [ExportGroup("Misc")]
+    [Export] public Godot.Collections.Array<String> Tags = new(){};
+    /// <summary>
+    /// 对象内部ID
+    /// </summary>
+    [Export] public String Object_UUID = "MVZ2:";
+    /// <summary>
+    /// 对象名称
+    /// </summary>
+    [Export] public String Object_Name = "";
+    /// <summary>
+    /// 对象ID
+    /// </summary>
+    [Export] public int Object_ID = -1;
+    /// <summary>
+    /// 搜索索引模式
+    /// </summary>
+    [Export] public MVZ2_City.Type.IndexMode Index_Mode = MVZ2_City.Type.IndexMode.Name;
+    /// <summary>
+    /// 重置物理坐标
+    /// </summary>
+   
     internal void Reset_Position()
     {
         practical_Position = GlobalPosition;

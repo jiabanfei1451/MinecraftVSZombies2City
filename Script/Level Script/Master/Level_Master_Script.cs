@@ -8,6 +8,10 @@ using System.Text.RegularExpressions;
 using Level.Static;
 using Test;
 using NETDNS;
+using System.Text.Json;
+using System.Text;
+using Data;
+using Game.Cheak;
 
 namespace Level;
 /// <summary>
@@ -32,33 +36,33 @@ public partial class Level_Master_Script : Node2D{
 	[Signal]
 	public delegate void Object_Change_HeightEventHandler(Level.Module.ObjectPhysics Data_Object);
 	#region 变量
-	[Export] public bool DeBug = true;
+	[Export] public bool DeBug {get;set;} = true;
 	[ExportCategory("看什么?难道你不知道脚本里有中文注释吗?")]
-	[ExportGroup("BGM")][Export] public String Level_BGMID = "0";
+	[ExportGroup("BGM")][Export] public String Level_BGMID {get;set;} = "0";
 	/// <summary>
 	/// 节点生成
 	/// </summary>
 	[ExportGroup("Layer")]
-	[Export] public String[] Node_Index = ["Equipment","Master","Light"];
+	[Export] public String[] Node_Index {get;set;} = ["Equipment","Master","Light"];
 	/// <summary>
 	/// 图层分配
 	/// </summary>
-	[Export] public int[] Layer_Index = [0,1,2];
+	[Export] public int[] Layer_Index {get;set;} = [0,1,2];
 	/// <summary>
 	/// 类型分配
 	/// 0 = Node,
 	/// 1 = Viewport,
 	/// </summary>
-	[Export] public int[] Node_Type = [0,0,1];
+	[Export] public int[] Node_Type {get;set;} = [0,0,1];
 	/// <summary>
 	/// 选中的草坪
 	/// </summary>
 	[ExportGroup("Variant")]
-	[Export] public Lawn Selected_Lawn;
+	[Export] public Lawn Selected_Lawn {get;set;}
 	/// <summary>
 	/// 草坪生成数组
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<int>> Lawn_Array = new Godot.Collections.Array<Godot.Collections.Array<int>>()
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<int>> Lawn_Array {get;set;} = new Godot.Collections.Array<Godot.Collections.Array<int>>()
 	{
 		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
 		new Godot.Collections.Array<int>(){0,0,0,0,0,0,0,0,0},
@@ -69,87 +73,87 @@ public partial class Level_Master_Script : Node2D{
 	/// <summary>
 	/// 草坪偏移
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<Godot.Vector2>> Lawn_Offset_Array = new Godot.Collections.Array<Godot.Collections.Array<Vector2>>([[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]);
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Godot.Vector2>> Lawn_Offset_Array {get;set;} = new Godot.Collections.Array<Godot.Collections.Array<Vector2>>([[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]);
 	/// <summary>
 	/// 草坪实例化后的数据
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<Lawn>> Lawn_Data = new Godot.Collections.Array<Godot.Collections.Array<Lawn>>([[]]);
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Lawn>> Lawn_Data {get;set;} = new Godot.Collections.Array<Godot.Collections.Array<Lawn>>([[]]);
 	/// <summary>
 	/// 物体索引
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Module.ObjectPhysics>> Lawn_Object_Index = new Godot.Collections.Array<Godot.Collections.Array<Level.Module.ObjectPhysics>>();
+	[Export] public Godot.Collections.Array<Godot.Collections.Array<Level.Module.ObjectPhysics>> Lawn_Object_Index {get;set;} = new Godot.Collections.Array<Godot.Collections.Array<Level.Module.ObjectPhysics>>();
 	/// <summary>
 	/// 物体索引坐标偏移
 	/// </summary>
-	[Export] public Godot.Collections.Array<Godot.Vector2> Check_Position_Offset = new Godot.Collections.Array<Vector2>();
+	[Export] public Godot.Collections.Array<Godot.Vector2> Check_Position_Offset {get;set;} = new Godot.Collections.Array<Vector2>();
 	/// <summary>
 	/// 自动生成草坪
 	/// </summary>
-	[Export] public bool Auto_Spawn_Lawn = true;
+	[Export] public bool Auto_Spawn_Lawn {get;set;} = true;
 	/// <summary>
 	/// 草坪每次生成后的偏移
 	/// </summary>
-	[Export] public Godot.Vector2 Lawn_Spawn_Offect = new Godot.Vector2(80,80);
+	[Export] public Godot.Vector2 Lawn_Spawn_Offect {get;set;} = new Godot.Vector2(80,80);
 	/// <summary>
 	/// 草坪开始生成坐标
 	/// </summary>
-	[Export] public Godot.Vector2 Lawn_Spawn_Position = new Godot.Vector2(-428,-181);
+	[Export] public Godot.Vector2 Lawn_Spawn_Position {get;set;} = new Godot.Vector2(-428,-181);
 	/// <summary>
 	/// 用于实例化的草坪场景
 	/// </summary>
-	[Export] public PackedScene LawnScene;
+	[Export] public PackedScene LawnScene {get;set;} = null;
 	/// <summary>
 	/// 摄像机
 	/// </summary>
 	[ExportGroup("Node")]
-	[Export] public Godot.Camera2D Camera2D = null;
+	[Export] public Godot.Camera2D Camera2D {get;set;} = null;
 	/// <summary>
 	/// 相机坐标
 	/// </summary>
-	[Export] public Godot.Vector2 Camera2D_Position = new Godot.Vector2(0,0);
+	[Export] public Godot.Vector2 Camera2D_Position {get;set;} = new Godot.Vector2(0,0);
 	/// <summary>
 	/// 相机偏移
 	/// </summary>
-	[Export] public Godot.Vector2 Camera2D_Offset = new Godot.Vector2(0,-25);
+	[Export] public Godot.Vector2 Camera2D_Offset {get;set;} = new Godot.Vector2(0,-25);
 	/// <summary>
 	/// 相机聚焦
 	/// </summary>
-	[Export] public Godot.Vector2 Camera2D_Zoom = new Godot.Vector2(1,1);
+	[Export] public Godot.Vector2 Camera2D_Zoom {get;set;} = new Godot.Vector2(1,1);
 	/// <summary>
 	/// 缓动帧率
 	/// </summary>
-	[Export] public int Fps_Easing = 30;
+	[Export] public int Fps_Easing {get;set;} = 30;
 	/// <summary>
 	/// 草坪场景
 	/// </summary>
-	[Export] public Tween Camera2D_Easing = null;
+	[Export] public Tween Camera2D_Easing {get;set;} = null;
 	[ExportGroup("Get_Node")]
-	[Export] public Node2D Lawn_Node;
+	[Export] public Node2D Lawn_Node {get;set;} = null;
 	/// <summary>
 	/// 光源
 	/// </summary>
 	[ExportGroup("Light")]
-	[Export] public float Light = 1;
+	[Export] public float Light {get;set;} = 1;
 	/// <summary>
 	/// 光源偏移
 	/// </summary>
-	[Export] public float Light_Offset = 1;
+	[Export] public float Light_Offset {get;set;} = 1;
 	/// <summary>
 	/// Ready执行完成
 	/// </summary>
-	[Export] public bool Game_Reset_Done = false;
+	[Export] public bool Game_Reset_Done {get;set;} = false;
 	/// <summary>
 	/// 已完成种子获取
 	/// </summary>
-	internal bool Seed_OK = false;
+	internal bool Seed_OK {get;set;} = false;
 	/// <summary>
 	/// 临时音频缩放
 	/// </summary>
-	internal byte Temp_audio_Scale = 0;
+	internal byte Temp_audio_Scale {get;set;} = 0;
 	/// <summary>
 	/// 临时倒计时
 	/// </summary>
-	internal float Temp_audio_await_timer = 0; 
+	internal float Temp_audio_await_timer {get;set;} = 0; 
 	#endregion
 	/// <summary>
 	/// 用于摄像机缓动的process
@@ -295,6 +299,9 @@ public partial class Level_Master_Script : Node2D{
 		}else if(Seed_Why.IndexOf("/OffServer") != -1)
 		{
 			Server.Off_Server();
+		}else if(Seed_Why.IndexOf("/Save") != -1)
+		{
+			Summand.Save();
 		}
 		if (Server.Server_Stream != null)
 		{
@@ -315,7 +322,9 @@ public partial class Level_Master_Script : Node2D{
 	/// <param name="This"></param>
 	public void Lawn_Change_Color(Level.Lawn This)
 	{
-		if (Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object == null){return;}
+		Game.Card_Data card_Data = Get_GlobalNode.Get_Card_Data(GetTree());
+		if (card_Data == null){return;}
+		if (card_Data.Selected_raw_Object == null){return;}
 		foreach (var Arra in Lawn_Data)
 		{
 			foreach (Lawn ARR in Arra)
@@ -332,18 +341,27 @@ public partial class Level_Master_Script : Node2D{
 		{
 			Lawn_Current_Color(lawns[This.ArrayPosition.X]);
 		}
-		if (Level_Script.Lawn == This && This.Current_Object.Equipment_Object == null){
-			This.Summand_Phantom();
-			This.Color = new Color(0,1,0,1);
-			Selected_Lawn = This;
-			Level_Script.Lawn = This;
+		GlobalData Temp_data = card_Data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		String Get_Object_Type = Temp_data.Object_Type.ToString();
+		if (Level_Script.Lawn == This && This.Current_Object.Has_Key_Object(Get_Object_Type) == null && Temp_data.Object_Type == MVZ2.Type.ObjectType.Normal && (Temp_data.Reliant_Tag.Count <= 0 && Temp_data.Reliant_UUID.Count <= 0)){
+			Change_Lawn(This,new Color(0,1,0,1));
+		}else if (Cheak.Cheak_Data(This.Current_Object.Has_Key_Object(Get_Object_Type), Temp_data))
+		{
+			Change_Lawn(This,new Color(0,1,0,1));
 		}
 		else
 		{
-			This.Color = new Color(1,0,0,1);
-			Selected_Lawn = This;
-			Level_Script.Lawn = This;
+			Change_Lawn(This,new Color(1,0,0,1),false);
 		}
+	}
+	internal void Change_Lawn(Level.Lawn This,Color color,bool Summand_Phantom = true)
+	{
+		if (Summand_Phantom == true){
+			This.Summand_Phantom();
+		}
+		This.Color = color;
+		Selected_Lawn = This;
+		Level_Script.Lawn = This;
 	}
 	/// <summary>
 	/// 根据器械状态判定此草坪能否被选用
@@ -355,7 +373,7 @@ public partial class Level_Master_Script : Node2D{
 		MVZ2.Type.ObjectType Types = data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data.Object_Type;
 		if (Types == MVZ2.Type.ObjectType.Normal)
 		{
-			if (lawn.Current_Object.Equipment_Object == null)
+			if (lawn.Current_Object.Has_Key_Object("Normal") == null)
 			{
 				lawn.Color = new Color(1,1,1,0.5f);
 			}
@@ -380,7 +398,6 @@ public partial class Level_Master_Script : Node2D{
 				Lawn.ArrayPosition = new Vector2I(X,Y);
 				Lawn.Position = Lawn_Spawn_Position + new Godot.Vector2(Lawn_Spawn_Offect.X * X,Lawn_Spawn_Offect.Y * Y) + Spawn_Offset;
 				Lawn.Name = "Lawn(" + string.Concat(X) + "," + string.Concat(Y) + ")";
-				Lawn.ME_Join += Lawn_Change_Color;
 				Object_Kill += Lawn.Object_Kill;
 				Lawn_Data[Y].Add(Lawn);
 				Lawn_Node.AddChild(Lawn);
@@ -560,6 +577,7 @@ public partial class Level_Master_Script : Node2D{
 		base._Ready();
 		Object_Kill += Static.Summand.Monster_Kill;
 		Reset_Lawn_Index();
+		Level_Script.Level_Object = this;
 		LawnScene = Game.ResourceScene.LoadScene("uid://dim8rk13omwvv");
 		Touch.Touch_Index.Set_Index_Enable(0,false);
 		Game.Get_GlobalNode.Node_Data.Clear_Node();

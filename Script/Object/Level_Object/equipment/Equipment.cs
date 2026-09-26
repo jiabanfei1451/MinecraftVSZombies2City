@@ -1,0 +1,68 @@
+using Godot;
+namespace MVZ2.Object.Equipment;
+public partial class Equipment : Level.Object.LevelObject
+{
+    [ExportGroup("Number")]
+    [Export] public int Kill_Number = 50;
+    /// <summary>
+    /// 颜色
+    /// </summary>
+    [Export] public int Particie_Number = 2;
+    /// <summary>
+    /// 颜色
+    /// </summary>
+    [Export] public Godot.Collections.Array<Color> Colors = new();
+    /// <summary>
+    /// 大招状态
+    /// </summary>
+    [Export] public bool Ultimate_Move = false;
+    /// <summary>
+    /// 死亡自动销毁
+    /// </summary>
+    [Export] public bool Kill_Auto_Free = true;
+    public override void _Ready() {
+        base._Ready();
+        Health_Reduce += This_Damage;
+        Kill += This_Kill;
+    }
+    public void This_Damage(Node Damage_Object)
+    {
+        for (int i = 0;i < Particie_Number;i++){
+            float x = -Game.Get.Random.NextFloat_32(24,0);
+            float y = -Game.Get.Random.NextFloat_32(21,0);
+            float x2 = Game.Get.Random.NextFloat_32(24,0);
+            float y2 = Game.Get.Random.NextFloat_32(22,0);
+            Vector2 Summand_Position = new(x + x2,y + y2);
+            PackedScene packed = Game.ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
+            MVZ2.Object.Particie Summand_Particie = packed.Instantiate<MVZ2.Object.Particie>();
+            Summand_Particie.Enable = false;
+            Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("particle").AddChild(Summand_Particie);
+            Summand_Particie.Position = Position + Summand_Position;
+            Summand_Particie.Random_Color = false;
+            Summand_Particie.Modulate = Colors.PickRandom();
+            Summand_Particie.EmitSignal(MVZ2.Object.Particie.SignalName.Initialization);
+        }
+    }
+    public void This_Kill()
+    {
+        if (!Kill_Auto_Free){return;}
+        level.EmitSignal("Object_Kill",this);
+        Modulate = new Color(0,0,0,0);
+        for (int i = 0;i < Kill_Number;i++){
+            float x = -Game.Get.Random.NextFloat_32(24,0);
+            float y = -Game.Get.Random.NextFloat_32(21,0);
+            float x2 = Game.Get.Random.NextFloat_32(24,0);
+            float y2 = Game.Get.Random.NextFloat_32(22,0);
+            Vector2 Summand_Position = new(x + x2,y + y2);
+            PackedScene packed = Game.ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
+            MVZ2.Object.Particie Summand_Particie = packed.Instantiate<MVZ2.Object.Particie>();
+            Summand_Particie.Enable = false;
+            Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("particle").AddChild(Summand_Particie);
+            Summand_Particie.Position = Position + Summand_Position;
+            Summand_Particie.Random_Color = false;
+            Summand_Particie.Modulate = Colors.PickRandom();
+            Summand_Particie.EmitSignal(MVZ2.Object.Particie.SignalName.Initialization);
+        }
+        QueueFree();
+    }
+}

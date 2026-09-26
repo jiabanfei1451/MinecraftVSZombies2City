@@ -15,59 +15,60 @@ namespace Data;
 /// <param name="Mouse_Offset">光标坐标偏移</param>
 /// <param name="Map_Offset">地图坐标偏移</param>
 /// <param name="Map_Scale">地图大小</param>
-public struct GlobalData(
-    PackedScene @Scene,
-    short @sonsume,
-    float @CD,
-    float @First_Time_RemoveCD,
-    Godot.Vector2 @Scale,
-    Godot.Vector2 @Offset,
-    Godot.Vector2 @Mouse_Offset,
-    Godot.Vector2 @Map_Offset,
-    Godot.Vector2 @Map_Scale,
-    MVZ2.Type.ObjectType @Object_Type = MVZ2.Type.ObjectType.Normal
-){
+public struct GlobalData(){
 
     /// <summary>
     /// 物体场景
     /// </summary>
-    public PackedScene Scene = @Scene;
+    public PackedScene Scene {get;set;}
     /// <summary>
     /// 消耗
     /// </summary>
-    public short Sonsume = @sonsume;
+    public short Sonsume {get;set;}
     /// <summary>
     /// 冷却时间
     /// </summary>
-    public float CD = @CD;
+    public float CD {get;set;}
     /// <summary>
     /// 首次冷却时减少冷却
     /// </summary>
-    public float First_Time_RemoveCD = @First_Time_RemoveCD;
+    public float First_Time_RemoveCD {get;set;}
     /// <summary>
     /// 材质大小
     /// </summary>
-    public Godot.Vector2 Scale = @Scale;
+    public Godot.Vector2 Scale {get;set;}
     /// <summary>
     /// 材质偏移
     /// </summary>
-    public Godot.Vector2 Offset = @Offset;
+    public Godot.Vector2 Offset {get;set;}
     /// <summary>
     /// 鼠标偏移
     /// </summary>
-    public Godot.Vector2 Mouse_Offset = @Mouse_Offset;
+    public Godot.Vector2 Mouse_Offset {get;set;}
     /// <summary>
     /// 地图偏移
     /// </summary>
-    public Godot.Vector2 Map_Offset = @Map_Offset;
+    public Godot.Vector2 Map_Offset {get;set;}
     /// <summary>
     /// 地图缩放
     /// </summary>
-    public Godot.Vector2 Map_Scale = @Map_Scale;
+    public Godot.Vector2 Map_Scale {get;set;}
     /// <summary>
     /// 物体类型
     /// </summary>
-    public MVZ2.Type.ObjectType Object_Type = @Object_Type;
+    public MVZ2.Type.ObjectType Object_Type {get;set;} = MVZ2.Type.ObjectType.Normal;
+    /// <summary>
+    /// 依赖ID
+    /// </summary>
+    public Godot.Collections.Array<String> Reliant_UUID {get;set;}
+    /// <summary>
+    /// 依赖标签
+    /// </summary>
+    public Godot.Collections.Array<String> Reliant_Tag {get;set;}
+    /// <summary>
+    /// 自动释放依赖
+    /// </summary>
+    public bool Auto_Free_Reliant {get;set;}
     /// <summary>
     /// 这是空值
     /// </summary>

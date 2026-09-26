@@ -1,11 +1,13 @@
 using System;
 using Godot;
+using Level;
 namespace Game{
 /// <summary>
 /// 关卡数据存储
 /// </summary>
 static class Level_Script : Object
 {
+	public static Level_Master_Script Level_Object = null;
 	public static bool Card_Drag = false;
 	/// <summary>
 	/// 器械能
@@ -15,6 +17,9 @@ static class Level_Script : Object
 	/// 音高
 	/// </summary>
 	public static byte audio_Scale = 0;
+	/// <summary>
+	/// 草坪
+	/// </summary>
 	public static Godot.ColorRect Lawn;
 	public enum Calculation_Type
 	{

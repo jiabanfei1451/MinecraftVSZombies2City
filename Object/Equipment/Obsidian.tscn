@@ -217,6 +217,8 @@ script = ExtResource("1_rdapt")
 Colors = Array[Color]([Color(0.03137255, 0.03137255, 0.043137256, 1), Color(0.23137255, 0.18431373, 0.34117648, 1), Color(0.17254902, 0.13333334, 0.24313726, 1), Color(0.25882354, 0.20392157, 0.36862746, 1), Color(0.16078432, 0.12941177, 0.23137255, 1), Color(0.11764706, 0.09411765, 0.16470589, 1), Color(0.09803922, 0.08235294, 0.14509805, 1), Color(0.0627451, 0.0627451, 0.078431375, 1), Color(0.07058824, 0.0627451, 0.10980392, 1), Color(0.12156863, 0.09803922, 0.18431373, 1)])
 HP = 4000
 Max_HP = 4000
+ID = "MVZ2:Obsidian"
+Object_Name = "黑曜石"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1631938203]
 libraries/ = SubResource("AnimationLibrary_olhwo")

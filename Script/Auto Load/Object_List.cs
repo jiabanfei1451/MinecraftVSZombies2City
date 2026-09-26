@@ -21,6 +21,9 @@ public partial class Object_List : Node
         Game.Get_GlobalNode.object_List = this;
         add_Object_Packed(Game.ResourceScene.LoadScene("uid://bx78lmkp8si7e"),"MVZ2:Zombies","僵尸");
         add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),"MVZ2:Transmitter","发射器");
+        add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),"MVZ2:Furnace","熔炉");
+        add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),"MVZ2:Obsidian","黑曜石");
+
     }
     public void add_Object_Packed(PackedScene ObjectScene,String name,String CH_Name = "null")
     {
@@ -36,10 +39,10 @@ public partial class Object_List : Node
     public PackedScene Get_Packed(MVZ2_City.Type.ID ID_Object)
     {
         int Index = -1;
-        if (ID_Object.Index_Mode == ID.IndexMode.Name)
+        if (ID_Object.Index_Mode == IndexMode.Name)
         {
             Index = Object_Name_ID.IndexOf(ID_Object.Object_Name_ID);
-        }else if(ID_Object.Index_Mode == ID.IndexMode.CH_Name)
+        }else if(ID_Object.Index_Mode == IndexMode.CH_Name)
         {
             
         }
@@ -55,9 +58,27 @@ public partial class Object_List : Node
     /// <param name="Index"></param>
     /// <param name="indexMode"></param>
     /// <returns></returns>
-    public MVZ2_City.Type.ID Get_ID(String Index = "0",MVZ2_City.Type.ID.IndexMode indexMode = ID.IndexMode.Name)
+    public MVZ2_City.Type.ID Get_ID(String Index = "0",MVZ2_City.Type.IndexMode indexMode = IndexMode.index)
     {
         MVZ2_City.Type.ID iD = new(-1,"-1");
+        // 转化格式(假)
+        if (indexMode == IndexMode.Name)
+        {
+            if (Index.IndexOf("Str:") == -1)
+            {
+                string Temp = Index;
+                Index = "Str:" + Temp;
+            }
+        }
+        if (indexMode == IndexMode.CH_Name)
+        {
+            if (Index.IndexOf("CH:") == -1)
+            {
+                string Temp = Index;
+                Index = "CH:" + Temp;
+            }
+        }
+
         if (Index.Length > 4 && Index[0..4] == "Str:")
         {
             iD.Object_ID = Object_Name_ID.IndexOf(Index[5..]);

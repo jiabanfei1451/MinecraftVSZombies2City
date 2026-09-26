@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DEBUG;
 using Godot;
@@ -108,10 +109,10 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         /// </summary>
         Script_Driver = 1,
     }
+    #endregion
     /// <summary>
     /// 基于Practical_Position的偏移量
     /// </summary>
-    #endregion
     [ExportGroup("status")] 
     [Export] public bool Enable = true;
     /// <summary>

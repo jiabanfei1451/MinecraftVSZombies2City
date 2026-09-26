@@ -1,5 +1,4 @@
 using System;
-using Godot;
 namespace MVZ2_City.Type;
 public class ID(int @Object_ID,String @Object_NameID,String @CH_Name = "null")
 {
@@ -16,10 +15,4 @@ public class ID(int @Object_ID,String @Object_NameID,String @CH_Name = "null")
     /// </summary>
     public int Object_ID = @Object_ID;
     public IndexMode Index_Mode = IndexMode.index;
-    public enum IndexMode : sbyte
-    {
-        index = 0,
-        Name = 1,
-        CH_Name = 2
-    }
 }

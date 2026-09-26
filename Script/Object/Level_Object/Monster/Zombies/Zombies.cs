@@ -67,6 +67,7 @@ public partial class Zombies : Level.Object.LevelObject
         ShaderMaterial shader = new ShaderMaterial();
         shader.Shader = Game.ResourceShader.LoadShader("uid://cph5hxe55k3bo");
         ShaderNode.Material = shader;
+        Kill += This_Kill;
         if (!Enable){return;}
         Health_Reduce += Object_damage;
         var @re = Reset_Area();
@@ -129,34 +130,36 @@ public partial class Zombies : Level.Object.LevelObject
                 Damage_Tween.TweenProperty(this,new NodePath(MVZ2.Object.Monster.Zombies.PropertyName.Temp_Color),new Color(0,0,0,1),0.3);
             }
         }
-        else
-        {
-            if (Damage_Tween != null)
-            {
-                Damage_Tween.Kill();
-            }
-            Damage_Tween = CreateTween();
-            Damage_Tween.TweenProperty(this,new NodePath(MVZ2.Object.Monster.Zombies.PropertyName.Temp_Color ),new Color(0.75f,-0.5f,-0.5f,1),0.1);
-            Kill_Souds.Play();
-            RemoveFromGroup("Monster");
-            Enable_Health = false;
-            auto_Move = false;
-            kill =true;
-            detection_Group.Clear();
-            CreateTween().TweenProperty(this,new NodePath(Node2D.PropertyName.Rotation),90 * 3.14 / 180,1).SetTrans(Game.Get.TweenType.GetTweenType(Game.Get.TweenType.Twee.正弦));    
-            if (level != null)
-            {
-                level.EmitSignal(Level_Master_Script.SignalName.Object_Kill,this);
-            }
-        }
-        
-
     }
+    /// <summary>
+    /// 检测到物体死亡
+    /// </summary>
+    /// <param name="levelObject"></param>
     public void Object_Kill(Level.Object.LevelObject levelObject)
     {
         if (CheakGroup.Cheak_Object_Group(levelObject,detection_Group,Exclude_Group) == true)
         {
             Remove_Null_Object();
+        }
+    }
+    public void This_Kill()
+    {
+        if (Damage_Tween != null)
+        {
+            Damage_Tween.Kill();
+        }
+        Damage_Tween = CreateTween();
+        Damage_Tween.TweenProperty(this,new NodePath(MVZ2.Object.Monster.Zombies.PropertyName.Temp_Color ),new Color(0.75f,-0.5f,-0.5f,1),0.1);
+        Kill_Souds.Play();
+        RemoveFromGroup("Monster");
+        Enable_Health = false;
+        auto_Move = false;
+        kill =true;
+        detection_Group.Clear();
+        CreateTween().TweenProperty(this,new NodePath(Node2D.PropertyName.Rotation),90 * 3.14 / 180,1).SetTrans(Game.Get.TweenType.GetTweenType(Game.Get.TweenType.Twee.正弦));    
+        if (level != null)
+        {
+            level.EmitSignal(Level_Master_Script.SignalName.Object_Kill,this);
         }
     }
     public override async void _Process(double delta) {

@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MVZ2_City.Type;
 using DEBUG;
+using System.Text.Json;
+using System.Text;
 
 namespace Level.Static;
 /// <summary>
@@ -16,15 +18,15 @@ public static class Summand
     /// <summary>
     /// 种子
     /// </summary>
-    public static ulong Seed = 1;
+    public static ulong Seed {get;set;} = 1;
     /// <summary>
     /// 树节点
     /// </summary>
-    public static SceneTree Tree;
+    public static SceneTree Tree ;
     /// <summary>
     /// 关卡节点脚本
     /// </summary>
-    public static Level_Master_Script Level_Object = null;
+    public static Level_Master_Script Level_Object {get;set;} = null;
     /// <summary>
     /// 波次生成怪物ID
     /// </summary>
@@ -56,7 +58,7 @@ public static class Summand
     /// <summary>
     /// 已生成的怪物
     /// </summary>
-    public static Godot.Collections.Array<Level.Object.LevelObject> Generated_Object = new();
+    public static Godot.Collections.Array<Level.Object.LevelObject> Generated_Object {get;set;} = new();
     /// <summary>
     /// 完成检测ID
     /// </summary>
@@ -68,37 +70,65 @@ public static class Summand
     /// <summary>
     /// 生成中
     /// </summary>
-    public static bool Summand_Ing = false;
+    public static bool Summand_Ing {get;set;} = false;
     /// <summary>
     /// 当前波次
     /// </summary>
-    public static int Current_Wave = -1;
+    public static int Current_Wave {get;set;} = -1;
     /// <summary>
     /// 随机生成器
     /// </summary>
-    public static Godot.RandomNumberGenerator random = new();
+    public static Godot.RandomNumberGenerator random {get;set;} = new();
     /// <summary>
     /// 运算逻辑
     /// </summary>
     /// <param name="delta"></param>
-    public static WhileMode While_Mode = WhileMode.Process;
+    public static MVZ2_City.Type.WhileMode While_Mode {get;set;} = MVZ2_City.Type.WhileMode._Process;
     /// <summary>
     /// 循环状态 当while_Mode = While时才会改变
     /// </summary>
-    static bool While_ing = false;
+    static bool While_ing {get;set;} = false;
     /// <summary>
     /// 生成倒计时
     /// </summary>
-    public static float Start_Timer = 0;
+    public static float Start_Timer {get;set;} = 0;
     public static void _Ready()
     {
         Seed = (ulong)new Random().Next(0,210000000);
         random.Seed = Seed;
     }
-    public enum WhileMode
+    public static void Save()
     {
-        While = 0,
-        Process = 1
+        SaveData.SaveSummanddata Save_Summand = new()
+        {
+            Await_Mouster = Await_Mouster,
+            Await_Next_Time = Await_Next_Time,
+            Current_Wave = Current_Wave,
+            ENDCheck_bool = ENDCheck_bool,
+            ENDCheck_ID = ENDCheck_ID,
+            Specify_Monster_Summand = Specify_Monster_Summand,
+            Specify_Position = Specify_Position,
+            Summand_Ing = Summand_Ing,
+            Summand_Number = Summand_Number,
+            While_Mode = While_Mode,
+            While_ing = While_ing,
+            Start_Timer = Start_Timer
+        };
+        Save_Summand.Await_Mouster = Await_Mouster;
+        Save_Summand.Await_Next_Time = Await_Next_Time;
+        Save_Summand.Current_Wave = Current_Wave;
+        Save_Summand.ENDCheck_bool = ENDCheck_bool;
+        Save_Summand.ENDCheck_ID = ENDCheck_ID;
+        Save_Summand.Specify_Monster_Summand = Specify_Monster_Summand;
+        Save_Summand.Specify_Position = Specify_Position;
+        Save_Summand.Summand_Ing = Summand_Ing;
+        Save_Summand.Summand_Number = Summand_Number;
+        Save_Summand.While_Mode = While_Mode;
+        Save_Summand.While_ing = While_ing;
+        
+        String JsonText = JsonSerializer.Serialize(Save_Summand);
+        var fileStream = Godot.IO.LoadText.Create_File("user://Level.lvl");
+        fileStream.Write(Encoding.UTF8.GetBytes(JsonText));
     }
     public static bool calculate(double delta)
     {
@@ -122,7 +152,7 @@ public static class Summand
     public static void _Process(double delta)
     {
         if (!Summand_Ing){return;}
-        if (While_Mode != WhileMode.Process){return;}
+        if (While_Mode != MVZ2_City.Type.WhileMode._Process){return;}
         calculate(delta);
     }
     /// <summary>
@@ -131,7 +161,7 @@ public static class Summand
     public static async void While_Start()
     {
         Summand_Data.Initialization();
-        if (While_Mode != WhileMode.While){return;}
+        if (While_Mode != MVZ2_City.Type.WhileMode._While){return;}
         Summand_Ing = true;
         While_ing = true;
         while (Current_Wave <= Object_ID.Count && Summand_Ing && While_ing){
@@ -297,7 +327,7 @@ public static class Summand
         }
         foreach(var s in Specify_Monster_Summand)
         {
-            if (Object_ID.Index_Mode == ID.IndexMode.Name)
+            if (Object_ID.Index_Mode == IndexMode.Name)
             {
                 if (Object_ID.Object_Name_ID == s.Object_Name_ID)
                 {
@@ -306,7 +336,7 @@ public static class Summand
                     return true;
                 }
             }
-            else if(Object_ID.Index_Mode == ID.IndexMode.CH_Name)
+            else if(Object_ID.Index_Mode == IndexMode.CH_Name)
             {
                 if (Object_ID.CH_Name == s.CH_Name)
                 {

@@ -14,8 +14,8 @@ texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
 Level_BGMID = "4"
-Node_Index = PackedStringArray("Equipment", "Monster", "Light", "Shoot", "particle", "item")
-Layer_Index = PackedInt32Array(1, 2, 3, 2, 3, 9)
+Node_Index = PackedStringArray("Equipment", "Monster", "Shoot", "particle", "Light", "item")
+Layer_Index = PackedInt32Array(1, 2, 2, 3, 4, 9)
 Node_Type = PackedInt32Array(0, 0, 2, 0, 0, 0)
 Check_Position_Offset = Array[Vector2]([Vector2(0, 0)])
 
@@ -77,9 +77,6 @@ offset_top = -2483.0
 offset_right = -672.0
 offset_bottom = 1517.0
 color = Color(0, 0, 0, 1)
-
-[node name="Monster" type="Node2D" parent="." unique_id=554991016]
-y_sort_enabled = true
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1336448921]
 position = Vector2(-69, 0)

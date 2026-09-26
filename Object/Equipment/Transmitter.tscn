@@ -168,17 +168,22 @@ texture_filter = 1
 slide_on_ceiling = false
 script = ExtResource("1_ius62")
 Summand_shoot_Position = NodePath("Marker2D")
+Colors = Array[Color]([Color(0.19607843, 0.19607843, 0.19607843, 1), Color(0, 0, 0, 1), Color(0.5294118, 0.5294118, 0.5294118, 1), Color(0.6, 0.6, 0.6, 1), Color(0.67058825, 0.67058825, 0.67058825, 1), Color(0.84313726, 0.84313726, 0.84313726, 1), Color(0.6, 0.6, 0.6, 1), Color(0.30588236, 0.30588236, 0.30588236, 1), Color(0.40392157, 0.40392157, 0.40392157, 1), Color(0.27450982, 0.27450982, 0.27450982, 1), Color(0.7764706, 0.64705884, 0.4392157, 1), Color(0.4, 0.32156864, 0.19607843, 1), Color(0.61960787, 0.5058824, 0.32941177, 1), Color(0.61960787, 0.5176471, 0.3137255, 1), Color(0.53333336, 0.44313726, 0.25882354, 1), Color(0.1882353, 0.14509805, 0.078431375, 1), Color(0.1882353, 0.14509805, 0.078431375, 1), Color(0, 0, 0, 1)])
 Area = NodePath("Area")
 HP = 300
 Max_HP = 300
 MoveType = 1
 detection_Group = Array[StringName]([&"Monster"])
+Tags = Array[String](["给给"])
+Object_Name = "发射器"
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=2075903930]
+z_as_relative = false
 position = Vector2(1, 12)
 texture = ExtResource("1_g8d7r")
 
 [node name="Texture2" type="Sprite2D" parent="." unique_id=1314658070]
+z_as_relative = false
 position = Vector2(0, -19)
 texture = ExtResource("2_buk1g")
 
