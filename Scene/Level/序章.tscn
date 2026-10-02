@@ -13,10 +13,7 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
-Level_BGMID = "4"
-Node_Index = PackedStringArray("Equipment", "Monster", "Shoot", "particle", "Light", "item")
-Layer_Index = PackedInt32Array(1, 2, 2, 3, 4, 9)
-Node_Type = PackedInt32Array(0, 0, 2, 0, 0, 0)
+Level_BGMID = "2"
 Check_Position_Offset = Array[Vector2]([Vector2(0, 0)])
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=939464027]

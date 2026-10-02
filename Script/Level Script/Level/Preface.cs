@@ -1,7 +1,4 @@
 using Godot;
-using DEBUG;
-using System.Threading.Tasks;
-using Level.Static;
 namespace Level;
 /// <summary>
 /// 序章

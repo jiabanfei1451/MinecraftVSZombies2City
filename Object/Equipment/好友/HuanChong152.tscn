@@ -9,9 +9,11 @@ size = Vector2(128, 128)
 [node name="HuanChong152" type="CharacterBody2D" unique_id=1210219377 groups=["Equipment"]]
 script = ExtResource("1_ys4ta")
 Colors = Array[Color]([Color(1, 1, 1, 1)])
-Cheak_Index_Scoop = Vector2i(-1, 1)
 HP = 99999
 Max_HP = 99999
+Cheak_Index_Scoop = Vector2i(-1, 1)
+Enable_Placed_Reliant = true
+Reliant_Tag = Array[String](["给给"])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712538110]
 z_index = -1

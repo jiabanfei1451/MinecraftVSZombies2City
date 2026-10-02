@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
 [ext_resource type="Script" uid="uid://djfmlfakakora" path="res://Test/Text.cs" id="1_gtax4"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="2_gtax4"]
+[ext_resource type="Script" uid="uid://bg8ykcra6p6gb" path="res://Test/TouchPad.cs" id="2_gtax4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 
@@ -83,16 +83,25 @@ offset_top = 138.0
 offset_right = 338.0
 offset_bottom = 178.0
 
-[node name="TouchPad" type="Control" parent="ColorRect" unique_id=428812744]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Camera2D" type="Camera2D" parent="." unique_id=654716769]
+position = Vector2(1095, 946)
+zoom = Vector2(0.1, 0.1)
+
+[node name="TouchPad" type="Control" parent="Camera2D" unique_id=428812744]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -6120.0
+offset_top = -3604.0
+offset_right = 122648.0
+offset_bottom = 52844.0
 script = ExtResource("2_gtax4")
 TouchPad_Mode = 1
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/TouchPad" unique_id=1144507512]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

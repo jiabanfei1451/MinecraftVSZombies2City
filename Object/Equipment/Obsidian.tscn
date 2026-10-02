@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://wysvclyp6nfw" path="res://Script/Object/Level_Object/equipment/Obsidian/Obsidian.cs" id="1_rdapt"]
 [ext_resource type="Texture2D" uid="uid://dxcmlbrlyt03r" path="res://Image/Object/Equipment/Obsidian/obsidian.png" id="2_rdapt"]
+[ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="2_vocic"]
+[ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone1.ogg" id="3_cfcdf"]
+[ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg" id="4_ha3sm"]
+[ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_gb1n0"]
 [ext_resource type="AudioStream" uid="uid://mppyitekgw72" path="res://Sound/Souds/黑曜石升级.ogg" id="5_n01dh"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="5_v5ov6"]
 [ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="6_ylwhe"]
 
 [sub_resource type="Animation" id="Animation_v5ov6"]
@@ -210,14 +215,18 @@ func _ready() -> void:
 atlas = ExtResource("2_rdapt")
 region = Rect2(8, 7, 48, 56)
 
-[node name="Obsidian" type="CharacterBody2D" unique_id=702253780 groups=["Equipment"]]
+[node name="Obsidian" type="CharacterBody2D" unique_id=702253780 node_paths=PackedStringArray("TouchPad") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -24)
 script = ExtResource("1_rdapt")
+TouchPad = NodePath("TouchPad")
 Colors = Array[Color]([Color(0.03137255, 0.03137255, 0.043137256, 1), Color(0.23137255, 0.18431373, 0.34117648, 1), Color(0.17254902, 0.13333334, 0.24313726, 1), Color(0.25882354, 0.20392157, 0.36862746, 1), Color(0.16078432, 0.12941177, 0.23137255, 1), Color(0.11764706, 0.09411765, 0.16470589, 1), Color(0.09803922, 0.08235294, 0.14509805, 1), Color(0.0627451, 0.0627451, 0.078431375, 1), Color(0.07058824, 0.0627451, 0.10980392, 1), Color(0.12156863, 0.09803922, 0.18431373, 1)])
+PlacedAudios = Array[AudioStream]([ExtResource("2_vocic"), ExtResource("3_cfcdf"), ExtResource("4_ha3sm"), ExtResource("5_gb1n0")])
+KillAudios = Array[AudioStream]([ExtResource("3_cfcdf"), ExtResource("4_ha3sm"), ExtResource("2_vocic"), ExtResource("5_gb1n0")])
 HP = 4000
 Max_HP = 4000
-ID = "MVZ2:Obsidian"
+MoveType = 1
+Object_UUID = "MVZ2:Obsidian"
 Object_Name = "黑曜石"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1631938203]
@@ -254,3 +263,16 @@ position = Vector2(-24, -21)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=223529887]
 position = Vector2(22, 24)
+
+[node name="TouchPad" type="Control" parent="." unique_id=961563281]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -21.0
+offset_right = 22.0
+offset_bottom = 19.0
+script = ExtResource("5_v5ov6")
+Enable_Long_Click = false
+Enable_Drag = false
+Auto_Enable_Index = "Equipment"
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"

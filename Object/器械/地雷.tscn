@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://csk358nq3jfor"]
 
-[ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/Souds/石头挖掘音效/stone1.ogg" id="2_lytwy"]
-[ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/石头挖掘音效/stone2.ogg" id="3_korwg"]
-[ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/石头挖掘音效/stone3.ogg" id="4_yfolt"]
-[ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/石头挖掘音效/stone4.ogg" id="5_6prej"]
+[ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone1.ogg" id="2_lytwy"]
+[ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg" id="3_korwg"]
+[ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="4_yfolt"]
+[ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_6prej"]
 [ext_resource type="AudioStream" uid="uid://xolfnppvoj7i" path="res://Sound/Souds/地雷出土.ogg" id="7_l0cb5"]
 [ext_resource type="Texture2D" uid="uid://cp3yhos5yfovv" path="res://Object/素材图/mine_dirt.png" id="11_gsbxr"]
 [ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="11_l0cb5"]

@@ -24,6 +24,27 @@ public partial class Key_Script : Node
     /// </summary>
     /// <param name="key"></param>
     [Signal] public delegate void Key_UPKeyCodeEventHandler(Key key);
+    /// <summary>
+    /// 按下时获取键
+    /// </summary>
+    /// <param name="key"></param>
+    [Signal] public delegate void Mouse_DownEventHandler(InputEventMouseButton Mouse);
+    /// <summary>
+    /// 获取按下时的键值
+    /// </summary>
+    /// <param name="key"></param>
+    [Signal] public delegate void Mouse_DownKeyCodeEventHandler(MouseButtonMask MouseCode);
+    /// <summary>
+    /// 抬起时获取键
+    /// </summary>
+    /// <param name="key"></param>
+    [Signal] public delegate void Mouse_UPEventHandler(InputEventMouseButton Mouse);
+    /// <summary>
+    /// 获取抬起时的键值
+    /// </summary>
+    /// <param name="key"></param>
+    [Signal] public delegate void Mouse_UPKeyCodeEventHandler(MouseButtonMask MouseCode);
+
     public List<Key> Down_Key = new(){};
     /// <summary>
     /// Alt是否被按下
@@ -47,6 +68,20 @@ public partial class Key_Script : Node
     /// <param name="event"></param>
     public override void _Input(InputEvent @event) {
         base._Input(@event);
+        if (@event is InputEventMouseButton)
+        {
+            if (((InputEventMouseButton)@event).Pressed)
+            {
+                EmitSignalMouse_Down(((InputEventMouseButton)@event));
+                EmitSignalMouse_DownKeyCode(((InputEventMouseButton)@event).ButtonMask);
+            }
+            else
+            {
+                EmitSignalMouse_UP(((InputEventMouseButton)@event));
+                EmitSignalMouse_UPKeyCode(((InputEventMouseButton)@event).ButtonMask);
+                
+            }
+        }
         if (@event is InputEventKey)
         {
             Alt_Pressed = ((InputEventKey)@event).AltPressed;

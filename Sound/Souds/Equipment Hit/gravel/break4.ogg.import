@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://r2kxfhjaqnvq"
+path="res://.godot/imported/break4.ogg-d281c84572487af1c7b615854032581b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound/Souds/Equipment Hit/gravel/break4.ogg"
+dest_files=["res://.godot/imported/break4.ogg-d281c84572487af1c7b615854032581b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -750,11 +750,12 @@ Area = NodePath("Area")
 HP = 0
 Speed = Vector2(-15, 0)
 Move_Ing = true
-ID = "MVZ2:Zombies"
-Object_Name = "僵尸"
 Damage = 20
 detection_Group = Array[StringName]([&"Equipment"])
 Cheak_Index_Scoop = Vector2i(-1, 0)
+Object_Type = 3
+Object_UUID = "MVZ2:Zombies"
+Object_Name = "僵尸"
 
 [node name="Subject" type="Skeleton2D" parent="." unique_id=875477114]
 material = SubResource("ShaderMaterial_ux1b5")

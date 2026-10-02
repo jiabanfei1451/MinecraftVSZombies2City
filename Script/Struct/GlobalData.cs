@@ -58,18 +58,6 @@ public struct GlobalData(){
     /// </summary>
     public MVZ2.Type.ObjectType Object_Type {get;set;} = MVZ2.Type.ObjectType.Normal;
     /// <summary>
-    /// 依赖ID
-    /// </summary>
-    public Godot.Collections.Array<String> Reliant_UUID {get;set;}
-    /// <summary>
-    /// 依赖标签
-    /// </summary>
-    public Godot.Collections.Array<String> Reliant_Tag {get;set;}
-    /// <summary>
-    /// 自动释放依赖
-    /// </summary>
-    public bool Auto_Free_Reliant {get;set;}
-    /// <summary>
     /// 这是空值
     /// </summary>
     public bool is_Null = false;
@@ -88,7 +76,9 @@ public struct GlobalData(){
     {
         MVZ2.Type.ObjectType[] types = new MVZ2.Type.ObjectType[]{
         MVZ2.Type.ObjectType.Null,
-        MVZ2.Type.ObjectType.Normal};
+        MVZ2.Type.ObjectType.Normal,
+        MVZ2.Type.ObjectType.Bearing_unit,
+        MVZ2.Type.ObjectType.Monster};
         if (Index < types.Length)
         {
             return types[Index];

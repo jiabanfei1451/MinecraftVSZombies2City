@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://d2vipb70qlcck"]
 
 [ext_resource type="Script" uid="uid://b8p0lujl5mxyo" path="res://Script/Object/Level_Object/equipment/Furnace/Furnace.cs" id="1_65wfh"]
+[ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="2_4opuf"]
+[ext_resource type="AudioStream" uid="uid://cslv0ivy223fh" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone1.ogg" id="3_vrcte"]
+[ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg" id="4_u0tux"]
+[ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="5_qbgv7"]
 [ext_resource type="AudioStream" uid="uid://cguivqb2xx2yj" path="res://Sound/Souds/红石产出.ogg" id="6_6k15a"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="6_ddd4q"]
 [ext_resource type="AudioStream" uid="uid://cpx8ijstvb6wx" path="res://Sound/Souds/熔炉大招产出.ogg" id="7_i10h0"]
 [ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="8_t63c0"]
 [ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="9_0yur3"]
@@ -11,7 +16,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,12 +32,12 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1.685791, 1.685791, 1.685791, 1), Color(1, 1, 1, 1)]
 }
@@ -43,7 +48,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -115,14 +120,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Furnace" type="CharacterBody2D" unique_id=453099102 node_paths=PackedStringArray("Timer", "animationPlayer") groups=["Equipment"]]
+[node name="Furnace" type="CharacterBody2D" unique_id=453099102 node_paths=PackedStringArray("Timer", "animationPlayer", "TouchPad") groups=["Equipment"]]
 process_mode = 1
 z_as_relative = false
 position = Vector2(0, -24)
 script = ExtResource("1_65wfh")
 Timer = NodePath("Timer")
 animationPlayer = NodePath("AnimationPlayer")
+TouchPad = NodePath("TouchPad")
 Colors = Array[Color]([Color(0, 0, 0, 1), Color(0.09411765, 0.10980392, 0.09411765, 1), Color(0, 0, 0, 1), Color(0.19215687, 0.1882353, 0.19215687, 1), Color(0.16078432, 0.16078432, 0.16078432, 1), Color(0.09411765, 0.09411765, 0.09411765, 1), Color(0.34509805, 0.3529412, 0.34509805, 1), Color(0.30980393, 0.30588236, 0.30980393, 1), Color(0.3882353, 0.39607844, 0.3882353, 1), Color(0.09803922, 0.09411765, 0.09803922, 1), Color(0.19215687, 0.19215687, 0.19215687, 1), Color(0.12941177, 0.14117648, 0.12941177, 1), Color(0.80784315, 0.8117647, 0.80784315, 1), Color(0.6784314, 0.6666667, 0.6784314, 1), Color(0.5176471, 0.5254902, 0.5176471, 1), Color(1, 0.92156863, 0.0627451, 1), Color(1, 0.8352941, 0, 1), Color(1, 0.7294118, 0, 1), Color(1, 0.5647059, 0, 1), Color(1, 0, 0, 1), Color(1, 0.68235296, 0, 1), Color(0.6666667, 0.59607846, 0.2901961, 1), Color(0.6666667, 0.59607846, 0.2901961, 1), Color(0.6039216, 0.45490196, 0.2784314, 1), Color(0.90588236, 0.6666667, 0.3882353, 1), Color(0.6666667, 0.6666667, 0.56078434, 1), Color(0.70980394, 0.6509804, 0.6117647, 1)])
+PlacedAudios = Array[AudioStream]([ExtResource("2_4opuf"), ExtResource("3_vrcte"), ExtResource("4_u0tux"), ExtResource("5_qbgv7")])
+KillAudios = Array[AudioStream]([ExtResource("3_vrcte"), ExtResource("4_u0tux"), ExtResource("5_qbgv7"), ExtResource("2_4opuf")])
+MoveType = 1
+Object_UUID = "MVZ2:Furnace"
 Object_Name = "熔炉"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1631938203]
@@ -155,7 +165,19 @@ scale = Vector2(0.95, 0.95)
 sprite_frames = SubResource("SpriteFrames_8x5ko")
 animation = &"点燃"
 autoplay = "点燃"
-frame_progress = 0.20595427
 
 [node name="Timer" type="Timer" parent="." unique_id=1975369174]
 wait_time = 7.0
+
+[node name="TouchPad" type="Control" parent="." unique_id=1457199710]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -9.0
+offset_right = 22.0
+offset_bottom = 15.0
+script = ExtResource("6_ddd4q")
+Enable_Long_Click = false
+Enable_Drag = false
+Auto_Enable_Index = "Equipment"
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"

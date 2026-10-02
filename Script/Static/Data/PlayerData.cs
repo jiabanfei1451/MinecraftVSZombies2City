@@ -12,6 +12,10 @@ public static class PlayerData : Object
     /// </summary>
     public static int Card_Quantity = 5;
     /// <summary>
+	/// 最大星之碎片
+	/// </summary>
+	public static byte Max_Star_Fragment = 3;
+    /// <summary>
     /// 难度
     /// </summary>
     public static Game.Enum.Difficult Difficult = Enum.Difficult.Normal;

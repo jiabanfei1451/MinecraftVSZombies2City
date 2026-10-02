@@ -94,6 +94,10 @@ public partial class ObjectPhysics : Node2D
     [ExportGroup("Misc")]
     [Export] public Godot.Collections.Array<String> Tags = new(){};
     /// <summary>
+    /// 物体类型
+    /// </summary>
+    [Export] public MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal;
+    /// <summary>
     /// 对象内部ID
     /// </summary>
     [Export] public String Object_UUID = "MVZ2:";
@@ -109,6 +113,27 @@ public partial class ObjectPhysics : Node2D
     /// 搜索索引模式
     /// </summary>
     [Export] public MVZ2_City.Type.IndexMode Index_Mode = MVZ2_City.Type.IndexMode.Name;
+    /// <summary>
+    /// 启用放置依赖
+    /// </summary>
+    [ExportGroup("Placed")]
+    [Export] public bool Enable_Placed_Reliant = false;
+    /// <summary>
+    /// 自动释放
+    /// </summary>
+    [Export] public bool Auto_Free_Reliant = true;
+    /// <summary>
+    /// 依赖物体UUID
+    /// </summary>
+    [Export] public Godot.Collections.Array<String> Reliant_UUID = new();
+    /// <summary>
+    /// 依赖标签
+    /// </summary>
+    [Export] public Godot.Collections.Array<String> Reliant_Tag = new();
+    /// <summary>
+    /// 不可放置类型
+    /// </summary>
+    [Export] public Godot.Collections.Array<MVZ2.Type.ObjectType> Cannot_place_Type = new(){};
     /// <summary>
     /// 重置物理坐标
     /// </summary>

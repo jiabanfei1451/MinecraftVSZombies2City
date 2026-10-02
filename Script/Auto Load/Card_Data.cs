@@ -34,12 +34,6 @@ public partial class Card_Data : Node
 	new Godot.Collections.Array(){},
 	// 物体类型9
 	new Godot.Collections.Array(){},
-	// 依赖ID10
-	new Godot.Collections.Array(){},
-	// 依赖标签11
-	new Godot.Collections.Array(){},
-	// 放置在依赖之上是否自动销毁12
-	new Godot.Collections.Array(){},
 	};
 	/// <summary>
 	/// 已选择卡槽的剩余冷却
@@ -78,10 +72,21 @@ public partial class Card_Data : Node
 		#region 增加器械数据
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),50,7.5f,7.5f,new Vec(2,2),new Vec(72,87));
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Monster/Zombies.tscn"),0,0,0,new Vec(2,2),new Vec(80,186),null,new Vec(40,70f));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Monster/Zombies.tscn"),0,0,0,new Vec(2,2),new Vec(80,186),null,new Vec(40,70f),null, MVZ2.Type.ObjectType.Monster);
 		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),50,30,15,new Vec(2,2),new Vec(73,94));
-		Add_Data(Game.ResourceScene.LoadScene("uid://7b6d3hect1in"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/好友/HuanChong152.tscn"),0,0,0,new Vec(2,2),new Vec(64,87),null,null,null, MVZ2.Type.ObjectType.Normal,null,new Array_String(["给给"]),true);
+		Add_Data(Game.ResourceScene.LoadScene("uid://lyb0noko5sk1"),0,0,0,new Vec(2,2),new Vec(64,87),null,null,null,MVZ2.Type.ObjectType.Bearing_unit);
+		Add_Data(
+			Game.ResourceScene.LoadScene("res://Object/Equipment/好友/HuanChong152.tscn"),
+			0,
+			0,
+			0,
+			new Vec(2,2),
+			new Vec(64,87),
+			null,
+			null,
+			null,
+			MVZ2.Type.ObjectType.Normal
+		);
 		Add_Data(Game.ResourceScene.LoadScene("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
 		Add_Data(Game.ResourceScene.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
 		#endregion
@@ -209,8 +214,6 @@ public partial class Card_Data : Node
 		Vec Map_Offset = null,
 		Vec Map_Scale = null,
 		MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal,
-		SaveData.Array_String Reliant_UUID = null,
-		SaveData.Array_String Reliant_Tag = null,
 		bool Auto_Free = false
 	){
 		Godot.Vector2 New_Scale = new Godot.Vector2(2,2);
@@ -236,14 +239,6 @@ public partial class Card_Data : Node
 		{
 			New_Map_Scale = new Godot.Vector2(Map_Scale.X,Map_Scale.Y);
 		}
-		if (Reliant_UUID != null)
-		{
-			New_Reliant_UUID = Reliant_UUID.Variants;
-		}
-		if (Reliant_Tag != null)
-		{
-			New_Reliant_Tag = Reliant_Tag.Variants;
-		}
 		Data[0].Add(Scene);
 		Data[1].Add(sonsume);
 		Data[2].Add(CD);
@@ -254,9 +249,6 @@ public partial class Card_Data : Node
 		Data[7].Add(New_Map_Offset);
 		Data[8].Add(New_Map_Scale);
 		Data[9].Add((int)Object_Type);
-		Data[10].Add(New_Reliant_UUID);
-		Data[11].Add(New_Reliant_Tag);
-		Data[12].Add(Auto_Free);
 	}
 	#endregion
 	/// <summary>
@@ -278,9 +270,6 @@ public partial class Card_Data : Node
 			Godot.Vector2 map_Offset = (Godot.Vector2)Data[7][Index];
 			Godot.Vector2 map_Scale = (Godot.Vector2)Data[8][Index];
 			MVZ2.Type.ObjectType object_Type = GlobalData.GetObjectType((int)Data[9][Index]);
-			Godot.Collections.Array<String> reliant_UUID = (Godot.Collections.Array<String>)Data[10][Index];
-			Godot.Collections.Array<String> reliant_Tag = (Godot.Collections.Array<String>)Data[11][Index];
-			bool auto_Free_Reliant = (bool)Data[12][Index];
 			
 			Data.GlobalData Back = new Data.GlobalData()
 			{
@@ -294,9 +283,6 @@ public partial class Card_Data : Node
 				Map_Offset = map_Offset,
 				Map_Scale = map_Scale,
 				Object_Type = object_Type,
-				Reliant_UUID = reliant_UUID,
-				Reliant_Tag = reliant_Tag,
-				Auto_Free_Reliant = auto_Free_Reliant
 			};
 			return Back;
 		}

@@ -2,14 +2,11 @@ using Godot;
 using Touch;
 using DEBUG;
 using Game;
-using Game.AutoLoad;
 using GameUI;
 using Game.Cheak;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Level.Object;
-using Game.Static;
 namespace Level;
 public partial class Lawn : ColorRect{
 	[Export] public Vector2I ArrayPosition = new Vector2I();
@@ -20,6 +17,21 @@ public partial class Lawn : ColorRect{
 	{
 		public Godot.Collections.Dictionary<String,Level.Object.LevelObject> Objects = new ();
 		public Godot.Collections.Dictionary<String,Level.Object.LevelObject> Misc_Objects= new();
+		/// <summary>
+		/// 获取所有字典密钥
+		/// </summary>
+		/// <returns></returns>
+		public Godot.Collections.Array<String> Get_AllKey()
+		{
+			Godot.Collections.Array<String> Keys = new();
+			foreach(String Key in Objects.Keys){
+				Keys.Add(Key);
+			}
+			foreach(String Key in Misc_Objects.Keys){
+				Keys.Add(Key);
+			}
+			return Keys;
+		}
 		/// <summary>
 		/// 自动检索添加物体
 		/// </summary>
@@ -119,27 +131,116 @@ public partial class Lawn : ColorRect{
 		/// <returns></returns>
 		public bool Has_Key(String Key)
 		{
+			bool returns = false;
 			List<String> strings = Objects.Keys.ToList<String>();
 			if (strings.IndexOf(Key) != -1)
 			{
-				return true;
+				returns = true;
 			}
-			else
+			strings = Misc_Objects.Keys.ToList<String>();
+			if (strings.IndexOf(Key) != -1)
 			{
-				return false;
+				returns = true;
 			}
+			return returns;
 		}
+		/// <summary>
+		/// 拥有类型
+		/// </summary>
+		/// <param name="Key"></param>
+		/// <returns></returns>
 		public Level.Object.LevelObject Has_Key_Object(String Key)
 		{
+			Level.Object.LevelObject returns = null;
 			List<String> strings = Objects.Keys.ToList<String>();
 			if (strings.IndexOf(Key) != -1)
 			{
-				return Objects[Key];
+				returns = Objects[Key];
 			}
-			else
+			strings = Misc_Objects.Keys.ToList<String>();
+			if (strings.IndexOf(Key) != -1)
 			{
-				return null;
+				returns = Misc_Objects[Key];
 			}
+			return returns;
+		}
+		/// <summary>
+		/// 检测不可放置类型
+		/// </summary>
+		/// <returns>如果存在该类型的器械返回false 否则 true</returns>
+		public bool Cheak_Cannot_Placed()
+		{
+			List<MVZ2.Type.ObjectType> Equipment_Types = new();
+			var s = Get_GlobalNode.Get_Card_Data().Selected_raw_Object.Mode_Data.gameing_Mode;
+			var Temp_Equipment = s.Card_Data.Scene.Instantiate<Level.Module.ObjectPhysics>();
+			
+			bool returns = true;
+			if (Temp_Equipment.Cannot_place_Type.Count > 0){
+				foreach (var Obj in Objects.Values)
+				{
+					if (Obj != null){
+						Equipment_Types.Add(Obj.Object_Type);
+					}
+				}
+				foreach (var Obj in Misc_Objects.Values)
+				{
+					if (Obj != null){
+						Equipment_Types.Add(Obj.Object_Type);
+					}
+				}
+				foreach (var Cannot in Temp_Equipment.Cannot_place_Type)
+				{
+					if (Equipment_Types.IndexOf(Cannot) != -1)
+					{
+						returns = false;
+					}
+				}
+				Equipment_Types.Clear();
+			}
+			if (Objects.Values.Count > 0 || Misc_Objects.Count > 0)
+			{
+				foreach(Level.Object.LevelObject levelObject in Objects.Values){
+					if (levelObject != null){
+						foreach(MVZ2.Type.ObjectType Temp_Type in levelObject.Cannot_place_Type)
+						{
+							Equipment_Types.Add(Temp_Type);
+						}
+					}
+				}
+				foreach(Level.Object.LevelObject levelObject in Misc_Objects.Values){
+					if (levelObject != null){
+						foreach(MVZ2.Type.ObjectType Temp_Type in levelObject.Cannot_place_Type)
+						{
+							Equipment_Types.Add(Temp_Type);
+						}
+					}
+				}
+				if (Equipment_Types.IndexOf(Temp_Equipment.Object_Type) != -1)
+				{
+					returns = false;
+				}
+			}
+			return returns;
+		}
+		/// <summary>
+		/// 获取依赖字典索引
+		/// </summary>
+		/// <returns></returns>
+		public String Get_Reliant_Object_Key(Lawn This)
+		{
+			Card_Data GetCard = Game.Get_GlobalNode.Get_Card_Data();
+			Data.GlobalData GetCard_Data = GetCard.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+			var Temp_Keys = Get_AllKey();
+			Level.Module.ObjectPhysics Temp_Object = GetCard_Data.Scene.Instantiate<Level.Module.ObjectPhysics>();
+			foreach(String Key in Temp_Keys){
+				if (This.cheak_Reliant() == false && Has_Key_Object(Key) != null)
+				{
+					if (Cheak.Cheak_Data(Has_Key_Object(Key),GetCard_Data)){
+						return Key;
+					}
+				}
+			}
+			return "";
 		}
 	}
 	public override void _Ready() {
@@ -159,6 +260,16 @@ public partial class Lawn : ColorRect{
 		}
 	}
 	/// <summary>
+	/// 检查依赖
+	/// </summary>
+	/// <returns>检查卡槽数据是否拥有依赖如果有为true 否则为 false</returns>
+	public bool cheak_Reliant()
+	{
+		Data.GlobalData Temp_data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		Level.Module.ObjectPhysics Temp_Object = Temp_data.Scene.Instantiate<Level.Module.ObjectPhysics>();
+		return (Temp_Object.Reliant_Tag.Count <= 0 && Temp_Object.Reliant_UUID.Count <= 0);
+	}
+	/// <summary>
 	/// 放置
 	/// </summary>
 	public Level.Object.LevelObject Placed(bool Sousume = true)
@@ -167,6 +278,30 @@ public partial class Lawn : ColorRect{
 		if (GetCard.Selected_raw_Object == null){return null;}
 		if (GetCard.Selected_raw_Object.Card_Mode != Card.Mode.Gameing){return null;}
 		Data.GlobalData GetCard_Data = GetCard.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		Level.Module.ObjectPhysics Temp_Object = GetCard_Data.Scene.Instantiate<Level.Module.ObjectPhysics>();
+		String Object_Type = GetCard_Data.Object_Type.ToString();
+
+		if (!Current_Object.Cheak_Cannot_Placed() && Temp_Object.Enable_Placed_Reliant == false)
+		{
+			return null;
+		}
+		if (Temp_Object.Enable_Placed_Reliant == true)
+		{
+			String Temp_Key = Current_Object.Get_Reliant_Object_Key(this);
+			if (Temp_Key != "")
+			{
+				if (Temp_Object.Auto_Free_Reliant){
+					Current_Object.Has_Key_Object(Temp_Key).QueueFree();
+				}
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else if(Current_Object.Has_Key_Object(Object_Type) != null){
+				return null;
+		}
 		if (Sousume == true)
 		{
 			if (Level_Script.Equipment_Capable >= GetCard_Data.Sonsume)
@@ -178,19 +313,6 @@ public partial class Lawn : ColorRect{
 			{
 				return null;
 			}
-		}
-		String Object_Type = GetCard_Data.Object_Type.ToString();
-		if ((GetCard_Data.Reliant_UUID.Count > 0 || GetCard_Data.Reliant_Tag.Count > 0) && Current_Object.Has_Key_Object(Object_Type) != null)
-		{
-			if (!Cheak.Cheak_Data(Current_Object.Has_Key_Object(Object_Type),GetCard_Data)){return null;}
-			if (GetCard_Data.Auto_Free_Reliant == true)
-			{
-				Current_Object.Objects[Object_Type].QueueFree();
-			}
-		}
-		else if(GetCard_Data.Reliant_UUID.Count > 0 || GetCard_Data.Reliant_Tag.Count > 0)
-		{
-			return null;
 		}
 		Level.Object.LevelObject levelObject = GetCard_Data.Scene.Instantiate<Level.Object.LevelObject>();
 		levelObject.Scale = GetCard_Data.Map_Scale;

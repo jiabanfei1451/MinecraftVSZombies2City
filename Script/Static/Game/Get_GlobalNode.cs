@@ -10,6 +10,7 @@ namespace Game{
 /// </summary>
 static class Get_GlobalNode
 {
+	public static SceneTree Tree = null;
 	/// <summary>
 	/// 输入框
 	/// </summary>
@@ -161,9 +162,12 @@ static class Get_GlobalNode
 	/// </summary>
 	/// <param name="tree"></param>
 	/// <returns></returns>
-	public static Card_Data Get_Card_Data(SceneTree tree)
+	public static Card_Data Get_Card_Data(SceneTree tree = null)
 	{
-		Card_Data Node = tree.Root.GetNode<Card_Data>("CardData");
+		if (Tree == null){
+			Tree = tree;
+		}
+		Card_Data Node = Tree.Root.GetNode<Card_Data>("CardData");
 		return Node;
 	}
 	/// <summary>
@@ -171,9 +175,12 @@ static class Get_GlobalNode
 	/// </summary>
 	/// <param name="tree"></param>
 	/// <returns></returns>
-	public static Muisc_Engine Get_Muisc_Engine(SceneTree tree)
+	public static Muisc_Engine Get_Muisc_Engine(SceneTree tree = null)
 	{
-		Muisc_Engine muisc_Engine = tree.Root.GetNode<Muisc_Engine>("MuiscEngine");
+		if (Tree == null){
+			Tree = tree;
+		}
+		Muisc_Engine muisc_Engine = Tree.Root.GetNode<Muisc_Engine>("MuiscEngine");
 		return muisc_Engine;
 	}
 	/// <summary>
@@ -181,8 +188,11 @@ static class Get_GlobalNode
 	/// </summary>
 	/// <param name="tree"></param>
 	/// <returns></returns>
-	public static Game.AutoLoad.Audio_List Get_Audio_List(SceneTree tree){
-		Audio_List audio_List = tree.Root.GetNode<Audio_List>("AudioList");
+	public static Game.AutoLoad.Audio_List Get_Audio_List(SceneTree tree = null){
+		if (Tree == null){
+			Tree = tree;
+		}
+		Audio_List audio_List = Tree.Root.GetNode<Audio_List>("AudioList");
 		return audio_List;	
 	}
 }

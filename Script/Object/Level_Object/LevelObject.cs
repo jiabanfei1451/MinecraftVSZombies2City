@@ -92,10 +92,6 @@ public partial class LevelObject : Level.Module.ObjectPhysics
     /// </summary>
     [Export] public Move_Type MoveType = Move_Type.Linear_Motion;
     /// <summary>
-    /// 物体类型
-    /// </summary>
-    [Export] public MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal;
-    /// <summary>
     /// 移动类型
     /// </summary>
     public enum Move_Type

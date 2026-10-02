@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bllinxtvttldn"]
 
 [ext_resource type="Script" uid="uid://cluhpq6u57uck" path="res://Script/UI/Level/Card/Tween/LevelUi.cs" id="1_cid5c"]
-[ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="3_ri15h"]
+[ext_resource type="PackedScene" uid="uid://cros3yocp6kdg" path="res://UI/LevelUI/draft.tscn" id="3_hdxay"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="4_w7i6b"]
 [ext_resource type="Texture2D" uid="uid://gpvqcekdmvgn" path="res://Image/UI/gear.png" id="5_tcpcs"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/Souds/UI/card/Cancel.ogg" id="6_i0vqy"]
@@ -20,13 +20,6 @@
 [ext_resource type="Script" uid="uid://b8t4wfcrby1v" path="res://Script/UI/Level/Card/TipUI.cs" id="18_oso7i"]
 [ext_resource type="AudioStream" uid="uid://doqxxw08vbj5i" path="res://Sound/Souds/Game/Level/Ready.ogg" id="18_woa1d"]
 [ext_resource type="FontFile" uid="uid://b2h2yj5mfnkym" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Black.ttf" id="19_hna80"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvhbo"]
-texture = ExtResource("8_bf20k")
-texture_margin_left = 44.608307
-texture_margin_top = 40.147476
-texture_margin_right = 45.245567
-texture_margin_bottom = 46.20146
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oso7i"]
 texture = ExtResource("8_bf20k")
@@ -101,42 +94,11 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -100)
 metadata/_edit_use_anchors_ = true
 
-[node name="Draft" type="Control" parent="Card_Slot" unique_id=1582170354]
-texture_filter = 1
-anchors_preset = 0
-offset_left = 635.0
-offset_top = 1.0
-offset_right = 715.0
-offset_bottom = 77.0
-pivot_offset = Vector2(5, 5)
-layout_direction = 2
-
-[node name="TextureRect" type="Panel" parent="Card_Slot/Draft" unique_id=1053486844]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_wvhbo")
-
-[node name="Iron Draft" type="TextureRect" parent="Card_Slot/Draft" unique_id=927489614]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_behavior_recursive = 2
-mouse_force_pass_scroll_events = false
-texture = ExtResource("3_ri15h")
+[node name="Draft" parent="Card_Slot" unique_id=477884097 instance=ExtResource("3_hdxay")]
+layout_mode = 0
+offset_left = 639.0
+offset_right = 719.0
+metadata/_edit_lock_ = true
 
 [node name="Level" type="Control" parent="." unique_id=1275818106]
 layout_mode = 3

@@ -17,7 +17,7 @@ public partial class Start_Card : TouchPad
 	}
 	public async void pressed()
 	{
-		Touch.Touch_Index.Set_Index_Enable(1,false);
+		Touch.Touch_Index.Set_Index_Enable("Card",false);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
 		var it = GetNode<UIObject.LevelUi>("../../..")?.hide_Select_CardUI();
 		await it;

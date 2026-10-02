@@ -43,17 +43,17 @@ public partial class Level_Master_Script : Node2D{
 	/// 节点生成
 	/// </summary>
 	[ExportGroup("Layer")]
-	[Export] public String[] Node_Index {get;set;} = ["Equipment","Master","Light"];
+	[Export] public String[] Node_Index {get;set;} = ["Equipment","Monster","Shoot","particle","Light","item"];
 	/// <summary>
 	/// 图层分配
 	/// </summary>
-	[Export] public int[] Layer_Index {get;set;} = [0,1,2];
+	[Export] public int[] Layer_Index {get;set;} = [1,2,2,3,4,9];
 	/// <summary>
 	/// 类型分配
 	/// 0 = Node,
 	/// 1 = Viewport,
 	/// </summary>
-	[Export] public int[] Node_Type {get;set;} = [0,0,1];
+	[Export] public int[] Node_Type {get;set;} = [0,0,2,0,0,0];
 	/// <summary>
 	/// 选中的草坪
 	/// </summary>
@@ -212,6 +212,7 @@ public partial class Level_Master_Script : Node2D{
 		Game.Get_GlobalNode.Node_Data.Screening_Not_Null_Node();
 
 		Touch.Touch_Index.clear();
+		Touch.Touch_Index.Set_Index_Enable("pickaxe",false);
 		Game.Get_GlobalNode.Get_Card_Data(GetTree()).Initialization();
 		Tween Twee = CreateTween();
         PackedScene Scene = Game.ResourceScene.LoadScene("uid://bllinxtvttldn");
@@ -248,7 +249,8 @@ public partial class Level_Master_Script : Node2D{
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name) != null){
 			Game.Get_GlobalNode.Node_Data.Get_Node<Control>("LevelUI2", Get_GlobalNode.Node_Data.Mode_Type.Name).QueueFree();
 		}
-		Touch.Touch_Index.Set_Index_Enable(1,true);
+		Touch.Touch_Index.Set_Index_Enable("Card",true);
+		Touch.Touch_Index.Set_Index_Enable("pickaxe",true);
 		Static.Summand.While_Start();
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2") != null){
 			Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2").QueueFree();
@@ -343,9 +345,9 @@ public partial class Level_Master_Script : Node2D{
 		}
 		GlobalData Temp_data = card_Data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
 		String Get_Object_Type = Temp_data.Object_Type.ToString();
-		if (Level_Script.Lawn == This && This.Current_Object.Has_Key_Object(Get_Object_Type) == null && Temp_data.Object_Type == MVZ2.Type.ObjectType.Normal && (Temp_data.Reliant_Tag.Count <= 0 && Temp_data.Reliant_UUID.Count <= 0)){
+		if (Level_Script.Lawn == This && This.Current_Object.Has_Key_Object(Get_Object_Type) == null && This.cheak_Reliant() && This.Current_Object.Cheak_Cannot_Placed()){
 			Change_Lawn(This,new Color(0,1,0,1));
-		}else if (Cheak.Cheak_Data(This.Current_Object.Has_Key_Object(Get_Object_Type), Temp_data))
+		}else if (This.Current_Object.Get_Reliant_Object_Key(This) != "")
 		{
 			Change_Lawn(This,new Color(0,1,0,1));
 		}
@@ -371,12 +373,9 @@ public partial class Level_Master_Script : Node2D{
 	{
 		Card_Data data = Game.Get_GlobalNode.Get_Card_Data(GetTree());
 		MVZ2.Type.ObjectType Types = data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data.Object_Type;
-		if (Types == MVZ2.Type.ObjectType.Normal)
+		if (lawn.Current_Object.Has_Key_Object(Types.ToString()) == null && lawn.Current_Object.Cheak_Cannot_Placed())
 		{
-			if (lawn.Current_Object.Has_Key_Object("Normal") == null)
-			{
-				lawn.Color = new Color(1,1,1,0.5f);
-			}
+			lawn.Color = new Color(1,1,1,0.5f);
 		}
 	}
 	public void Summand_Lawn()
@@ -579,7 +578,6 @@ public partial class Level_Master_Script : Node2D{
 		Reset_Lawn_Index();
 		Level_Script.Level_Object = this;
 		LawnScene = Game.ResourceScene.LoadScene("uid://dim8rk13omwvv");
-		Touch.Touch_Index.Set_Index_Enable(0,false);
 		Game.Get_GlobalNode.Node_Data.Clear_Node();
 		Game.Get_GlobalNode.Node_Data.Add_Node(this,"Level");
 		summand_Node();

@@ -404,6 +404,10 @@ public partial class Card : Control
 	/// </summary>
 	public void _Selected()
 	{
+		if (Level_Script.Use_Prop != Level_Script.Prop.Not)
+		{
+			Level_Script.Use_Prop = Level_Script.Prop.Not;			
+		}
 		Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
 		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
 		{

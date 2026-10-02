@@ -12,6 +12,10 @@ public static class Cheak
         {
             foreach (String Cheak_Tag in Object_Tag)
             {
+                if (Cheak_Tag.ToLower() == "all")
+                {
+                    Detected_Tag_Number += 99990;
+                }
                 if (Cheak_Tag == on_Tag)
                 {
                     Detected_Tag_Number += 1;
@@ -25,19 +29,26 @@ public static class Cheak
         }
         return false;
     }
+    /// <summary>
+    /// 检测数据
+    /// </summary>
+    /// <param name="levelObject"></param>
+    /// <param name="CardData"></param>
+    /// <returns></returns>
     public static bool Cheak_Data(Level.Object.LevelObject levelObject,Data.GlobalData CardData)
 	{
+        Level.Module.ObjectPhysics Temp_Object = CardData.Scene.Instantiate<Level.Module.ObjectPhysics>();
         if (levelObject == null){return false;}
-		if (CardData.Reliant_Tag.Count > 0)
+		if (Temp_Object.Reliant_Tag.Count > 0)
 		{
-			if (Cheak.Cheak_Tag(CardData.Reliant_Tag, levelObject.Tags))
+			if (Cheak.Cheak_Tag(Temp_Object.Reliant_Tag, levelObject.Tags))
 			{
 				return true;
 			}
 		}
-		if (CardData.Reliant_UUID.Count > 0)
+		if (Temp_Object.Reliant_UUID.Count > 0)
 		{
-			if (CardData.Reliant_UUID.IndexOf(levelObject.Object_UUID) != -1)
+			if (Temp_Object.Reliant_UUID.IndexOf(levelObject.Object_UUID) != -1)
 			{
 				return true;
 			}

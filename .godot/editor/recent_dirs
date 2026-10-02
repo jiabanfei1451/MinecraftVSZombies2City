@@ -1,9 +1,12 @@
+res://Script/Object/Level_Object/equipment/landmine/
+res://Script/UI/Level/Menu/
+res://UI/LevelUI/
+res://Test/
 res://Script/Object/Level_Object/equipment/Obsidian/
 D:/工具/Godot/导出/
 res://Script/Auto Load/
 res://Script/Object/Interactive Objects/
 res://Script/Object/Level_Object/equipment/Furnace/
-res://Script/UI/Level/Menu/
 res://UI/card/
 res://Script/Node/Particie/
 res://Shader/Add Color/
@@ -13,7 +16,6 @@ res://Script/Object/Shoot/Arrow/
 res://Script/Node/
 res://
 res://Script/
-res://Test/
 res://Script/Object/Level_Object/
 D:/Tool/Project/
 res://Object/Equipment/
@@ -28,5 +30,3 @@ C:/Users/Administrator/Appdata/Roaming/Godot/app_userdata/Summand_key/
 C:/Program Files/Zulu/zulu-25/
 res://Image/UI/Button/MOPUI/MOP_UI_Theme/
 res://Image/UI/Button/MOPUI/
-res://2/Icon/
-res://UI/TextLine/Command_Edit/

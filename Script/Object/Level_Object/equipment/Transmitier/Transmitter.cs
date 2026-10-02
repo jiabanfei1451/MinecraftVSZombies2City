@@ -2,6 +2,7 @@ using Godot;
 using DEBUG;
 using System.Threading.Tasks;
 using Level;
+using Game;
 namespace MVZ2.Object.Equipment;
 /// <summary>
 /// 发射器

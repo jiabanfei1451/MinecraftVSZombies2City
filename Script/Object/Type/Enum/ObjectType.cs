@@ -9,4 +9,12 @@ public enum ObjectType
     /// 默认
     /// </summary>
     Normal = 1,
+    /// <summary>
+    /// 承载单位
+    /// </summary>
+    Bearing_unit = 2,
+    /// <summary>
+    /// 怪物
+    /// </summary>
+    Monster = 3
 }

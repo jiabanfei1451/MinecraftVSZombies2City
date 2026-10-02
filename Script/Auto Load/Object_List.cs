@@ -23,6 +23,7 @@ public partial class Object_List : Node
         add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),"MVZ2:Transmitter","发射器");
         add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),"MVZ2:Furnace","熔炉");
         add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),"MVZ2:Obsidian","黑曜石");
+        add_Object_Packed(Game.ResourceScene.LoadScene("res://Object/Equipment/Landmine.tscn"),"MVZ2:Landmine","地雷");
 
     }
     public void add_Object_Packed(PackedScene ObjectScene,String name,String CH_Name = "null")

@@ -65,6 +65,10 @@ public partial class Audio_List : Node
 		Add_Souds("uid://cj01m2icn8jfh","受击2","MVZ2:Splat_2");
 		Add_Souds("uid://bqfk5s3oirsy1","受击3","MVZ2:Splat_3");
 		Add_Souds("uid://b4lik07h6ep5d","僵尸死亡","MVZ2:Zombies_Kill");
+		Add_Souds("uid://casidmhjb6xn8","拿起稿子","MVZ2:Shovel");
+		Add_Souds("uid://dqqmyotd4p22f","取消","MVZ2:Cancel");
+		
+		
 		#endregion
 	}
 	/// <summary>

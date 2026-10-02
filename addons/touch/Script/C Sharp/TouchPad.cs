@@ -148,7 +148,7 @@ public partial class TouchPad : Godot.Control
 	/// <summary>
 	/// 检索索引是否启用
 	/// </summary>
-	[Export] public int Auto_Enable_Index = 0;
+	[Export] public String Auto_Enable_Index = "0";
 	/// <summary>
 	/// 自动根据索引启用
 	/// </summary>
