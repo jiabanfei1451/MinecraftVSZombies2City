@@ -13,7 +13,6 @@ public partial class Furnace : MVZ2.Object.Equipment.Equipment
         if (animationPlayer != null){
             Animations = animationPlayer.GetAnimationList();
         }
-        GD.Print(Animations);
         if (@Timer != null)
         {
             @Timer.Start();

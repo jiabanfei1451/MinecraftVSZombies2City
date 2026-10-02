@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_gb1n0"]
 [ext_resource type="AudioStream" uid="uid://mppyitekgw72" path="res://Sound/Souds/黑曜石升级.ogg" id="5_n01dh"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="5_v5ov6"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="6_ylwhe"]
+[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="6_ylwhe"]
 
 [sub_resource type="Animation" id="Animation_v5ov6"]
 length = 0.001

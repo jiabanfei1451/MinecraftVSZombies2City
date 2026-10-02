@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://000jvcrnen6e"
-path="res://.godot/imported/sactx-0-1024x2048-BC7-entities-d025fdc4.png-c307c3ca8ae4f07f9a9950857bfc1b8b.ctex"
+uid="uid://bjg54u3tjk602"
+path="res://.godot/imported/redstone.png-ab33b33d6fd262877379341e7506c905.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png"
-dest_files=["res://.godot/imported/sactx-0-1024x2048-BC7-entities-d025fdc4.png-c307c3ca8ae4f07f9a9950857bfc1b8b.ctex"]
+source_file="res://Image/Object/redstone.png"
+dest_files=["res://.godot/imported/redstone.png-ab33b33d6fd262877379341e7506c905.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpx8ijstvb6wx"
+path="res://.godot/imported/Stimulate production.ogg-fce68677bf1f2db9abd9983749fc90b0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound/Souds/Equipment/Furnace/Stimulate production.ogg"
+dest_files=["res://.godot/imported/Stimulate production.ogg-fce68677bf1f2db9abd9983749fc90b0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

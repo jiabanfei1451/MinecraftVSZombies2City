@@ -15,6 +15,14 @@ position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
 Level_BGMID = "2"
 Check_Position_Offset = Array[Vector2]([Vector2(0, 0)])
+Camera2D_Offset = Vector2(0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=727586190]
+offset_left = -4.0
+offset_top = 32.0
+offset_right = 36.0
+offset_bottom = 72.0
+scale = Vector2(4, 4)
 
 [node name="Map2" type="Sprite2D" parent="." unique_id=939464027]
 position = Vector2(-686, -510)

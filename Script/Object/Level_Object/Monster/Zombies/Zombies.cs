@@ -161,6 +161,7 @@ public partial class Zombies : Level.Object.LevelObject
         {
             level.EmitSignal(Level_Master_Script.SignalName.Object_Kill,this);
         }
+        delay_Free(this);
     }
     public override async void _Process(double delta) {
         base._Process(delta);

@@ -5,15 +5,19 @@
 [ext_resource type="AudioStream" uid="uid://cb7x7hko37bpa" path="res://Sound/Souds/Equipment Hit/gravel/break2.ogg" id="3_dhhxo"]
 [ext_resource type="AudioStream" uid="uid://b2mbxepfsh61g" path="res://Sound/Souds/Equipment Hit/gravel/break3.ogg" id="4_le82p"]
 [ext_resource type="AudioStream" uid="uid://r2kxfhjaqnvq" path="res://Sound/Souds/Equipment Hit/gravel/break4.ogg" id="5_alilt"]
-[ext_resource type="AudioStream" uid="uid://xolfnppvoj7i" path="res://Sound/Souds/地雷出土.ogg" id="5_hurt3"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="6_lxnyk"]
+[ext_resource type="AudioStream" uid="uid://xolfnppvoj7i" path="res://Sound/Souds/Equipment/Landmine/Unearthed.ogg" id="5_hurt3"]
+[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="6_lxnyk"]
 [ext_resource type="AudioStream" uid="uid://c701qh7e0yuuq" path="res://Sound/Souds/Equipment Hit/Grass/grass1.wav" id="6_yj3dm"]
-[ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="7_4o4ur"]
 [ext_resource type="AudioStream" uid="uid://fo24lwdksgve" path="res://Sound/Souds/Equipment Hit/Grass/grass2.wav" id="7_hwa0i"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="7_ykxk3"]
 [ext_resource type="Texture2D" uid="uid://cp3yhos5yfovv" path="res://Object/素材图/mine_dirt.png" id="8_1sjmi"]
 [ext_resource type="AudioStream" uid="uid://biqu2y2c1f1rm" path="res://Sound/Souds/Equipment Hit/Grass/grass3.wav" id="8_q3dtb"]
 [ext_resource type="Texture2D" uid="uid://dyrr7usc6b2ei" path="res://Object/素材图/normal.png" id="9_d38ik"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="10_dhhxo"]
+[ext_resource type="Texture2D" uid="uid://dy1ps64y5apc1" path="res://Image/Object/Equipment/TNT/tnt.png" id="12_yj3dm"]
+[ext_resource type="Texture2D" uid="uid://jevdkidy7yk2" path="res://Image/Object/Equipment/Landmine/pressure_plate.png" id="13_hwa0i"]
+[ext_resource type="AnimationLibrary" uid="uid://5plwdwbost6h" path="res://Animation/Equipment/Landmine/RESET.res" id="16_alilt"]
+[ext_resource type="AnimationLibrary" uid="uid://dwoe1mqxfec4g" path="res://Animation/Equipment/Landmine/TNT_Landmine.res" id="17_yj3dm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqnmb"]
 size = Vector2(27, 30)
@@ -31,18 +35,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfolt"]
-atlas = ExtResource("7_4o4ur")
-region = Rect2(632, 1227, 48, 57)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1txqk"]
-atlas = ExtResource("7_4o4ur")
-region = Rect2(632, 1227, 48, 57)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6prej"]
-atlas = ExtResource("7_4o4ur")
-region = Rect2(507, 416, 38, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsbxr"]
 atlas = ExtResource("8_1sjmi")
@@ -73,34 +65,40 @@ size = Vector2(80, 30)
 
 [sub_resource type="Curve" id="Curve_avmli"]
 _limits = [-3.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1590909, 2.0288334), 0.0, 0.0, 0, 0, Vector2(0.39285713, 1.7221494), 0.0, 0.0, 0, 0, Vector2(0.6753247, 0.39318466), 0.0, 0.0, 0, 0, Vector2(0.8636364, 1.6710353), 23.009184, 23.009184, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1590909, 2.0288334), 0.0, 0.0, 0, 0, Vector2(0.39285713, 1.7221494), 0.0, 0.0, 0, 0, Vector2(0.6253823, 1.9550564), 0.0, 0.0, 0, 0, Vector2(0.8636364, 1.6710353), -6.4062586, -6.4062586, 0, 0, Vector2(1, 1.6853933), 0.0, 0.0, 0, 0]
 point_count = 6
 
 [sub_resource type="Curve" id="Curve_oofpw"]
 _limits = [0.0, 10.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3961039, 1.566186), 12.110092, 12.110092, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.51834863, 0), 12.110092, 12.110092, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Curve" id="Curve_lytwy"]
-_data = [Vector2(0, 0.42070764), 0.0, 3.458716, 0, 0, Vector2(0.35714287, 1), 0.0, 0.0, 0, 0, Vector2(0.6461039, 0), 3.733939, 3.733939, 0, 0, Vector2(0.8116883, 0.13958049), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.42070764), 0.0, 3.458716, 0, 0, Vector2(0.33486235, 1), 0.0, 0.0, 0, 0, Vector2(0.66819566, 0.36516857), -1.312199, -1.312199, 0, 0, Vector2(0.8116883, 0.13958049), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
 [sub_resource type="Gradient" id="Gradient_lytwy"]
 offsets = PackedFloat32Array(0, 0.19858156, 0.4574468, 0.7340425, 1)
-colors = PackedColorArray(0.3158576, 0.25116035, 0.16831501, 1, 0.17775077, 0.12291435, 0.06900272, 1, 0.23036289, 0.1599779, 0.101546586, 1, 0.24351591, 0.14499444, 0.089728236, 1, 0.29612803, 0.29612803, 0.29612803, 1)
+colors = PackedColorArray(0.3158576, 0.25116035, 0.16831501, 1, 0.17775077, 0.12291435, 0.06900272, 1, 0.3760808, 0.27113336, 0.18417701, 1, 0.24351591, 0.14499444, 0.089728236, 1, 0.29612803, 0.29612803, 0.29612803, 1)
 
-[node name="Landmine" type="CharacterBody2D" unique_id=424360074 node_paths=PackedStringArray("sprite2Ds", "TouchPad") groups=["Equipment"]]
+[node name="Landmine" type="CharacterBody2D" unique_id=424360074 node_paths=PackedStringArray("sprite2Ds", "Anima", "Timer", "TouchPad", "Area") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -23)
 script = ExtResource("1_0uy7n")
 sprite2Ds = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
+Anima = NodePath("AnimationPlayer")
+Timer = NodePath("Timer")
 TouchPad = NodePath("TouchPad")
 Kill_Number = 20
 Particie_Number = 1
 Colors = Array[Color]([Color(0.9490196, 0.047058824, 0.047058824, 1), Color(0.7921569, 0.047058824, 0.047058824, 1), Color(0.6431373, 0.047058824, 0.047058824, 1), Color(0.9411765, 0.047058824, 0.047058824, 1), Color(0.75686276, 0.69411767, 0.6, 1), Color(0.03137255, 0.03137255, 0.03137255, 1), Color(0.39215687, 0.047058824, 0.047058824, 1), Color(0.62352943, 0.42352942, 0.14901961, 1), Color(0.52156866, 0.3254902, 0.0627451, 1), Color(0.21568628, 0.101960786, 0.003921569, 1), Color(0.2509804, 0.19607843, 0.19607843, 1)])
 PlacedAudios = Array[AudioStream]([ExtResource("2_rrh7q"), ExtResource("3_dhhxo"), ExtResource("4_le82p"), ExtResource("5_alilt")])
 KillAudios = Array[AudioStream]([ExtResource("6_yj3dm"), ExtResource("7_hwa0i"), ExtResource("8_q3dtb")])
+Area = NodePath("Area")
 MoveType = 1
+Damage = 1800
+detection_Group = Array[StringName]([&"Monster"])
+Exclude_Group = Array[StringName]([&"Projectile", &"Area", &"Equipment"])
 Tags = Array[String](["给给"])
 Object_Type = 2
 Object_UUID = "MVZ2:Landmine"
@@ -115,13 +113,13 @@ shape = SubResource("RectangleShape2D_aqnmb")
 
 [node name="出土" type="AudioStreamPlayer" parent="." unique_id=1715190223]
 stream = ExtResource("5_hurt3")
+script = ExtResource("10_dhhxo")
+Audio_ID = "MVZ2:Landmine_Unearthed"
 
 [node name="Timer" type="Timer" parent="." unique_id=879944984]
-wait_time = 1.5
+wait_time = 15.0
 autostart = true
 script = SubResource("GDScript_0r3vj")
-
-[node name="死亡音效" type="AudioStreamPlayer" parent="." unique_id=329349703]
 
 [node name="大招音效" type="AudioStreamPlayer" parent="." unique_id=764933897]
 stream = ExtResource("6_lxnyk")
@@ -139,23 +137,22 @@ color = Color(1, 1, 1, 0)
 clip_children = 1
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(0, -12)
-texture = SubResource("AtlasTexture_yfolt")
+position = Vector2(0, -15)
+texture = ExtResource("12_yj3dm")
 offset = Vector2(0, 5)
 
 [node name="TNT3" type="Sprite2D" parent="TNT" unique_id=1137634485]
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, 31)
-texture = SubResource("AtlasTexture_1txqk")
+texture = ExtResource("12_yj3dm")
 offset = Vector2(0, 5)
 
 [node name="TNT2" type="Sprite2D" parent="TNT/TNT3" unique_id=2077763806]
-visible = false
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(0, -19)
-texture = SubResource("AtlasTexture_6prej")
+position = Vector2(0, -18)
+texture = ExtResource("13_hwa0i")
 
 [node name="1" type="Sprite2D" parent="." unique_id=1602579725]
 visible = false
@@ -198,19 +195,18 @@ position = Vector2(0, 19)
 scale = Vector2(1.25, 1.25)
 texture = SubResource("AtlasTexture_korwg")
 
-[node name="检测" type="Area2D" parent="." unique_id=1216636809 groups=["Area"]]
-visible = false
+[node name="Area" type="Area2D" parent="." unique_id=1216636809 groups=["Area"]]
 position = Vector2(0, 3)
 priority = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="检测" unique_id=1173799647 groups=["Area"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1173799647 groups=["Area"]]
 shape = SubResource("RectangleShape2D_l0cb5")
 debug_color = Color(1, 0, 0.0333333, 0.23137255)
 
 [node name="GPUParticles2D" type="CPUParticles2D" parent="." unique_id=555257906]
 position = Vector2(0, 13)
 emitting = false
-amount = 100
+amount = 200
 texture = ExtResource("9_d38ik")
 explosiveness = 0.1
 randomness = 1.0
@@ -248,6 +244,10 @@ offset_right = 24.0
 offset_bottom = 19.0
 script = ExtResource("7_ykxk3")
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=456880254]
+libraries/ = ExtResource("16_alilt")
+libraries/TNT_Landmine = ExtResource("17_yj3dm")
 
 [connection signal="mouse_entered" from="碰撞" to="碰撞" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="碰撞" to="碰撞" method="_on_mouse_exited"]

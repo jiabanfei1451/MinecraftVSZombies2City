@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du0cv7pa0exii"
-path="res://.godot/imported/sactx-0-1024x1024-DXT5_BC3-effects-5ecf9be5.png-4980969ad0b1d643086c19e947885fac.ctex"
+uid="uid://jevdkidy7yk2"
+path="res://.godot/imported/pressure_plate.png-f17774ddc0d48487d42ad2ea99018ff4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Object/素材图/sactx-0-1024x1024-DXT5_BC3-effects-5ecf9be5.png"
-dest_files=["res://.godot/imported/sactx-0-1024x1024-DXT5_BC3-effects-5ecf9be5.png-4980969ad0b1d643086c19e947885fac.ctex"]
+source_file="res://Image/Object/Equipment/Landmine/pressure_plate.png"
+dest_files=["res://.godot/imported/pressure_plate.png-f17774ddc0d48487d42ad2ea99018ff4.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxakp63atbam4"
-path="res://.godot/imported/points.wav-23861e1aad5332305bad7866f7c65e6a.sample"
+path="res://.godot/imported/points.wav-210a87f6e38757f1f1d65d4bd49cef90.sample"
 
 [deps]
 
-source_file="res://Sound/Souds/points.wav"
-dest_files=["res://.godot/imported/points.wav-23861e1aad5332305bad7866f7c65e6a.sample"]
+source_file="res://Sound/Souds/Item/RedStone/points.wav"
+dest_files=["res://.godot/imported/points.wav-210a87f6e38757f1f1d65d4bd49cef90.sample"]
 
 [params]
 

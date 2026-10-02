@@ -4,10 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg" id="3_xn644"]
 [ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="4_olhwo"]
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_sw2od"]
-[ext_resource type="AudioStream" uid="uid://cpx8ijstvb6wx" path="res://Sound/Souds/熔炉大招产出.ogg" id="10_kol7k"]
-[ext_resource type="AudioStream" uid="uid://cguivqb2xx2yj" path="res://Sound/Souds/红石产出.ogg" id="11_6ipin"]
+[ext_resource type="AudioStream" uid="uid://cpx8ijstvb6wx" path="res://Sound/Souds/Equipment/Furnace/Stimulate production.ogg" id="10_kol7k"]
+[ext_resource type="AudioStream" uid="uid://cguivqb2xx2yj" path="res://Sound/Souds/Item/RedStone/RedStone_Output.ogg" id="11_6ipin"]
 [ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="12_sh54p"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="13_u1pv1"]
+[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="13_u1pv1"]
 [ext_resource type="PackedScene" uid="uid://ckiok4d47oivw" path="res://Object/光源/光源.tscn" id="14_kol7k"]
 
 [sub_resource type="Resource" id="Resource_yc08q"]

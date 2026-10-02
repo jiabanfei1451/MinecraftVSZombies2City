@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://dmfe85smdma7l"]
 
-[ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="1_mhhdk"]
+[ext_resource type="Texture2D" uid="uid://bjg54u3tjk602" path="res://Image/Object/redstone.png" id="1_mhhdk"]
 [ext_resource type="Script" uid="uid://c2xj1saqmvm84" path="res://Script/Object/Interactive Objects/RedStone.cs" id="1_pdmyc"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="3_pdmyc"]
-[ext_resource type="AudioStream" uid="uid://bxakp63atbam4" path="res://Sound/Souds/points.wav" id="4_rbki6"]
+[ext_resource type="AudioStream" uid="uid://bxakp63atbam4" path="res://Sound/Souds/Item/RedStone/points.wav" id="4_rbki6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qa71h"]
 atlas = ExtResource("1_mhhdk")
-region = Rect2(309, 981, 48, 42)
 
 [sub_resource type="Animation" id="Animation_hnhgi"]
 length = 0.001

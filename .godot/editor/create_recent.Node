@@ -1,10 +1,11 @@
+AnimationPlayer
+ColorRect
 TouchPad
 CharacterBody2D
 TouchPad_V2
 Audio_Plus
 AudioStreamPlayer
 Camera2D
-ColorRect
 Sprite2D
 SubViewport
 CollisionShape2D

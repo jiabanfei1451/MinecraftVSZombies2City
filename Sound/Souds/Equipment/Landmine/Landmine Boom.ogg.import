@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c881otjdj0tiq"
+path="res://.godot/imported/Landmine Boom.ogg-1b49e41b9728074ba585302a0340215d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sound/Souds/Equipment/Landmine/Landmine Boom.ogg"
+dest_files=["res://.godot/imported/Landmine Boom.ogg-1b49e41b9728074ba585302a0340215d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

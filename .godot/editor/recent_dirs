@@ -1,3 +1,6 @@
+res://Image/Object/
+res://Animation/Equipment/Landmine/
+res://Shader/
 res://Script/Object/Level_Object/equipment/landmine/
 res://Script/UI/Level/Menu/
 res://UI/LevelUI/
@@ -25,8 +28,5 @@ D:/
 D:/Tool/
 D:/Tool/AndroidSDK/SDK/
 C:/Program Files/Zulu/zulu-17/
-res://Script/Object/UIObject/
 C:/Users/Administrator/Appdata/Roaming/Godot/app_userdata/Summand_key/
 C:/Program Files/Zulu/zulu-25/
-res://Image/UI/Button/MOPUI/MOP_UI_Theme/
-res://Image/UI/Button/MOPUI/

@@ -218,7 +218,7 @@ public partial class Level_Master_Script : Node2D{
         PackedScene Scene = Game.ResourceScene.LoadScene("uid://bllinxtvttldn");
 		Game.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("CH:选卡");
 		Camera2D_Zoom = new Godot.Vector2(1.1f,1.1f);
-        Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(140,0),1);
+        Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(140,-25),1);
 		await ToSignal(Twee,Tween.SignalName.Finished);
 		CanvasLayer layer = Scene.Instantiate<CanvasLayer>();
 		AddChild(layer);
@@ -264,7 +264,7 @@ public partial class Level_Master_Script : Node2D{
 		Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").YSortEnabled = true;
 		Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Monster").YSortEnabled = true;
 		Tween Twee = CreateTween();
-		Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(-105,0),1);
+		Twee.TweenProperty(this,new Godot.NodePath(Level.Level_Master_Script.PropertyName.Camera2D_Position),new Vector2(-105,-25),1);
 		await ToSignal(Twee,Tween.SignalName.Finished);
 	}
 	/// <summary>

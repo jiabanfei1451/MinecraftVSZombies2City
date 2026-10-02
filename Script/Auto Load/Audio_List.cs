@@ -59,16 +59,46 @@ public partial class Audio_List : Node
 		base._Ready();
 		#region 添加音效
 		Add_Muisc(Load.Load_External_Audio_File( Load.File_Type.ogg,"E:/UT入/ink/ink_bgm1.ogg"),"Ink_Phase1","File:ink");
-		Add_Muisc("uid://dmsb1maakx8lg","mus_a1_battle","MVZ2_City:KillStone_Final");
+		Add_Muisc("uid://dmsb1maakx8lg","绝命矿坑","MVZ2_City:KillStone_Final");
 		Add_Souds("uid://doqxxw08vbj5i","好,准备,安放器械","MVZ2:Ready");
 		Add_Souds("uid://d4ljnli5u46x6","受击","MVZ2:Splat_1");
 		Add_Souds("uid://cj01m2icn8jfh","受击2","MVZ2:Splat_2");
 		Add_Souds("uid://bqfk5s3oirsy1","受击3","MVZ2:Splat_3");
 		Add_Souds("uid://b4lik07h6ep5d","僵尸死亡","MVZ2:Zombies_Kill");
 		Add_Souds("uid://casidmhjb6xn8","拿起稿子","MVZ2:Shovel");
+		Add_Souds("res://Sound/Souds/UI/card/buzzer.wav","警告","MVZ2:buzzer");
+		Add_Souds("res://Sound/Souds/UI/card/Selected.ogg","选卡","MVZ2:Selected_Card");
 		Add_Souds("uid://dqqmyotd4p22f","取消","MVZ2:Cancel");
-		
-		
+		Add_Souds("res://Sound/Souds/Equipment/Landmine/Unearthed.ogg","地雷出土","MVZ2:Landmine_Unearthed");
+		Add_Souds("res://Sound/Souds/Equipment/Landmine/Landmine Boom.ogg","地雷爆炸","MVZ2:Landmine_Boom");
+		Add_Souds("res://Sound/Souds/misc/evocation.ogg","激发器械","MVZ2:evocation");
+		Add_Souds("res://Sound/Souds/UI/Minecraft_UI/Button/MC_click.ogg","MC按钮按下","MVZ2:MC_Click");
+		Add_Souds("res://Sound/Souds/UI/UpspeedUI/Add_Speed.wav","加速","MVZ2:Add_Speed");
+		Add_Souds("res://Sound/Souds/UI/UpspeedUI/Recede_Speed.wav","减速","MVZ2:Recede_Speed");
+			#region 草方块挖掘
+		Add_Souds("res://Sound/Souds/Equipment Hit/Grass/grass1.wav","草被挖掘","MVZ2:Grass_mining");
+		Add_Souds("res://Sound/Souds/Equipment Hit/Grass/grass2.wav","草被挖掘2","MVZ2:Grass_mining2");
+		Add_Souds("res://Sound/Souds/Equipment Hit/Grass/grass3.wav","草被挖掘3","MVZ2:Grass_mining3");
+			#endregion
+			#region 泥块被挖掘
+		Add_Souds("res://Sound/Souds/Equipment Hit/gravel/break1.ogg","泥块被挖掘","MVZ2:break_mining");
+		Add_Souds("res://Sound/Souds/Equipment Hit/gravel/break2.ogg","泥块被挖掘2","MVZ2:break_mining2");
+		Add_Souds("res://Sound/Souds/Equipment Hit/gravel/break3.ogg","泥块被挖掘3","MVZ2:break_mining3");
+		Add_Souds("res://Sound/Souds/Equipment Hit/gravel/break4.ogg","泥块被挖掘4","MVZ2:break_mining4");
+			#endregion
+			#region 石质物体被挖掘
+		Add_Souds("res://Sound/Souds/Equipment Hit/Stone Mining/stone1.ogg","石材质物体被挖掘","MVZ2:Stone_mining");
+		Add_Souds("res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg","石材质物体被挖掘2","MVZ2:Stone_mining2");
+		Add_Souds("res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg","石材质物体被挖掘3","MVZ2:Stone_mining3");
+		Add_Souds("res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg","石材质物体被挖掘4","MVZ2:Stone_mining4");
+			#endregion
+		Add_Souds("res://Sound/Souds/Bullet/Shoot.ogg","发射射弹","MVZ2:Shoot");
+		Add_Souds("res://Sound/Souds/Equipment/Furnace/Stimulate production.ogg","激发生产","MVZ2:Stimulate_production");
+		Add_Souds("res://Sound/Souds/Game/Level/Wave.ogg","一大波","MVZ2:Wave");
+		Add_Souds("res://Sound/Souds/Game/Level/Final_Wave.ogg","最后一波","MVZ2:Final_Wave");
+		Add_Souds("res://Sound/Souds/Item/RedStone/points.wav","拾取红石","MVZ2:Points");
+		Add_Souds("res://Sound/Souds/Item/RedStone/RedStone_Output.ogg","产出红石","MVZ2:RedStone_Output");
+		Add_Souds("res://Sound/Souds/UI/Level_Button/spring.ogg","关卡按钮按下","MVZ2:Spring");
 		#endregion
 	}
 	/// <summary>

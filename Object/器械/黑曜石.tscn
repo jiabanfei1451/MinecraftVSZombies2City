@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="5_hm6mn"]
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="6_loodw"]
 [ext_resource type="AudioStream" uid="uid://mppyitekgw72" path="res://Sound/Souds/黑曜石升级.ogg" id="7_o2mcw"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/开大.ogg" id="13_c2kl5"]
-[ext_resource type="Texture2D" uid="uid://000jvcrnen6e" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="15_rmlti"]
+[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="13_c2kl5"]
+[ext_resource type="Texture2D" path="res://Object/素材图/sactx-0-1024x2048-BC7-entities-d025fdc4.png" id="15_rmlti"]
 
 [sub_resource type="Resource" id="Resource_m4qqe"]
 metadata/__load_path__ = "res://Script/器械AI/黑曜石.gd"
