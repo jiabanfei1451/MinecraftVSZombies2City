@@ -42,6 +42,14 @@ public struct GlobalData(){
     /// </summary>
     public Godot.Vector2 Offset {get;set;}
     /// <summary>
+    /// 移动端材质大小
+    /// </summary>
+    public Godot.Vector2 Pe_Scale {get;set;}
+    /// <summary>
+    /// 移动端偏移
+    /// </summary>
+    public Godot.Vector2 Pe_Offset {get;set;}
+    /// <summary>
     /// 鼠标偏移
     /// </summary>
     public Godot.Vector2 Mouse_Offset {get;set;}

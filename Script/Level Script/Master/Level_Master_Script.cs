@@ -12,6 +12,7 @@ using System.Text.Json;
 using System.Text;
 using Data;
 using Game.Cheak;
+using Game.Static;
 
 namespace Level;
 /// <summary>
@@ -327,6 +328,10 @@ public partial class Level_Master_Script : Node2D{
 		Game.Card_Data card_Data = Get_GlobalNode.Get_Card_Data(GetTree());
 		if (card_Data == null){return;}
 		if (card_Data.Selected_raw_Object == null){return;}
+		if (Game.Static.PlayerData.Temp_Card != card_Data.Selected_raw_Object){
+			Game.Static.PlayerData.Temp_Card = card_Data.Selected_raw_Object;
+			PlayerData.Temp_CardObject = Game.Static.PlayerData.Temp_Card.Mode_Data.gameing_Mode.Card_Data.Scene.Instantiate<Level.Object.LevelObject>();
+		}
 		foreach (var Arra in Lawn_Data)
 		{
 			foreach (Lawn ARR in Arra)
@@ -348,6 +353,9 @@ public partial class Level_Master_Script : Node2D{
 		if (Level_Script.Lawn == This && This.Current_Object.Has_Key_Object(Get_Object_Type) == null && This.cheak_Reliant() && This.Current_Object.Cheak_Cannot_Placed()){
 			Change_Lawn(This,new Color(0,1,0,1));
 		}else if (This.Current_Object.Get_Reliant_Object_Key(This) != "")
+		{
+			Change_Lawn(This,new Color(0,1,0,1));
+		}else if (This.cheak_is_Stackable(Get_Object_Type) == true)
 		{
 			Change_Lawn(This,new Color(0,1,0,1));
 		}
@@ -374,6 +382,9 @@ public partial class Level_Master_Script : Node2D{
 		Card_Data data = Game.Get_GlobalNode.Get_Card_Data(GetTree());
 		MVZ2.Type.ObjectType Types = data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data.Object_Type;
 		if (lawn.Current_Object.Has_Key_Object(Types.ToString()) == null && lawn.Current_Object.Cheak_Cannot_Placed())
+		{
+			lawn.Color = new Color(1,1,1,0.5f);
+		}else if (lawn.cheak_is_Stackable(Types.ToString()))
 		{
 			lawn.Color = new Color(1,1,1,0.5f);
 		}

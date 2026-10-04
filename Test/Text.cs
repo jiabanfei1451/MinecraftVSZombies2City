@@ -11,6 +11,6 @@ public partial class Text : Node2D
         base._Ready();
         PackedScene scene = GD.Load<PackedScene>("uid://lyb0noko5sk1");
         MVZ2.Object.Equipment.Equipment equipment = scene.Instantiate<MVZ2.Object.Equipment.Equipment>();
-        GD.Print(equipment.Object_Type);
+        GD.Print("CH:地雷出土"[3..]);
     }
 }

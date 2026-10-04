@@ -34,6 +34,10 @@ public partial class Card_Data : Node
 	new Godot.Collections.Array(){},
 	// 物体类型9
 	new Godot.Collections.Array(){},
+	// 移动端材质大小
+	new(){},
+	// 移动端材质偏移
+	new(){}
 	};
 	/// <summary>
 	/// 已选择卡槽的剩余冷却
@@ -202,7 +206,6 @@ public partial class Card_Data : Node
 	/// <param name="Object_Type">物体类型</param>
 	/// <param name="Reliant_UUID">依赖ID</param>
 	/// <param name="Reliant_Tag">依赖标签</param>
-	/// <param name="Auto_Free">放置在依赖之上是否自动销毁</param>
 	public void Add_Data(
 		PackedScene Scene = null,
 		int sonsume = 0,
@@ -214,7 +217,8 @@ public partial class Card_Data : Node
 		Vec Map_Offset = null,
 		Vec Map_Scale = null,
 		MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal,
-		bool Auto_Free = false
+		Vec PE_Scale = null,
+		Vec PE_Offset = null
 	){
 		Godot.Vector2 New_Scale = new Godot.Vector2(2,2);
 		Godot.Vector2 New_Offset = new Godot.Vector2(64,87);
@@ -239,6 +243,16 @@ public partial class Card_Data : Node
 		{
 			New_Map_Scale = new Godot.Vector2(Map_Scale.X,Map_Scale.Y);
 		}
+		Godot.Vector2 NEW_PE_Offset = New_Offset;
+		Godot.Vector2 NEW_PE_Scale = New_Scale;
+		if (PE_Scale != null)
+		{
+			NEW_PE_Scale = new Godot.Vector2(PE_Scale.X,PE_Offset.Y);
+		}
+		if (PE_Offset != null)
+		{
+			NEW_PE_Offset = new Godot.Vector2(PE_Offset.X,PE_Offset.Y);
+		}
 		Data[0].Add(Scene);
 		Data[1].Add(sonsume);
 		Data[2].Add(CD);
@@ -249,6 +263,8 @@ public partial class Card_Data : Node
 		Data[7].Add(New_Map_Offset);
 		Data[8].Add(New_Map_Scale);
 		Data[9].Add((int)Object_Type);
+		Data[10].Add(NEW_PE_Scale);
+		Data[11].Add(NEW_PE_Offset);
 	}
 	#endregion
 	/// <summary>
@@ -270,6 +286,8 @@ public partial class Card_Data : Node
 			Godot.Vector2 map_Offset = (Godot.Vector2)Data[7][Index];
 			Godot.Vector2 map_Scale = (Godot.Vector2)Data[8][Index];
 			MVZ2.Type.ObjectType object_Type = GlobalData.GetObjectType((int)Data[9][Index]);
+			Godot.Vector2 pe_Offset = (Godot.Vector2)Data[11][Index];
+			Godot.Vector2 pe_Scale = (Godot.Vector2)Data[10][Index];
 			
 			Data.GlobalData Back = new Data.GlobalData()
 			{
@@ -283,6 +301,8 @@ public partial class Card_Data : Node
 				Map_Offset = map_Offset,
 				Map_Scale = map_Scale,
 				Object_Type = object_Type,
+				Pe_Scale = pe_Scale,
+				Pe_Offset = pe_Offset
 			};
 			return Back;
 		}

@@ -1,5 +1,6 @@
 using Godot;
 using Level.Object;
+using My_Csharp_Node;
 using System;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ public partial class Landmine : MVZ2.Object.Equipment.Equipment
     [Export] public AnimationPlayer Anima = null;
     [Export] public Timer Timer = null;
     [Export] public bool Boom = false;
+    [Export] public Audio_Plus Unearthed_Souds = null;
     public override async void _Ready() {
         base._Ready();
         if (!Enable){return;}
@@ -18,6 +20,7 @@ public partial class Landmine : MVZ2.Object.Equipment.Equipment
         Area.BodyEntered += Add_Object;
         Area.BodyExited += Remove_Object;
         await ToSignal(Timer,Timer.SignalName.Timeout);
+        Unearthed_Souds.Play();
         Anima.Play("TNT_Landmine/Landmine_TNT");
     }
     public override void _PhysicsProcess(double delta) {

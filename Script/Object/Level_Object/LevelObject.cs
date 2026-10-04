@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DEBUG;
 using Godot;
 namespace Level.Object;
+[Icon("uid://5pmb3whr0b70")]
 /// <summary>
 /// 用于器械，怪物BOSS在关卡内的整体数据
 /// <para>

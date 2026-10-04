@@ -2,8 +2,19 @@ using Game;
 using Godot;
 using My_Csharp_Node;
 namespace MVZ2.Object.Equipment;
+[Icon("uid://cs87xcexy6nl7")]
 public partial class Equipment : Level.Object.LevelObject
 {
+    /// <summary>
+    /// 叠加放置同类型物体时
+    /// </summary>
+    /// <param name="Placement_Object"></param>
+    [Signal] public delegate void Stacked_PlacementEventHandler(Level.Object.LevelObject Placement_Object);
+    /// <summary>
+    /// 叠加放置自身时
+    /// </summary>
+    /// <param name="Placement_Object"></param>
+    [Signal] public delegate void Stacked_PlacementThisEventHandler(Level.Object.LevelObject Placement_Object);
     [ExportGroup("Object")]
     [Export] public Touch.TouchPad TouchPad = null;
     [ExportGroup("Number")]

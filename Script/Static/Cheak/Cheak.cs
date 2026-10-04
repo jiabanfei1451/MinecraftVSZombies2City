@@ -35,20 +35,19 @@ public static class Cheak
     /// <param name="levelObject"></param>
     /// <param name="CardData"></param>
     /// <returns></returns>
-    public static bool Cheak_Data(Level.Object.LevelObject levelObject,Data.GlobalData CardData)
+    public static bool Cheak_Data(Level.Object.LevelObject levelObject,Level.Module.ObjectPhysics ObjectData)
 	{
-        Level.Module.ObjectPhysics Temp_Object = CardData.Scene.Instantiate<Level.Module.ObjectPhysics>();
         if (levelObject == null){return false;}
-		if (Temp_Object.Reliant_Tag.Count > 0)
+		if (ObjectData.Reliant_Tag.Count > 0)
 		{
-			if (Cheak.Cheak_Tag(Temp_Object.Reliant_Tag, levelObject.Tags))
+			if (Cheak.Cheak_Tag(ObjectData.Reliant_Tag, levelObject.Tags))
 			{
 				return true;
 			}
 		}
-		if (Temp_Object.Reliant_UUID.Count > 0)
+		if (ObjectData.Reliant_UUID.Count > 0)
 		{
-			if (Temp_Object.Reliant_UUID.IndexOf(levelObject.Object_UUID) != -1)
+			if (ObjectData.Reliant_UUID.IndexOf(levelObject.Object_UUID) != -1)
 			{
 				return true;
 			}

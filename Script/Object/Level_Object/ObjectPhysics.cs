@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DEBUG;
 using System.Diagnostics;
 namespace Level.Module;
+[Icon("uid://dwrrtr5iyf6yq")]
 public partial class ObjectPhysics : Node2D
 {
     /// <summary>
@@ -134,6 +135,14 @@ public partial class ObjectPhysics : Node2D
     /// 不可放置类型
     /// </summary>
     [Export] public Godot.Collections.Array<MVZ2.Type.ObjectType> Cannot_place_Type = new(){};
+    /// <summary>
+    /// 可叠加放置
+    /// </summary>
+    [Export] public bool Stackable = false;
+    /// <summary>
+    /// 叠加放置UUID白名单
+    /// </summary>
+    [Export] public Godot.Collections.Array<String> Stackable_UUID = new(){};
     /// <summary>
     /// 重置物理坐标
     /// </summary>

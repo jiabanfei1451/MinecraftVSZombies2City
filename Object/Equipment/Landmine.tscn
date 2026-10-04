@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://b2mbxepfsh61g" path="res://Sound/Souds/Equipment Hit/gravel/break3.ogg" id="4_le82p"]
 [ext_resource type="AudioStream" uid="uid://r2kxfhjaqnvq" path="res://Sound/Souds/Equipment Hit/gravel/break4.ogg" id="5_alilt"]
 [ext_resource type="AudioStream" uid="uid://xolfnppvoj7i" path="res://Sound/Souds/Equipment/Landmine/Unearthed.ogg" id="5_hurt3"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="6_lxnyk"]
 [ext_resource type="AudioStream" uid="uid://c701qh7e0yuuq" path="res://Sound/Souds/Equipment Hit/Grass/grass1.wav" id="6_yj3dm"]
 [ext_resource type="AudioStream" uid="uid://fo24lwdksgve" path="res://Sound/Souds/Equipment Hit/Grass/grass2.wav" id="7_hwa0i"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="7_ykxk3"]
@@ -81,13 +80,14 @@ point_count = 5
 offsets = PackedFloat32Array(0, 0.19858156, 0.4574468, 0.7340425, 1)
 colors = PackedColorArray(0.3158576, 0.25116035, 0.16831501, 1, 0.17775077, 0.12291435, 0.06900272, 1, 0.3760808, 0.27113336, 0.18417701, 1, 0.24351591, 0.14499444, 0.089728236, 1, 0.29612803, 0.29612803, 0.29612803, 1)
 
-[node name="Landmine" type="CharacterBody2D" unique_id=424360074 node_paths=PackedStringArray("sprite2Ds", "Anima", "Timer", "TouchPad", "Area") groups=["Equipment"]]
+[node name="Landmine" type="CharacterBody2D" unique_id=424360074 node_paths=PackedStringArray("sprite2Ds", "Anima", "Timer", "Unearthed_Souds", "TouchPad", "Area") groups=["Equipment"]]
 z_as_relative = false
 position = Vector2(0, -23)
 script = ExtResource("1_0uy7n")
 sprite2Ds = [NodePath("1"), NodePath("2"), NodePath("3"), NodePath("4"), NodePath("5"), NodePath("6")]
 Anima = NodePath("AnimationPlayer")
 Timer = NodePath("Timer")
+Unearthed_Souds = NodePath("出土")
 TouchPad = NodePath("TouchPad")
 Kill_Number = 20
 Particie_Number = 1
@@ -114,15 +114,13 @@ shape = SubResource("RectangleShape2D_aqnmb")
 [node name="出土" type="AudioStreamPlayer" parent="." unique_id=1715190223]
 stream = ExtResource("5_hurt3")
 script = ExtResource("10_dhhxo")
-Audio_ID = "MVZ2:Landmine_Unearthed"
+Audio_ID = "CH:地雷出土"
+Auto_QueneFree = true
 
 [node name="Timer" type="Timer" parent="." unique_id=879944984]
 wait_time = 15.0
 autostart = true
 script = SubResource("GDScript_0r3vj")
-
-[node name="大招音效" type="AudioStreamPlayer" parent="." unique_id=764933897]
-stream = ExtResource("6_lxnyk")
 
 [node name="碰撞" type="ColorRect" parent="." unique_id=1357553626]
 offset_left = -16.0

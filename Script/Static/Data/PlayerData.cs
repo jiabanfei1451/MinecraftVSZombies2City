@@ -1,4 +1,5 @@
 using Data;
+using GameUI;
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,14 @@ public static class PlayerData : Object
     /// 玩家数据
     /// </summary>
     public static Godot.Collections.Dictionary<String,Variant> Player_Data = new Godot.Collections.Dictionary<string, Variant>();
+    /// <summary>
+    /// 临时器械数据
+    /// </summary>
+    public static Level.Object.LevelObject Temp_CardObject = null;
+    /// <summary>
+    /// 临时卡槽数据
+    /// </summary>
+    public static Card Temp_Card = null;
     /// <summary>
     /// 临时数据名称
     /// </summary>
