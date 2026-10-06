@@ -3,6 +3,9 @@ using DEBUG;
 using System.Threading.Tasks;
 using Level;
 using Game;
+using Game.Cheak;
+using Game.AutoLoad;
+using My_Csharp_Node;
 namespace MVZ2.Object.Equipment;
 /// <summary>
 /// 发射器
@@ -34,15 +37,15 @@ public partial class Transmitter : MVZ2.Object.Equipment.Equipment
     /// <summary>
     /// 发射音效节点
     /// </summary>
-    [Export] public Godot.AudioStreamPlayer Shoot_Sound = null;
+    [Export] public Audio_Plus Shoot_Sound = null;
     [Export] public bool This_Initialization = false;
     public override void _Ready() {
         base._Ready();
         if (!Enable){return;}
         this.Timer = GetNode<Timer>("Timer");
-        Shoot_Sound = GetNode<AudioStreamPlayer>("Souds");
+        Shoot_Sound = GetNode<Audio_Plus>("Souds");
         this.AnimationPlayer = GetNode<AnimationPlayer>("Animation");
-        if (Area == null){return;}
+        if (Cheak.is_null<Area2D>(Area)){return;}
         Area.BodyEntered += ObjectJoin;
         Area.BodyExited += ObjectExit;
         var @r = Reset_Area();
@@ -59,7 +62,7 @@ public partial class Transmitter : MVZ2.Object.Equipment.Equipment
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
         if (!Enable){return;}
-        if (Timer == null || Shoot_Sound == null){return;}
+        if (Cheak.is_null<Timer>(Timer) || Cheak.is_null<Audio_Plus>(Shoot_Sound)){return;}
         if (level != null)
         {
             if (This_Initialization == false)

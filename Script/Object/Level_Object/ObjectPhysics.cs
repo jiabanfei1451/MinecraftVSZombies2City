@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using DEBUG;
 using System.Diagnostics;
+using Game.Cheak;
 namespace Level.Module;
 [Icon("uid://dwrrtr5iyf6yq")]
 public partial class ObjectPhysics : Node2D
@@ -140,6 +141,10 @@ public partial class ObjectPhysics : Node2D
     /// </summary>
     [Export] public bool Stackable = false;
     /// <summary>
+    /// 默认生成层
+    /// </summary>
+    [Export] public String Default_generation_layer;
+    /// <summary>
     /// 叠加放置UUID白名单
     /// </summary>
     [Export] public Godot.Collections.Array<String> Stackable_UUID = new(){};
@@ -183,7 +188,7 @@ public partial class ObjectPhysics : Node2D
     /// <returns></returns>
     public bool Cheak_HeightLevel(Level.Module.ObjectPhysics physics)
     {
-        if (physics == null){return false;}
+        if (Cheak.is_null<Level.Module.ObjectPhysics>(physics)){return false;}
         float Extra_Height_Level = 0;
         float Min_Heigit = Cheak_Height_Scoop.X + Height + Extra_Height;
         float Max_Height = Cheak_Height_Scoop.Y + Height + Extra_Height;
@@ -219,7 +224,7 @@ public partial class ObjectPhysics : Node2D
     /// <returns></returns>
     public bool Cheak_Height(Level.Module.ObjectPhysics physics)
     {
-        if (physics == null){return false;}
+        if (Cheak.is_null<Level.Module.ObjectPhysics>(physics)){return false;}
         float Min_Heigit = Cheak_Height_Scoop.X + Height + Extra_Height;
         float Max_Height = Cheak_Height_Scoop.Y + Height + Extra_Height;
         float Current_Height = physics.Height + physics.Extra_Height;
@@ -243,7 +248,7 @@ public partial class ObjectPhysics : Node2D
     /// <returns></returns>
     public bool Cheak_Lawn_Index(Level.Object.LevelObject CheakObject)
     {
-        if (CheakObject == null){return false;}
+        if (Cheak.is_null<Level.Object.LevelObject>(CheakObject)){return false;}
         int Object_ScoopX = CheakObject.Cheak_Index_Scoop.X;
         int Object_ScoopY = CheakObject.Cheak_Index_Scoop.Y;
         if (Object_ScoopY > Object_ScoopX)
@@ -277,7 +282,7 @@ public partial class ObjectPhysics : Node2D
     }
     public void Get_Level()
     {
-        if (level == null)
+        if (Cheak.is_null<Level_Master_Script>(level))
         {
             Level_Master_Script Get_Level = Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level");
             if (Get_Level != null)
@@ -291,9 +296,9 @@ public partial class ObjectPhysics : Node2D
     /// </summary>
     public void ReSet_Index()
     {
-        if (level == null){return;}
+        if (Cheak.is_null<Level_Master_Script>(level)){return;}
         // 高度重定向
-        if (level != null && AutoSet_Lawn_Index == true)
+        if (!Cheak.is_null<Level_Master_Script>(level) && AutoSet_Lawn_Index == true)
         {
             if (Temp_Position_Y != practical_Position.Y + position_Offset.Y)
             {

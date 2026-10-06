@@ -91,14 +91,14 @@ public partial class Lawn : ColorRect{
 		{
 			foreach(String Key in Objects.Keys)
 			{
-				if (Objects[Key] == null)
+				if (Objects[Key] is null)
 				{
 					Objects.Remove(Key);
 				}
 			}
 			foreach(String Key in Misc_Objects.Keys)
 			{
-				if (Misc_Objects[Key] == null)
+				if (Misc_Objects[Key] is null)
 				{
 					Misc_Objects.Remove(Key);
 				}
@@ -317,7 +317,7 @@ public partial class Lawn : ColorRect{
 	{
 		bool Add_Misc = false;
 		Card_Data GetCard = Game.Get_GlobalNode.Get_Card_Data(GetTree());
-		if (GetCard.Selected_raw_Object == null){return null;}
+		if (Cheak.is_null<Card>(GetCard.Selected_raw_Object)){return null;}
 		if (GetCard.Selected_raw_Object.Card_Mode != Card.Mode.Gameing){return null;}
 		Data.GlobalData GetCard_Data = GetCard.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
 		String Object_Type = GetCard_Data.Object_Type.ToString();
@@ -402,7 +402,7 @@ public partial class Lawn : ColorRect{
 	}
 	public void Card_Change(Card card)
 	{
-		if (card == null)
+		if (Cheak.is_null<Card>(card))
 		{
 			Free_Object();
 			SelfModulate = new Color(0,0,0,0);

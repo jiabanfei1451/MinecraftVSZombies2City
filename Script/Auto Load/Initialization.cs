@@ -17,6 +17,7 @@ public partial class Initialization : Node
         PlayerData.Add_Data("Version","0.1.0");
         DEBUG.Info.Print(PlayerData.Player_Data);
         Touch.Touch_Index.Set_Index_Enable(3,false);
+        Game.Get_GlobalNode.Tree = GetTree();
         QueueFree();
     }
 }

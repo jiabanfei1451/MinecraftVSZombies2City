@@ -14,11 +14,11 @@ public static class Tip
     public static Godot.Label Tip_Text = null;
     public static void Initialization()
     {
-        if (Tip_Text != null)
+        if (!Cheak.Cheak.is_null(Tip_Text))
         {
             Tip_Text.Visible = false;
         }
-        if (Ready_Text != null)
+        if (!Cheak.Cheak.is_null(Ready_Text))
         {
             Ready_Text.Visible = false;
         }
@@ -30,7 +30,7 @@ public static class Tip
     /// <returns></returns>
     public static void Set_Ready_Text(params object[] What)
     {
-        if (Ready_Text == null){return;}
+        if (Cheak.Cheak.is_null(Ready_Text)){return;}
         Ready_Text.Visible = true;
         string Str = "";
         foreach (var W in What)
@@ -49,7 +49,7 @@ public static class Tip
     /// <param name="What"></param>
     public static async Task<int> Set_Ready_Text(bool Await,double Delay,bool Administration,float StartScale,float EndScale,params object[] What)
     {
-        if (Ready_Text == null){return -1;}
+        if (Cheak.Cheak.is_null(Ready_Text)){return -1;}
         Ready_Text.Visible = true;
         if (Administration == true)
         {
@@ -62,7 +62,7 @@ public static class Tip
         string Str = "";
         foreach (var W in What)
         {
-            if (W != null)
+            if (!Cheak.Cheak.is_null<object>(W))
             {
                 Str += W.ToString();
             }
@@ -79,7 +79,7 @@ public static class Tip
     /// <returns></returns>
     public static void Set_Tip_Text(params object[] What)
     {
-        if (Tip_Text == null){return;}
+        if (Cheak.Cheak.is_null(Tip_Text)){return;}
         Tip_Text.Visible = true;
         string Str = "";
         foreach (var W in What)
@@ -90,7 +90,7 @@ public static class Tip
                 settings.FontColor = (Godot.Color)W;
                 Tip_Text.LabelSettings = settings;
             }
-            if (W != null)
+            if (!Cheak.Cheak.is_null<object>(W))
             {
                 Str += W.ToString();
             }

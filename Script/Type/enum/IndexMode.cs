@@ -1,5 +1,5 @@
 namespace MVZ2_City.Type;
-public enum IndexMode : sbyte
+public enum IndexMode
 {
     index = 0,
     Name = 1,

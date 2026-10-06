@@ -1,5 +1,6 @@
 using Game;
 using Game.AutoLoad;
+using Game.Cheak;
 using Godot;
 using System;
 using Touch;
@@ -24,10 +25,10 @@ public partial class RedStone : MVZ2.Object.Particie
         Set_Position_Multiplication = Game.Get.Random.NextFloat_32(1.5f,2);
         MAX_PositionX_Offset = Game.Get.Random.NextFloat_32(15,45);
         MaxHeight = new Vector2(Game.Get.Random.NextFloat_32(10,30),Game.Get.Random.NextFloat_32(10,30));
-        if (pad == null){return;}
+        if (Cheak.is_null<TouchPad>(pad)){return;}
         pad.Button_Pressedvoid += pressed;
         pad.Drag_Ingvoid += pressed;
-        if (anima != null)
+        if (Cheak.is_null<AnimationPlayer>(anima))
         {
             anima.AnimationFinished += finale;
         }

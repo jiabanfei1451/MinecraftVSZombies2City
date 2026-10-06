@@ -74,25 +74,25 @@ public partial class Card_Data : Node
 		base._Ready();
 		Initialization();
 		#region 增加器械数据
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),50,7.5f,7.5f,new Vec(2,2),new Vec(72,87));
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Monster/Zombies.tscn"),0,0,0,new Vec(2,2),new Vec(80,186),null,new Vec(40,70f),null, MVZ2.Type.ObjectType.Monster);
-		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),50,30,15,new Vec(2,2),new Vec(73,94));
-		Add_Data(Game.ResourceScene.LoadScene("uid://lyb0noko5sk1"),0,0,0,new Vec(2,2),new Vec(64,87),null,null,null,MVZ2.Type.ObjectType.Bearing_unit);
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Transmitter.tscn"),100,7.5f,3,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Furnace.tscn"),50,7.5f,7.5f,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(72,87));
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Monster/Zombies.tscn"),0,0,0,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(80,186),null,SaveData.Class.Vector2.New(40,70f),null, MVZ2.Type.ObjectType.Monster);
+		Add_Data(Game.ResourceScene.LoadScene("res://Object/Equipment/Obsidian.tscn"),50,30,15,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(73,94));
+		Add_Data(Game.ResourceScene.LoadScene("uid://lyb0noko5sk1"),0,0,0,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(64,87),null,null,null,MVZ2.Type.ObjectType.Bearing_unit);
 		Add_Data(
 			Game.ResourceScene.LoadScene("res://Object/Equipment/好友/HuanChong152.tscn"),
 			0,
 			0,
 			0,
-			new Vec(2,2),
-			new Vec(64,87),
+			SaveData.Class.Vector2.New(2,2),
+			SaveData.Class.Vector2.New(64,87),
 			null,
 			null,
 			null,
 			MVZ2.Type.ObjectType.Normal
 		);
-		Add_Data(Game.ResourceScene.LoadScene("uid://bokxlltcu2pxm"),0,0,0,new Vec(2,2),new Vec(64,87));
-		Add_Data(Game.ResourceScene.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,new Vec(2,2),new Vec(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://bokxlltcu2pxm"),0,0,0,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(64,87));
+		Add_Data(Game.ResourceScene.LoadScene("uid://bcfm88f3tbgt8"),0,0,0,SaveData.Class.Vector2.New(2,2),SaveData.Class.Vector2.New(64,87));
 		#endregion
 	}
 	public void CD_Initialization()
@@ -135,7 +135,7 @@ public partial class Card_Data : Node
 	/// <param name="node"></param>
 	public void Remove_Card_Index(Control @node = null)
 	{
-		if (@node == null){return;}
+		if (Cheak.Cheak.Cheak_Null<Control>(@node)){return;}
 		Selected.Remove(@node);
 		arrange_Card();
 	}
@@ -145,7 +145,7 @@ public partial class Card_Data : Node
 	/// <param name="node"></param>
 	public void Add_Card_Index(Control @node = null)
 	{
-		if (@node == null){return;}
+		if (Cheak.Cheak.is_null<Control>(@node)){return;}
 		Selected.Add(@node);
 		arrange_Card();
 	}
@@ -211,14 +211,14 @@ public partial class Card_Data : Node
 		int sonsume = 0,
 		float CD = 0,
 		float RemoveCD = 0,
-		Vec Scale = null,
-		Vec Offset = null,
-		Vec Mouse_Offset = null,
-		Vec Map_Offset = null,
-		Vec Map_Scale = null,
+		SaveData.Class.Vector2 Scale = null,
+		SaveData.Class.Vector2 Offset = null,
+		SaveData.Class.Vector2 Mouse_Offset = null,
+		SaveData.Class.Vector2 Map_Offset = null,
+		SaveData.Class.Vector2 Map_Scale = null,
 		MVZ2.Type.ObjectType Object_Type = MVZ2.Type.ObjectType.Normal,
-		Vec PE_Scale = null,
-		Vec PE_Offset = null
+		SaveData.Class.Vector2 PE_Scale = null,
+		SaveData.Class.Vector2 PE_Offset = null
 	){
 		Godot.Vector2 New_Scale = new Godot.Vector2(2,2);
 		Godot.Vector2 New_Offset = new Godot.Vector2(64,87);
@@ -272,8 +272,9 @@ public partial class Card_Data : Node
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public Data.GlobalData Get_CardData(int Index)
+	public static Data.GlobalData Get_CardData(int Index)
 	{
+		Godot.Collections.Array<Godot.Collections.Array> Data = Game.Get_GlobalNode.Get_Card_Data().Data;
 		if (Index > -1)
 		{
 			PackedScene scene = (PackedScene)Data[0][Index];
@@ -313,8 +314,9 @@ public partial class Card_Data : Node
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public Data.GlobalData Get_CardData(PackedScene Index)
+	public static Data.GlobalData Get_CardData(PackedScene Index)
 	{
+		Godot.Collections.Array<Godot.Collections.Array> Data = Game.Get_GlobalNode.Get_Card_Data().Data;
 		return Get_CardData(Data[0].IndexOf(Index));
 	}
 	#region Class

@@ -1,6 +1,8 @@
+using Data.Level;
 using Game.Cheak;
 using Godot;
 using Level;
+using Level.Static;
 using My_Csharp_Node;
 using System;
 using System.Net.Http.Headers;
@@ -76,7 +78,7 @@ public partial class Zombies : Level.Object.LevelObject
         Leg_Play = GetNode<AnimationPlayer>("Lag_Animation");
         Hand_Play = GetNode<AnimationPlayer>("Hand_Animation");
         Random random = new Random();
-        Speed_Multiplication = Game.Get.Random.NextFloat_32(0.75f,1.5f);
+        Speed_Multiplication = Summand.Data.random.RandfRange(0.75f,1.25f);
         Leg_Play.SpeedScale = Speed_Multiplication;
         Hand_Play.SpeedScale = Speed_Multiplication;
         foreach (String s in Leg_Play.GetAnimationList())
@@ -87,7 +89,7 @@ public partial class Zombies : Level.Object.LevelObject
         {
             Hand_AnimationList.Add(s);
         }  
-        while (level == null)
+        while (Cheak.is_null<Level_Master_Script>(level))
         {
             await Task.Delay(100);
         }
@@ -156,6 +158,9 @@ public partial class Zombies : Level.Object.LevelObject
         auto_Move = false;
         kill =true;
         detection_Group.Clear();
+        if (!Cheak.is_null<Summand_Data>(Summand.Data)){
+            Summand.Data.Remove_present_Object(this);
+        }
         CreateTween().TweenProperty(this,new NodePath(Node2D.PropertyName.Rotation),90 * 3.14 / 180,1).SetTrans(Game.Get.TweenType.GetTweenType(Game.Get.TweenType.Twee.正弦));    
         if (level != null)
         {
@@ -187,7 +192,7 @@ public partial class Zombies : Level.Object.LevelObject
                 attack_ing = false;
             }
         }
-        if (Leg_Play == null || Hand_Play == null){return;}
+        if (Cheak.is_null<AnimationPlayer>(Leg_Play) || Cheak.is_null<AnimationPlayer>(Hand_Play)){return;}
         if (!kill){
             if (Move_Ing == true && attack_ing == false){
                 if (Lag_Move_ing == false)

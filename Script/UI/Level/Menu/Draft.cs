@@ -1,4 +1,5 @@
 using Game;
+using Game.Cheak;
 using Godot;
 using My_Csharp_Node;
 using System;
@@ -68,7 +69,7 @@ public partial class Draft : Control
         if (Level_Script.Use_Prop != Level_Script.Prop.iron_pickaxe){
             Iron.Position = Temp_Pos ;
             return;}
-        if (Iron == null){return;}
+        if (Cheak.is_null(Iron)){return;}
         Iron.Position = GetLocalMousePosition() + new Vector2(-15,-15);
     }
 

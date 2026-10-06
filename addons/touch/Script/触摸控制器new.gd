@@ -147,8 +147,7 @@ func 计算(event:InputEvent):
 		if Auto_Set == true:
 			mesize = size
 		else:
-			mesize = Rect_size
-		mesize *= myscale
+			mesize = Rect_size		mesize *= myscale
 		if value.x <= mesize.x and value.y <= mesize.y and  value.y >= 0 and value.x >= 0:
 			return true
 		else:

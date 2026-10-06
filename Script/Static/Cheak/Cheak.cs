@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Game.Cheak;
 
@@ -37,7 +38,7 @@ public static class Cheak
     /// <returns></returns>
     public static bool Cheak_Data(Level.Object.LevelObject levelObject,Level.Module.ObjectPhysics ObjectData)
 	{
-        if (levelObject == null){return false;}
+        if (is_null<Level.Object.LevelObject>(levelObject)){return false;}
 		if (ObjectData.Reliant_Tag.Count > 0)
 		{
 			if (Cheak.Cheak_Tag(ObjectData.Reliant_Tag, levelObject.Tags))
@@ -54,4 +55,25 @@ public static class Cheak
 		}
 		return false;
 	}
+    /// <summary>
+    /// 高性能检测空值方案
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="Value"></param>
+    /// <returns></returns>
+    public static bool is_null<T>(T Value)
+    {
+        return EqualityComparer<T>.Default.Equals(Value,default(T));
+    }
+    public static bool Cheak_Null<T>(T Value)
+    {
+        try{
+            Value.ToString();
+        }
+        catch
+        {
+            return true;
+        }finally{}
+        return false;
+    }
 }

@@ -1,3 +1,4 @@
+using Game.Cheak;
 using Godot;
 using System;
 using System.Threading.Tasks;
@@ -22,8 +23,8 @@ public partial class ValueBar : Control
     public override async void _Ready() {
         base._Ready();
         while(While_Ing){
-            if(Value_Object == null){return;}
-            if(Value_Object_Hollow == null){return;}
+            if(Cheak.is_null(Value_Object)){return;}
+            if(Cheak.is_null(Value_Object_Hollow)){return;}
             if(Temp_Scale == Vector2.Zero)
             {
                 Temp_Scale = Value_Object.Scale;

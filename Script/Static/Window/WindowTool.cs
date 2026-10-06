@@ -10,7 +10,7 @@ public static class WindowTool
     public static Tween This_Tween = null;
     public static void Set_Title(float AnimationTime,Tween.TransitionType transitionType = Tween.TransitionType.Linear,params object[] Why)
     {
-        if (Process_Window == null){return;}
+        if (Cheak.Cheak.is_null<Window>(Process_Window)){return;}
         StringBuilder @string = new StringBuilder();
         foreach(var Variant in Why)
         {
@@ -26,7 +26,7 @@ public static class WindowTool
     }
         public static void Set_Title(params object[] Why)
     {
-        if (Process_Window == null){return;}
+        if (Cheak.Cheak.is_null<Window>(Process_Window)){return;}
         StringBuilder @string = new StringBuilder();
         foreach(var Variant in Why)
         {

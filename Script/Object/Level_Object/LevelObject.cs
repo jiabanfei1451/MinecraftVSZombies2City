@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DEBUG;
+using Game.Cheak;
 using Godot;
 namespace Level.Object;
 [Icon("uid://5pmb3whr0b70")]
@@ -197,7 +198,7 @@ public partial class LevelObject : Level.Module.ObjectPhysics
         }
         foreach(Level.Object.LevelObject Body in Current_detection_object)
         {
-            if (Body == null)
+            if (Cheak.is_null<Level.Object.LevelObject>(Body))
             {
                 Current_detection_object.Remove(Body);
             }

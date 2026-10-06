@@ -1,4 +1,5 @@
 using Game;
+using Game.Cheak;
 using Godot;
 using System;
 namespace GameUI.Object;
@@ -23,8 +24,8 @@ public partial class TipUI : Control
     }
     public override void _PhysicsProcess(double delta) {
         base._PhysicsProcess(delta);
-        if (TipPanel == null){return;}
-        if (Label == null){return;}
+        if (Cheak.is_null<Control>(TipPanel)){return;}
+        if (Cheak.is_null<Label>(Label)){return;}
         if (Label.Text.Length > 0)
         {
             TipPanel.Visible = true;

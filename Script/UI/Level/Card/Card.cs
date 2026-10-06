@@ -176,7 +176,7 @@ public partial class Card : Control
 			Nodes.QueueFree();
 		}
 		//初始化材质
-		Data.GlobalData Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData Data = Game.Card_Data.Get_CardData(Card_Index);
 		Node2D texture = Data.Scene.InstantiateOrNull<Node2D>();
 		if (texture is Level.Object.LevelObject)
 		{
@@ -214,16 +214,16 @@ public partial class Card : Control
 		case Mode.is_Seleceed_Card:
 			Modulate = new Color(0,0,0,0);
 			Mode_Data.gameing_Mode = new ModeObject.Gameing();
-			Mode_Data.gameing_Mode.Card_Data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+			Mode_Data.gameing_Mode.Card_Data = Game.Card_Data.Get_CardData(Card_Index);
 			DEBUG.Info.Print(Mode_Data.gameing_Mode.Card_Data);
 			CreateTween().TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.5f).SetTrans(Tween.TransitionType.Sine);			
 			while (!Stop_While && this != null){
-				if (this == null){return;}
+				if (Cheak.is_null<Card>(this)){return;}
 				if (Temp_Tween != null){
 					Temp_Tween.Kill();
 					Temp_Tween = null;
 				}
-				if (Temp_Tween == null){
+				if (Cheak.is_null<Tween>(Temp_Tween)){
 					Temp_Tween = CreateTween();
 					Temp_Tween.TweenProperty(this,new NodePath(Control.PropertyName.GlobalPosition),Get_Parent_Object().GetChild<Control>(0).GetChild<Control>(0).GetChild<Control>(Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Card_Index(this)).GlobalPosition,Easing_Time);
 				}
@@ -247,7 +247,7 @@ public partial class Card : Control
 					{
 						GetNode<Control>("Cilp_Node").Visible =true;	
 						Current_Card_Index = Card_Index;
-						Sonsume = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index).Sonsume;
+						Sonsume = Game.Card_Data.Get_CardData(Card_Index).Sonsume;
 					}
 				if (Selected_Index == -1)
 					{
@@ -331,7 +331,7 @@ public partial class Card : Control
 			case Mode.Selected_Card:
 				if (GlobalPosition.Y < 80){return;}
 				// 选定状态
-				if (Mode_Data.Selected_Card_Mode.is_Selected_Card_Object == null){
+				if (Cheak.is_null<Card>(Mode_Data.Selected_Card_Mode.is_Selected_Card_Object)){
 					if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_Selected_Card_Len() > Game.Static.PlayerData.Card_Quantity - 1){return;}
 					PackedScene Temp_Scene = Game.ResourceScene.LoadScene("uid://c2y62prxcbege");
 					Card Temp_Card = Temp_Scene.Instantiate<Card>();
@@ -389,7 +389,7 @@ public partial class Card : Control
 			Info.PrintErr("当前卡槽正在冷却请勿重复执行!");
 			return false;
 		}
-		Data.GlobalData data = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData data = Game.Card_Data.Get_CardData(Card_Index);
 		MAXCD_Time = data.CD;
 		CD_Time = data.CD;
 		if (first_Time_ReduceCD == false)
@@ -408,17 +408,17 @@ public partial class Card : Control
 		{
 			Level_Script.Use_Prop = Level_Script.Prop.Not;			
 		}
-		Data.GlobalData globalData = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Get_CardData(Card_Index);
+		Data.GlobalData globalData = Game.Card_Data.Get_CardData(Card_Index);
 		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
 		{
 			GetNode<Audio_Plus>("buzzer").Play();
 			return;
 		}
-		if (Selected_Audio == null)
+		if (Cheak.is_null<Audio_Plus>(Selected_Audio))
 			{
 				Selected_Audio = GetNode<Audio_Plus>("Selected");
 			}
-		if (Cancel_Audio == null)
+		if (Cheak.is_null(Cancel_Audio))
 			{
 				Cancel_Audio = GetNode<Audio_Plus>("Cancel");
 			}

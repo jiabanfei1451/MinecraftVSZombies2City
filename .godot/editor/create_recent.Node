@@ -1,8 +1,10 @@
+Label
+touchBar
+TouchPad_V2
 AnimationPlayer
 ColorRect
 TouchPad
 CharacterBody2D
-TouchPad_V2
 Audio_Plus
 AudioStreamPlayer
 Camera2D
@@ -11,5 +13,3 @@ SubViewport
 CollisionShape2D
 Panel
 HBoxContainer
-EditorResourcePicker
-EditorProperty

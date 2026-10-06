@@ -13,6 +13,7 @@ using System.Text;
 using Data;
 using Game.Cheak;
 using Game.Static;
+using GameUI;
 
 namespace Level;
 /// <summary>
@@ -187,13 +188,8 @@ public partial class Level_Master_Script : Node2D{
 				Game.Get_GlobalNode.CommandEdit.Player_send += Get_Player_Send;
 			}
 		}
-		if (Static.Summand.Level_Object != this) // 初始化生成物体
-		{
-			Static.Summand.Level_Object = this;
-			Static.Summand.Tree = GetTree();
-		}
-		if (Camera2D == null){return;}
-		if (Camera2D_Easing != null){Camera2D_Easing.Kill();}
+		if (Cheak.is_null<Camera2D>(Camera2D)){return;}
+		if (!Cheak.is_null<Tween>(Camera2D_Easing)){Camera2D_Easing.Kill();}
 		Camera2D_Easing = CreateTween();
 		Camera2D_Easing.TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Position),Camera2D_Position,delta * (double)Fps_Easing);
 		Camera2D_Easing.Parallel().TweenProperty(Camera2D,new Godot.NodePath(Godot.Camera2D.PropertyName.Offset),Camera2D_Offset,delta * (double)Fps_Easing);
@@ -252,7 +248,6 @@ public partial class Level_Master_Script : Node2D{
 		}
 		Touch.Touch_Index.Set_Index_Enable("Card",true);
 		Touch.Touch_Index.Set_Index_Enable("pickaxe",true);
-		Static.Summand.While_Start();
 		if (Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2") != null){
 			Game.Get_GlobalNode.Node_Data.Get_Node<UIObject.LevelUi>("LevelUI2").QueueFree();
 		}
@@ -278,7 +273,6 @@ public partial class Level_Master_Script : Node2D{
 		if (Seed_Why.IndexOf("/ReStart") != -1)
 		{
 			choose_Card();
-			Summand.While_End();
 		}else if (Seed_Why.IndexOf("/Exit") != -1)
 		{
 			GetTree().Quit();
@@ -304,7 +298,6 @@ public partial class Level_Master_Script : Node2D{
 			Server.Off_Server();
 		}else if(Seed_Why.IndexOf("/Save") != -1)
 		{
-			Summand.Save();
 		}
 		if (Server.Server_Stream != null)
 		{
@@ -326,8 +319,8 @@ public partial class Level_Master_Script : Node2D{
 	public void Lawn_Change_Color(Level.Lawn This)
 	{
 		Game.Card_Data card_Data = Get_GlobalNode.Get_Card_Data(GetTree());
-		if (card_Data == null){return;}
-		if (card_Data.Selected_raw_Object == null){return;}
+		if (Cheak.is_null<Card_Data>(card_Data)){return;}
+		if (Cheak.is_null<Card>(card_Data.Selected_raw_Object)){return;}
 		if (Game.Static.PlayerData.Temp_Card != card_Data.Selected_raw_Object){
 			Game.Static.PlayerData.Temp_Card = card_Data.Selected_raw_Object;
 			PlayerData.Temp_CardObject = Game.Static.PlayerData.Temp_Card.Mode_Data.gameing_Mode.Card_Data.Scene.Instantiate<Level.Object.LevelObject>();
@@ -350,7 +343,7 @@ public partial class Level_Master_Script : Node2D{
 		}
 		GlobalData Temp_data = card_Data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
 		String Get_Object_Type = Temp_data.Object_Type.ToString();
-		if (Level_Script.Lawn == This && This.Current_Object.Has_Key_Object(Get_Object_Type) == null && This.cheak_Reliant() && This.Current_Object.Cheak_Cannot_Placed()){
+		if (Level_Script.Lawn == This && Cheak.is_null<Level.Object.LevelObject>(This.Current_Object.Has_Key_Object(Get_Object_Type)) && This.cheak_Reliant() && This.Current_Object.Cheak_Cannot_Placed()){
 			Change_Lawn(This,new Color(0,1,0,1));
 		}else if (This.Current_Object.Get_Reliant_Object_Key(This) != "")
 		{
@@ -381,7 +374,7 @@ public partial class Level_Master_Script : Node2D{
 	{
 		Card_Data data = Game.Get_GlobalNode.Get_Card_Data(GetTree());
 		MVZ2.Type.ObjectType Types = data.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data.Object_Type;
-		if (lawn.Current_Object.Has_Key_Object(Types.ToString()) == null && lawn.Current_Object.Cheak_Cannot_Placed())
+		if (Cheak.is_null<Level.Object.LevelObject>(lawn.Current_Object.Has_Key_Object(Types.ToString())) && lawn.Current_Object.Cheak_Cannot_Placed())
 		{
 			lawn.Color = new Color(1,1,1,0.5f);
 		}else if (lawn.cheak_is_Stackable(Types.ToString()))
@@ -578,14 +571,12 @@ public partial class Level_Master_Script : Node2D{
     public override void _ExitTree()
     {
         base._ExitTree();
-		Object_Kill -= Static.Summand.Monster_Kill;
 	}
 	/// <summary>
 	/// 初始化
 	/// </summary>
 	public override async void _Ready() {
 		base._Ready();
-		Object_Kill += Static.Summand.Monster_Kill;
 		Reset_Lawn_Index();
 		Level_Script.Level_Object = this;
 		LawnScene = Game.ResourceScene.LoadScene("uid://dim8rk13omwvv");
@@ -593,7 +584,7 @@ public partial class Level_Master_Script : Node2D{
 		Game.Get_GlobalNode.Node_Data.Add_Node(this,"Level");
 		summand_Node();
 		await Task.Delay(100);
-		if (Camera2D == null)
+		if (Cheak.is_null<Camera2D>(Camera2D))
 		{
 			Camera2D = new Camera2D(); 
 			Camera2D.Position = Camera2D_Position;
