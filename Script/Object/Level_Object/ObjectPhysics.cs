@@ -17,6 +17,9 @@ public partial class ObjectPhysics : Node2D
     /// 检测范围
     /// </summary>
     [Export] public Godot.Vector2I Cheak_Index_Scoop = new(0,0);
+    /// <summary>
+    /// 可被其他物体跨行检测的范围
+    /// </summary>
     [Export] public Godot.Vector2I Cheak_Lawn_Index_Scoop = new(0,0);
     /// <summary>
     /// 自动设置草坪行数索引
@@ -49,6 +52,14 @@ public partial class ObjectPhysics : Node2D
     /// </summary>发`
     [Export] public float Weight = 5;
     /// <summary>
+    /// 坐标类型
+    /// </summary>
+    [Export] public MVZ2_City.Type.PositionType PositionType = MVZ2_City.Type.PositionType.GlobalPosition;
+    /// <summary>
+    /// 跟随当前重量增加加速度
+    /// </summary>
+    [Export] public bool Follow_the_current_weight = false;
+    /// <summary>
     /// 下落加速度
     /// </summary>
     [Export] public float Falling_Acceleration = 1;
@@ -56,6 +67,10 @@ public partial class ObjectPhysics : Node2D
     /// 高度
     /// </summary>
     [Export] public float Height = 0;
+    /// <summary>
+    /// 最低高度
+    /// </summary>
+    [Export] public float min_Height = 0;
     /// <summary>
     /// 额外高度
     /// </summary>
@@ -83,7 +98,10 @@ public partial class ObjectPhysics : Node2D
     /// <summary>
     /// 加速度
     /// </summary>
-    [Export] public float Acceleration = 0;
+    [Export] public float Acceleration = 10;
+    /// <summary>
+    /// 物理已完成初始化
+    /// </summary>
     [Export] internal bool Physics_Initialization = false;
     /// <summary>
     /// 临时坐标
@@ -154,8 +172,14 @@ public partial class ObjectPhysics : Node2D
    
     internal void Reset_Position()
     {
-        practical_Position = GlobalPosition;
-        Physics_Initialization = true;
+        if(PositionType == MVZ2_City.Type.PositionType.GlobalPosition){
+            practical_Position = GlobalPosition;
+            Physics_Initialization = true;
+        }
+        else
+        {
+            practical_Position = Position;
+        }
     }
     /// <summary>
     /// 设置物理坐标
@@ -165,18 +189,31 @@ public partial class ObjectPhysics : Node2D
         float FloatDelta = (float)delta;
         if (!Physics_Enable){return;}
         if (!Physics_Initialization){return;}
-        GlobalPosition = practical_Position - new Vector2(0,Height + Extra_Height);
-        if (Height > 0)
+        if (Height > min_Height)
         {
-            Falling_Acceleration += Weight * 10 * FloatDelta;
+            if (Follow_the_current_weight == true){
+                Falling_Acceleration += Weight * Acceleration * FloatDelta;
+            }
+            else
+            {
+                Falling_Acceleration += Acceleration * FloatDelta;
+            }
             Height -= Falling_Acceleration;
         }
 
-        if(Height < 0)
+        if(Height < min_Height)
         {
             Falling_Acceleration = 0;
-            Height = 0;
+            Height = min_Height;
         }
+        if (PositionType == MVZ2_City.Type.PositionType.GlobalPosition){
+            GlobalPosition = practical_Position - new Vector2(0,Height + Extra_Height);
+        }
+        else
+        {
+            Position = practical_Position - new Vector2(0,Height + Extra_Height);
+        }
+
     }
     /// <summary>
     /// 检测高度等级

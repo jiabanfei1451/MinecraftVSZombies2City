@@ -136,6 +136,10 @@ public class Summand_Data
     /// 随机生成器先前状态
     /// </summary>
     public ulong State {get;set;} = 0;
+    /// <summary>
+    /// 权重
+    /// </summary>
+    public List<ID> Summand_weight {get;set;} = new();
     public void Remove_present_Object(LevelObject Object)
     {
         Present_Object.Remove(Object);

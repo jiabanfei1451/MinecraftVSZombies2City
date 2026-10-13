@@ -45,17 +45,17 @@ public partial class Level_Master_Script : Node2D{
 	/// 节点生成
 	/// </summary>
 	[ExportGroup("Layer")]
-	[Export] public String[] Node_Index {get;set;} = ["Equipment","Monster","Shoot","particle","Light","item"];
+	[Export] public String[] Node_Index {get;set;} = ["shadow","Equipment","Monster","Shoot","particle","Light","item"];
 	/// <summary>
 	/// 图层分配
 	/// </summary>
-	[Export] public int[] Layer_Index {get;set;} = [1,2,2,3,4,9];
+	[Export] public int[] Layer_Index {get;set;} = [1,2,3,3,4,5,9];
 	/// <summary>
 	/// 类型分配
 	/// 0 = Node,
 	/// 1 = Viewport,
 	/// </summary>
-	[Export] public int[] Node_Type {get;set;} = [0,0,2,0,0,0];
+	[Export] public int[] Node_Type {get;set;} = [2,0,0,0,0,2,0];
 	/// <summary>
 	/// 选中的草坪
 	/// </summary>

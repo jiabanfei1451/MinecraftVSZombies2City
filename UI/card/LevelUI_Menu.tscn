@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://c7ih00hn4o6bl" path="res://Script/UI/Level/Menu/Add_Speed_Button.cs" id="8_vd5k6"]
 [ext_resource type="Texture2D" uid="uid://uqq66r4x218a" path="res://Image/UI/Button/MEUIV2/MEUI-hollow.png" id="9_08qgy"]
 [ext_resource type="AudioStream" uid="uid://q22uvnfslmrq" path="res://Sound/Souds/UI/UpspeedUI/Recede_Speed.wav" id="10_o7o7q"]
+[ext_resource type="Script" uid="uid://cm5x56vfb13l" path="res://UI/LevelUI/StarCard.cs" id="13_3cl04"]
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="13_ykj04"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_abi3o"]
@@ -276,7 +277,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifow5")
 
-[node name="Control" type="Control" parent="." unique_id=1665718679]
+[node name="Star Card" type="Control" parent="." unique_id=1665718679]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -288,15 +289,16 @@ offset_top = -40.0
 offset_right = 83.25
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("13_3cl04")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Control" unique_id=414760226]
+[node name="ReferenceRect" type="ReferenceRect" parent="Star Card" unique_id=414760226]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 39.75
 grow_vertical = 2
 
-[node name="Panel2" type="Panel" parent="Control/ReferenceRect" unique_id=479938678]
+[node name="Panel2" type="Panel" parent="Star Card/ReferenceRect" unique_id=479938678]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,7 +307,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o7o7q")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="Control" unique_id=127331620]
+[node name="ReferenceRect2" type="ReferenceRect" parent="Star Card" unique_id=127331620]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -314,7 +316,7 @@ offset_left = 39.75
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control/ReferenceRect2" unique_id=792464158]
+[node name="Panel" type="Panel" parent="Star Card/ReferenceRect2" unique_id=792464158]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -323,7 +325,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o7o7q")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ReferenceRect2" unique_id=1039770821]
+[node name="HBoxContainer" type="HBoxContainer" parent="Star Card/ReferenceRect2" unique_id=1039770821]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -336,31 +338,31 @@ grow_vertical = 2
 theme_override_constants/separation = 7
 alignment = 1
 
-[node name="Panel5" type="Panel" parent="Control/ReferenceRect2/HBoxContainer" unique_id=995985192]
+[node name="Panel5" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=995985192]
 custom_minimum_size = Vector2(15, 15)
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
 
-[node name="Panel6" type="Panel" parent="Control/ReferenceRect2/HBoxContainer" unique_id=1523155674]
+[node name="Panel6" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=1523155674]
 custom_minimum_size = Vector2(15, 15)
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
 
-[node name="Panel7" type="Panel" parent="Control/ReferenceRect2/HBoxContainer" unique_id=1535966836]
+[node name="Panel7" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=1535966836]
 custom_minimum_size = Vector2(15, 15)
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
 
-[node name="Panel8" type="Panel" parent="Control/ReferenceRect2/HBoxContainer" unique_id=998095719]
+[node name="Panel8" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=998095719]
 custom_minimum_size = Vector2(15, 15)
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
 
-[node name="Panel9" type="Panel" parent="Control/ReferenceRect2/HBoxContainer" unique_id=1134973889]
+[node name="Panel9" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=1134973889]
 custom_minimum_size = Vector2(15, 15)
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2

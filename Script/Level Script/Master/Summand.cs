@@ -50,10 +50,10 @@ public static class Summand
         while (Data.Current_Summand_Number < Data.Max_Summand_Number)
         {
             int Temp_Count = Data.Summand_List.Count - 1;
-            ID Random_Get = Data.Summand_List[Ran.Next(0,Temp_Count)];
+            ID Random_Get = null;
+            Random_Get = Data.Summand_List[Ran.Next(0,Temp_Count)]; 
             PackedScene GetPacked = MVZ2_City.Object_List.Get_Packed(Random_Get);
             GlobalData get_carddata = Card_Data.Get_CardData(GetPacked);
-            
             Vector2 Summand_Scale = new(1,1);
             Vector2 Summanc_Offset = new(40,48);
 

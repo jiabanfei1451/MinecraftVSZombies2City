@@ -109,18 +109,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="星之碎片贴图" type="TextureRect" parent="Level" unique_id=25255191]
-visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 153.0
-offset_top = 322.0
-offset_right = 193.0
-offset_bottom = 362.0
+offset_left = 1236.0
+offset_top = -6.0
+offset_right = 1276.0
+offset_bottom = 34.0
 mouse_filter = 2
 texture = ExtResource("4_w7i6b")
 
 [node name="器械能贴图" type="TextureRect" parent="Level" unique_id=1721923442]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 153.0
@@ -372,7 +370,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_h5g1x")
-Auto_Enable_Index = 1
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Panel3" type="Panel" parent="Select_CardUI/BluePrint" unique_id=1231187989]
@@ -460,7 +457,6 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("14_b70vt")
 Enable_Drag = false
-Auto_Enable_Index = 1
 metadata/_custom_type_script = "uid://blc413ky1v12"
 
 [node name="Panel6" type="Panel" parent="Select_CardUI/BluePrint/TouchPad_V2" unique_id=319850770]
