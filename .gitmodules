@@ -1,0 +1,3 @@
+[submodule "Script/Engine/PVZEngine"]
+	path = Script/Engine/PVZEngine
+	url = https://github.com/Cuerzor/MukioI18n.git

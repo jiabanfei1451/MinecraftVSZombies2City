@@ -1,11 +1,10 @@
 using Godot;
-using Level.Object;
+using PVZEngine;
+using PVZEngine.Object.Module;
 using My_Csharp_Node;
-using System;
-using System.Threading.Tasks;
 
 namespace MVZ2.Object.Equipment;
-public partial class Landmine : MVZ2.Object.Equipment.Equipment
+public partial class Landmine : PVZEngine.Object.Module.Equipment
 {
     [Export] public Godot.Collections.Array<Sprite2D> sprite2Ds = new();
     [Export] public int Sprite2D_ID = new();
@@ -50,7 +49,7 @@ public partial class Landmine : MVZ2.Object.Equipment.Equipment
                     @object.Reduce_Health(Damage,this);
                 }
             }
-            level.EmitSignal(Level.Level_Master_Script.SignalName.Object_Kill,this);
+            level.EmitSignal(Level_Master_Script.SignalName.Object_Kill,this);
             QueueFree();
             return;
         }

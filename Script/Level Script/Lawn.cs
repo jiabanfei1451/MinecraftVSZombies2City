@@ -7,7 +7,10 @@ using Game.Cheak;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-namespace Level;
+using PVZEngine.Object.Module;
+using Data;
+using PVZEngine.Static;
+namespace PVZEngine.Object;
 public partial class Lawn : ColorRect{
 	[Export] public Vector2I ArrayPosition = new Vector2I();
 	[Export] public TouchPad pad;
@@ -16,8 +19,8 @@ public partial class Lawn : ColorRect{
 	public bool Cheak_OK = false;
 	public class CurrentObject
 	{
-		public Godot.Collections.Dictionary<String,Level.Object.LevelObject> Objects = new ();
-		public Godot.Collections.Dictionary<String,Level.Object.LevelObject> Misc_Objects= new();
+		public Godot.Collections.Dictionary<String,LevelObject> Objects = new ();
+		public Godot.Collections.Dictionary<String,LevelObject> Misc_Objects= new();
 		/// <summary>
 		/// 获取所有字典密钥
 		/// </summary>
@@ -39,18 +42,18 @@ public partial class Lawn : ColorRect{
 		/// <param name="Key"></param>
 		/// <param name="Object"></param>
 		/// <returns></returns>
-		public String Add_Object(String Key,Level.Object.LevelObject Object,bool Add_Misc = false)
+		public String Add_Object(String Key,LevelObject Object,bool Add_Misc = false)
 		{
 			var Temp_Keys = Objects.Keys.ToList<String>();
 			if (Add_Misc == false){
 				if (Temp_Keys.IndexOf(Key) != -1)
 				{
-					Level.Object.LevelObject Temp_LevelObject = Objects[Key];
-					String RandomString = Game.Get.Random.Random_String(15);
+					LevelObject Temp_LevelObject = Objects[Key];
+					String RandomString = PVZEngine.Module.Random.Random_String(15);
 					while (true){
 						if (Misc_Objects.Keys.ToList<String>().IndexOf(RandomString) != -1)
 						{
-							RandomString = Game.Get.Random.Random_String(15);
+							RandomString = PVZEngine.Module.Random.Random_String(15);
 						}
 						else
 						{
@@ -68,11 +71,11 @@ public partial class Lawn : ColorRect{
 			}
 			else
 			{
-				String RandomString = Game.Get.Random.Random_String(15);
+				String RandomString = PVZEngine.Module.Random.Random_String(15);
 					while (true){
 						if (Misc_Objects.Keys.ToList<String>().IndexOf(RandomString) != -1)
 						{
-							RandomString = Game.Get.Random.Random_String(15);
+							RandomString = PVZEngine.Module.Random.Random_String(15);
 						}
 						else
 						{
@@ -122,7 +125,7 @@ public partial class Lawn : ColorRect{
 		/// 移除物体
 		/// </summary>
 		/// <param name="level"></param>
-		public void Remove_Object(Level.Object.LevelObject level)
+		public void Remove_Object(LevelObject level)
 		{
 			foreach (String Key in Objects.Keys)
 			{
@@ -168,9 +171,9 @@ public partial class Lawn : ColorRect{
 		/// </summary>
 		/// <param name="Key"></param>
 		/// <returns></returns>
-		public Level.Object.LevelObject Has_Key_Object(String Key)
+		public LevelObject Has_Key_Object(String Key)
 		{
-			Level.Object.LevelObject returns = null;
+			LevelObject returns = null;
 			List<String> strings = Objects.Keys.ToList<String>();
 			if (strings.IndexOf(Key) != -1)
 			{
@@ -216,7 +219,7 @@ public partial class Lawn : ColorRect{
 			}
 			if (Objects.Values.Count > 0 || Misc_Objects.Count > 0)
 			{
-				foreach(Level.Object.LevelObject levelObject in Objects.Values){
+				foreach(LevelObject levelObject in Objects.Values){
 					if (levelObject != null){
 						if (levelObject.Cannot_place_Type.Count > 0){
 							foreach(MVZ2.Type.ObjectType Temp_Type in levelObject.Cannot_place_Type)
@@ -226,7 +229,7 @@ public partial class Lawn : ColorRect{
 						}
 					}
 				}
-				foreach(Level.Object.LevelObject levelObject in Misc_Objects.Values){
+				foreach(LevelObject levelObject in Misc_Objects.Values){
 					if (levelObject != null){
 						if (levelObject.Cannot_place_Type.Count > 0){
 							foreach(MVZ2.Type.ObjectType Temp_Type in levelObject.Cannot_place_Type)
@@ -313,13 +316,13 @@ public partial class Lawn : ColorRect{
 	/// <summary>
 	/// 放置
 	/// </summary>
-	public Level.Object.LevelObject Placed(bool Sousume = true)
+	public LevelObject Placed(bool Sousume = true)
 	{
 		bool Add_Misc = false;
 		Card_Data GetCard = Game.Get_GlobalNode.Get_Card_Data(GetTree());
 		if (Cheak.is_null<Card>(GetCard.Selected_raw_Object)){return null;}
 		if (GetCard.Selected_raw_Object.Card_Mode != Card.Mode.Gameing){return null;}
-		Data.GlobalData GetCard_Data = GetCard.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		GlobalData GetCard_Data = GetCard.Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
 		String Object_Type = GetCard_Data.Object_Type.ToString();
 
 		if (!Current_Object.Cheak_Cannot_Placed() && Game.Static.PlayerData.Temp_CardObject.Enable_Placed_Reliant == false)
@@ -368,10 +371,10 @@ public partial class Lawn : ColorRect{
 			Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Equipment").AddChild(Game.Static.PlayerData.Temp_CardObject);
 			if (Current_Object.Has_Key_Object(Object_Type) != null){
 				if (Current_Object.Has_Key_Object(Object_Type).Object_UUID == Game.Static.PlayerData.Temp_CardObject.Object_UUID){
-					Current_Object.Has_Key_Object(Object_Type).EmitSignal(MVZ2.Object.Equipment.Equipment.SignalName.Stacked_PlacementThis,Game.Static.PlayerData.Temp_CardObject);
+					Current_Object.Has_Key_Object(Object_Type).EmitSignal(Equipment.SignalName.Stacked_PlacementThis,Game.Static.PlayerData.Temp_CardObject);
 				}else if (Current_Object.Has_Key_Object(Object_Type).Stackable_UUID.IndexOf(Game.Static.PlayerData.Temp_CardObject.Object_UUID) != -1)
 				{
-					Current_Object.Has_Key_Object(Object_Type).EmitSignal(MVZ2.Object.Equipment.Equipment.SignalName.Stacked_Placement,Game.Static.PlayerData.Temp_CardObject);
+					Current_Object.Has_Key_Object(Object_Type).EmitSignal(Equipment.SignalName.Stacked_Placement,Game.Static.PlayerData.Temp_CardObject);
 				}
 			}
 			Current_Object.Add_Object(Object_Type,Game.Static.PlayerData.Temp_CardObject,Add_Misc);
@@ -392,13 +395,13 @@ public partial class Lawn : ColorRect{
 	{
 		Placed();
 	}
-	public void Object_Kill(Level.Object.LevelObject levelObject)
+	public void Object_Kill(LevelObject levelObject)
 	{
 		Current_Object.Remove_Object(levelObject);
 	}
 	public void focus_Join()
 	{
-		Game.Level_Script.Lawn = this;
+		Level_Script.Lawn = this;
 	}
 	public void Card_Change(Card card)
 	{
@@ -418,13 +421,13 @@ public partial class Lawn : ColorRect{
 	/// </summary>
 	public void Summand_Phantom()
 	{
-		Data.GlobalData Temp_Data = Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
+		GlobalData Temp_Data = Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object.Mode_Data.gameing_Mode.Card_Data;
 		PackedScene Scene = Temp_Data.Scene;
 		Node2D new_Node2d = Scene.Instantiate<Node2D>();
 		new_Node2d.Name = "-1+1-1+1_CS";
-		if (new_Node2d is Level.Object.LevelObject)
+		if (new_Node2d is LevelObject)
 		{
-			Level.Object.LevelObject Temp_Node = (Level.Object.LevelObject)new_Node2d;
+			LevelObject Temp_Node = (LevelObject)new_Node2d;
 			Temp_Node.Enable = false;
 			Temp_Node.Enable_Health = false;
 		}
@@ -436,14 +439,14 @@ public partial class Lawn : ColorRect{
 		for (int i = 0; i < this.GetChildCount(); ++i)
 			{
 				Node Get = this.GetChild(i);
-				if (Get.GetScript().ToString() == "" && !(Get is Level.Object.LevelObject)){
+				if (Get.GetScript().ToString() == "" && !(Get is LevelObject)){
 					Info.ERROR(Info.ERROR_Info.NOScript);
 					Get.QueueFree();
 				}
 				else
 				{
-					if (Get is Level.Object.LevelObject){
-						Level.Object.LevelObject Temp_Get = (Level.Object.LevelObject)Get;
+					if (Get is LevelObject){
+						LevelObject Temp_Get = (LevelObject)Get;
 						if (Temp_Get.Enable == false)
 						{
 							Temp_Get.QueueFree();

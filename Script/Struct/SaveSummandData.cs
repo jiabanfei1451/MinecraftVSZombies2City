@@ -1,7 +1,8 @@
-using Godot;
-using Level;
 using System.Collections.Generic;
-using Level.Static;
+using PVZEngine;
+using PVZEngine.Type;
+using PVZEngine.Enum;
+using PVZEngine.Object.Module;
 namespace SaveData;
 /// <summary>
 /// 生成数据
@@ -20,7 +21,7 @@ public class SaveSummanddata
     /// 波次生成怪物ID
     /// </summary>
     #region 波次数据
-    public List<List<MVZ2_City.Type.ID>> Object_ID {get;set;}
+    public List<List<ID>> Object_ID {get;set;}
     /// <summary>
     /// 生成数量
     /// </summary>
@@ -38,7 +39,7 @@ public class SaveSummanddata
     /// <summary>
     /// 指定物体
     /// </summary>
-    public List<MVZ2_City.Type.ID> Specify_Monster_Summand {get;set;}
+    public List<ID> Specify_Monster_Summand {get;set;}
     /// <summary>
     /// 指定生成坐标
     /// </summary>
@@ -47,11 +48,11 @@ public class SaveSummanddata
     /// <summary>
     /// 已生成的怪物
     /// </summary>
-    public Godot.Collections.Array<Level.Object.LevelObject> Generated_Object {get;set;}
+    public Godot.Collections.Array<LevelObject> Generated_Object {get;set;}
     /// <summary>
     /// 完成检测ID
     /// </summary>
-    public List<MVZ2_City.Type.ID> ENDCheck_ID {get;set;}
+    public List<ID> ENDCheck_ID {get;set;}
     /// <summary>
     /// 完成检测后存在状态
     /// </summary>
@@ -72,7 +73,7 @@ public class SaveSummanddata
     /// 运算逻辑
     /// </summary>
     /// <param name="delta"></param>
-    public MVZ2_City.Type.WhileMode While_Mode {get;set;}
+    public WhileMode While_Mode {get;set;}
     /// <summary>
     /// 循环状态 当while_Mode = While时才会改变
     /// </summary>

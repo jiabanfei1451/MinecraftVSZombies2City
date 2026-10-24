@@ -1,10 +1,10 @@
-using System;
+using PVZEngine.Object.Module;
 using Godot;
 namespace Level.Object.Bullet;
 /// <summary>
 /// 箭矢
 /// </summary>
-public partial class Arrow : Level.Object.BulletData
+public partial class Arrow : PVZEngine.Object.Module.BulletData
 {
     [Export] Area2D area = null;
     bool c = false;
@@ -32,7 +32,7 @@ public partial class Arrow : Level.Object.BulletData
     }
     public void Damage_Node(Node2D node)
     {
-        if (node is Level.Object.LevelObject)
+        if (node is LevelObject)
         {
             bool check = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
             if (!check){return;}

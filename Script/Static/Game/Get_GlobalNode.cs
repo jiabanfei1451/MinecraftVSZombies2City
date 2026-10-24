@@ -3,7 +3,7 @@ using Godot;
 using System;
 using Game.AutoLoad;
 using AutoLoad;
-using MVZ2_City;
+using PVZEngine.Module;
 namespace Game{
 /// <summary>
 /// 获取全局节点
@@ -164,7 +164,7 @@ static class Get_GlobalNode
 	/// <returns></returns>
 	public static Card_Data Get_Card_Data(SceneTree tree = null)
 	{
-		if (Cheak.Cheak.is_null<SceneTree>(Tree)){
+		if (PVZEngine.Static.Cheak.is_null<SceneTree>(Tree)){
 			Tree = tree;
 		}
 		Card_Data Node = Tree.Root.GetNode<Card_Data>("CardData");
@@ -177,7 +177,7 @@ static class Get_GlobalNode
 	/// <returns></returns>
 	public static Muisc_Engine Get_Muisc_Engine(SceneTree tree = null)
 	{
-		if (Cheak.Cheak.is_null<SceneTree>(Tree)){
+		if (PVZEngine.Static.Cheak.is_null<SceneTree>(Tree)){
 			Tree = tree;
 		}
 		Muisc_Engine muisc_Engine = Tree.Root.GetNode<Muisc_Engine>("MuiscEngine");
@@ -189,7 +189,7 @@ static class Get_GlobalNode
 	/// <param name="tree"></param>
 	/// <returns></returns>
 	public static Game.AutoLoad.Audio_List Get_Audio_List(SceneTree tree = null){
-		if (Cheak.Cheak.is_null<SceneTree>(Tree)){
+		if (PVZEngine.Static.Cheak.is_null<SceneTree>(Tree)){
 			Tree = tree;
 		}
 		Audio_List audio_List = Tree.Root.GetNode<Audio_List>("AudioList");

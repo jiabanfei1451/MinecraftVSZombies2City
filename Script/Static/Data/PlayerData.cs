@@ -3,7 +3,7 @@ using GameUI;
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using PVZEngine.Object.Module;
 
 namespace Game.Static;
 public static class PlayerData : Object
@@ -41,7 +41,7 @@ public static class PlayerData : Object
     /// <summary>
     /// 临时器械数据
     /// </summary>
-    public static Level.Object.LevelObject Temp_CardObject = null;
+    public static LevelObject Temp_CardObject = null;
     /// <summary>
     /// 临时卡槽数据
     /// </summary>

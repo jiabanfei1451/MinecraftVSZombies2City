@@ -1,20 +1,21 @@
 using Game;
 using Godot;
 using My_Csharp_Node;
-namespace MVZ2.Object.Equipment;
+using PVZEngine.Static;
+namespace PVZEngine.Object.Module;
 [Icon("uid://cs87xcexy6nl7")]
-public partial class Equipment : Level.Object.LevelObject
+public partial class Equipment : LevelObject
 {
     /// <summary>
     /// 叠加放置同类型物体时
     /// </summary>
     /// <param name="Placement_Object"></param>
-    [Signal] public delegate void Stacked_PlacementEventHandler(Level.Object.LevelObject Placement_Object);
+    [Signal] public delegate void Stacked_PlacementEventHandler(LevelObject Placement_Object);
     /// <summary>
     /// 叠加放置自身时
     /// </summary>
     /// <param name="Placement_Object"></param>
-    [Signal] public delegate void Stacked_PlacementThisEventHandler(Level.Object.LevelObject Placement_Object);
+    [Signal] public delegate void Stacked_PlacementThisEventHandler(LevelObject Placement_Object);
     [ExportGroup("Object")]
     [Export] public Touch.TouchPad TouchPad = null;
     [ExportGroup("Number")]
@@ -94,13 +95,17 @@ public partial class Equipment : Level.Object.LevelObject
     {
         Level_Script.Selected_Object = this;
     }
+    /// <summary>
+    /// 受击释放粒子
+    /// </summary>
+    /// <param name="Damage_Object"></param>
     public void This_Damage(Node Damage_Object)
     {
         for (int i = 0;i < Particie_Number;i++){
-            float x = -Game.Get.Random.NextFloat_32(24,0);
-            float y = -Game.Get.Random.NextFloat_32(21,0);
-            float x2 = Game.Get.Random.NextFloat_32(24,0);
-            float y2 = Game.Get.Random.NextFloat_32(22,0);
+            float x = -PVZEngine.Module.Random.NextFloat_32(24,0);
+            float y = -PVZEngine.Module.Random.NextFloat_32(21,0);
+            float x2 = PVZEngine.Module.Random.NextFloat_32(24,0);
+            float y2 = PVZEngine.Module.Random.NextFloat_32(22,0);
             Vector2 Summand_Position = new(x + x2,y + y2);
             PackedScene packed = Game.ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
             MVZ2.Object.Particie Summand_Particie = packed.Instantiate<MVZ2.Object.Particie>();
@@ -124,6 +129,9 @@ public partial class Equipment : Level.Object.LevelObject
             }
         }
     }
+    /// <summary>
+    /// 死亡生成粒子
+    /// </summary>
     public void This_Kill()
     {
         if (!Kill_Auto_Free){return;}
@@ -144,10 +152,10 @@ public partial class Equipment : Level.Object.LevelObject
         }
         Modulate = new Color(0,0,0,0);
         for (int i = 0;i < Kill_Number;i++){
-            float x = -Game.Get.Random.NextFloat_32(24,0);
-            float y = -Game.Get.Random.NextFloat_32(21,0);
-            float x2 = Game.Get.Random.NextFloat_32(24,0);
-            float y2 = Game.Get.Random.NextFloat_32(22,0);
+            float x = -PVZEngine.Module.Random.NextFloat_32(24,0);
+            float y = -PVZEngine.Module.Random.NextFloat_32(21,0);
+            float x2 = PVZEngine.Module.Random.NextFloat_32(24,0);
+            float y2 = PVZEngine.Module.Random.NextFloat_32(22,0);
             Vector2 Summand_Position = new(x + x2,y + y2);
             PackedScene packed = Game.ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
             MVZ2.Object.Particie Summand_Particie = packed.Instantiate<MVZ2.Object.Particie>();

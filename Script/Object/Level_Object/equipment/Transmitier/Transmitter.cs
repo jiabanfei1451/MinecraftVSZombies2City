@@ -1,16 +1,13 @@
 using Godot;
-using DEBUG;
-using System.Threading.Tasks;
-using Level;
-using Game;
-using Game.Cheak;
-using Game.AutoLoad;
+using PVZEngine.Static;
+using PVZEngine.Object.Module;
+using PVZEngine.Module;
 using My_Csharp_Node;
 namespace MVZ2.Object.Equipment;
 /// <summary>
 /// 发射器
 /// </summary>
-public partial class Transmitter : MVZ2.Object.Equipment.Equipment
+public partial class Transmitter : PVZEngine.Object.Module.Equipment
 {
     /// <summary>
     /// 射弹场景
@@ -79,18 +76,18 @@ public partial class Transmitter : MVZ2.Object.Equipment.Equipment
             Summand_Shoot();
             this.AnimationPlayer.Play("Shoot");
             Shoot_Sound.Play();
-            double Time = Game.Get.Random.NextFloat_64(1.4,1.6);
+            double Time = Random.NextFloat_64(1.4,1.6);
             this.Timer.Start(Time);
         }
     }
-    public void Cheak_Height_Change(Level.Module.ObjectPhysics objectPhysics)
+    public void Cheak_Height_Change(ObjectPhysics objectPhysics)
     {
-        if (objectPhysics is Level.Object.LevelObject)
+        if (objectPhysics is LevelObject)
         {
-            Check_Change((Level.Object.LevelObject)objectPhysics);
+            Check_Change((LevelObject)objectPhysics);
         }
     }
-    public void Check_Change(Level.Object.LevelObject LevelObject)
+    public void Check_Change(LevelObject LevelObject)
     {
         if (!Game.Cheak.CheakGroup.Cheak_Object_Group(LevelObject,detection_Group,Exclude_Group)){return;}
         Current_detection_object.Clear();
@@ -121,7 +118,7 @@ public partial class Transmitter : MVZ2.Object.Equipment.Equipment
     /// <param name="Node"></param>
     public void ObjectJoin (Node2D Node)
     {
-        if (Node is Level.Object.LevelObject)
+        if (Node is LevelObject)
         {
             Add_Object(Node);
         }
@@ -132,8 +129,8 @@ public partial class Transmitter : MVZ2.Object.Equipment.Equipment
     /// <param name="Node"></param>
     public void ObjectExit (Node2D Node)
     {
-        if (Node is Level.Object.LevelObject){
-            if (Current_detection_object.IndexOf((Level.Object.LevelObject)Node) != -1){
+        if (Node is LevelObject){
+            if (Current_detection_object.IndexOf((LevelObject)Node) != -1){
                 Remove_Object(Node);
                 Remove_Null_Object();
             }

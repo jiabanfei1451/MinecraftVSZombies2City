@@ -1,6 +1,6 @@
 using Godot;
-using System;
-using MVZ2_City.Type;
+using PVZEngine.Enum;
+using PVZEngine.Module;
 namespace MVZ2.Object;
 public partial class Particie : Node2D
 {
@@ -110,17 +110,17 @@ public partial class Particie : Node2D
     public async void start()
     {
         if (Random_Color == true){
-            Modulate = new Color(Game.Get.Random.NextFloat_32(1,0),Game.Get.Random.NextFloat_32(1,0),Game.Get.Random.NextFloat_32(1,0),1);
+            Modulate = new Color(Random.NextFloat_32(1,0),Random.NextFloat_32(1,0),Random.NextFloat_32(1,0),1);
         }
         Enable = true;
-        Current_MaxHeight = Game.Get.Random.NextFloat_32(MaxHeight.Y,MaxHeight.X);
-        Multiplication *= 1 + Game.Get.Random.NextFloat_32(0,1.5f);
-        Current_Max_Position_X_offset = MAX_PositionX_Offset * (float)(new Random().NextDouble() - 0.5) * 2;
+        Current_MaxHeight = Random.NextFloat_32(MaxHeight.Y,MaxHeight.X);
+        Multiplication *= 1 + Random.NextFloat_32(0,1.5f);
+        Current_Max_Position_X_offset = MAX_PositionX_Offset * (float)(new System.Random().NextDouble() - 0.5) * 2;
         Current_PositionX_Offset = Current_Max_Position_X_offset / Max_bounce_Number;
         Reset_Position.Y = Position.Y;
         Reset_Position.X = Position.X;
         if (Auto_QueneFree){
-            await ToSignal(GetTree().CreateTimer(Game.Get.Random.NextFloat_32(QueneFree_Time - 1,QueneFree_Time)),SceneTreeTimer.SignalName.Timeout);
+            await ToSignal(GetTree().CreateTimer(Random.NextFloat_32(QueneFree_Time - 1,QueneFree_Time)),SceneTreeTimer.SignalName.Timeout);
             QueueFree();
         }
     }

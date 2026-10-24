@@ -1,10 +1,8 @@
 using Godot;
-using Level.Enum;
-using MVZ2_City.Type;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+using PVZEngine.Enum;
+using PVZEngine.Object.Module;
+using PVZEngine.Data;
+using PVZEngine.Type;
 using System.Text.Json;
 
 public partial class Text : Node2D
@@ -13,9 +11,9 @@ public partial class Text : Node2D
     public override void _Ready() {
         base._Ready();
         PackedScene scene = GD.Load<PackedScene>("uid://lyb0noko5sk1");
-        MVZ2.Object.Equipment.Equipment equipment = scene.Instantiate<MVZ2.Object.Equipment.Equipment>();
+        Equipment equipment = scene.Instantiate<Equipment>();
         GD.Print("CH:地雷出土"[3..]);
-        Data.Level.Summand_Data d = new()
+        Summand_Data d = new()
         {
         };
         d.Add_Wave(new()
@@ -38,7 +36,7 @@ public partial class Text : Node2D
         d.Save_Random();
         var sd = JsonSerializer.Serialize(d);
         GD.Print(sd);
-        var dd = JsonSerializer.Deserialize<Data.Level.Summand_Data>(sd);
+        var dd = JsonSerializer.Deserialize<Summand_Data>(sd);
         GD.Print(dd.Summand_Position);
     }
 }

@@ -1,12 +1,12 @@
 using Godot;
 using MVZ2.Object.Interactive_Objects;
-using System;
+using PVZEngine.Module;
 namespace MVZ2.Object.Equipment;
-public partial class Furnace : MVZ2.Object.Equipment.Equipment
+public partial class Furnace : PVZEngine.Object.Module.Equipment
 {
     [Export] internal Timer @Timer = null;
     [Export] internal AnimationPlayer animationPlayer = null;
-    public String[] Animations = new string[]{};
+    public string[] Animations = new string[]{};
     public override void _Ready() {
         base._Ready();
         if (!Enable){return;}
@@ -35,7 +35,7 @@ public partial class Furnace : MVZ2.Object.Equipment.Equipment
         await ToSignal(animationPlayer,AnimationPlayer.SignalName.AnimationFinished);
         Summand_RedStone();
         animationPlayer.Play(Animations[1]);
-        @Timer.WaitTime = Game.Get.Random.NextFloat_32(15,12);
+        @Timer.WaitTime = Random.NextFloat_32(15,12);
         @Timer.Start();
     }
 }

@@ -135,7 +135,7 @@ public partial class Card_Data : Node
 	/// <param name="node"></param>
 	public void Remove_Card_Index(Control @node = null)
 	{
-		if (Cheak.Cheak.Cheak_Null<Control>(@node)){return;}
+		if (PVZEngine.Static.Cheak.Cheak_Null<Control>(@node)){return;}
 		Selected.Remove(@node);
 		arrange_Card();
 	}
@@ -145,7 +145,7 @@ public partial class Card_Data : Node
 	/// <param name="node"></param>
 	public void Add_Card_Index(Control @node = null)
 	{
-		if (Cheak.Cheak.is_null<Control>(@node)){return;}
+		if (PVZEngine.Static.Cheak.is_null<Control>(@node)){return;}
 		Selected.Add(@node);
 		arrange_Card();
 	}

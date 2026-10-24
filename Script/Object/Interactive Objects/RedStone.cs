@@ -1,9 +1,7 @@
-using Game;
-using Game.AutoLoad;
-using Game.Cheak;
+using PVZEngine.Module;
 using Godot;
-using System;
 using Touch;
+using PVZEngine.Static;
 namespace MVZ2.Object.Interactive_Objects;
 public partial class RedStone : MVZ2.Object.Particie
 {
@@ -18,13 +16,13 @@ public partial class RedStone : MVZ2.Object.Particie
     public void st2()
     {
         Game.Get_GlobalNode.GetKey.Key_DownKeyCode += Key_Down;
-        Max_Rise_Strength = Game.Get.Random.NextFloat_32(5,15);
-        Rise_Strength_Enhance_Speed = Game.Get.Random.NextFloat_32(3f,4);
-        Multiplication = new Vector2(Game.Get.Random.NextFloat_32(5,6f),Game.Get.Random.NextFloat_32(2,2.5f));
-        Max_bounce_Number = new Random().Next(1,3);
-        Set_Position_Multiplication = Game.Get.Random.NextFloat_32(1.5f,2);
-        MAX_PositionX_Offset = Game.Get.Random.NextFloat_32(15,45);
-        MaxHeight = new Vector2(Game.Get.Random.NextFloat_32(10,30),Game.Get.Random.NextFloat_32(10,30));
+        Max_Rise_Strength = Random.NextFloat_32(5,15);
+        Rise_Strength_Enhance_Speed = Random.NextFloat_32(3f,4);
+        Multiplication = new Vector2(Random.NextFloat_32(5,6f),Random.NextFloat_32(2,2.5f));
+        Max_bounce_Number = new System.Random().Next(1,3);
+        Set_Position_Multiplication = Random.NextFloat_32(1.5f,2);
+        MAX_PositionX_Offset = Random.NextFloat_32(15,45);
+        MaxHeight = new Vector2(Random.NextFloat_32(10,30),Random.NextFloat_32(10,30));
         if (Cheak.is_null<TouchPad>(pad)){return;}
         pad.Button_Pressedvoid += pressed;
         pad.Drag_Ingvoid += pressed;

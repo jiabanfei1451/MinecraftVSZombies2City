@@ -2,11 +2,11 @@ using Touch;
 using Godot;
 using System.Threading.Tasks;
 using My_Csharp_Node;
-using Game;
-using Game.AutoLoad;
+using PVZEngine.Object.Module;
+using PVZEngine.Static;
 using DEBUG;
 using System;
-using Game.Cheak;
+using PVZEngine;
 namespace GameUI{
 /// <summary>
 /// 卡槽
@@ -178,11 +178,11 @@ public partial class Card : Control
 		//初始化材质
 		Data.GlobalData Data = Game.Card_Data.Get_CardData(Card_Index);
 		Node2D texture = Data.Scene.InstantiateOrNull<Node2D>();
-		if (texture is Level.Object.LevelObject)
+		if (texture is LevelObject)
 		{
-			((Level.Object.LevelObject)texture).Enable = false;
-			((Level.Object.LevelObject)texture).Enable_Health = false;
-			((Level.Object.LevelObject)texture).Physics_Enable = false;
+			((LevelObject)texture).Enable = false;
+			((LevelObject)texture).Enable_Health = false;
+			((LevelObject)texture).Physics_Enable = false;
 		}
 		GetNode<Control>("Image").AddChild(texture);
 		texture.Position = Data.Offset;
@@ -283,7 +283,7 @@ public partial class Card : Control
 					else
 					{	
 						#region 显示状态切换
-						if (Game.Level_Script.Equipment_Capable < Sonsume)
+						if (Level_Script.Equipment_Capable < Sonsume)
 						{
 							Show_CD_Label.Visible = true;	
 							Show_CD_Label.Text = "不足";
@@ -409,7 +409,7 @@ public partial class Card : Control
 			Level_Script.Use_Prop = Level_Script.Prop.Not;			
 		}
 		Data.GlobalData globalData = Game.Card_Data.Get_CardData(Card_Index);
-		if (Game.Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
+		if (Level_Script.Equipment_Capable < globalData.Sonsume || CDing == true)
 		{
 			GetNode<Audio_Plus>("buzzer").Play();
 			return;
@@ -423,7 +423,7 @@ public partial class Card : Control
 				Cancel_Audio = GetNode<Audio_Plus>("Cancel");
 			}
 		if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != this){
-			Level.Level_Master_Script level = (Level.Level_Master_Script)GetTree().CurrentScene;
+			Level_Master_Script level = (Level_Master_Script)GetTree().CurrentScene;
 			level.Selected_Lawn = null;
 			Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = this;
 			Selected_Audio.Play();

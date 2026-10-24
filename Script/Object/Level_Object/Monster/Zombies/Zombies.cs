@@ -1,17 +1,17 @@
-using Data.Level;
+using PVZEngine.Data;
 using Game.Cheak;
 using Godot;
 using Level;
-using Level.Static;
-using My_Csharp_Node;
+using PVZEngine.Static;
+using PVZEngine;
 using System;
-using System.Net.Http.Headers;
+using PVZEngine.Object.Module;
 using System.Threading.Tasks;
 namespace MVZ2.Object.Monster;
 /// <summary>
 /// 普通僵尸
 /// </summary>
-public partial class Zombies : Level.Object.LevelObject
+public partial class Zombies : LevelObject
 {
     [Export] internal Node2D ShaderNode = null;
     /// <summary>
@@ -137,7 +137,7 @@ public partial class Zombies : Level.Object.LevelObject
     /// 检测到物体死亡
     /// </summary>
     /// <param name="levelObject"></param>
-    public void Object_Kill(Level.Object.LevelObject levelObject)
+    public void Object_Kill(LevelObject levelObject)
     {
         if (CheakGroup.Cheak_Object_Group(levelObject,detection_Group,Exclude_Group) == true)
         {

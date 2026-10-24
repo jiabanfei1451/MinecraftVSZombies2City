@@ -1,8 +1,7 @@
 using System;
 using Godot;
-using Level.Module;
 
-namespace Level.Object;
+namespace PVZEngine.Object.Module;
 /// <summary>
 /// 射弹基础数据类型
 /// </summary>
@@ -17,7 +16,7 @@ public partial class BulletData : ObjectPhysics
     /// <summary>
     /// 已检测到的物体
     /// </summary>
-    [Export] internal Godot.Collections.Array<Level.Object.LevelObject> Check_Object = new Godot.Collections.Array<LevelObject>();
+    [Export] internal Godot.Collections.Array<LevelObject> Check_Object = new Godot.Collections.Array<LevelObject>();
     /// <summary>
     /// 伤害
     /// </summary>
@@ -46,29 +45,29 @@ public partial class BulletData : ObjectPhysics
     {
         Check_Object[Array_Index].Reduce_Health(10,this);
     }
-    public void Add_Check_Object(Level.Object.LevelObject data_object)
+    public void Add_Check_Object(LevelObject data_object)
     {
         if (Check_Object.IndexOf(data_object) != -1){return;}
         Check_Object.Add(data_object);
     }
-    public void Remove_Check_Object(Level.Object.LevelObject data_object)
+    public void Remove_Check_Object(LevelObject data_object)
     {
         Check_Object.Remove(data_object);
     }
     internal void Join(Node2D node)
     {
-        if (node is Level.Object.LevelObject){
+        if (node is LevelObject){
             bool Cheak = Game.Cheak.CheakGroup.Cheak_Object_Group(node,detection_Group,Exclude_Group);
             if (!Cheak){return;}
-            Add_Check_Object((Level.Object.LevelObject)node);
+            Add_Check_Object((LevelObject)node);
             EmitSignal("Object_Join",node);
         }
     }
     internal void Exit(Node2D node)
     {
-        if (node is Level.Object.LevelObject)
+        if (node is LevelObject)
         {
-            Remove_Check_Object((Level.Object.LevelObject)node);
+            Remove_Check_Object((LevelObject)node);
             EmitSignal("Object_Exit",node);
         }
     }
