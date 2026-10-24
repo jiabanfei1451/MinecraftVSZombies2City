@@ -1,6 +1,7 @@
-using Game;
+using PVZEngine.Static;
 using Godot;
 using Touch;
+using PVZEngine;
 using PVZEngine.UI;
 using System.Threading.Tasks;
 namespace UIObject{
@@ -9,8 +10,8 @@ public partial class NodeScript : Control
 	float is_Y = 0;
 	float m = 1;
 	Vector2 pos;
-	PackedScene BorderScene = Game.ResourceScene.LoadScene("uid://bxk215b41db4p");
-	PackedScene CardScene = Game.ResourceScene.LoadScene("uid://c2y62prxcbege");
+	PackedScene BorderScene = ResourceScene.LoadScene("uid://bxk215b41db4p");
+	PackedScene CardScene = ResourceScene.LoadScene("uid://c2y62prxcbege");
 	public override async void _Ready()
 	{
 		GetNode<TouchPad>("TouchPad").Drag_Ing += Add_YPosition;
@@ -66,7 +67,7 @@ public partial class NodeScript : Control
 		{
 			Card cardObject = CardScene.Instantiate<Card>();
 			cardObject.Position = node.Position;
-			cardObject.Card_Index = Game.Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data[dex];
+			cardObject.Card_Index = Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data[dex];
 			cardObject.Scale = new Vector2(0.5f,0.5f);
 			cardObject.Name = "Card" + node.Name;
 			GetNode<Control>("Card").AddChild(cardObject);

@@ -1,5 +1,6 @@
 using PVZEngine.Object.Module;
 using Godot;
+using PVZEngine.Static;
 namespace Level.Object.Bullet;
 /// <summary>
 /// 箭矢
@@ -11,7 +12,7 @@ public partial class Arrow : PVZEngine.Object.Module.BulletData
     public override void _Ready() {
         base._Ready();
         Reset();
-        Node2D node2D = Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Shoot");
+        Node2D node2D = NodeData.Get_Node<Node2D>("Shoot");
         if (node2D != null)
         {
             ZIndex = node2D.ZIndex;

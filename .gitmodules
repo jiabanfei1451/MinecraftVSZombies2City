@@ -1,3 +1,9 @@
 [submodule "Script/Engine/PVZEngine"]
 	path = Script/Engine/PVZEngine
 	url = https://github.com/jiabanfei1451/PVZEngine_For_Godot.NET
+[submodule "addons/Godot_TouchAddons"]
+	path = addons/touch
+	url = https://github.com/jiabanfei1451/Godot_TouchAddons
+[submodule "Script/Server/Easy-TCP-LAN"]
+	path = Script/Server/Easy-TCP-LAN
+	url = https://github.com/jiabanfei1451/Easy-TCP-LAN

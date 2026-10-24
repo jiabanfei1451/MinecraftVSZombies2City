@@ -1,6 +1,6 @@
 using Game;
 using Godot;
-using My_Csharp_Node;
+using PVZEngine.Module;
 using PVZEngine.Static;
 namespace PVZEngine.Object.Module;
 [Icon("uid://cs87xcexy6nl7")]
@@ -107,10 +107,10 @@ public partial class Equipment : LevelObject
             float x2 = PVZEngine.Module.Random.NextFloat_32(24,0);
             float y2 = PVZEngine.Module.Random.NextFloat_32(22,0);
             Vector2 Summand_Position = new(x + x2,y + y2);
-            PackedScene packed = Game.ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
+            PackedScene packed = ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
             MVZ2.Object.Particie Summand_Particie = packed.Instantiate<MVZ2.Object.Particie>();
             Summand_Particie.Enable = false;
-            Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("particle").AddChild(Summand_Particie);
+            NodeData.Get_Node<Node2D>("particle").AddChild(Summand_Particie);
             Summand_Particie.Position = Position + Summand_Position;
             Summand_Particie.Random_Color = false;
             Summand_Particie.Modulate = Colors.PickRandom();
@@ -157,10 +157,10 @@ public partial class Equipment : LevelObject
             float x2 = PVZEngine.Module.Random.NextFloat_32(24,0);
             float y2 = PVZEngine.Module.Random.NextFloat_32(22,0);
             Vector2 Summand_Position = new(x + x2,y + y2);
-            PackedScene packed = Game.ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
+            PackedScene packed = ResourceScene.LoadScene("res://Object/Effect/Particle/Default.tscn");
             MVZ2.Object.Particie Summand_Particie = packed.Instantiate<MVZ2.Object.Particie>();
             Summand_Particie.Enable = false;
-            Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("particle").AddChild(Summand_Particie);
+            NodeData.Get_Node<Node2D>("particle").AddChild(Summand_Particie);
             Summand_Particie.Position = Position + Summand_Position;
             Summand_Particie.Random_Color = false;
             Summand_Particie.Modulate = Colors.PickRandom();

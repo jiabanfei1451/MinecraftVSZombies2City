@@ -1,4 +1,4 @@
-using System;
+using PVZEngine;
 using Godot;
 
 public partial class VBoxContainer : Node {
@@ -7,7 +7,7 @@ public partial class VBoxContainer : Node {
 		void PrintHello() {
 			for (int i = 0; i < 9; i++)
 			{
-				var Scene = Game.ResourceScene.LoadScene("res://Scene/Misc Scene/Music room/List.tscn");
+				var Scene = ResourceScene.LoadScene("res://Scene/Misc Scene/Music room/List.tscn");
 				var Scenei = Scene.Instantiate();
 				Scenei.Set("id", i);
 				AddChild(Scenei);

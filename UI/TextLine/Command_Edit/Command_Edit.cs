@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using PVZEngine;
 namespace AutoLoad;
 public partial class Command_Edit : TextEdit
 {
@@ -8,7 +9,7 @@ public partial class Command_Edit : TextEdit
 	/// </summary>
 	[Signal] public delegate void Player_sendEventHandler(String Seed_Why);
 	[Export] public bool SB = false;
-	static PackedScene Line = Game.ResourceScene.LoadScene("uid://bd74mkx2jelk1");
+	static PackedScene Line = ResourceScene.LoadScene("uid://bd74mkx2jelk1");
 	public override void _Ready() {
 		base._Ready();
 		Game.Get_GlobalNode.CommandEdit = this;

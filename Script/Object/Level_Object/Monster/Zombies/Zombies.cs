@@ -1,7 +1,7 @@
 using PVZEngine.Data;
 using Game.Cheak;
 using Godot;
-using Level;
+using PVZEngine.Module;
 using PVZEngine.Static;
 using PVZEngine;
 using System;
@@ -17,7 +17,7 @@ public partial class Zombies : LevelObject
     /// <summary>
     /// 死亡音效
     /// </summary>
-    [Export] My_Csharp_Node.Audio_Plus Kill_Souds = null;
+    [Export] Audio_Plus Kill_Souds = null;
     /// <summary>
     /// 攻击音效
     /// </summary>
@@ -67,7 +67,7 @@ public partial class Zombies : LevelObject
     public override async void _Ready() {
         base._Ready();
         ShaderMaterial shader = new ShaderMaterial();
-        shader.Shader = Game.ResourceShader.LoadShader("uid://cph5hxe55k3bo");
+        shader.Shader = ResourceShader.LoadShader("uid://cph5hxe55k3bo");
         ShaderNode.Material = shader;
         Kill += This_Kill;
         if (!Enable){return;}
@@ -77,7 +77,7 @@ public partial class Zombies : LevelObject
         Area.BodyExited += ObjectExit;
         Leg_Play = GetNode<AnimationPlayer>("Lag_Animation");
         Hand_Play = GetNode<AnimationPlayer>("Hand_Animation");
-        Random random = new Random();
+        System.Random random = new System.Random();
         Speed_Multiplication = Summand.Data.random.RandfRange(0.75f,1.25f);
         Leg_Play.SpeedScale = Speed_Multiplication;
         Hand_Play.SpeedScale = Speed_Multiplication;

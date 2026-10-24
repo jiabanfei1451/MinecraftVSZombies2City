@@ -1,6 +1,7 @@
 using PVZEngine.Static;
 using Godot;
 using System;
+using PVZEngine;
 namespace GameUI.Object;
 public partial class TipUI : Control
 {
@@ -10,13 +11,13 @@ public partial class TipUI : Control
     double Await_Time = 0;
     public override void _ExitTree() {
         base._ExitTree();
-        Game.Tip.Tip_Text = null;
-        Game.Tip.Ready_Text = null;
+        Tip.Tip_Text = null;
+        Tip.Ready_Text = null;
     }
     public override void _Ready() {
         base._Ready();
-        Game.Tip.Ready_Text = GetNode<Label>("Ready");
-        Game.Tip.Tip_Text = GetNode<Label>("Tip/Text");
+        Tip.Ready_Text = GetNode<Label>("Ready");
+        Tip.Tip_Text = GetNode<Label>("Tip/Text");
         TipPanel = GetNode<Control>("Tip");
         Label = GetNode<Label>("Tip/Text");
         TipPanel.Visible = false;

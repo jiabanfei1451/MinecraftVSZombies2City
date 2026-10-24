@@ -1,6 +1,6 @@
 using PVZEngine.Static;
 using Godot;
-using My_Csharp_Node;
+using PVZEngine.Module;
 namespace GameUI.Object;
 public partial class Draft : Control
 {
@@ -46,9 +46,9 @@ public partial class Draft : Control
     }
     public void Set_Player_Use()
     {
-        if (Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != null)
+        if (PVZEngine.Static.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object != null)
         {
-           Game.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null; 
+           PVZEngine.Static.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null; 
         }
         if (Level_Script.Use_Prop != Level_Script.Prop.iron_pickaxe)
         {

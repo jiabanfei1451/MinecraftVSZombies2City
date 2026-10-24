@@ -1,6 +1,5 @@
 using Godot;
-using System;
-using System.Diagnostics;
+using PVZEngine.Data;
 
 public partial class Selected_slot : GridContainer
 {
@@ -10,7 +9,7 @@ public partial class Selected_slot : GridContainer
 		int dex = 0;
 		foreach (Control node in GetChildren())
 		{
-			if (dex <= Game.Static.PlayerData.Card_Quantity)
+			if (dex <= PlayerData.Card_Quantity)
 			{
 				node.Visible = true;
 			}

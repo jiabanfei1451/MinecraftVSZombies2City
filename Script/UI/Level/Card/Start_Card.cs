@@ -3,6 +3,7 @@ using Touch;
 using PVZEngine;
 using System.Threading.Tasks;
 using Level;
+using PVZEngine.Static;
 
 public partial class Start_Card : TouchPad
 {
@@ -12,20 +13,20 @@ public partial class Start_Card : TouchPad
 	public override void _Ready() {
 		base._Ready();
 		Button_Pressedvoid += pressed;
-		Game.Get_GlobalNode.Node_Data.Add_Node(GetNode<UIObject.LevelUi>("../../.."),"LevelUI");
-		Game.Get_GlobalNode.Node_Data.Add_Node(GetNode<Control>("../.."),"LevelUI2");
+		NodeData.Add_Node(GetNode<UIObject.LevelUi>("../../.."),"LevelUI");
+		NodeData.Add_Node(GetNode<Control>("../.."),"LevelUI2");
 	}
 	public async void pressed()
 	{
 		Touch.Touch_Index.Set_Index_Enable("Card",false);
-		Game.Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
+		Get_GlobalNode.Get_Card_Data(GetTree()).CD_Initialization();
 		var it = GetNode<UIObject.LevelUi>("../../..")?.hide_Select_CardUI();
 		await it;
 		CreateTween().TweenProperty(GetNode<Control>("../../../Card"),new NodePath(Control.PropertyName.Position),GetNode<Control>("../../../Y").Position - new Vector2((GetNode<Control>("../../../Card_Slot").Size.X+80) / 2,0),2).SetTrans(Tween.TransitionType.Cubic);
 		CreateTween().TweenProperty(GetNode<Control>("../../../Card_Slot"),new NodePath(Control.PropertyName.Position),GetNode<Control>("../../../Y").Position - new Vector2((GetNode<Control>("../../../Card_Slot").Size.X+80) / 2,0),2).SetTrans(Tween.TransitionType.Cubic);
-		Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level").Completed_Selected_Card();
+		NodeData.Get_Node<Level_Master_Script>("Level").Completed_Selected_Card();
 		await Task.Delay(1000);
-		Game.Get_GlobalNode.Node_Data.Get_Node<Level_Master_Script>("Level").Game_Start();
+		NodeData.Get_Node<Level_Master_Script>("Level").Game_Start();
 	}
 	public override void _Process(double delta)
 	{

@@ -2,7 +2,7 @@ using Godot;
 using PVZEngine.Static;
 using PVZEngine.Object.Module;
 using PVZEngine.Module;
-using My_Csharp_Node;
+using PVZEngine;
 namespace MVZ2.Object.Equipment;
 /// <summary>
 /// 发射器
@@ -13,7 +13,7 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
     /// 射弹场景
     /// </summary>
     [ExportGroup("Summand_Node")]
-    [Export] public PackedScene Shoot = Game.ResourceScene.LoadScene("uid://caymc0p7rsog");
+    [Export] public PackedScene Shoot = ResourceScene.LoadScene("uid://caymc0p7rsog");
     /// <summary>
     /// 箭矢生成坐标
     /// </summary>
@@ -107,9 +107,9 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
     /// </summary>
     public void Summand_Shoot()
     {
-        PackedScene Shoot_Scene = Game.ResourceScene.LoadScene("uid://caymc0p7rsog");
+        PackedScene Shoot_Scene = ResourceScene.LoadScene("uid://caymc0p7rsog");
         Node2D shoot = Shoot_Scene.Instantiate<Node2D>();
-        Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("Shoot").AddChild(shoot);
+        NodeData.Get_Node<Node2D>("Shoot").AddChild(shoot);
         shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition;
     }
     /// <summary>

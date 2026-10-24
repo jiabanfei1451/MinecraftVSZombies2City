@@ -1,6 +1,8 @@
 using Godot;
 using MVZ2.Object.Interactive_Objects;
+using PVZEngine;
 using PVZEngine.Module;
+using PVZEngine.Static;
 namespace MVZ2.Object.Equipment;
 public partial class Furnace : PVZEngine.Object.Module.Equipment
 {
@@ -21,9 +23,9 @@ public partial class Furnace : PVZEngine.Object.Module.Equipment
     }
     public void Summand_RedStone()
     {
-        PackedScene scene = Game.ResourceScene.LoadScene("res://Object/Interactive Objects/Red_Stone.tscn");
+        PackedScene scene = ResourceScene.LoadScene("res://Object/Interactive Objects/Red_Stone.tscn");
         MVZ2.Object.Interactive_Objects.RedStone redStone = scene.Instantiate<RedStone>();
-        Game.Get_GlobalNode.Node_Data.Get_Node<Node2D>("item").AddChild(redStone);
+        NodeData.Get_Node<Node2D>("item").AddChild(redStone);
         redStone.GlobalPosition = GlobalPosition;
         redStone.Reset_Position = Position;
         redStone.EmitSignal("Initialization");
