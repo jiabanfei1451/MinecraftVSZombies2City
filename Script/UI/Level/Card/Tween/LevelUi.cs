@@ -1,5 +1,5 @@
 using Godot;
-using My_Csharp_Node;
+using PVZEngine.UI;
 using System;
 using System.Threading.Tasks;
 namespace UIObject;
@@ -54,7 +54,7 @@ public partial class LevelUi : CanvasLayer
 	{
 		Key[] key_List = new Key[]{Key.Key1,Key.Key2,Key.Key3,Key.Key4,Key.Key5,Key.Key6,Key.Key7,Key.Key8,Key.Key9,Key.Key0,};
 		int Key_index = 0;
-		foreach (GameUI.Card card in GetNode("Card").GetChildren())
+		foreach (Card card in GetNode("Card").GetChildren())
 		{
 			if (Key_index < 10)
 			{
@@ -62,7 +62,7 @@ public partial class LevelUi : CanvasLayer
 			}
 			Key_index += 1;
 			card.Stop_While = true;
-			card.Card_Mode = GameUI.Card.Mode.Gameing;
+			card.Card_Mode = Card.Mode.Gameing;
 		}
 	}
 }

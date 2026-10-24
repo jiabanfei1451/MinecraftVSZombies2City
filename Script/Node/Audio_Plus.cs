@@ -86,12 +86,12 @@ public partial class Audio_Plus : AudioStreamPlayer
 	{
 		Current_Multiplication = 0;
 		Tween t = CreateTween();
-		t.TweenProperty(this,"Current_Multiplication",1,fade_Time);
+		t.TweenProperty(this,new(Audio_Plus.PropertyName.Current_Multiplication),1,fade_Time);
 	}
 	public async void Fade_Exit()
 	{
 		Tween t = CreateTween();
-		t.TweenProperty(this,"Current_Multiplication",0,fade_Time);
+		t.TweenProperty(this,new(Audio_Plus.PropertyName.Current_Multiplication),0,fade_Time);
 		await ToSignal(t,Tween.SignalName.Finished);
 		Autoplay = false;
 		Playing = false;

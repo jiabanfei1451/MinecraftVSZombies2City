@@ -1,7 +1,7 @@
 using Game;
 using Godot;
 using Touch;
-using GameUI;
+using PVZEngine.UI;
 using System.Threading.Tasks;
 namespace UIObject{
 public partial class NodeScript : Control

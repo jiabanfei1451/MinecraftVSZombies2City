@@ -103,7 +103,7 @@ public partial class Muisc_Engine : Node
 				Audio_1.Fade_Join();
 				Audio_1.Autoplay = true;
 				Audio_1.Playing = true;
-				Status = Play_Status.Play_Audio_2;
+				Status = Play_Status.Play_Audio_1;
 				break;
 		}
 	}

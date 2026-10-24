@@ -3,6 +3,7 @@ using Godot;
 using System;
 using Game.AutoLoad;
 using AutoLoad;
+using PVZEngine.Data;
 using PVZEngine.Module;
 namespace Game{
 /// <summary>

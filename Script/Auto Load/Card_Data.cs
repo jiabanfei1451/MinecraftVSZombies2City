@@ -1,9 +1,8 @@
 using System;
-using SaveData;
-using Data;
-using GameUI;
+using PVZEngine.UI;
 using Godot;
-namespace Game;
+using PVZEngine.Data;
+namespace PVZEngine.Data;
 /// <summary>
 /// 卡槽数据
 /// </summary>
@@ -55,7 +54,7 @@ public partial class Card_Data : Node
 	/// <summary>
 	/// 当前卡槽的原数据
 	/// </summary>
-	GameUI.Card Current_Selected_raw_Object = null;
+	Card Current_Selected_raw_Object = null;
 	/// <summary>
 	/// 已拥有的器械
 	/// </summary>
@@ -272,7 +271,7 @@ public partial class Card_Data : Node
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public static Data.GlobalData Get_CardData(int Index)
+	public static GlobalData Get_CardData(int Index)
 	{
 		Godot.Collections.Array<Godot.Collections.Array> Data = Game.Get_GlobalNode.Get_Card_Data().Data;
 		if (Index > -1)
@@ -290,7 +289,7 @@ public partial class Card_Data : Node
 			Godot.Vector2 pe_Offset = (Godot.Vector2)Data[11][Index];
 			Godot.Vector2 pe_Scale = (Godot.Vector2)Data[10][Index];
 			
-			Data.GlobalData Back = new Data.GlobalData()
+			GlobalData Back = new GlobalData()
 			{
 				Scene = scene,
 				CD = cd,
@@ -314,7 +313,7 @@ public partial class Card_Data : Node
 	/// </summary>
 	/// <param name="Index"></param>
 	/// <returns></returns>
-	public static Data.GlobalData Get_CardData(PackedScene Index)
+	public static GlobalData Get_CardData(PackedScene Index)
 	{
 		Godot.Collections.Array<Godot.Collections.Array> Data = Game.Get_GlobalNode.Get_Card_Data().Data;
 		return Get_CardData(Data[0].IndexOf(Index));
