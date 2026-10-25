@@ -8,6 +8,9 @@ public partial class Draft : Control
     [Export] public Touch.TouchPad touchPad = null;
     [Export] public Audio_Plus Pick_UP = null;
     [Export] public Audio_Plus Cancel = null;
+    [Export] public Panel Texture = null;
+    [Export] public StyleBoxTexture Normal_Texture = null;
+    [Export] public StyleBoxTexture Down_Texture = null;
     Godot.Vector2 Temp_Pos;
     public override void _ExitTree() {
         base._ExitTree();
@@ -22,6 +25,8 @@ public partial class Draft : Control
         if (touchPad != null)
         {
             touchPad.Button_Pressedvoid += pressed;
+            touchPad.Button_Downvoid += Down;
+            touchPad.Button_UPvoid += UP;
         }
     }
     public void Mouse_DownKeyCode(MouseButtonMask key)
@@ -39,9 +44,16 @@ public partial class Draft : Control
             Set_Player_Use();
         }
     }
+    public void Down()
+    {
+        Texture.AddThemeStyleboxOverride("panel",Down_Texture);
+    }
+    public void UP()
+    {
+        Texture.AddThemeStyleboxOverride("panel",Normal_Texture);
+    }
     public void pressed()
     {
-        GD.Print(Touch.Touch_Index.Get_Index(3));
         Set_Player_Use();
     }
     public void Set_Player_Use()

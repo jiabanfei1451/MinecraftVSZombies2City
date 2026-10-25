@@ -8,9 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://ca1m1lsptgv1" path="res://Sound/Souds/Bullet/Shoot.ogg" id="3_ius62"]
 [ext_resource type="Texture2D" uid="uid://db3ddlwk0qt6h" path="res://Image/Effect/Launch/flash.png" id="4_buk1g"]
 [ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="4_r1ing"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="5_0he7v"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="5_0he7v"]
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_omikh"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="7_0ndwc"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="7_0ndwc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_333bt"]
 
@@ -177,6 +177,7 @@ TouchPad = NodePath("TouchPad")
 Colors = Array[Color]([Color(0.19607843, 0.19607843, 0.19607843, 1), Color(0, 0, 0, 1), Color(0.5294118, 0.5294118, 0.5294118, 1), Color(0.6, 0.6, 0.6, 1), Color(0.67058825, 0.67058825, 0.67058825, 1), Color(0.84313726, 0.84313726, 0.84313726, 1), Color(0.6, 0.6, 0.6, 1), Color(0.30588236, 0.30588236, 0.30588236, 1), Color(0.40392157, 0.40392157, 0.40392157, 1), Color(0.27450982, 0.27450982, 0.27450982, 1), Color(0.7764706, 0.64705884, 0.4392157, 1), Color(0.4, 0.32156864, 0.19607843, 1), Color(0.61960787, 0.5058824, 0.32941177, 1), Color(0.61960787, 0.5176471, 0.3137255, 1), Color(0.53333336, 0.44313726, 0.25882354, 1), Color(0.1882353, 0.14509805, 0.078431375, 1), Color(0.1882353, 0.14509805, 0.078431375, 1), Color(0, 0, 0, 1)])
 PlacedAudios = Array[AudioStream]([ExtResource("2_ccbcm"), ExtResource("3_fw2k7"), ExtResource("4_r1ing"), ExtResource("5_omikh")])
 KillAudios = Array[AudioStream]([ExtResource("2_ccbcm"), ExtResource("3_fw2k7"), ExtResource("4_r1ing"), ExtResource("5_omikh")])
+Activatable = true
 Area = NodePath("Area")
 HP = 300
 Max_HP = 300

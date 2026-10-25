@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://o6qp2l3cgdb1" path="res://Image/UI/Button/MEUIV2/MEUI-hollow2.png" id="5_08qgy"]
 [ext_resource type="Texture2D" uid="uid://gm0d0x8f0bfe" path="res://Image/UI/Button/MEUIV2/UPspeed.png" id="6_atemv"]
 [ext_resource type="AudioStream" uid="uid://6q2ndb44igt7" path="res://Sound/Souds/UI/UpspeedUI/Add_Speed.wav" id="8_g22p4"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="8_glavx"]
 [ext_resource type="Script" uid="uid://c7ih00hn4o6bl" path="res://Script/UI/Level/Menu/Add_Speed_Button.cs" id="8_vd5k6"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="9_5g2w8"]
 [ext_resource type="Texture2D" uid="uid://uqq66r4x218a" path="res://Image/UI/Button/MEUIV2/MEUI-hollow.png" id="9_08qgy"]
 [ext_resource type="AudioStream" uid="uid://q22uvnfslmrq" path="res://Sound/Souds/UI/UpspeedUI/Recede_Speed.wav" id="10_o7o7q"]
 [ext_resource type="Script" uid="uid://cm5x56vfb13l" path="res://UI/LevelUI/StarCard.cs" id="13_3cl04"]
 [ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="13_ykj04"]
+[ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="15_5g2w8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_abi3o"]
 font = ExtResource("1_copng")
@@ -188,14 +189,16 @@ metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Add_Speed" type="AudioStreamPlayer" parent="Button" unique_id=1788343815]
 stream = ExtResource("8_g22p4")
-script = ExtResource("8_glavx")
+script = ExtResource("9_5g2w8")
 Audio_Type = 1
+fade_Time = 0.0
 metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [node name="Recede_Speed" type="AudioStreamPlayer" parent="Button" unique_id=235882617]
 stream = ExtResource("10_o7o7q")
-script = ExtResource("8_glavx")
+script = ExtResource("9_5g2w8")
 Audio_Type = 1
+fade_Time = 0.0
 metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [node name="Bar" type="Control" parent="." unique_id=1523345106 node_paths=PackedStringArray("Value_Object", "Value_Object_Hollow")]
@@ -277,7 +280,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifow5")
 
-[node name="Star Card" type="Control" parent="." unique_id=1665718679]
+[node name="Star Card" type="Control" parent="." unique_id=1665718679 node_paths=PackedStringArray("Local_Position_Object", "Get_Position")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -290,6 +293,8 @@ offset_right = 83.25
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("13_3cl04")
+Local_Position_Object = NodePath("ReferenceRect/Panel2")
+Get_Position = NodePath("ReferenceRect/Panel2/TextureRect")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Star Card" unique_id=414760226]
 layout_mode = 1
@@ -306,6 +311,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o7o7q")
+
+[node name="TextureRect" type="TextureRect" parent="Star Card/ReferenceRect/Panel2" unique_id=2138207360]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("15_5g2w8")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="Star Card" unique_id=127331620]
 layout_mode = 1

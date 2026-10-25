@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://cros3yocp6kdg"]
 
 [ext_resource type="Script" uid="uid://dpmah3815n7ea" path="res://Script/UI/Level/Menu/Draft.cs" id="1_jyi7f"]
-[ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="1_wrwg7"]
 [ext_resource type="Texture2D" uid="uid://dd8fvsjugqam6" path="res://Image/UI/pickaxe.png" id="2_jelco"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="4_voy2v"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="6_qe7bo"]
+[ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="2_lalto"]
+[ext_resource type="StyleBox" uid="uid://d1p6irqo1kmry" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI5.tres" id="3_1w7vd"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="4_voy2v"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="6_qe7bo"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wvhbo"]
-texture = ExtResource("1_wrwg7")
-texture_margin_left = 44.608307
-texture_margin_top = 40.147476
-texture_margin_right = 45.245567
-texture_margin_bottom = 46.20146
-
-[node name="Draft" type="Control" unique_id=477884097 node_paths=PackedStringArray("Iron", "touchPad", "Pick_UP", "Cancel")]
+[node name="Draft" type="Control" unique_id=477884097 node_paths=PackedStringArray("Iron", "touchPad", "Pick_UP", "Cancel", "Texture")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -26,6 +20,9 @@ Iron = NodePath("Iron Draft")
 touchPad = NodePath("TouchPad")
 Pick_UP = NodePath("Pick UP")
 Cancel = NodePath("Cancel")
+Texture = NodePath("TextureRect")
+Normal_Texture = ExtResource("2_lalto")
+Down_Texture = ExtResource("3_1w7vd")
 
 [node name="TextureRect" type="Panel" parent="." unique_id=1202925929]
 layout_mode = 1
@@ -34,7 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_wvhbo")
+theme_override_styles/panel = ExtResource("2_lalto")
 
 [node name="Iron Draft" type="TextureRect" parent="." unique_id=663814963]
 z_index = 4
@@ -63,19 +60,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_voy2v")
-Auto_Enable_Index = "pickaxe"
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Pick UP" type="AudioStreamPlayer" parent="." unique_id=495654419]
 script = ExtResource("6_qe7bo")
-Audio_ID = "MVZ2:Shovel"
+Audio_ID = "CH:拿起稿子"
 Audio_Type = 1
 fade_Time = 0.0
 metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [node name="Cancel" type="AudioStreamPlayer" parent="." unique_id=381958890]
 script = ExtResource("6_qe7bo")
-Audio_ID = "MVZ2:Cancel"
+Audio_ID = "CH:取消"
 Audio_Type = 1
 fade_Time = 0.0
 metadata/_custom_type_script = "uid://dheg8f4rhxhut"

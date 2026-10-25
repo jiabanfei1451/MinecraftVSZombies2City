@@ -1,3 +1,5 @@
+res://Script/Object/UIObject/
+res://addons/Godot_TouchAddons/Script/C Sharp/
 res://UI/LevelUI/
 D:/工具/Godot/导出/
 res://Test/
@@ -21,8 +23,6 @@ res://
 res://Script/
 res://Script/Object/Level_Object/
 D:/Tool/Project/
-res://Object/Equipment/
-res://Script/UI/Level/Card/
 D:/godot/bin/
 D:/
 D:/Tool/
