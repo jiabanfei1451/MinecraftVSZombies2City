@@ -7,6 +7,7 @@ extends Node
 @export var dataname : Array[String] = []
 
 func create_dir(name:String,path:String = "user://"):
+	Tween
 	var s = DirAccess.open(ProjectSettings.globalize_path(path))
 	if s != null:
 		s.make_dir_absolute(name)

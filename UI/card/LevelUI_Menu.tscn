@@ -13,8 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://uqq66r4x218a" path="res://Image/UI/Button/MEUIV2/MEUI-hollow.png" id="9_08qgy"]
 [ext_resource type="AudioStream" uid="uid://q22uvnfslmrq" path="res://Sound/Souds/UI/UpspeedUI/Recede_Speed.wav" id="10_o7o7q"]
 [ext_resource type="Script" uid="uid://cm5x56vfb13l" path="res://UI/LevelUI/StarCard.cs" id="13_3cl04"]
-[ext_resource type="Texture2D" uid="uid://bqcf8vara2mq3" path="res://Image/UI/Button/MOPUI/MOP_UI3.svg" id="13_ykj04"]
+[ext_resource type="Script" uid="uid://doq14fa58y378" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchButton/TouchButton.cs" id="14_riv3j"]
 [ext_resource type="Texture2D" uid="uid://ugolr2rk0njp" path="res://Image/UI/default.png" id="15_5g2w8"]
+[ext_resource type="Texture2D" uid="uid://dj13dird6v4y" path="res://Image/UI/Button/MOPUI/MOP_UI5.svg" id="15_k780p"]
+[ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="16_h7lv4"]
+[ext_resource type="StyleBox" uid="uid://d1p6irqo1kmry" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI5.tres" id="17_64u2o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_abi3o"]
 font = ExtResource("1_copng")
@@ -78,20 +81,23 @@ texture_margin_right = 22.285221
 texture_margin_bottom = 21.832554
 region_rect = Rect2(1, 1, 62, 62)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7o7q"]
-texture = ExtResource("13_ykj04")
-texture_margin_left = 20.255234
-texture_margin_top = 20.59092
-texture_margin_right = 24.68878
-texture_margin_bottom = 24.0065
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3klrj"]
+texture = ExtResource("15_k780p")
+texture_margin_left = 9.480671
+texture_margin_top = 10.268944
+texture_margin_right = 9.47089
+texture_margin_bottom = 9.548702
 region_rect = Rect2(0, 0, 99, 99)
+modulate_color = Color(0.47007585, 0.47007585, 0.47007585, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvhbo"]
-bg_color = Color(0, 1, 0, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+[sub_resource type="LabelSettings" id="LabelSettings_ijfe1"]
+font = ExtResource("1_copng")
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_riv3j"]
+font = ExtResource("1_copng")
+font_size = 10
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control" unique_id=755104157 node_paths=PackedStringArray("Speed_Texture")]
 layout_mode = 3
@@ -280,102 +286,148 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ifow5")
 
-[node name="Star Card" type="Control" parent="." unique_id=1665718679 node_paths=PackedStringArray("Local_Position_Object", "Get_Position")]
+[node name="Control" type="Control" parent="." unique_id=1072844511]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="Control" unique_id=1666451864]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -83.25
-offset_top = -40.0
-offset_right = 83.25
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("13_3cl04")
-Local_Position_Object = NodePath("ReferenceRect/Panel2")
-Get_Position = NodePath("ReferenceRect/Panel2/TextureRect")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Star Card" unique_id=414760226]
+[node name="TouchButton3" type="Control" parent="Control/Control" unique_id=816015930]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_right = 39.75
-grow_vertical = 2
+offset_left = -59.5
+offset_top = -40.0
+offset_right = 59.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("14_riv3j")
+Down_Texture = SubResource("StyleBoxTexture_3klrj")
+Normal_Texture = ExtResource("16_h7lv4")
+Focus_Texture = ExtResource("17_64u2o")
+Auto_Enable_Index = "Show fragment menu"
+metadata/_custom_type_script = "uid://doq14fa58y378"
 
-[node name="Panel2" type="Panel" parent="Star Card/ReferenceRect" unique_id=479938678]
+[node name="Label" type="Label" parent="Control/Control/TouchButton3" unique_id=1821523861]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 7.0
+offset_right = 32.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "实际数量"
+label_settings = SubResource("LabelSettings_ijfe1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Number" type="Label" parent="Control/Control/TouchButton3" unique_id=1543620206]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_top = 26.0
+offset_right = 32.5
+offset_bottom = 49.0
+grow_horizontal = 2
+text = "1/1"
+label_settings = SubResource("LabelSettings_riv3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star Card" type="HBoxContainer" parent="Control" unique_id=2031275143 node_paths=PackedStringArray("Local_Position_Object", "Get_Position", "Star_Number_VIsi_Card", "Star_Number_Node", "pad", "Pad_Eumu", "Label_Numbet")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("13_3cl04")
+Local_Position_Object = NodePath("ReferenceRect/TouchButton")
+Get_Position = NodePath("ReferenceRect/TouchButton/TextureRect")
+Star_Number_VIsi_Card = NodePath("ReferenceRect2/HBoxContainer")
+Star_Number_Node = NodePath("ReferenceRect2")
+pad = NodePath("ReferenceRect2/TouchButton2")
+Pad_Eumu = NodePath("../Control/TouchButton3")
+Label_Numbet = NodePath("../Control/TouchButton3/Number")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Control/Star Card" unique_id=414760226]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="TouchButton" type="Control" parent="Control/Star Card/ReferenceRect" unique_id=256387524]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_o7o7q")
+script = ExtResource("14_riv3j")
+Down_Texture = SubResource("StyleBoxTexture_3klrj")
+Normal_Texture = ExtResource("16_h7lv4")
+Focus_Texture = ExtResource("17_64u2o")
+metadata/_custom_type_script = "uid://doq14fa58y378"
 
-[node name="TextureRect" type="TextureRect" parent="Star Card/ReferenceRect/Panel2" unique_id=2138207360]
+[node name="TextureRect" type="TextureRect" parent="Control/Star Card/ReferenceRect/TouchButton" unique_id=2138207360]
+z_index = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("15_5g2w8")
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="Star Card" unique_id=127331620]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 39.75
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ReferenceRect2" type="ReferenceRect" parent="Control/Star Card" unique_id=127331620]
+custom_minimum_size = Vector2(76.365, 0)
+layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Star Card/ReferenceRect2" unique_id=792464158]
+[node name="TouchButton2" type="Control" parent="Control/Star Card/ReferenceRect2" unique_id=758290523]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_o7o7q")
+script = ExtResource("14_riv3j")
+Down_Texture = SubResource("StyleBoxTexture_3klrj")
+Normal_Texture = ExtResource("16_h7lv4")
+Focus_Texture = ExtResource("17_64u2o")
+Auto_Enable_Index = "Show fragment menu entry"
+metadata/_custom_type_script = "uid://doq14fa58y378"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Star Card/ReferenceRect2" unique_id=1039770821]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Star Card/ReferenceRect2" unique_id=1039770821]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -7.5
-offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 7
 alignment = 1
-
-[node name="Panel5" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=995985192]
-custom_minimum_size = Vector2(15, 15)
-custom_maximum_size = Vector2(15, 15)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
-
-[node name="Panel6" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=1523155674]
-custom_minimum_size = Vector2(15, 15)
-custom_maximum_size = Vector2(15, 15)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
-
-[node name="Panel7" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=1535966836]
-custom_minimum_size = Vector2(15, 15)
-custom_maximum_size = Vector2(15, 15)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
-
-[node name="Panel8" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=998095719]
-custom_minimum_size = Vector2(15, 15)
-custom_maximum_size = Vector2(15, 15)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")
-
-[node name="Panel9" type="Panel" parent="Star Card/ReferenceRect2/HBoxContainer" unique_id=1134973889]
-custom_minimum_size = Vector2(15, 15)
-custom_maximum_size = Vector2(15, 15)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_wvhbo")

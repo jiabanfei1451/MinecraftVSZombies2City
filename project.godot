@@ -51,7 +51,7 @@ project/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot_TouchAddons/plugin.cfg", "res://addons/butter_and_debug/plugin.cfg", "res://addons/save_or_load_data/plugin.cfg", "res://addons/touch/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot_TouchAddons/plugin.cfg", "res://addons/butter_and_debug/plugin.cfg", "res://addons/save_or_load_data/plugin.cfg")
 
 [file_customization]
 

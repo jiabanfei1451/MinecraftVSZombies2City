@@ -45,6 +45,7 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
         if (Cheak.is_null<Area2D>(Area)){return;}
         Area.BodyEntered += ObjectJoin;
         Area.BodyExited += ObjectExit;
+        Activate_Equipment += This_Activate;
         var @r = Reset_Area();
     }
     public override void _ExitTree() {
@@ -71,7 +72,7 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
                 This_Initialization = true;
             }
         }
-        if (this.Timer.TimeLeft == 0 && Current_detection_object.Count > 0)
+        if (this.Timer.TimeLeft == 0 && Current_detection_object.Count > 0 && Activate == false)
         {
             Summand_Shoot();
             this.AnimationPlayer.Play("Shoot");
@@ -79,6 +80,19 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
             double Time = Random.NextFloat_64(1.4,1.6);
             this.Timer.Start(Time);
         }
+    }
+    public async void This_Activate()
+    {
+        Activate = true;
+        AnimationPlayer.Play("大招(开启中)");
+        for(short d = 0; d < 60; d++)
+        {
+            SceneTreeTimer GetTreeTimer = GetTree().CreateTimer(0.05);
+            await ToSignal(GetTreeTimer,SceneTreeTimer.SignalName.Timeout);
+            Summand_Shoot();
+        }
+        this.AnimationPlayer.Play("Shoot");
+        Activate = false;
     }
     public void Cheak_Height_Change(ObjectPhysics objectPhysics)
     {
@@ -110,7 +124,7 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
         PackedScene Shoot_Scene = ResourceScene.LoadScene("uid://caymc0p7rsog");
         Node2D shoot = Shoot_Scene.Instantiate<Node2D>();
         NodeData.Get_Node<Node2D>("Shoot").AddChild(shoot);
-        shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition;
+        shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition + new Vector2(0,PVZEngine.Module.Random.NextFloat_32(5,0) - PVZEngine.Module.Random.NextFloat_32(5,0));
     }
     /// <summary>
     /// 添加物体

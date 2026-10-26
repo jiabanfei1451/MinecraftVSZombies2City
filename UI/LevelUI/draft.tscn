@@ -60,6 +60,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_voy2v")
+Drag_Velocity_Scope = Vector2(800, 800)
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Pick UP" type="AudioStreamPlayer" parent="." unique_id=495654419]

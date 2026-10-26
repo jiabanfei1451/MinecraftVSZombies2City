@@ -65,13 +65,12 @@ public partial class Draft : Control
         if (Level_Script.Use_Prop != Level_Script.Prop.iron_pickaxe)
         {
             Pick_UP.Play();
-            Level_Script.Use_Prop = Level_Script.Prop.iron_pickaxe;
         }
         else
         {
             Cancel.Play();
-            Level_Script.Use_Prop = Level_Script.Prop.Not;
         }
+        Level_Script.Set_Use_porp(Level_Script.Prop.iron_pickaxe);
     }
     public override void _PhysicsProcess(double delta)
     {

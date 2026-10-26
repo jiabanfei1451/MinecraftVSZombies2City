@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
-[ext_resource type="Script" uid="uid://doq14fa58y378" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchButton/TouchButton.cs" id="4_w3plg"]
-[ext_resource type="StyleBox" uid="uid://d1p6irqo1kmry" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI5.tres" id="5_r0ieh"]
-[ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="6_ie7iu"]
-[ext_resource type="StyleBox" uid="uid://oqws7tud3guv" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI.tres" id="7_te6od"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
@@ -89,17 +85,3 @@ color = Color(0, 0, 0, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1336448921]
 position = Vector2(-69, 0)
-
-[node name="TouchButton" type="Control" parent="." unique_id=2097391170]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -59.0
-offset_top = -10.0
-offset_right = 40.0
-offset_bottom = 40.0
-rotation = 0.47472957
-script = ExtResource("4_w3plg")
-Down_Texture = ExtResource("5_r0ieh")
-Normal_Texture = ExtResource("6_ie7iu")
-Focus_Texture = ExtResource("7_te6od")
-metadata/_custom_type_script = "uid://doq14fa58y378"
