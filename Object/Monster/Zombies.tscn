@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://ckxbqpx6mmji6" path="res://Script/Object/Audio/Normal Hit Souds/ZombiesDamage.cs" id="8_0cfh2"]
 [ext_resource type="AudioStream" uid="uid://b4lik07h6ep5d" path="res://Sound/Souds/Kill/Mouster/Zombies Kill/zombie_death.ogg" id="10_67mx1"]
 [ext_resource type="PackedScene" uid="uid://c2qbnurx2pxnj" path="res://UI/血条.tscn" id="11_e0qyl"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="11_ux1b5"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="11_ux1b5"]
 [ext_resource type="PackedScene" uid="uid://dvhsodcglxjm4" path="res://Object/Interactive Objects/物体检测.tscn" id="14_jofpg"]
 
 [sub_resource type="Shader" id="Shader_0cfh2"]
@@ -753,6 +753,7 @@ Move_Ing = true
 Damage = 20
 detection_Group = Array[StringName]([&"Equipment"])
 Cheak_Index_Scoop = Vector2i(-1, 0)
+Shadow_Size = Vector2(0.97, 0.76)
 Object_Type = 3
 Object_UUID = "MVZ2:Zombies"
 Object_Name = "僵尸"

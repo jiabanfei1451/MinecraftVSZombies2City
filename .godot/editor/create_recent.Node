@@ -1,3 +1,5 @@
+Marker2D
+CanvasGroup
 Audio_Plus
 AudioStreamPlayer
 Control
@@ -11,5 +13,3 @@ AnimationPlayer
 TextureRect
 touchBar
 TouchPad_V2
-ColorRect
-TouchPad

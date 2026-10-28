@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ctupg5y2pblky"]
 
+[ext_resource type="PackedScene" uid="uid://2sgut6k4shoy" path="res://Object/Shadow.tscn" id="1_2vxdf"]
 [ext_resource type="Script" uid="uid://doq14fa58y378" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchButton/TouchButton.cs" id="1_g3ouh"]
 [ext_resource type="StyleBox" uid="uid://dngvrsbfs6hx6" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI2.tres" id="2_2vxdf"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="3_qg50p"]
@@ -8,6 +9,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 
 [node name="Text" type="Node2D" unique_id=1808771749]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=211040871]
+
+[node name="Shadow" parent="CanvasGroup" unique_id=669464162 instance=ExtResource("1_2vxdf")]
+position = Vector2(305, 233)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=973453815]
 visible = false

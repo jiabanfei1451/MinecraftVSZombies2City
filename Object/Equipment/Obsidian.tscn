@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg" id="4_ha3sm"]
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_gb1n0"]
 [ext_resource type="AudioStream" uid="uid://mppyitekgw72" path="res://Sound/Souds/黑曜石升级.ogg" id="5_n01dh"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="5_v5ov6"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="5_v5ov6"]
 [ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="6_ylwhe"]
 
 [sub_resource type="Animation" id="Animation_v5ov6"]
@@ -226,6 +226,8 @@ KillAudios = Array[AudioStream]([ExtResource("3_cfcdf"), ExtResource("4_ha3sm"),
 HP = 4000
 Max_HP = 4000
 MoveType = 1
+Shadow_Size = Vector2(1.24, 1)
+Shadow_Offset = Vector2(-1.4, 16.51)
 Object_UUID = "MVZ2:Obsidian"
 Object_Name = "黑曜石"
 

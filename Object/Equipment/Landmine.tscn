@@ -89,6 +89,8 @@ MoveType = 1
 Damage = 1800
 detection_Group = Array[StringName]([&"Monster"])
 Exclude_Group = Array[StringName]([&"Projectile", &"Area", &"Equipment"])
+Shadow_Size = Vector2(1.76, 0.795)
+Shadow_Offset = Vector2(0, 18.43)
 Tags = Array[String](["给给"])
 Object_Type = 2
 Object_UUID = "MVZ2:Landmine"
@@ -236,6 +238,9 @@ metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=456880254]
 libraries/ = ExtResource("16_alilt")
 libraries/TNT_Landmine = ExtResource("17_yj3dm")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=377957941]
+position = Vector2(0, 20)
 
 [connection signal="mouse_entered" from="碰撞" to="碰撞" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="碰撞" to="碰撞" method="_on_mouse_exited"]

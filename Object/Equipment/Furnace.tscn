@@ -134,6 +134,8 @@ PlacedAudios = Array[AudioStream]([ExtResource("2_4opuf"), ExtResource("3_vrcte"
 KillAudios = Array[AudioStream]([ExtResource("3_vrcte"), ExtResource("4_u0tux"), ExtResource("5_qbgv7"), ExtResource("2_4opuf")])
 Activatable = true
 MoveType = 1
+Shadow_Size = Vector2(1.4, 0.75)
+Shadow_Offset = Vector2(-2.3, 22.3)
 Object_UUID = "MVZ2:Furnace"
 Object_Name = "熔炉"
 

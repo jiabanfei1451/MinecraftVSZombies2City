@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://2sgut6k4shoy"]
+
+[ext_resource type="Texture2D" uid="uid://rxcppgnt2gu6" path="res://Object/素材图/bubble.png" id="1_2lrs3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6sd7x"]
+blend_mode = 1
+
+[node name="Shadow" type="Sprite2D" unique_id=669464162]
+self_modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_6sd7x")
+texture = ExtResource("1_2lrs3")

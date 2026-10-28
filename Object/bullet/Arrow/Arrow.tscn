@@ -19,6 +19,8 @@ Exclude_Group = Array[StringName]([&"Bullet"])
 VisibleOnScreenEnabler = NodePath("Area2D/VisibleOnScreenNotifier2D")
 Damage_End_AutoRemove_Object = true
 Speed = Vector2(5, 1)
+Cheak_Height_Scoop = Vector2(-40, 15)
+Shadow_Size = Vector2(1.35, 0.645)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1974500903]
 

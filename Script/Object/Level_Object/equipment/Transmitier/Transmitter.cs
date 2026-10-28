@@ -101,8 +101,9 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
             Check_Change((LevelObject)objectPhysics);
         }
     }
-    public void Check_Change(LevelObject LevelObject)
+    public void Check_Change(ObjectPhysics LevelObject)
     {
+        if (!(LevelObject is LevelObject)){return;}
         if (!Game.Cheak.CheakGroup.Cheak_Object_Group(LevelObject,detection_Group,Exclude_Group)){return;}
         Current_detection_object.Clear();
         ReEnable_Area();
@@ -122,9 +123,12 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
     public void Summand_Shoot()
     {
         PackedScene Shoot_Scene = ResourceScene.LoadScene("uid://caymc0p7rsog");
-        Node2D shoot = Shoot_Scene.Instantiate<Node2D>();
+        Level.Object.Bullet.Arrow shoot = Shoot_Scene.Instantiate<Level.Object.Bullet.Arrow>();
         NodeData.Get_Node<Node2D>("Shoot").AddChild(shoot);
-        shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition + new Vector2(0,PVZEngine.Module.Random.NextFloat_32(5,0) - PVZEngine.Module.Random.NextFloat_32(5,0));
+        float Get_Height = PVZEngine.Module.Random.NextFloat_32(5,0)-PVZEngine.Module.Random.NextFloat_32(5,0);
+        shoot.GlobalPosition = Summand_shoot_Position.GlobalPosition - new Vector2(0,-30);
+        shoot.min_Height = 30 + Get_Height;
+        shoot.Reset();
     }
     /// <summary>
     /// 添加物体

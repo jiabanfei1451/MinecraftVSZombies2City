@@ -1,6 +1,7 @@
 using System;
 using Godot;
 using PVZEngine;
+using PVZEngine.Data;
 namespace AutoLoad;
 public partial class Command_Edit : TextEdit
 {
@@ -40,7 +41,7 @@ public partial class Command_Edit : TextEdit
 				{
 					SB = false;
 					Label Lineinstantiate = Line.Instantiate<Label>();
-					Lineinstantiate.Text = "  " + "<" + "User" + ">:" + Text[0..(Text.Length - 1)] + " ";
+					Lineinstantiate.Text = "  " + "<" + PlayerData.Name + ">:" + Text[0..(Text.Length - 1)] + " ";
 					EmitSignal("Player_send",Lineinstantiate.Text);
 					this.GetNode<BoxContainer>("../../TextLine").AddChild(Lineinstantiate);
 					Position = new Vector2(0,0);

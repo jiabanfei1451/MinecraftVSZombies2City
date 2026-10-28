@@ -43,7 +43,7 @@ public partial class Furnace : PVZEngine.Object.Module.Equipment
     {
         PackedScene scene = ResourceScene.LoadScene("res://Object/Interactive Objects/Red_Stone.tscn");
         MVZ2.Object.Interactive_Objects.RedStone redStone = scene.Instantiate<RedStone>();
-        NodeData.Get_Node<Node2D>("item").AddChild(redStone);
+        NodeData.Get_Node<Node2D>("Item").AddChild(redStone);
         redStone.GlobalPosition = GlobalPosition;
         redStone.Reset_Position = Position;
         redStone.EmitSignal("Initialization");

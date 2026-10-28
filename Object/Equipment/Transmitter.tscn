@@ -183,6 +183,7 @@ HP = 300
 Max_HP = 300
 MoveType = 1
 detection_Group = Array[StringName]([&"Monster"])
+Shadow_Offset = Vector2(0, 20.175)
 Tags = Array[String](["给给"])
 Object_UUID = "MVZ2:Transmitter"
 Object_Name = "发射器"
