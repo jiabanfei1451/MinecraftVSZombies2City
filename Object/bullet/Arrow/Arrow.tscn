@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aoox"]
 size = Vector2(33, 10)
 
-[node name="Arrow" type="Sprite2D" unique_id=370891039 node_paths=PackedStringArray("area") groups=["Bullet"]]
+[node name="Arrow" type="Sprite2D" unique_id=370891039 node_paths=PackedStringArray("area", "VisibleOnScreenEnabler") groups=["Bullet"]]
 material = SubResource("ShaderMaterial_gdqta")
 position = Vector2(518, 329)
 texture = ExtResource("2_idlxt")
@@ -16,10 +16,14 @@ script = ExtResource("1_8t2dg")
 area = NodePath("Area2D")
 detection_Group = Array[StringName]([&"Monster"])
 Exclude_Group = Array[StringName]([&"Bullet"])
+VisibleOnScreenEnabler = NodePath("Area2D/VisibleOnScreenNotifier2D")
 Damage_End_AutoRemove_Object = true
 Speed = Vector2(5, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1974500903]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D" unique_id=1673206911]
+rect = Rect2(-17, -5, 33, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=248437638]
 position = Vector2(-0.5, 0)

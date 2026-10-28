@@ -6,9 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://camc515a8x4qu" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone2.ogg" id="4_u0tux"]
 [ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="5_qbgv7"]
 [ext_resource type="AudioStream" uid="uid://cguivqb2xx2yj" path="res://Sound/Souds/Item/RedStone/RedStone_Output.ogg" id="6_6k15a"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="6_ddd4q"]
-[ext_resource type="AudioStream" uid="uid://cpx8ijstvb6wx" path="res://Sound/Souds/Equipment/Furnace/Stimulate production.ogg" id="7_i10h0"]
-[ext_resource type="AudioStream" uid="uid://dqvvgvk6c8m13" path="res://Sound/Souds/misc/evocation.ogg" id="8_t63c0"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="6_ddd4q"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="7_vrcte"]
 [ext_resource type="Texture2D" uid="uid://dgxcb6en1kf14" path="res://Object/素材图/furnace_3.png" id="9_0yur3"]
 
 [sub_resource type="Animation" id="Animation_kol7k"]
@@ -120,17 +119,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Furnace" type="CharacterBody2D" unique_id=453099102 node_paths=PackedStringArray("Timer", "animationPlayer", "TouchPad") groups=["Equipment"]]
+[node name="Furnace" type="CharacterBody2D" unique_id=453099102 node_paths=PackedStringArray("Timer", "animationPlayer", "Ultimate_move", "RedStone_Output", "TouchPad") groups=["Equipment"]]
 process_mode = 1
 z_as_relative = false
 position = Vector2(0, -24)
 script = ExtResource("1_65wfh")
 Timer = NodePath("Timer")
 animationPlayer = NodePath("AnimationPlayer")
+Ultimate_move = NodePath("开大产出")
+RedStone_Output = NodePath("RedStone_Output")
 TouchPad = NodePath("TouchPad")
 Colors = Array[Color]([Color(0, 0, 0, 1), Color(0.09411765, 0.10980392, 0.09411765, 1), Color(0, 0, 0, 1), Color(0.19215687, 0.1882353, 0.19215687, 1), Color(0.16078432, 0.16078432, 0.16078432, 1), Color(0.09411765, 0.09411765, 0.09411765, 1), Color(0.34509805, 0.3529412, 0.34509805, 1), Color(0.30980393, 0.30588236, 0.30980393, 1), Color(0.3882353, 0.39607844, 0.3882353, 1), Color(0.09803922, 0.09411765, 0.09803922, 1), Color(0.19215687, 0.19215687, 0.19215687, 1), Color(0.12941177, 0.14117648, 0.12941177, 1), Color(0.80784315, 0.8117647, 0.80784315, 1), Color(0.6784314, 0.6666667, 0.6784314, 1), Color(0.5176471, 0.5254902, 0.5176471, 1), Color(1, 0.92156863, 0.0627451, 1), Color(1, 0.8352941, 0, 1), Color(1, 0.7294118, 0, 1), Color(1, 0.5647059, 0, 1), Color(1, 0, 0, 1), Color(1, 0.68235296, 0, 1), Color(0.6666667, 0.59607846, 0.2901961, 1), Color(0.6666667, 0.59607846, 0.2901961, 1), Color(0.6039216, 0.45490196, 0.2784314, 1), Color(0.90588236, 0.6666667, 0.3882353, 1), Color(0.6666667, 0.6666667, 0.56078434, 1), Color(0.70980394, 0.6509804, 0.6117647, 1)])
 PlacedAudios = Array[AudioStream]([ExtResource("2_4opuf"), ExtResource("3_vrcte"), ExtResource("4_u0tux"), ExtResource("5_qbgv7")])
 KillAudios = Array[AudioStream]([ExtResource("3_vrcte"), ExtResource("4_u0tux"), ExtResource("5_qbgv7"), ExtResource("2_4opuf")])
+Activatable = true
 MoveType = 1
 Object_UUID = "MVZ2:Furnace"
 Object_Name = "熔炉"
@@ -147,16 +149,18 @@ shape = SubResource("RectangleShape2D_aqnmb")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=224536014]
 
 [node name="开大产出" type="AudioStreamPlayer" parent="." unique_id=1692853163]
-stream = ExtResource("7_i10h0")
 max_polyphony = 6
+script = ExtResource("7_vrcte")
+Audio_ID = "MVZ2:Stimulate_production"
+Audio_Type = 1
+fade_Time = 0.0
 
-[node name="发射音效" type="AudioStreamPlayer" parent="." unique_id=2130859636]
+[node name="RedStone_Output" type="AudioStreamPlayer" parent="." unique_id=2130859636]
 stream = ExtResource("6_6k15a")
-
-[node name="死亡音效" type="AudioStreamPlayer" parent="." unique_id=1567539103]
-
-[node name="大招音效" type="AudioStreamPlayer" parent="." unique_id=71104241]
-stream = ExtResource("8_t63c0")
+script = ExtResource("7_vrcte")
+Audio_ID = "MVZ2:RedStone_Output"
+Audio_Type = 1
+fade_Time = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=539912915]
 z_as_relative = false

@@ -1,4 +1,7 @@
+Audio_Plus
+AudioStreamPlayer
 Control
+VisibleOnScreenNotifier2D
 Label
 TouchButton
 Panel
@@ -10,5 +13,3 @@ touchBar
 TouchPad_V2
 ColorRect
 TouchPad
-CharacterBody2D
-Audio_Plus

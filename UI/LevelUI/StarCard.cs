@@ -2,6 +2,7 @@ using PVZEngine.Static;
 using Godot;
 using System;
 using PVZEngine.Data;
+using PVZEngine.Module;
 
 namespace UIObject;
 
@@ -18,6 +19,8 @@ public partial class StarCard : Control
     [Export] public Touch.TouchPad pad = null;
     [Export] public Touch.TouchPad Pad_Eumu = null;
     [Export] public Label Label_Numbet = null;
+    [Export] public Label visibleEnable = null;
+    [Export] public Audio_Plus Buzzer = null;
     public bool is_Show_fragment_menu = false;
     short Current_Star_Fragment = -1;
     public override void _ExitTree()
@@ -42,10 +45,12 @@ public partial class StarCard : Control
         if (Cheak.is_null<Control>(Get_Position) == true){return;}
         if (Level_Script.Use_Prop == Level_Script.Prop.Star_Fragment)
         {
+            visibleEnable.Visible = true;
             Get_Position.Position = Local_Position_Object.GetLocalMousePosition() - new Vector2(20,20);
         }
         else
         {
+            visibleEnable.Visible = false;
             Get_Position.Position = new(0,0);
         }
         if (!Cheak.is_null<Control>(Star_Number_VIsi_Card) && !Cheak.is_null<Control>(Star_Number_Node))
@@ -108,6 +113,18 @@ public partial class StarCard : Control
             }
         }
     }
+    public void SelectedStar_Fragment()
+    {
+        if (Level_Script.Star_Fragment > 0)
+        {
+            Level_Script.Set_Use_porp(Level_Script.Prop.Star_Fragment);
+        }
+        else
+        {
+            Level_Script.Use_Prop = Level_Script.Prop.Not;
+            Buzzer.Play();
+        }
+    }
     public void Key_DownKeyCode(Key key)
     {
         if (key == Key.E)
@@ -116,7 +133,7 @@ public partial class StarCard : Control
         }
         if (key == Key.W)
         {
-            Level_Script.Set_Use_porp(Level_Script.Prop.Star_Fragment);
+            SelectedStar_Fragment();
         }
     }
 }

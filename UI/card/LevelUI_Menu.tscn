@@ -96,7 +96,11 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_riv3j"]
 font = ExtResource("1_copng")
-font_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k780p"]
+font = ExtResource("1_copng")
+font_color = Color(0, 1, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Control" unique_id=755104157 node_paths=PackedStringArray("Speed_Texture")]
@@ -187,25 +191,11 @@ script = ExtResource("8_vd5k6")
 Change_Theme_Object = NodePath("../Panel")
 Down_Texture = SubResource("StyleBoxTexture_08qgy")
 UP_Texture = SubResource("StyleBoxTexture_glavx")
-Souds = NodePath("../Add_Speed")
-Souds2 = NodePath("../Recede_Speed")
+Souds = NodePath("../../Audios/Add_Speed")
+Souds2 = NodePath("../../Audios/Recede_Speed")
 Speed_Texture = NodePath("../Panel2/TextureRect")
 Drag_Velocity_Scope = Vector2(100, 100)
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
-
-[node name="Add_Speed" type="AudioStreamPlayer" parent="Button" unique_id=1788343815]
-stream = ExtResource("8_g22p4")
-script = ExtResource("9_5g2w8")
-Audio_Type = 1
-fade_Time = 0.0
-metadata/_custom_type_script = "uid://dheg8f4rhxhut"
-
-[node name="Recede_Speed" type="AudioStreamPlayer" parent="Button" unique_id=235882617]
-stream = ExtResource("10_o7o7q")
-script = ExtResource("9_5g2w8")
-Audio_Type = 1
-fade_Time = 0.0
-metadata/_custom_type_script = "uid://dheg8f4rhxhut"
 
 [node name="Bar" type="Control" parent="." unique_id=1523345106 node_paths=PackedStringArray("Value_Object", "Value_Object_Hollow")]
 layout_mode = 1
@@ -357,7 +347,23 @@ label_settings = SubResource("LabelSettings_riv3j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Star Card" type="HBoxContainer" parent="Control" unique_id=2031275143 node_paths=PackedStringArray("Local_Position_Object", "Get_Position", "Star_Number_VIsi_Card", "Star_Number_Node", "pad", "Pad_Eumu", "Label_Numbet")]
+[node name="Number2" type="Label" parent="Control/Control/TouchButton3" unique_id=570190123]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_top = 49.0
+offset_right = 32.5
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "正在使用"
+label_settings = SubResource("LabelSettings_k780p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Star Card" type="HBoxContainer" parent="Control" unique_id=2031275143 node_paths=PackedStringArray("Local_Position_Object", "Get_Position", "Star_Number_VIsi_Card", "Star_Number_Node", "pad", "Pad_Eumu", "Label_Numbet", "visibleEnable", "Buzzer")]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -376,6 +382,8 @@ Star_Number_Node = NodePath("ReferenceRect2")
 pad = NodePath("ReferenceRect2/TouchButton2")
 Pad_Eumu = NodePath("../Control/TouchButton3")
 Label_Numbet = NodePath("../Control/TouchButton3/Number")
+visibleEnable = NodePath("../Control/TouchButton3/Number2")
+Buzzer = NodePath("../../Audios/Buzzer")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Control/Star Card" unique_id=414760226]
 custom_minimum_size = Vector2(40, 40)
@@ -431,3 +439,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 7
 alignment = 1
+
+[node name="Audios" type="Control" parent="." unique_id=178228588]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Add_Speed" type="AudioStreamPlayer" parent="Audios" unique_id=1788343815]
+stream = ExtResource("8_g22p4")
+script = ExtResource("9_5g2w8")
+Audio_Type = 1
+fade_Time = 0.0
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
+
+[node name="Recede_Speed" type="AudioStreamPlayer" parent="Audios" unique_id=235882617]
+stream = ExtResource("10_o7o7q")
+script = ExtResource("9_5g2w8")
+Audio_Type = 1
+fade_Time = 0.0
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
+
+[node name="Buzzer" type="AudioStreamPlayer" parent="Audios" unique_id=678650387]
+script = ExtResource("9_5g2w8")
+Audio_ID = "MVZ2:buzzer"
+Audio_Type = 1
+fade_Time = 0.0
+metadata/_custom_type_script = "uid://dheg8f4rhxhut"
