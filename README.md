@@ -48,7 +48,7 @@ A remastered version made with the Godot Engine, and a non-remastered version ma
 If you wish to play, you can download the pre-release source code from [GitHub](https://github.com/jiabanfei1451/minecraftVSzombies2-CityGodot)
 |Game Engine|Status|
 |-|-|
-Remastered Engine: Godot Engine 4.7.1 .NET|Under reconstruction...
+Remastered Engine: Godot Engine 4.7.2 .NET|Under reconstruction...
 Non-Remastered Engine: Builda Engine 4.x|No longer maintained
 
 Hey! There's a [Wiki](https://github.com/jiabanfei1451/minecraftVSzombies2-CityGodot/wiki) here! Want to check it out?
