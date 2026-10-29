@@ -25,17 +25,17 @@ public partial class Preface : Level_Master_Script
         Summand.Data.Add_Wave(new()
         {
             Add_ID = new(){Object_List.Get_ID("0", IndexMode.index)},
-            Number = 1
+            Number = 0
         });
         Summand.Data.Add_Wave(new()
         {
             Add_ID = new(){Object_List.Get_ID("0", IndexMode.index)},
-            Number = 1
+            Number = 0
         });
         Summand.Data.Add_Wave(new()
         {
             Add_ID = new(){Object_List.Get_ID("0", IndexMode.index)},
-            Number = 1
+            Number = 0
         });
         Summand.Data.Add_Wave(new()
         {
