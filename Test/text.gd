@@ -1,4 +1,4 @@
 extends Node2D
 
 func _process(delta: float) -> void:
-	Vector2
+	Engine.time_scale = 0

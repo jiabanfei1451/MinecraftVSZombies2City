@@ -37,7 +37,7 @@ public partial class Add_Speed_Button : Touch.TouchPad
         {
             CreateTween().TweenProperty(Speed_Texture,new NodePath(TextureRect.PropertyName.SelfModulate),new Color(0,1,0,1),0.5);
         }
-            Engine.TimeScale = 2;
+            Engine.TimeScale = 0.5;
         }
         else
         {

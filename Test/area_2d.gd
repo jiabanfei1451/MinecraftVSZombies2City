@@ -5,4 +5,4 @@ func _process(delta: float) -> void:
 	position += Vector2(1,1).from_angle(3.14 / 180 * 0) 
 	print(rotation)
 	var s : Array[String]
-	
+	create_tween()

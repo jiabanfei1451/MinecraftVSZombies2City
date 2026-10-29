@@ -87,6 +87,7 @@ public partial class StarCard : Control
         {
             is_Show_fragment_menu = true;
             Tween d = CreateTween();
+            d.SetIgnoreTimeScale(true);
             d.TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,0),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.五次方));
             d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
             d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Size),new Vector2(Star_Number_Node.CustomMinimumSize.X + 40,88),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
@@ -97,6 +98,7 @@ public partial class StarCard : Control
         {
             is_Show_fragment_menu = false;
             Tween d = CreateTween();
+            d.SetIgnoreTimeScale(true);
             d.TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.五次方));
             d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,0),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
             d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Size),new Vector2(Star_Number_Node.CustomMinimumSize.X + 40,40),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));

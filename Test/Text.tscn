@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2sgut6k4shoy" path="res://Object/Shadow.tscn" id="1_2vxdf"]
 [ext_resource type="Script" uid="uid://doq14fa58y378" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchButton/TouchButton.cs" id="1_g3ouh"]
+[ext_resource type="Script" uid="uid://cpyfaj320t7hf" path="res://Test/text.gd" id="1_qg50p"]
 [ext_resource type="StyleBox" uid="uid://dngvrsbfs6hx6" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI2.tres" id="2_2vxdf"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="3_qg50p"]
 [ext_resource type="StyleBox" uid="uid://l3pp73e46knh" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI4.tres" id="4_nfsyp"]
@@ -9,6 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 
 [node name="Text" type="Node2D" unique_id=1808771749]
+script = ExtResource("1_qg50p")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=211040871]
 
@@ -97,11 +99,11 @@ offset_left = 490.00006
 offset_top = 273.0
 offset_right = 570.00006
 offset_bottom = 313.0
-rotation = 0.65798914
 script = ExtResource("1_g3ouh")
 Down_Texture = ExtResource("2_2vxdf")
 Normal_Texture = ExtResource("3_qg50p")
 Focus_Texture = ExtResource("4_nfsyp")
+Cycle_mode = 1
 metadata/_custom_type_script = "uid://doq14fa58y378"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=654716769]

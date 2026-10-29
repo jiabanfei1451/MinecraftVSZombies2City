@@ -23,7 +23,8 @@
 font = ExtResource("1_copng")
 font_size = 24
 font_color = Color(1, 0.44705883, 0, 1)
-shadow_size = 4
+outline_color = Color(1, 0.45000005, 0, 1)
+shadow_size = 6
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 0)
 
@@ -103,7 +104,7 @@ font = ExtResource("1_copng")
 font_color = Color(0, 1, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Menu" type="Control" unique_id=755104157 node_paths=PackedStringArray("Speed_Texture")]
+[node name="Menu" type="Control" unique_id=755104157 node_paths=PackedStringArray("Speed_Texture", "Level_Label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,6 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yibqt")
 Speed_Texture = NodePath("Button/Panel2/TextureRect")
+Level_Label = NodePath("information/Level Label")
 
 [node name="information" type="Control" parent="." unique_id=903472010]
 layout_mode = 1
@@ -125,7 +127,7 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="information" unique_id=216769498]
+[node name="Level Label" type="Label" parent="information" unique_id=216769498]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

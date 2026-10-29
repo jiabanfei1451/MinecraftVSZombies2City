@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 namespace UIObject;
 public partial class LevelUi : CanvasLayer
 {
+	Node Stop_Menu = null;
 	Tween GetTween = null;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -12,6 +13,21 @@ public partial class LevelUi : CanvasLayer
 		NodeData.Add_Node(this,"Current_Level_UI");
 		show_Select_CardUI();
 		DEBUG.Info.Print(NodeData.Get_Node<Control>("1"));
+		Game.Get_GlobalNode.GetKey.Key_DownKeyCode += Key_Down;
+	}
+	public override void _ExitTree() {
+		base._ExitTree();
+		Game.Get_GlobalNode.GetKey.Key_DownKeyCode -= Key_Down;
+	}
+	public void Key_Down(Key key)
+	{
+		if (key != Key.Escape){return;}
+		if (Cheak.Cheak_Null<Node>(Stop_Menu))
+		{
+			var Instantiate = PVZEngine.ResourceScene.LoadScene("uid://gjlrdxj2xgn1").Instantiate();
+			Stop_Menu = Instantiate;
+			GetTree().CurrentScene.AddChild(Instantiate);
+		}
 	}
 	/// <summary>
 	/// 显示选卡UI
