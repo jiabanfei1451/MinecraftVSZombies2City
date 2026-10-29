@@ -26,7 +26,7 @@ MinecraftvsZombies2_City（MVZ2_City）是[痊愈加班费](https://space.bilibi
 该作者曾多次强调过City只是后缀，游戏内没有真正的City（城市）
 
 # 建议构建引擎
-我们建议制作此作品同人时推荐的构建引擎为Godot Engine 4.7.1.NET
+我们建议制作此作品同人时推荐的构建引擎为Godot Engine 4.7.2.NET
 
 # Introduction
 
@@ -58,7 +58,7 @@ Hey! There's a [Wiki](https://github.com/jiabanfei1451/minecraftVSzombies2-CityG
 The author has repeatedly emphasized that "City" is just a suffix, and there is no actual city in the game.
 
 # Recommended Build Engine
-We recommend using Godot Engine 4.7.1 .NET as the preferred build engine for creating fan works based on this project.
+We recommend using Godot Engine 4.7.2 .NET as the preferred build engine for creating fan works based on this project.
 
 # 待制作
 
