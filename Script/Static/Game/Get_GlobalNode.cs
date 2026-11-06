@@ -9,6 +9,8 @@ namespace Game{
 /// </summary>
 static class Get_GlobalNode
 {
+	public static PVZEngine.AutoLoad.TimeScale TimeScale = null;
+	public static Game.InputPosition InputPosition = null;
 	public static SceneTree Tree = null;
 	/// <summary>
 	/// 输入框

@@ -1,3 +1,5 @@
+touchBar
+AnimationTree
 ColorRect
 Label
 TouchButton
@@ -11,5 +13,3 @@ Audio_Plus
 AudioStreamPlayer
 VisibleOnScreenNotifier2D
 HBoxContainer
-Sprite2D
-TextureRect

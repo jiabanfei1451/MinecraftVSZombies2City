@@ -7,15 +7,25 @@
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="3_qg50p"]
 [ext_resource type="StyleBox" uid="uid://l3pp73e46knh" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI4.tres" id="4_nfsyp"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qg50p"]
+blend_mode = 2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 
 [node name="Text" type="Node2D" unique_id=1808771749]
 script = ExtResource("1_qg50p")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=211040871]
+position = Vector2(93, 39)
 
 [node name="Shadow" parent="CanvasGroup" unique_id=669464162 instance=ExtResource("1_2vxdf")]
-position = Vector2(305, 233)
+self_modulate = Color(1, 1, 1, 1)
+position = Vector2(199, 115)
+
+[node name="Shadow2" parent="CanvasGroup" unique_id=555711641 instance=ExtResource("1_2vxdf")]
+self_modulate = Color(1, 1, 1, 1)
+material = SubResource("CanvasItemMaterial_qg50p")
+position = Vector2(450, 248)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=973453815]
 visible = false

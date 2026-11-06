@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace UIObject;
 public partial class LevelUi : CanvasLayer
 {
-	Node Stop_Menu = null;
+	public Node Stop_Menu = null;
 	Tween GetTween = null;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -14,10 +14,20 @@ public partial class LevelUi : CanvasLayer
 		show_Select_CardUI();
 		DEBUG.Info.Print(NodeData.Get_Node<Control>("1"));
 		Game.Get_GlobalNode.GetKey.Key_DownKeyCode += Key_Down;
+		GetWindow().FocusExited += Window_FocusExit;
 	}
 	public override void _ExitTree() {
 		base._ExitTree();
 		Game.Get_GlobalNode.GetKey.Key_DownKeyCode -= Key_Down;
+	}
+	public void Window_FocusExit()
+	{
+		if (Cheak.Cheak_Null<Node>(Stop_Menu))
+		{
+			var Instantiate = PVZEngine.ResourceScene.LoadScene("uid://gjlrdxj2xgn1").Instantiate();
+			Stop_Menu = Instantiate;
+			GetTree().CurrentScene.AddChild(Instantiate);
+		}
 	}
 	public void Key_Down(Key key)
 	{
@@ -27,6 +37,14 @@ public partial class LevelUi : CanvasLayer
 			var Instantiate = PVZEngine.ResourceScene.LoadScene("uid://gjlrdxj2xgn1").Instantiate();
 			Stop_Menu = Instantiate;
 			GetTree().CurrentScene.AddChild(Instantiate);
+		}
+		else
+		{
+			if (Stop_Menu.GetNode("PCMenu") is StopMenu)
+			{
+				((StopMenu)Stop_Menu.GetNode("PCMenu")).Exit();
+				Stop_Menu = null;
+			}
 		}
 	}
 	/// <summary>

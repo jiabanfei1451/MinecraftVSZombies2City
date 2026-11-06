@@ -1,5 +1,7 @@
-res://Script/UI/UserUI/Menu/Stop_Menu/
+res://Script/Engine/PVZEngine/Tools/AutoLoad/
 D:/工具/Godot/导出/
+res://Script/Auto Load/
+res://Script/UI/UserUI/Menu/Stop_Menu/
 res://Image/UI/Panel/Star Card/
 res://Script/Misc/
 res://Script/Object/UIObject/
@@ -12,7 +14,6 @@ res://Shader/
 res://Script/Object/Level_Object/equipment/landmine/
 res://Script/UI/Level/Menu/
 res://Script/Object/Level_Object/equipment/Obsidian/
-res://Script/Auto Load/
 res://Script/Object/Interactive Objects/
 res://Script/Object/Level_Object/equipment/Furnace/
 res://UI/card/
@@ -21,7 +22,6 @@ res://Shader/Add Color/
 res://Script/Object/Audio/Normal Hit Souds/
 D:/工具/Godot/version/Godot_mono_win64/
 res://Script/Object/Shoot/Arrow/
-res://Script/Node/
 D:/Tool/Project/
 D:/godot/bin/
 D:/

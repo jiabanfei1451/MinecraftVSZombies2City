@@ -1,6 +1,8 @@
 using Godot;
+using PVZEngine.Data;
 using PVZEngine.Module;
 using System;
+using System.Linq;
 
 public partial class Add_Speed_Button : Touch.TouchPad
 {
@@ -16,7 +18,7 @@ public partial class Add_Speed_Button : Touch.TouchPad
         Game.Get_GlobalNode.GetKey.Key_DownKeyCode -= Key_UP;
     }
     public override void _Ready() {
-        base._Ready();   
+        base._Ready();
         Button_Downvoid += ButtonDowm;
         Button_UPvoid += ButtonUP;
         Button_Pressedvoid += ButtonPressed;
@@ -37,7 +39,7 @@ public partial class Add_Speed_Button : Touch.TouchPad
         {
             CreateTween().TweenProperty(Speed_Texture,new NodePath(TextureRect.PropertyName.SelfModulate),new Color(0,1,0,1),0.5);
         }
-            Engine.TimeScale = 0.5;
+            Game.Get_GlobalNode.TimeScale.ScaleTypes["Normal"] = 2;
         }
         else
         {
@@ -49,7 +51,7 @@ public partial class Add_Speed_Button : Touch.TouchPad
         {
             CreateTween().TweenProperty(Speed_Texture,new NodePath(TextureRect.PropertyName.SelfModulate),new Color(1,1,1,1),0.5);
         }
-            Engine.TimeScale = 1;
+            Game.Get_GlobalNode.TimeScale.ScaleTypes["Normal"] = 1;
         }
     }
     public void Key_UP(Key @key)

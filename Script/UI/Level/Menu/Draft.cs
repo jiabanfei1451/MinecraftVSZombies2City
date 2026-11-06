@@ -79,7 +79,7 @@ public partial class Draft : Control
             Iron.Position = Temp_Pos ;
             return;}
         if (Cheak.is_null(Iron)){return;}
-        Iron.Position = GetLocalMousePosition() + new Vector2(-15,-15);
+        Iron.GlobalPosition = Game.Get_GlobalNode.InputPosition.Position + new Vector2(-15,-15);
     }
 
 }

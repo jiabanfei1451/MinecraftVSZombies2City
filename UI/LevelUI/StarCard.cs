@@ -46,7 +46,7 @@ public partial class StarCard : Control
         if (Level_Script.Use_Prop == Level_Script.Prop.Star_Fragment)
         {
             visibleEnable.Visible = true;
-            Get_Position.Position = Local_Position_Object.GetLocalMousePosition() - new Vector2(20,20);
+            Get_Position.GlobalPosition = Game.Get_GlobalNode.InputPosition.Position - new Vector2(20,20);
         }
         else
         {
@@ -62,7 +62,7 @@ public partial class StarCard : Control
                 {
                     Star_Number.QueueFree();
                 }
-                for (short MaxStar_Fragment = 0;MaxStar_Fragment < PlayerData.Max_Star_Fragment; MaxStar_Fragment++)
+                for (short MaxStar_Fragment = 0;MaxStar_Fragment < PlayerData.Savedata.Max_Star_Fragment; MaxStar_Fragment++)
                 {
                     Panel New_Panel = new();
                     if (Level_Script.Star_Fragment > MaxStar_Fragment)
@@ -77,7 +77,7 @@ public partial class StarCard : Control
                     New_Panel.CustomMinimumSize = new(15,15);
                 }
             }
-            Label_Numbet.Text = $"{PlayerData.Max_Star_Fragment} / {Level_Script.Star_Fragment}";
+            Label_Numbet.Text = $"{PlayerData.Savedata.Max_Star_Fragment} / {Level_Script.Star_Fragment}";
             Star_Number_Node.CustomMinimumSize = new Vector2(Star_Number_VIsi_Card.Size.X + 14,Star_Number_Node.CustomMinimumSize.Y);
         }
     }    
