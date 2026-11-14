@@ -197,6 +197,7 @@ Souds = NodePath("../../Audios/Add_Speed")
 Souds2 = NodePath("../../Audios/Recede_Speed")
 Speed_Texture = NodePath("../Panel2/TextureRect")
 Drag_Velocity_Scope = Vector2(100, 100)
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Bar" type="Control" parent="." unique_id=1523345106 node_paths=PackedStringArray("Value_Object", "Value_Object_Hollow")]
@@ -315,6 +316,7 @@ Down_Texture = SubResource("StyleBoxTexture_3klrj")
 Normal_Texture = ExtResource("16_h7lv4")
 Focus_Texture = ExtResource("17_64u2o")
 Auto_Enable_Index = "Show fragment menu"
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://doq14fa58y378"
 
 [node name="Label" type="Label" parent="Control/Control/TouchButton3" unique_id=1821523861]
@@ -402,6 +404,7 @@ script = ExtResource("14_riv3j")
 Down_Texture = SubResource("StyleBoxTexture_3klrj")
 Normal_Texture = ExtResource("16_h7lv4")
 Focus_Texture = ExtResource("17_64u2o")
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://doq14fa58y378"
 
 [node name="TextureRect" type="TextureRect" parent="Control/Star Card/ReferenceRect/TouchButton" unique_id=2138207360]
@@ -428,6 +431,7 @@ Down_Texture = SubResource("StyleBoxTexture_3klrj")
 Normal_Texture = ExtResource("16_h7lv4")
 Focus_Texture = ExtResource("17_64u2o")
 Auto_Enable_Index = "Show fragment menu entry"
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://doq14fa58y378"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Star Card/ReferenceRect2" unique_id=1039770821]

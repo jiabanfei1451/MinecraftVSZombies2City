@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dim8rk13omwvv"]
 
-[ext_resource type="Script" uid="uid://douel45ehxor8" path="res://Script/Level Script/Lawn.cs" id="1_ftl3w"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="2_jyavh"]
+[ext_resource type="Script" uid="uid://douel45ehxor8" path="res://Script/Engine/PVZEngine/Tools/Object/Lawn.cs" id="1_ftl3w"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="2_jyavh"]
 
 [node name="Lawn" type="ColorRect" unique_id=1831605041]
 anchors_preset = 8
@@ -34,5 +34,6 @@ grow_vertical = 2
 script = ExtResource("2_jyavh")
 Enable_Drag = false
 Long_Click_Variant = 0.2
+TimeScale_Scoop_Enable = true
 Cycle_mode = 1
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"

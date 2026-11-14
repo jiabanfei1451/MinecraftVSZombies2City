@@ -1,6 +1,7 @@
+Sprite2D
+ColorRect
 touchBar
 AnimationTree
-ColorRect
 Label
 TouchButton
 Panel
@@ -12,4 +13,3 @@ CanvasGroup
 Audio_Plus
 AudioStreamPlayer
 VisibleOnScreenNotifier2D
-HBoxContainer

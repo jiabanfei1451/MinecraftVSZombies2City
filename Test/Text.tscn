@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://doq14fa58y378" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchButton/TouchButton.cs" id="1_g3ouh"]
 [ext_resource type="Script" uid="uid://cpyfaj320t7hf" path="res://Test/text.gd" id="1_qg50p"]
 [ext_resource type="StyleBox" uid="uid://dngvrsbfs6hx6" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI2.tres" id="2_2vxdf"]
+[ext_resource type="Texture2D" uid="uid://cfvu0ybwl3it" path="res://Image/Light/light.png" id="3_nfsyp"]
 [ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="3_qg50p"]
 [ext_resource type="StyleBox" uid="uid://l3pp73e46knh" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI4.tres" id="4_nfsyp"]
 
@@ -18,14 +19,11 @@ script = ExtResource("1_qg50p")
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=211040871]
 position = Vector2(93, 39)
 
-[node name="Shadow" parent="CanvasGroup" unique_id=669464162 instance=ExtResource("1_2vxdf")]
-self_modulate = Color(1, 1, 1, 1)
-position = Vector2(199, 115)
-
 [node name="Shadow2" parent="CanvasGroup" unique_id=555711641 instance=ExtResource("1_2vxdf")]
 self_modulate = Color(1, 1, 1, 1)
 material = SubResource("CanvasItemMaterial_qg50p")
-position = Vector2(450, 248)
+position = Vector2(40, 0)
+texture = ExtResource("3_nfsyp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=973453815]
 visible = false

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c2y62prxcbege"]
 
-[ext_resource type="Script" uid="uid://v0ahtauyd8ii" path="res://Script/UI/Level/Card/Card.cs" id="1_lcctc"]
+[ext_resource type="Script" uid="uid://v0ahtauyd8ii" path="res://Script/Engine/PVZEngine/Tools/Object/Card.cs" id="1_lcctc"]
 [ext_resource type="Texture2D" uid="uid://dpri4otf6rdve" path="res://Image/UI/Card/card.png" id="2_y8qfr"]
 [ext_resource type="Texture2D" uid="uid://28o38kfo56m8" path="res://Image/UI/Card/card 边框.png" id="3_cgk2d"]
-[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/touch/Script/C Sharp/TouchPad.cs" id="4_dor43"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="4_dor43"]
 [ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="5_mj3bc"]
 [ext_resource type="AudioStream" uid="uid://dnlb1y62pkmcy" path="res://Sound/Souds/UI/card/Selected.ogg" id="6_86c6v"]
 [ext_resource type="Texture2D" uid="uid://b43ch04a7o2vq" path="res://Image/UI/Card/card_recharge_flash.png" id="6_eiglg"]
-[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Node/Audio_Plus.cs" id="7_n61xx"]
+[ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="7_n61xx"]
 [ext_resource type="AudioStream" uid="uid://dqqmyotd4p22f" path="res://Sound/Souds/UI/card/Cancel.ogg" id="7_ymopn"]
 [ext_resource type="AudioStream" uid="uid://dxdj7dtlw6x5j" path="res://Sound/Souds/UI/card/buzzer.wav" id="9_1ywmh"]
 [ext_resource type="Animation" uid="uid://bnt35736wh3uq" path="res://Animation/Card/Twinkle.res" id="11_1g1or"]
@@ -79,6 +79,7 @@ script = ExtResource("4_dor43")
 Drag_Velocity_Scope = Vector2(500, 500)
 Long_Click_Variant = 0.3
 Auto_Enable_Index = "Card"
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Panel" type="TextureRect" parent="Texture" unique_id=633136591]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bqkm0xbe6lus1"]
+
+[ext_resource type="Script" uid="uid://b8dci3tsma0xv" path="res://Script/Engine/PVZEngine/Tools/Object/Light.cs" id="1_0r0ru"]
+[ext_resource type="Texture2D" uid="uid://cfvu0ybwl3it" path="res://Image/Light/light.png" id="1_fcrrq"]
+
+[node name="Light" type="Sprite2D" unique_id=2116279840]
+texture = ExtResource("1_fcrrq")
+script = ExtResource("1_0r0ru")

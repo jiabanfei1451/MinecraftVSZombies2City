@@ -13,6 +13,8 @@ texture_filter = 1
 texture_repeat = 1
 position = Vector2(620, 369)
 script = ExtResource("1_vhc43")
+Enable_LightMask = true
+LightMask_Intensity = 0.7
 Level_BGMID = "2"
 Check_Position_Offset = Array[Vector2]([Vector2(0, 0)])
 Camera2D_Offset = Vector2(0, 0)
@@ -32,14 +34,14 @@ metadata/_edit_lock_ = true
 
 [node name="Map3" type="Sprite2D" parent="." unique_id=178686130]
 modulate = Color(0, 0, 0, 0.39215687)
-z_index = 20
+z_index = 4
 position = Vector2(-660.85, -510)
 texture = SubResource("AtlasTexture_iwsnv")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="House" type="Sprite2D" parent="." unique_id=499813370]
-z_index = 20
+z_index = 5
 position = Vector2(13, 0)
 texture = ExtResource("4_jq2xn")
 metadata/_edit_lock_ = true
@@ -84,4 +86,5 @@ offset_bottom = 1517.0
 color = Color(0, 0, 0, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="." unique_id=1336448921]
+visible = false
 position = Vector2(-69, 0)

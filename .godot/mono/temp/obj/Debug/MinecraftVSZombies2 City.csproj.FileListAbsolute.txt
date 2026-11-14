@@ -52,3 +52,4 @@ D:\Tool\Project\Godot\MVZ2_City\.godot\mono\temp\obj\Debug\refint\MinecraftVSZom
 D:\Tool\Project\Godot\MVZ2_City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.pdb
 D:\Tool\Project\Godot\MVZ2_City\.godot\mono\temp\obj\Debug\MinecraftVSZombies2 City.genruntimeconfig.cache
 D:\Tool\Project\Godot\MVZ2_City\.godot\mono\temp\obj\Debug\ref\MinecraftVSZombies2 City.dll
+D:\Tool\Project\Godot\MVZ2_City\.godot\mono\temp\bin\Debug\MinecraftVSZombies2 City.runtimeconfig.dev.json

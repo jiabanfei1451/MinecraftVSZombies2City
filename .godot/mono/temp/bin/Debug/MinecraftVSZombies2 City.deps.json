@@ -19,7 +19,8 @@
         "runtime": {
           "lib/net8.0/GodotSharp.dll": {
             "assemblyVersion": "4.7.2.0",
-            "fileVersion": "4.7.2.0"
+            "fileVersion": "4.7.2.0",
+            "localPath": "GodotSharp.dll"
           }
         }
       },
@@ -30,7 +31,8 @@
         "runtime": {
           "lib/net8.0/GodotSharpEditor.dll": {
             "assemblyVersion": "4.7.2.0",
-            "fileVersion": "4.7.2.0"
+            "fileVersion": "4.7.2.0",
+            "localPath": "GodotSharpEditor.dll"
           }
         }
       }

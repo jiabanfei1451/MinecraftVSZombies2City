@@ -123,11 +123,6 @@ offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("8_oso7i")
 
-[node name="ColorRect" type="ColorRect" parent="Level/Texture" unique_id=731402081]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Menu" parent="Level" unique_id=755104157 instance=ExtResource("9_hdxay")]
 layout_mode = 1
 
@@ -365,6 +360,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_h5g1x")
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
 
 [node name="Panel3" type="Panel" parent="Select_CardUI/BluePrint" unique_id=1231187989]
@@ -452,6 +448,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("14_b70vt")
 Enable_Drag = false
+TimeScale_Scoop_Enable = true
 metadata/_custom_type_script = "uid://blc413ky1v12"
 
 [node name="Panel6" type="Panel" parent="Select_CardUI/BluePrint/TouchPad_V2" unique_id=319850770]
