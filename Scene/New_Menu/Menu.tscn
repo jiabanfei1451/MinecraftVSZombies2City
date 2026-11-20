@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://ccvjntj7cgp15"]
+
+[ext_resource type="Script" uid="uid://butorsx1qkmnp" path="res://Script/UI/UserUI/Menu/Main_Menu/Menu.cs" id="1_6r61k"]
+[ext_resource type="StyleBox" uid="uid://cmegohxjbl1ju" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI3.tres" id="2_8nrss"]
+[ext_resource type="StyleBox" uid="uid://d1p6irqo1kmry" path="res://Image/UI/Button/MOPUI/MOP_UI_Theme/MOP_UI5.tres" id="2_vn2n4"]
+[ext_resource type="Script" uid="uid://8cjx3bmvs0km" path="res://Scene/New_Menu/DragNode.cs" id="4_gclkt"]
+[ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="4_wgg75"]
+[ext_resource type="FontFile" uid="uid://drufi2oet6818" path="res://Font/minecraft_font.ttf" id="5_pld10"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gclkt"]
+font = ExtResource("5_pld10")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wvhbo"]
+font = ExtResource("5_pld10")
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_ifow5"]
+font = ExtResource("5_pld10")
+
+[node name="Menu" type="CanvasLayer" unique_id=1139515014 node_paths=PackedStringArray("VersionLabel", "MouseNode", "AddSignalNode")]
+script = ExtResource("1_6r61k")
+VersionLabel = NodePath("Version")
+MouseNode = NodePath("UserUI/Control/Panel/Panel2/ColorRect2")
+AddSignalNode = [NodePath("UserUI/Control/Panel/Panel2/Test Game"), NodePath("UserUI/Control/Panel/Panel2/TouchPad2"), NodePath("UserUI/Control/Panel/Panel2/Exit Game")]
+metadata/_edit_horizontal_guides_ = [0.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=369797954]
+z_index = -50
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SelectedNode" type="Control" parent="." unique_id=2088153639]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UserUI" type="Control" parent="." unique_id=1333793818]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="UserUI" unique_id=1257764677]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UserUI/Control" unique_id=2126578898]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -409.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_8nrss")
+
+[node name="TouchPad4" type="Control" parent="UserUI/Control/Panel" unique_id=1664611117 node_paths=PackedStringArray("Add_ChildYPositionNode")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 98.0
+offset_right = -67.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_gclkt")
+Add_ChildYPositionNode = NodePath("../Panel2")
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="Panel2" type="Panel" parent="UserUI/Control/Panel" unique_id=413927291]
+self_modulate = Color(0.6542321, 0.6542321, 0.654232, 1)
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = 98.0
+offset_right = -67.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_8nrss")
+
+[node name="ColorRect2" type="Panel" parent="UserUI/Control/Panel/Panel2" unique_id=975398346]
+z_index = 1
+layout_mode = 0
+offset_left = -887.0
+offset_top = -98.0
+offset_right = -847.0
+offset_bottom = -58.0
+theme_override_styles/panel = ExtResource("2_vn2n4")
+
+[node name="Test Game" type="Control" parent="UserUI/Control/Panel/Panel2" unique_id=1343334273]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.5
+offset_right = 135.5
+offset_bottom = 62.0
+grow_horizontal = 2
+script = ExtResource("4_wgg75")
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="Label" type="Label" parent="UserUI/Control/Panel/Panel2/Test Game" unique_id=1800436185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "测试游戏"
+label_settings = SubResource("LabelSettings_gclkt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TouchPad2" type="Control" parent="UserUI/Control/Panel/Panel2" unique_id=1712307601]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.5
+offset_top = 62.0
+offset_right = 135.5
+offset_bottom = 124.0
+grow_horizontal = 2
+script = ExtResource("4_wgg75")
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="Label" type="Label" parent="UserUI/Control/Panel/Panel2/TouchPad2" unique_id=1804022214]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "设置"
+label_settings = SubResource("LabelSettings_gclkt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit Game" type="Control" parent="UserUI/Control/Panel/Panel2" unique_id=666191953]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.5
+offset_top = -62.0
+offset_right = 135.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4_wgg75")
+metadata/_custom_type_script = "uid://dxcwm5rs1tc5b"
+
+[node name="Label" type="Label" parent="UserUI/Control/Panel/Panel2/Exit Game" unique_id=399245661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "退出游戏"
+label_settings = SubResource("LabelSettings_gclkt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UserUI/Control/Panel" unique_id=1253962740]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 18.0
+offset_right = 370.0
+offset_bottom = 79.0
+text = "MVZ2 City
+临时菜单"
+label_settings = SubResource("LabelSettings_wvhbo")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Version" type="Label" parent="." unique_id=559400382]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Version：0.1"
+label_settings = SubResource("LabelSettings_ifow5")
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Version" unique_id=817639795]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.5333333, 1, 0.3882353)

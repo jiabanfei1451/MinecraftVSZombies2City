@@ -15,7 +15,7 @@ public partial class Preface : Level_Master_Script
         PVZEngine.Static.WindowTool.Set_Title(10, Tween.TransitionType.Circ,"MVZ2_City");
         choose_Card();
         Object_List list = Get_GlobalNode.object_List; 
-        Summand.Data = new();
+
         await ToSignal(GetTree().CreateTimer(1),SceneTreeTimer.SignalName.Timeout);
         Summand.Data.Add_Wave(new()
         {
@@ -25,17 +25,17 @@ public partial class Preface : Level_Master_Script
         Summand.Data.Add_Wave(new()
         {
             Add_ID = new(){Object_List.Get_ID("0", IndexMode.index)},
-            Number = 0
+            Number = 1
         });
         Summand.Data.Add_Wave(new()
         {
             Add_ID = new(){Object_List.Get_ID("0", IndexMode.index)},
-            Number = 0
+            Number = 1
         });
         Summand.Data.Add_Wave(new()
         {
             Add_ID = new(){Object_List.Get_ID("0", IndexMode.index)},
-            Number = 0
+            Number = 1
         });
         Summand.Data.Add_Wave(new()
         {

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using d;
 using Game.Get;
 using Godot;
+using PVZEngine;
 using PVZEngine.Static;
 
 namespace UIObject;
@@ -9,6 +10,7 @@ namespace UIObject;
 public partial class StopMenu : Control
 {
     [Export] public Touch.TouchPad touchPad = null;
+    [Export] public Touch.TouchPad Exit_Game = null;
     [ExportGroup("AnimationNode")]
     [Export] public Panel Meun = null;
     [Export] public ColorRect Backdrop = null;
@@ -25,6 +27,16 @@ public partial class StopMenu : Control
         {
             touchPad.Button_Pressedvoid += Exit;
         }
+        if (Exit_Game != null)
+        {
+            Exit_Game.Button_Pressedvoid += ExitPad;
+        }
+    }
+    public void ExitPad()
+    {
+        Game.Get_GlobalNode.TimeScale.TimeScaleType = "Normal";
+        PVZEngine.Static.Get_GlobalNode.Get_Muisc_Engine(GetTree()).new_playMuisc("0");
+        GetTree().ChangeSceneToPacked(ResourceScene.LoadScene("uid://ccvjntj7cgp15"));
     }
     public async void Start()
     {

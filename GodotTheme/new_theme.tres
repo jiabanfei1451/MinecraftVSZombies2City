@@ -1,0 +1,82 @@
+[gd_resource type="Theme" format=3 uid="uid://0k0oviijp1kt"]
+
+[ext_resource type="Texture2D" uid="uid://cl1neaqogtka0" path="res://GodotTheme/MOP_UI3.svg" id="1_8mlek"]
+[ext_resource type="Texture2D" uid="uid://cp87c0yibvj43" path="res://GodotTheme/MOP_UI5.svg" id="2_x2ow2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cf3la"]
+texture = ExtResource("1_8mlek")
+texture_margin_left = 9.463334
+texture_margin_top = 15.42173
+texture_margin_right = 10.86531
+texture_margin_bottom = 10.514816
+region_rect = Rect2(0, 0, 99, 99)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kwbkq"]
+texture = ExtResource("2_x2ow2")
+texture_margin_left = 7.47544
+texture_margin_top = 12.334603
+texture_margin_right = 10.422611
+texture_margin_bottom = 11.644482
+region_rect = Rect2(0, 0, 99, 99)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5sc43"]
+texture = ExtResource("2_x2ow2")
+texture_margin_left = 13.669269
+texture_margin_top = 12.968281
+texture_margin_right = 9.46334
+texture_margin_bottom = 12.267292
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x2ow2"]
+texture = ExtResource("1_8mlek")
+texture_margin_left = 12.927175
+texture_margin_top = 14.363526
+texture_margin_right = 11.25143
+texture_margin_bottom = 9.877559
+region_rect = Rect2(0, 0, 99, 99)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mahq3"]
+texture = ExtResource("1_8mlek")
+texture_margin_left = 12.927175
+texture_margin_top = 14.363526
+texture_margin_right = 11.25143
+texture_margin_bottom = 9.877559
+region_rect = Rect2(0, 0, 99, 99)
+modulate_color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koq35"]
+texture = ExtResource("2_x2ow2")
+texture_margin_left = 12.639905
+texture_margin_top = 13.0638685
+texture_margin_right = 11.849911
+texture_margin_bottom = 10.514822
+modulate_color = Color(0.4661808, 0.46618086, 0.46618056, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oac4c"]
+texture = ExtResource("2_x2ow2")
+texture_margin_left = 12.639905
+texture_margin_top = 13.0638685
+texture_margin_right = 11.849911
+texture_margin_bottom = 10.514822
+modulate_color = Color(0.41981313, 0.41981313, 0.41981304, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ytdm"]
+texture = ExtResource("1_8mlek")
+texture_margin_left = 8.90605
+texture_margin_top = 13.903888
+texture_margin_right = 9.848587
+texture_margin_bottom = 10.60244
+region_rect = Rect2(0, 0, 99, 99)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_cf3la")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_cf3la")
+Button/styles/focus = SubResource("StyleBoxTexture_kwbkq")
+Button/styles/hover = SubResource("StyleBoxTexture_5sc43")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_5sc43")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_5sc43")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_5sc43")
+Button/styles/normal = SubResource("StyleBoxTexture_x2ow2")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_mahq3")
+Button/styles/pressed = SubResource("StyleBoxTexture_koq35")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_oac4c")
+Panel/styles/panel = SubResource("StyleBoxTexture_4ytdm")

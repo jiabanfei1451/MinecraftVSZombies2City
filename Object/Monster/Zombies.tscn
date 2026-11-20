@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bu3lgchubqvad" path="res://Script/Object/Level_Object/Monster/Zombies/Zombies.cs" id="1_eyntl"]
 [ext_resource type="Texture2D" uid="uid://b66rva3e3mbiy" path="res://Object/素材图/zombin5.png" id="1_milox"]
-[ext_resource type="Script" uid="uid://upgcptdy5o2i" path="res://Script/Engine/PVZEngine/Tools/Struct/LightData.cs" id="2_67mx1"]
 [ext_resource type="Texture2D" uid="uid://bh7q48qfv8wob" path="res://Object/素材图/zombin2.png" id="2_t861y"]
 [ext_resource type="Texture2D" uid="uid://dysmprheeepu8" path="res://Object/素材图/zombin3.png" id="3_0hs0x"]
 [ext_resource type="Texture2D" uid="uid://b8jjy3thxqdcq" path="res://Object/素材图/zombin.png" id="4_xn1ud"]
@@ -11,22 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c2qbnurx2pxnj" path="res://UI/血条.tscn" id="11_e0qyl"]
 [ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="11_ux1b5"]
 [ext_resource type="PackedScene" uid="uid://dvhsodcglxjm4" path="res://Object/Interactive Objects/物体检测.tscn" id="14_jofpg"]
-
-[sub_resource type="Resource" id="Resource_codhf"]
-script = ExtResource("2_67mx1")
-Offset = Vector2(-14.15, -9)
-Scale = Vector2(0.2, 0.2)
-Parene_Object = NodePath("Subject/Body/Bodytexture/Haed")
-positionType = 1
-metadata/_custom_type_script = "uid://upgcptdy5o2i"
-
-[sub_resource type="Resource" id="Resource_jq2xn"]
-script = ExtResource("2_67mx1")
-Offset = Vector2(-6.245, -9)
-Scale = Vector2(0.2, 0.2)
-Parene_Object = NodePath("Subject/Body/Bodytexture/Haed")
-positionType = 1
-metadata/_custom_type_script = "uid://upgcptdy5o2i"
 
 [sub_resource type="Shader" id="Shader_0cfh2"]
 code = "shader_type canvas_item;
@@ -769,7 +752,6 @@ Speed = Vector2(-15, 0)
 Move_Ing = true
 Damage = 20
 detection_Group = Array[StringName]([&"Equipment"])
-LightArray = Array[ExtResource("2_67mx1")]([SubResource("Resource_codhf"), SubResource("Resource_jq2xn")])
 Cheak_Index_Scoop = Vector2i(-1, 0)
 Shadow_Size = Vector2(0.97, 0.76)
 Object_Type = 3
