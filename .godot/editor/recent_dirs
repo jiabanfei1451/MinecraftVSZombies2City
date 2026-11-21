@@ -1,3 +1,4 @@
+res://Script/UI/Object/
 F:/Tool/Godot/导出/
 F:/Tool/Godot/version/Godot_mono_win64/
 res://Script/UI/UserUI/Menu/Main_Menu/
@@ -21,7 +22,6 @@ res://Script/Object/Level_Object/equipment/Obsidian/
 res://Script/Object/Interactive Objects/
 res://Script/Object/Level_Object/equipment/Furnace/
 res://UI/card/
-res://Script/Node/Particie/
 D:/Tool/Project/
 D:/godot/bin/
 D:/

@@ -1,4 +1,4 @@
-using PVZEngine.Data;
+                   using PVZEngine.Data;
 using Game.Cheak;
 using Godot;
 using PVZEngine.Module;
@@ -70,7 +70,10 @@ public partial class Zombies : LevelObject
         shader.Shader = ResourceShader.LoadShader("uid://cph5hxe55k3bo");
         ShaderNode.Material = shader;
         Kill += This_Kill;
-        if (!Enable){return;}
+        if (!Enable){
+            GetNodeOrNull<Node2D>("Subject").Material = null;
+            return;
+        }
         Health_Reduce += Object_damage;
         var @re = Reset_Area();
         Area.BodyEntered += Add_Object;

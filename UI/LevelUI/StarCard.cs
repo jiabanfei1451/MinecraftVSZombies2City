@@ -46,7 +46,7 @@ public partial class StarCard : Control
         if (Level_Script.Use_Prop == Level_Script.Prop.Star_Fragment)
         {
             visibleEnable.Visible = true;
-            Get_Position.GlobalPosition = Game.Get_GlobalNode.InputPosition.Position - new Vector2(20,20);
+            Get_Position.GlobalPosition = Game.Get_GlobalNode.InputPosition.Position - new Godot.Vector2(20,20);
         }
         else
         {
@@ -78,7 +78,7 @@ public partial class StarCard : Control
                 }
             }
             Label_Numbet.Text = $"{PlayerData.Savedata.Max_Star_Fragment} / {Level_Script.Star_Fragment}";
-            Star_Number_Node.CustomMinimumSize = new Vector2(Star_Number_VIsi_Card.Size.X + 14,Star_Number_Node.CustomMinimumSize.Y);
+            Star_Number_Node.CustomMinimumSize = new Godot.Vector2(Star_Number_VIsi_Card.Size.X + 14,Star_Number_Node.CustomMinimumSize.Y);
         }
     }    
     public void Show_fragment_menu()
@@ -90,8 +90,8 @@ public partial class StarCard : Control
             d.SetIgnoreTimeScale(true);
             d.TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,0),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.五次方));
             d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
-            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Size),new Vector2(Star_Number_Node.CustomMinimumSize.X + 40,88),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
-            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Position),new Vector2((-Star_Number_Node.CustomMinimumSize.X - 40) / 2,-88),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
+            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Size),new Godot.Vector2(Star_Number_Node.CustomMinimumSize.X + 40,88),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
+            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Position),new Godot.Vector2((-Star_Number_Node.CustomMinimumSize.X - 40) / 2,-88),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
             Touch.Touch_Index.Set_Index_Enable("Show fragment menu",true);
         }
         else
@@ -101,8 +101,8 @@ public partial class StarCard : Control
             d.SetIgnoreTimeScale(true);
             d.TweenProperty(this,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,1),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.五次方));
             d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Modulate),new Color(1,1,1,0),0.2f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
-            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Size),new Vector2(Star_Number_Node.CustomMinimumSize.X + 40,40),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
-            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Position),new Vector2((-Star_Number_Node.CustomMinimumSize.X - 40) / 2,-40),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
+            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Size),new Godot.Vector2(Star_Number_Node.CustomMinimumSize.X + 40,40),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
+            d.Parallel().TweenProperty(Pad_Eumu,new NodePath(Control.PropertyName.Position),new Godot.Vector2((-Star_Number_Node.CustomMinimumSize.X - 40) / 2,-40),0.5f).SetTrans(Game.Get.TweenType.GetTweenType( Game.Get.TweenType.Twee.三次));
             Touch.Touch_Index.Set_Index_Enable("Show fragment menu",false);
         }
     }

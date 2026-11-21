@@ -95,6 +95,7 @@ Tags = Array[String](["给给"])
 Object_Type = 2
 Object_UUID = "MVZ2:Landmine"
 Object_Name = "地雷"
+Save_Property = Array[String](["HP", "Max_HP", "Min_HP"])
 Cannot_place_Type = Array[int]([0, 1])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=641857119]

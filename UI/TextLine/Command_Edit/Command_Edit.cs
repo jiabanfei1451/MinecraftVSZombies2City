@@ -30,12 +30,12 @@ public partial class Command_Edit : TextEdit
 				if (SB == false)
 				{
 					SB = true;
-					Position = new Vector2(0,30);
+					Position = new Godot.Vector2(0,30);
 					Text = "";
 					GrabFocus(true);
 					Editable = true;
 					CreateTween().TweenProperty(this.GetNode<ColorRect>("../../ColorRect"),new NodePath(ColorRect.PropertyName.Color),new Color(0,0,0,0.5f),0.5f);
-					CreateTween().TweenProperty(this,new NodePath(TextEdit.PropertyName.Position),new Vector2(0,0),0.5f).SetTrans(Tween.TransitionType.Quart);
+					CreateTween().TweenProperty(this,new NodePath(TextEdit.PropertyName.Position),new Godot.Vector2(0,0),0.5f).SetTrans(Tween.TransitionType.Quart);
 				}
 				else
 				{
@@ -44,10 +44,10 @@ public partial class Command_Edit : TextEdit
 					EmitSignal("Player_send",Text[0..(Text.Length - 1)]);
 					Lineinstantiate.Text = "  " + "<" + PlayerData.Savedata.Name + ">:" + Text[0..(Text.Length - 1)] + " ";
 					this.GetNode<BoxContainer>("../../TextLine").AddChild(Lineinstantiate);
-					Position = new Vector2(0,0);
+					Position = new Godot.Vector2(0,0);
 					Editable = false;
 					CreateTween().TweenProperty(this.GetNode<ColorRect>("../../ColorRect"),new NodePath(ColorRect.PropertyName.Color),new Color(0,0,0,0),0.5f);
-					CreateTween().TweenProperty(this,new NodePath(TextEdit.PropertyName.Position),new Vector2(0,30),0.5f).SetTrans(Tween.TransitionType.Quart);
+					CreateTween().TweenProperty(this,new NodePath(TextEdit.PropertyName.Position),new Godot.Vector2(0,30),0.5f).SetTrans(Tween.TransitionType.Quart);
 				}
 			}
 		}

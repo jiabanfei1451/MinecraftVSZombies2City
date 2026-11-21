@@ -10,7 +10,7 @@ public partial class Equipmentcapable : TextureRect
         base._Process(delta);
         if (Level_Script.Use_Prop == Level_Script.Prop.Equipment_capable)
         {
-            Position -= Position - Game.Get_GlobalNode.InputPosition.Position + new Vector2(20,20);
+            Position -= Position - Game.Get_GlobalNode.InputPosition.Position + new Godot.Vector2(20,20);
             Rotation += 1 * (float)delta;
             Visible = true;
         }

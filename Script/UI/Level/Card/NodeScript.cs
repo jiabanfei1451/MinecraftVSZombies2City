@@ -32,7 +32,7 @@ public partial class NodeScript : Control
 
 	public void Add_YPosition(TouchPad pad,Godot.Vector2 Event_Potition,Godot.Vector2 Velocity)
 	{
-		is_Y += Velocity.Y * 0.01f;
+		is_Y += Velocity.Y * 0.02f;
 	}
 	/// <summary>
 	/// 生成节点
@@ -46,7 +46,7 @@ public partial class NodeScript : Control
 		{
 			Objects.QueueFree();
 		}
-		int len = (Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data.Count);
+		int len = Get_GlobalNode.Get_Card_Data(GetTree()).Obtained_Data.Count;
 		for (int Index = 0;Index < len; Index++)
 		{
 			// 实例化
