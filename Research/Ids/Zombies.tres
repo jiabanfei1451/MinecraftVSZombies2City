@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ObjectID" format=3 uid="uid://dq06dr85deglq"]
+
+[ext_resource type="Script" uid="uid://b5dvju32i76qo" path="res://Script/Engine/PVZEngine/Tools/Struct/ObjectID.cs" id="1_0njwl"]
+
+[resource]
+script = ExtResource("1_0njwl")
+PackedScenePath = "uid://bx78lmkp8si7e"

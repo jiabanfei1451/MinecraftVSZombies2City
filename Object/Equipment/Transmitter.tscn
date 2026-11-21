@@ -10,7 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://bm21xa0dnhxkf" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone3.ogg" id="4_r1ing"]
 [ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="5_0he7v"]
 [ext_resource type="AudioStream" uid="uid://ckmow8q4rn58m" path="res://Sound/Souds/Equipment Hit/Stone Mining/stone4.ogg" id="5_omikh"]
+[ext_resource type="Script" uid="uid://b5dvju32i76qo" path="res://Script/Engine/PVZEngine/Tools/Struct/ObjectID.cs" id="6_fw2k7"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="7_0ndwc"]
+
+[sub_resource type="Resource" id="Resource_67mx1"]
+script = ExtResource("6_fw2k7")
+PackedScenePath = "uid://wldy1n7d52ji"
+metadata/_custom_type_script = "uid://b5dvju32i76qo"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_333bt"]
 
@@ -185,8 +191,8 @@ MoveType = 1
 detection_Group = Array[StringName]([&"Monster"])
 Shadow_Offset = Vector2(0, 20.175)
 Tags = Array[String](["给给"])
-Object_UUID = "MVZ2:Transmitter"
-Object_Name = "发射器"
+Object_Type = 1
+ObjectId = SubResource("Resource_67mx1")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=2075903930]
 z_as_relative = false

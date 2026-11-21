@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://b1u0pu8dfcs51" path="res://Object/Equipment/好友/b_55b11ee7de24b7e7339369b254b853a9.jpg" id="1_d61kl"]
 [ext_resource type="Script" uid="uid://wysvclyp6nfw" path="res://Script/Object/Level_Object/equipment/Obsidian/Obsidian.cs" id="1_ys4ta"]
+[ext_resource type="Script" uid="uid://b5dvju32i76qo" path="res://Script/Engine/PVZEngine/Tools/Struct/ObjectID.cs" id="2_nn1h5"]
+
+[sub_resource type="Resource" id="Resource_8kis4"]
+script = ExtResource("2_nn1h5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvhbo"]
 size = Vector2(128, 128)
@@ -13,6 +17,8 @@ HP = 99999
 Max_HP = 99999
 detection_Group = Array[StringName]([&"Monster"])
 Cheak_Index_Scoop = Vector2i(-1, 1)
+ObjectId = SubResource("Resource_8kis4")
+Auto_GetID = false
 Enable_Placed_Reliant = true
 Reliant_Tag = Array[String](["给给"])
 

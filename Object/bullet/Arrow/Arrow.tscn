@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c4goda1jl4q7p" path="res://Script/Object/Shoot/Arrow/Arrow.cs" id="1_8t2dg"]
 [ext_resource type="Texture2D" uid="uid://bu88hxcq3eddc" path="res://Object/素材图/dispenser.png" id="2_idlxt"]
+[ext_resource type="Script" uid="uid://b5dvju32i76qo" path="res://Script/Engine/PVZEngine/Tools/Struct/ObjectID.cs" id="3_pykiw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdqta"]
+
+[sub_resource type="Resource" id="Resource_67mx1"]
+script = ExtResource("3_pykiw")
+PackedScenePath = "uid://caymc0p7rsog"
+metadata/_custom_type_script = "uid://b5dvju32i76qo"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aoox"]
 size = Vector2(33, 10)
@@ -21,6 +27,7 @@ Damage_End_AutoRemove_Object = true
 Speed = Vector2(5, 1)
 Cheak_Height_Scoop = Vector2(-40, 15)
 Shadow_Size = Vector2(1.35, 0.645)
+ObjectId = SubResource("Resource_67mx1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1974500903]
 

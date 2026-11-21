@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MinecraftVSZombies2 City"
-config/version="beta0.1.5"
+config/version="beta0.1.7"
 run/main_scene="uid://cff7if8145pjk"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="jiabanfei/MVZ2_City"
@@ -83,6 +83,11 @@ Equipment="器械"
 Monster="怪物"
 UI_Area="UI区域"
 Bullet="射弹"
+Lawn=""
+
+[gui]
+
+theme/default_font_antialiasing=2
 
 [input]
 

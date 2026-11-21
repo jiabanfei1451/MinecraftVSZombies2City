@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu3lgchubqvad" path="res://Script/Object/Level_Object/Monster/Zombies/Zombies.cs" id="1_eyntl"]
 [ext_resource type="Texture2D" uid="uid://b66rva3e3mbiy" path="res://Object/素材图/zombin5.png" id="1_milox"]
+[ext_resource type="Resource" uid="uid://dq06dr85deglq" path="res://Research/Ids/Zombies.tres" id="2_67mx1"]
 [ext_resource type="Texture2D" uid="uid://bh7q48qfv8wob" path="res://Object/素材图/zombin2.png" id="2_t861y"]
 [ext_resource type="Texture2D" uid="uid://dysmprheeepu8" path="res://Object/素材图/zombin3.png" id="3_0hs0x"]
 [ext_resource type="Texture2D" uid="uid://b8jjy3thxqdcq" path="res://Object/素材图/zombin.png" id="4_xn1ud"]
@@ -755,8 +756,7 @@ detection_Group = Array[StringName]([&"Equipment"])
 Cheak_Index_Scoop = Vector2i(-1, 0)
 Shadow_Size = Vector2(0.97, 0.76)
 Object_Type = 3
-Object_UUID = "MVZ2:Zombies"
-Object_Name = "僵尸"
+ObjectId = ExtResource("2_67mx1")
 
 [node name="Subject" type="Skeleton2D" parent="." unique_id=875477114]
 material = SubResource("ShaderMaterial_ux1b5")

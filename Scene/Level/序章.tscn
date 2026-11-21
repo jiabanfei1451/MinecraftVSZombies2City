@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cx8c2laor14oo" path="res://Script/Level Script/Level/Preface.cs" id="1_vhc43"]
 [ext_resource type="Script" uid="uid://bka00rty5nnrb" path="res://Script/Engine/PVZEngine/Tools/Struct/SummandPositionData.cs" id="2_jq2xn"]
+[ext_resource type="Script" uid="uid://bc418of5irj01" path="res://Script/Engine/PVZEngine/Tools/Struct/LawnSummandData.cs" id="2_vhc43"]
 [ext_resource type="Texture2D" uid="uid://rrsrig34tnk3" path="res://Image/Level_Image/0B4A46C5DE82FBBEF77E9F3FFC2559A1.png" id="3_codhf"]
 [ext_resource type="Texture2D" uid="uid://3yxnsi0wig3i" path="res://Image/Level_Image/16BCB331B1FC126E980F55A739D3F51D.png" id="4_jq2xn"]
+
+[sub_resource type="Resource" id="Resource_xb2ch"]
+script = ExtResource("2_vhc43")
+Lawn_Array = Array[Array]([Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])])
+Lawn_Spawn_Position = Vector2(-508, -261)
 
 [sub_resource type="Resource" id="Resource_vhc43"]
 script = ExtResource("2_jq2xn")
@@ -21,6 +27,7 @@ LightMask_Intensity = 0.7
 Light_Intensity = 0.0
 LightColor_Intensity = 0.0
 Level_BGMID = "2"
+LawnSummandData = Array[ExtResource("2_vhc43")]([SubResource("Resource_xb2ch")])
 Check_Position_Offset = Array[Vector2]([Vector2(0, 0)])
 Camera2D_Offset = Vector2(0, 0)
 Summand_PositionData = Array[ExtResource("2_jq2xn")]([SubResource("Resource_vhc43")])

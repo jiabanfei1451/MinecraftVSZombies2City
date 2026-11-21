@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://douel45ehxor8" path="res://Script/Engine/PVZEngine/Tools/Object/Lawn.cs" id="1_ftl3w"]
 [ext_resource type="Script" uid="uid://dxcwm5rs1tc5b" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchPad.cs" id="2_jyavh"]
 
-[node name="Lawn" type="ColorRect" unique_id=1831605041]
+[node name="Lawn" type="ColorRect" unique_id=1831605041 groups=["Lawn"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
