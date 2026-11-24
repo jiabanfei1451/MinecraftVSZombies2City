@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://b74mxwa46r0ur" path="res://Script/UI/Level/Menu/LevelUiMenu.cs" id="1_yibqt"]
 [ext_resource type="Script" uid="uid://dar8v63fl0jqn" path="res://Script/UI/Object/Bar/ValueBar.cs" id="2_atemv"]
 [ext_resource type="Texture2D" uid="uid://ne4tp2rw342v" path="res://Image/UI/Button/MEUIV2/MEUI.png" id="3_yibqt"]
-[ext_resource type="FontFile" uid="uid://bdycyleolk3vw" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_Condensed/HarmonyOS_Sans_Condensed_Regular.ttf" id="4_vd5k6"]
 [ext_resource type="Texture2D" uid="uid://o6qp2l3cgdb1" path="res://Image/UI/Button/MEUIV2/MEUI-hollow2.png" id="5_08qgy"]
 [ext_resource type="Texture2D" uid="uid://gm0d0x8f0bfe" path="res://Image/UI/Button/MEUIV2/UPspeed.png" id="6_atemv"]
 [ext_resource type="AudioStream" uid="uid://6q2ndb44igt7" path="res://Sound/Souds/UI/UpspeedUI/Add_Speed.wav" id="8_g22p4"]
 [ext_resource type="Script" uid="uid://c7ih00hn4o6bl" path="res://Script/UI/Level/Menu/Add_Speed_Button.cs" id="8_vd5k6"]
 [ext_resource type="Script" uid="uid://dheg8f4rhxhut" path="res://Script/Engine/PVZEngine/Tools/Object/Audio_Plus.cs" id="9_5g2w8"]
 [ext_resource type="Texture2D" uid="uid://uqq66r4x218a" path="res://Image/UI/Button/MEUIV2/MEUI-hollow.png" id="9_08qgy"]
+[ext_resource type="FontFile" uid="uid://c420brw5sovqm" path="res://Font/HarmonyOS Sans/HarmonyOS_Sans_TC/HarmonyOS_Sans_TC_Medium.ttf" id="9_ijfe1"]
 [ext_resource type="AudioStream" uid="uid://q22uvnfslmrq" path="res://Sound/Souds/UI/UpspeedUI/Recede_Speed.wav" id="10_o7o7q"]
 [ext_resource type="Script" uid="uid://cm5x56vfb13l" path="res://UI/LevelUI/StarCard.cs" id="13_3cl04"]
 [ext_resource type="Script" uid="uid://doq14fa58y378" path="res://addons/Godot_TouchAddons/Script/C Sharp/TouchButton/TouchButton.cs" id="14_riv3j"]
@@ -69,7 +69,7 @@ texture_margin_bottom = 21.832554
 region_rect = Rect2(1, 1, 62, 62)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jrdhs"]
-font = ExtResource("4_vd5k6")
+font = ExtResource("9_ijfe1")
 font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 0.42352942)

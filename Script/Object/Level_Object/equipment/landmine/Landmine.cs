@@ -2,6 +2,7 @@ using Godot;
 using PVZEngine;
 using PVZEngine.Object.Module;
 using PVZEngine.Module;
+using System;
 
 namespace MVZ2.Object.Equipment;
 public partial class Landmine : PVZEngine.Object.Module.Equipment
@@ -15,10 +16,26 @@ public partial class Landmine : PVZEngine.Object.Module.Equipment
     public override async void _Ready() {
         base._Ready();
         if (!Enable){return;}
+        if (Unearthed_Souds is null)
+        {
+            Unearthed_Souds = new();
+            Unearthed_Souds.Audio_Type = Audio_Plus.Audio.Souds;
+            Unearthed_Souds.Audio_ID = "CH:地雷出土";
+            AddChild(Unearthed_Souds);
+        }
         Anima.Play("TNT_Landmine/Start");
-        Area.BodyEntered += Add_Object;
-        Area.BodyExited += Remove_Object;
+        try{
+            Area.BodyEntered += Add_Object;
+            Area.BodyExited += Remove_Object;
+        }catch(Exception EX)
+        {
+            DEBUG.Info.PrintErr(EX);
+        }finally{}
         await ToSignal(Timer,Timer.SignalName.Timeout);
+        Excavated();
+    }
+    public void Excavated()
+    {
         Unearthed_Souds.Play();
         Anima.Play("TNT_Landmine/Landmine_TNT");
     }

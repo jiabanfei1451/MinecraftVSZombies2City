@@ -84,6 +84,7 @@ Monster="怪物"
 UI_Area="UI区域"
 Bullet="射弹"
 Lawn=""
+Level=""
 
 [gui]
 

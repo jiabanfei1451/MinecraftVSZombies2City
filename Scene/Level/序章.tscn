@@ -17,7 +17,7 @@ script = ExtResource("2_jq2xn")
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwsnv"]
 atlas = ExtResource("4_jq2xn")
 
-[node name="Level" type="Node2D" unique_id=835649732]
+[node name="Level" type="Node2D" unique_id=835649732 groups=["Level"]]
 z_as_relative = false
 texture_filter = 1
 texture_repeat = 1
