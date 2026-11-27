@@ -14,7 +14,6 @@ public static class LoadText
     {
         String ProjectPath = ProjectSettings.GlobalizePath(Path);
         var File = ResourceLoader.Load<Json>(ProjectPath);
-        GD.Print(File.Data.AsString());
         return File.Data.AsString();
     }
     /// <summary>

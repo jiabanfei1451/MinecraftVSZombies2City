@@ -77,14 +77,18 @@ public partial class Transmitter : PVZEngine.Object.Module.Equipment
             This_Damage();   
         }
     }
-    public override void This_Damage()
+    public override void This_Damage(int Damage = 0)
     {
-        base.This_Damage();
-        Summand_Shoot();
-        this.AnimationPlayer.Play("Shoot");
-        Shoot_Sound.Play();
-        double Time = Random.NextFloat_64(1.4,1.6);
-        this.Timer.Start(Time);
+        base.This_Damage(Damage);
+        switch (Damage){
+            case 0:
+                Summand_Shoot();
+                this.AnimationPlayer.Play("Shoot");
+                Shoot_Sound.Play();
+                double Time = Random.NextFloat_64(1.4,1.6);
+                this.Timer.Start(Time);
+                break;
+        }
     }
 
     public async void This_Activate()

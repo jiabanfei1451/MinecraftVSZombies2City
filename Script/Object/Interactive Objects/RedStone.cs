@@ -56,7 +56,7 @@ public partial class RedStone : MVZ2.Object.Particie
         pad.Enable = false;
         if (Souds != null)
         {
-            float s = (float)Level_Script.audio_Scale;
+            float s = (float)Level_Script.Data.audio_Scale;
             if (s > 8)
             {
                 s = 8;
@@ -64,11 +64,11 @@ public partial class RedStone : MVZ2.Object.Particie
             Souds.PitchScale = 1 + (s / 4);
             Souds.Play();
         }
-        Level_Script.audio_Scale += 1;
+        Level_Script.Data.audio_Scale += 1;
         if (anima != null)
         {
             anima.Play("pressed");
         }
-        Level_Script.Equipment_Capable += add_Equipment_Capable;
+        Level_Script.Data.Equipment_Capable += add_Equipment_Capable;
     }
 }

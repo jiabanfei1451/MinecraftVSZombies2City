@@ -39,6 +39,9 @@ public partial class Furnace : PVZEngine.Object.Module.Equipment
         }
         Activate = false;
     }
+    /// <summary>
+    /// 生成红石
+    /// </summary>
     public void Summand_RedStone()
     {
         PackedScene scene = ResourceScene.LoadScene("res://Object/Interactive Objects/Red_Stone.tscn");
@@ -48,6 +51,10 @@ public partial class Furnace : PVZEngine.Object.Module.Equipment
         redStone.Reset_Position = Position;
         redStone.EmitSignal("Initialization");
     }
+    /// <summary>
+    /// 出土倒计时
+    /// 
+    /// </summary>
     public async void Timeout()
     {
         if (!Enable){return;}

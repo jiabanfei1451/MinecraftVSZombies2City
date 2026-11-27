@@ -11,7 +11,7 @@ public partial class Text : Node2D
         base._Ready();
         PVZEngine.Data.Summand_Data data = new();
         string JsonText = JsonSerializer.Serialize(data);
-        GD.Print(JsonText);
+        DEBUG.Info.Print(JsonText);
     }
 }
 

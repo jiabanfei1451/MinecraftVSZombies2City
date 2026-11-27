@@ -9,6 +9,7 @@ namespace DEBUG{
 	{
 		public static bool Enable = true;
         public static bool Auto_Add_Info = true;
+        public static bool GetDateTime = false;
 	}
     /// <summary>
     /// 调试信息
@@ -40,9 +41,10 @@ namespace DEBUG{
         public static void PrintRich(params object[] what)
 		{
 			if (Data.Enable == true) {
-			GD.PrintRich(what);
+                GD.PrintRich(Get_Time());
+			    GD.PrintRich(what);
 			}
-            String sd = "";
+            String sd = Get_Time();
             foreach (var ds in what)
             {
                 sd += ds.ToString();
@@ -56,9 +58,10 @@ namespace DEBUG{
         public static void Print(params object[] what)
 		{
 			if (Data.Enable == true) {
-			GD.Print(what);
+                GD.Print(Get_Time());
+			    GD.Print(what);
 			}
-            String sd = "";
+            String sd = Get_Time();
             foreach (var ds in what)
             {
                 if (ds != null){
@@ -88,9 +91,10 @@ namespace DEBUG{
 		public static void PrintErr(params object[] what)
 		{
 			if (Data.Enable == true) {
-			GD.PrintErr(what);
+                GD.PrintErr(Get_Time());
+                GD.PrintErr(what);
 			}
-            String sd = "";
+            String sd = Get_Time();
             foreach (var ds in what)
             {
                 sd += ds.ToString();
@@ -108,6 +112,12 @@ namespace DEBUG{
                 stream.WriteLine(Text);
             }
             stream.Close();
+        }
+        public static String Get_Time()
+        {
+            DateTime time = DateTime.Now;
+            String Time = $"[{time.Hour}:{time.Minute}:{time.Second}:{time.Millisecond}]";
+            return Time;
         }
 	}
 }

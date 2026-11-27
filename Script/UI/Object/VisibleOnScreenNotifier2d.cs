@@ -20,7 +20,7 @@ public partial class VisibleOnScreenNotifier2d : VisibleOnScreenNotifier2D
 	}
 	public void Exited()
 	{
-		GD.Print(1);
+		DEBUG.Info.Print(1);
 		SetNode.Visible = false;
 	}
 }

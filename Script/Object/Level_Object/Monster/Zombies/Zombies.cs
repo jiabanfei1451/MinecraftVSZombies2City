@@ -69,15 +69,11 @@ public partial class Zombies : LevelObject
         ShaderMaterial shader = new ShaderMaterial();
         shader.Shader = ResourceShader.LoadShader("uid://cph5hxe55k3bo");
         ShaderNode.Material = shader;
-        Kill += This_Kill;
         if (!Enable){
             GetNodeOrNull<Node2D>("Subject").Material = null;
             return;
         }
-        Health_Reduce += Object_damage;
         var @re = Reset_Area();
-        Area.BodyEntered += Add_Object;
-        Area.BodyExited += ObjectExit;
         Leg_Play = GetNode<AnimationPlayer>("Lag_Animation");
         Hand_Play = GetNode<AnimationPlayer>("Hand_Animation");
         System.Random random = new System.Random();
@@ -97,7 +93,13 @@ public partial class Zombies : LevelObject
             await Task.Delay(100);
         }
         Connect_Kill_Signal = true;
+        if (InitializationEnd){return;}
+        Health_Reduce += Object_damage;
+        Kill += This_Kill;
         level.Object_Kill += Object_Kill;
+        Area.BodyEntered += Add_Object;
+        Area.BodyExited += ObjectExit;
+        InitializationEnd = true;
     }
     public override void _ExitTree() {
         base._ExitTree();
@@ -106,6 +108,7 @@ public partial class Zombies : LevelObject
     }
     async void Object_damage(Node Damage_Object)
     {
+        DEBUG.Info.Print(2);
         if (!Enable){return;}
         if (This_Initialization == false)
         {

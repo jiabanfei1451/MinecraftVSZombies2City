@@ -1,6 +1,7 @@
 using PVZEngine.Static;
 using Godot;
 using PVZEngine.Module;
+using PVZEngine.Enum;
 namespace GameUI.Object;
 public partial class Draft : Control
 {
@@ -31,7 +32,7 @@ public partial class Draft : Control
     }
     public void Mouse_DownKeyCode(MouseButtonMask key)
     {
-        if (Level_Script.Use_Prop != Level_Script.Prop.iron_pickaxe){return;}
+        if (Level_Script.Data.Use_Prop != Prop.iron_pickaxe){return;}
         if (key == MouseButtonMask.Right)
         {
             Set_Player_Use();
@@ -62,7 +63,7 @@ public partial class Draft : Control
         {
            PVZEngine.Static.Get_GlobalNode.Get_Card_Data(GetTree()).Selected_raw_Object = null; 
         }
-        if (Level_Script.Use_Prop != Level_Script.Prop.iron_pickaxe)
+        if (Level_Script.Data.Use_Prop != Prop.iron_pickaxe)
         {
             Pick_UP.Play();
         }
@@ -70,12 +71,12 @@ public partial class Draft : Control
         {
             Cancel.Play();
         }
-        Level_Script.Set_Use_porp(Level_Script.Prop.iron_pickaxe);
+        Level_Script.Set_Use_porp(Prop.iron_pickaxe);
     }
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
-        if (Level_Script.Use_Prop != Level_Script.Prop.iron_pickaxe){
+        if (Level_Script.Data.Use_Prop != Prop.iron_pickaxe){
             Iron.Position = Temp_Pos ;
             return;}
         if (Cheak.is_null(Iron)){return;}

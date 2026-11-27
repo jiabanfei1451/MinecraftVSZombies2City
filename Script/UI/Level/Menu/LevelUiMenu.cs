@@ -11,7 +11,7 @@ public partial class LevelUiMenu : Control
         base._PhysicsProcess(delta);
         if (!(Level_Label is null))
         {
-            String Level_Name = Level_Script.Level_Name;
+            String Level_Name = Level_Script.Data.Level_Name;
             String Chapter_Name = NodeData.Get_Node<Level_Master_Script>("Level").Chapter_Name;
             String Text = "";
             if (Chapter_Name != "")

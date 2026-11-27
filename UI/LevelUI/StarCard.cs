@@ -1,6 +1,6 @@
 using PVZEngine.Static;
 using Godot;
-using System;
+using PVZEngine.Enum;
 using PVZEngine.Data;
 using PVZEngine.Module;
 
@@ -43,7 +43,7 @@ public partial class StarCard : Control
         base._Process(delta);
         if (Cheak.is_null<Control>(Local_Position_Object) == true){return;}
         if (Cheak.is_null<Control>(Get_Position) == true){return;}
-        if (Level_Script.Use_Prop == Level_Script.Prop.Star_Fragment)
+        if (Level_Script.Data.Use_Prop == Prop.Star_Fragment)
         {
             visibleEnable.Visible = true;
             Get_Position.GlobalPosition = Game.Get_GlobalNode.InputPosition.Position - new Godot.Vector2(20,20);
@@ -55,9 +55,9 @@ public partial class StarCard : Control
         }
         if (!Cheak.is_null<Control>(Star_Number_VIsi_Card) && !Cheak.is_null<Control>(Star_Number_Node))
         {
-            if (Current_Star_Fragment != Level_Script.Star_Fragment)
+            if (Current_Star_Fragment != Level_Script.Data.Star_Fragment)
             {
-                Current_Star_Fragment = Level_Script.Star_Fragment;
+                Current_Star_Fragment = Level_Script.Data.Star_Fragment;
                 foreach (var Star_Number in Star_Number_VIsi_Card.GetChildren())
                 {
                     Star_Number.QueueFree();
@@ -65,7 +65,7 @@ public partial class StarCard : Control
                 for (short MaxStar_Fragment = 0;MaxStar_Fragment < PlayerData.Savedata.Max_Star_Fragment; MaxStar_Fragment++)
                 {
                     Panel New_Panel = new();
-                    if (Level_Script.Star_Fragment > MaxStar_Fragment)
+                    if (Level_Script.Data.Star_Fragment > MaxStar_Fragment)
                     {
                         New_Panel.AddThemeStyleboxOverride("panel",style);
                     }
@@ -77,7 +77,7 @@ public partial class StarCard : Control
                     New_Panel.CustomMinimumSize = new(15,15);
                 }
             }
-            Label_Numbet.Text = $"{PlayerData.Savedata.Max_Star_Fragment} / {Level_Script.Star_Fragment}";
+            Label_Numbet.Text = $"{PlayerData.Savedata.Max_Star_Fragment} / {Level_Script.Data.Star_Fragment}";
             Star_Number_Node.CustomMinimumSize = new Godot.Vector2(Star_Number_VIsi_Card.Size.X + 14,Star_Number_Node.CustomMinimumSize.Y);
         }
     }    
@@ -110,20 +110,20 @@ public partial class StarCard : Control
     {
         if (Mouse.ButtonIndex == MouseButton.Right)
         {
-            if (Level_Script.Use_Prop == Level_Script.Prop.Equipment_capable || Level_Script.Use_Prop == Level_Script.Prop.Star_Fragment){
-                Level_Script.Use_Prop = Level_Script.Prop.Not;
+            if (Level_Script.Data.Use_Prop == Prop.Equipment_capable || Level_Script.Data.Use_Prop == Prop.Star_Fragment){
+                Level_Script.Data.Use_Prop = Prop.Not;
             }
         }
     }
     public void SelectedStar_Fragment()
     {
-        if (Level_Script.Star_Fragment > 0)
+        if (Level_Script.Data.Star_Fragment > 0)
         {
-            Level_Script.Set_Use_porp(Level_Script.Prop.Star_Fragment);
+            Level_Script.Set_Use_porp(Prop.Star_Fragment);
         }
         else
         {
-            Level_Script.Use_Prop = Level_Script.Prop.Not;
+            Level_Script.Data.Use_Prop = Prop.Not;
             Buzzer.Play();
         }
     }
@@ -131,7 +131,7 @@ public partial class StarCard : Control
     {
         if (key == Key.E)
         {
-            Level_Script.Set_Use_porp(Level_Script.Prop.Equipment_capable);
+            Level_Script.Set_Use_porp(Prop.Equipment_capable);
         }
         if (key == Key.W)
         {

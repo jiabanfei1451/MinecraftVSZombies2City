@@ -44,7 +44,7 @@ public partial class Preface : Level_Master_Script
         });
         Summand.Data.random.Seed = 0;
         await ToSignal(GetTree().CreateTimer(1),SceneTreeTimer.SignalName.Timeout);
-        GD.Print(Summand.Data.Summand_IDs.Count);
+        DEBUG.Info.Print(Summand.Data.Summand_IDs.Count);
         Summand.Start_Summand();
         await ToSignal(GetTree().CreateTimer(1),SceneTreeTimer.SignalName.Timeout);
         Summand.Data.Remove_Null_Object();

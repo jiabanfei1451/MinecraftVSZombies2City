@@ -1,6 +1,6 @@
 using System;
 using Godot;
-using PVZEngine.Data;
+using PVZEngine.Enum;
 using PVZEngine.Static;
 
 public partial class Equipmentcapable : TextureRect
@@ -8,7 +8,7 @@ public partial class Equipmentcapable : TextureRect
     public override void _Process(double delta)
     {
         base._Process(delta);
-        if (Level_Script.Use_Prop == Level_Script.Prop.Equipment_capable)
+        if (Level_Script.Data.Use_Prop == Prop.Equipment_capable)
         {
             Position -= Position - Game.Get_GlobalNode.InputPosition.Position + new Godot.Vector2(20,20);
             Rotation += 1 * (float)delta;
